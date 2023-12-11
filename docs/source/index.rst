@@ -1,4 +1,4 @@
-Welcome to Meso-NH user's guide !
+Welcome to Meso-NH beta's guide !
 ===================================
 
 .. note::
