@@ -10,5 +10,5 @@ Contents
 
 .. toctree::
 
-   how_to_add_surfex_variables_in_outputs/how_to_add_surfex_variables_in_outputs
-   how_to_extract_ecmwf_data/how_to_extract_ecmwf_data
+   extract_ecmwf_data/extract_ecmwf_data
+   examples/examples

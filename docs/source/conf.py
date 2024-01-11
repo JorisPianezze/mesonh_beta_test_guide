@@ -3,7 +3,7 @@
 # -- Project information
 
 project   = 'Meso-NH'
-copyright = '2023, Meso-NH\'s support'
+copyright = '2024, Meso-NH\'s support'
 author    = 'Meso-NH\'s support'
 
 release = '0.0'
@@ -28,7 +28,6 @@ intersphinx_disabled_domains = ['std']
 templates_path = ['_templates']
 
 # -- Options for HTML output
-
 html_theme = 'sphinx_rtd_theme'
 
 # -- Options for EPUB output
