@@ -172,7 +172,7 @@ or if number of dates is greater than 10, do
 Add new variables 
 ***********************************
 
-If you want to add variables to extracted grib files, go to define_parameters.py file and add your own grib identifier in the following list :
+If you want to add variables to extracted grib files, go to `define_parameters.py` file and add your own grib identifier in the following list :
 
 .. code-block:: python
 
