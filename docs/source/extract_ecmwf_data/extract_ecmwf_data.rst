@@ -361,7 +361,7 @@ Concatenate the grib files
 Use extracted GRIB files
 --------------------------------------------
 
-You just have to add the name of your extracted grib's file in PRE_REAL1.nam file, by example :
+To use extracted grib files in Meso-NH, you just have to add the name of the grib file in PRE_REAL1.nam file, by example :
 
 .. code-block:: fortran
 
