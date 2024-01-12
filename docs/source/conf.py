@@ -33,15 +33,18 @@ templates_path = ['_templates']
 #html_theme = 'bootstrap'
 html_theme = 'sphinx_book_theme'
 
-html_sidebars = {
-'index': [],
-'**': ['searchbox.html','globaltoc.html','sourcelink.html']
+html_logo = 'LogoMesoNH-small.png'
+
+#html_sidebars = {
+#'index': [],
+#'**': ['searchbox.html','globaltoc.html','sourcelink.html']
 #'**': ['searchbox.html','globaltoc.html','relations.html', 'sourcelink.html']
-}
+#}
 
 html_theme_options = {
 'repository_url': 'https://github.com/JorisPianezze/mesonh_beta_test_guide',
 'use_repository_button': True,
+#'logo_only': True,
 }
 
 # -- Options for EPUB output
