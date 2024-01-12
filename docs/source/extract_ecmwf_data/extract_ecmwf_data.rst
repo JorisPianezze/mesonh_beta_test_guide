@@ -4,31 +4,14 @@ Extract ECMWF's data
 Operational data (analysis, forecast or ensemble)
 --------------------------------------------------
 
-.. _get_the_tool:
-
-Get the tool
-*******************
-
-To get the tool you can download it via 
-
-.. code-block:: console
-
-   git clone https://github.com/JorisPianezze/EXTRACT_ECMWF.git
-
-.. note::
-
-   This Git's repository is a forked from https://github.com/wurtzj/EXTRACT_ECMWF. It contains additional variables : sea state, oceanic wave spectra and 10m wind speed.
-
-* define_parameters_extractecmwf.py - Read PARAMS_EXTRACT.json file
-
-* main_extract_ecmwf_python.py execute extractecmwf_run.py file in backend with nohup
+Access to ECMWF operational data is restricted to registred users. See `ECMWF's website <https://www.ecmwf.int/en/forecasts/accessing-forecasts>`_ for more detailed informations. 
 
 .. _configure_ecmwf_api_key:
 
-Configuration 
-*******************
+Configure ECMWF API
+*********************
 
-First you need to create a file called .ecmwfapirc in your HOME directory. To get the key go to https://api.ecmwf.int/v1/key/. Your .ecmwfapirc needs to contain lines that look likes:
+First you need to create a file called `.ecmwfapirc` in your HOME directory. This file contains your key and email given by ECMWF on https://api.ecmwf.int/v1/key/. Your `.ecmwfapirc` needs to contain lines that look likes:
 
 .. code-block:: bash
 
@@ -38,26 +21,41 @@ First you need to create a file called .ecmwfapirc in your HOME directory. To ge
     "email" : "your_email"
    }
 
+.. warning::
+
+   You need to suppress rules for group and other users with ``chmod 600 .ecmwfapirc``.
+
+.. _get_the_tool:
+
+Get the tool
+*******************
+
+To get the tool you can download it with :
+
+.. code-block:: console
+
+   git clone https://github.com/JorisPianezze/EXTRACT_ECMWF.git
+
 .. note::
 
-   You need to do a chmod 600 .ecmwfapirc to suppress rules for group and other users.
+   This Git's repository is a forked from https://github.com/wurtzj/EXTRACT_ECMWF. It contains additional variables compared to the original.
+
+This tool works as follows :
+
+* `define_parameters.py` is used to read the configuration file called `user_parameters.json` ;
+
+* `main_extract_ecmwf.py` execute `extract_ecmwf.py` file in background with ``nohup``.
 
 .. _install_python_ecmwfapi:
 
 Install python environment
 ******************************
 
-To install python environment required to extarct ECMWF data, if you are using conda, do
+To install python environment required to extract ECMWF data, if you are using conda, do
 
 .. code-block:: console
 
    conda env install -f environment.yml
-
-or if you are using mamba
-
-.. code-block:: console
-
-   mamba env install -f environment.yml
 
 Then load new created python environment :
 
@@ -65,18 +63,40 @@ Then load new created python environment :
  
    conda activate env_extract_ecmwf
 
+.. tip:: `environment.yml` file is located in the Git repository.
+
+.. note:: 
+
+   * Last conda environment tested is
+  
+   .. code-block:: python
+   
+      name: env_extract_ecmwf
+      channels:
+        - conda-forge
+      dependencies:
+        - python=3.11.4
+        - numpy=1.25.0
+        - pandas=2.1.4
+        - ecmwf-api-client=1.6.3
+        - eccodes=2.33.0
+        
+   * `pandas` is used to manage dates and `eccodes` is used to perform some operations on extracted grib files (concatenate and separate by hours)
+
 Define extraction's parameters
 **********************************
+
+To define your extraction's area and dates, fill `user_parameters.json` file. This configuration file contains following variables :
 
 .. code-block:: python
 
    {
   
-   "target_directory"   : "/home/piaj/02_models/EXTRACT_ECMWF/test/",
+   "target_directory"   : "",
 
    "start_date"         : "20170708",
-   "end_date"           : "20170710",
-   "list_of_dates"      : ["20220617"],
+   "end_date"           : "20170708",
+   "list_of_dates"      : [],
 
    "start_time"         :"00",
    "end_time"           :"00",
@@ -92,8 +112,8 @@ Define extraction's parameters
 
    "type_data"          : "analysis",
 
-   "get_surface"        : True,
-   "get_sea_state"      : True
+   "get_surface"        : true,
+   "get_sea_state"      : false
 
    }
 
@@ -103,15 +123,15 @@ Define extraction's parameters
 
    * date to be extracted is take between start_date and end_date if list_of_dates is empty ([]).
 
-   * start_time, 1st time extraction
+   * start_time, first time to extract within the day
 
-   * end_time : last time extraction
+   * end_time : last time extraction within the day
 
-   * step: time step extraction within the day
+   * step: time step extraction within the day, if end_time=start_time, only start_time will be extracted
 
    * forecast_start_time : in case of forecast : time of launch (00 or 12 for instance)
 
-   * domain extension lat_min, lat_max, lon_min, lon_max. If empty get Europe domain.
+   * domain extension lat_min, lat_max, lon_min, lon_max or area. If empty get Europe domain.
 
    * grid resolution .1 by default. Could be coarser
 
@@ -125,23 +145,79 @@ Define extraction's parameters
 Launch extraction
 **********************************
 
+To launch extraction of the desired ECMWF data, if number of dates to extract is lower than 10 do
+
 .. code-block:: bash
 
-   python main_extract_ecmwf_python.py
+   python main_extract_ecmwf.py
+
+or if number of dates is greater than 10, do 
+
+.. code-block:: bash
+
+   nohup python main_extract_ecmwf.py
 
 .. note::
 
-   You can follow extraction processes on https://apps.ecmwf.int/webmars/joblist/.
+   * At the end of the script extractions are launched in background. If you are using your laptop or personal computer do not switch it off until extraction is complete. If you are using supercomputer you can logout without problems.
 
-Extraction for CNRM users
+   * You can follow extraction processes on https://apps.ecmwf.int/webmars/joblist/.
+
+Add new variables 
+***********************************
+
+If you want to add variables to extracted grib files, go to define_parameters.py file and add your own grib identifier in the following list :
+
+.. code-block:: python
+
+   if type=="FC":
+       pressure="/134"
+       param_atm="130/131/132/133"
+       param_surf="129/172/139/141/170/183/236/39/40/41/42"+ pressure
+       param_sea_stae="229/234/237"
+   else:
+       pressure="/152"
+       param_atm="130/131/132/133" + pressure
+       param_surf="129/172/139/141/170/183/236/39/40/41/42"
+       param_sea_state="229/234/237"
+
+.. csv-table:: Grib identifier mandatory for Meso-NH
+   :header: "Grib Id", "Signification", "Unit", "Type"
+   :widths: 10, 35, 10, 20
+
+   "129", "Geopotential", "m**2/s**2", "Model level (ml)"
+   "172", "Land-sea lask", "0 - 1", "Surface (sfc)"
+    "43", "Soil type", "m**2/s**2", "Surface (sfc)"
+   "139", "Soil temperature at level 1", "K", "Surface (sfc)"
+   "141", "Snow depth", "m**2/s**2", "Surface (sfc)"
+   "170", "Soil temperature at level 2", "K", "Surface (sfc)"
+   "183", "Soil temperature at level 3", "K", "Surface (sfc)"
+   "236", "Soil temperature at level 4", "K", "Surface (sfc)"
+    "39", "Volumetric soil water at layer 1", "m**3/m**3", "Surface (sfc)"
+    "40", "Volumetric soil water at layer 2", "m**3/m**3", "Surface (sfc)"
+    "41", "Volumetric soil water at layer 3", "m**3/m**3", "Surface (sfc)"
+    "42", "Volumetric soil water at layer 4", "m**3/m**3", "Surface (sfc)"      
+   "133", "Specific humidity", "kg/kg", "Model level (ml)"  
+   "130", "Temperature", "K", "Model level (ml)"  
+   "131", "u-wind", "m/s", "Model level (ml)"        
+   "132", "v-wind", "m/s", "Model level (ml)"    
+   "152 or 134", "lnsp (analysis) or sp (forecast)", "- or Pa", "Model level (ml)" 
+   "229", "significant wave height of wind waves and swell", "m", "Wave (wave)" 
+   "234", "significant wave height of wind waves", "m", "Wave (wave)" 
+   "237", "significant wave height of swell", "m", "Wave (wave)"           
+
+.. note::
+
+   You can find grib identifier  `here <https://codes.ecmwf.int/grib/param-db/>`_.
+
+For CNRM's users
 *************************************
 
-Fill .json file as desired.
-Name it as you want : for instance   REQUEST_WURTZJ.json
+* Fill .json file as desired.
 
-Put filed file here :
+* Name it as you want : for instance REQUEST_WURTZJ.json
 
-/cnrm/ville/USERS/wurtzj/EXTRACT_ECMWF/REQUESTS/
+* Put filed file here /cnrm/ville/USERS/wurtzj/EXTRACT_ECMWF/REQUESTS/
 
 An output is available in this folder with an "out" suffix showing it works: /cnrm/ville/USERS/wurtzj/EXTRACT_ECMWF/JOB_STATUS/REQUEST_WURTZJ.json_out
 
@@ -161,7 +237,8 @@ Get invariant data
 
 * click on "retrieve GRIB"
 
-* download the grib file and rename it "invariant.grib". It should contain the variables "z", "lsm"
+
+  * download the grib file and rename it "invariant.grib". It should contain the variables "z", "lsm"
 
 Get surface data
 *************************************

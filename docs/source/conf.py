@@ -28,7 +28,16 @@ intersphinx_disabled_domains = ['std']
 templates_path = ['_templates']
 
 # -- Options for HTML output
-html_theme = 'sphinx_rtd_theme'
+#html_theme = 'sphinx_rtd_theme'
+#html_theme = 'cloud'
+#html_theme = 'bootstrap'
+html_theme = 'sphinx_book_theme'
+
+html_sidebars = {
+'index': [],
+'**': ['searchbox.html','globaltoc.html','sourcelink.html']
+#'**': ['searchbox.html','globaltoc.html','relations.html', 'sourcelink.html']
+}
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

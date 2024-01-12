@@ -9,6 +9,8 @@ Contents
 --------
 
 .. toctree::
+   :maxdepth: 2
+   :numbered:
 
    extract_ecmwf_data/extract_ecmwf_data
    examples/examples
