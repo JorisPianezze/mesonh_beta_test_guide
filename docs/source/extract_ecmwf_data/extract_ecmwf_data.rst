@@ -113,7 +113,9 @@ To define your extraction's area and dates, fill `user_parameters.json` file. Th
    "type_data"          : "analysis",
 
    "get_surface"        : true,
-   "get_sea_state"      : false
+   "get_sea_state"      : false,
+
+   "remove_tmp_files"   : true
 
    }
 
@@ -141,6 +143,8 @@ To define your extraction's area and dates, fill `user_parameters.json` file. Th
 
    * get_sea_state : get sea state parameters or not. Used only when sea salt aerosols are activated.
 
+   * remove_tmp_files : remove temporary files or not. True by default.
+
 
 Launch extraction
 **********************************
@@ -158,6 +162,8 @@ or if number of dates is greater than 10, do
    nohup python main_extract_ecmwf.py
 
 .. note::
+
+   * Stored grib files are located in target_directory defined in `user_parameters.json` file.
 
    * At the end of the script extractions are launched in background. If you are using your laptop or personal computer do not switch it off until extraction is complete. If you are using supercomputer you can logout without problems.
 
