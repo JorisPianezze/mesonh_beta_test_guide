@@ -39,5 +39,10 @@ html_sidebars = {
 #'**': ['searchbox.html','globaltoc.html','relations.html', 'sourcelink.html']
 }
 
+html_theme_options = {
+'repository_url': 'https://github.com/JorisPianezze/mesonh_beta_test_guide',
+'use_repository_button': True,
+}
+
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
