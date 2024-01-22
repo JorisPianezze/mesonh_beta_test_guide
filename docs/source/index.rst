@@ -3,10 +3,10 @@ Welcome to Meso-NH beta's guide !
 
 .. note::
 
-   This guide is under active development.
+   This guide is under *active* development.
 
 Contents
---------
+------------
 
 .. toctree::
    :maxdepth: 2
@@ -14,3 +14,4 @@ Contents
 
    extract_ecmwf_data/extract_ecmwf_data
    examples/examples
+   references/references
