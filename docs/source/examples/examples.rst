@@ -37,3 +37,10 @@ Add reference
 
 Example with :cite:p:`voldoire_surfex_2017,lac_mesonh_2018`.
 
+Add files
+********************************************
+
+Test with pdf :download:`Scientific documentation <scidoc_p1.pdf>`.
+
+Test with F90 :download:`mesonh.f90 <mesonh.f90>`.
+
