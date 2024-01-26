@@ -55,7 +55,7 @@ To install python environment required to extract ECMWF data, if you are using c
 
 .. code-block:: console
 
-   conda env install -f environment.yml
+   conda env create -f environment.yml
 
 Then load new created python environment :
 
