@@ -15,4 +15,4 @@ Contents
    extract_ecmwf_data/extract_ecmwf_data
    examples/examples
    references/references
-   thibaut/newletter_01
+   thibaut/newsletter_01
