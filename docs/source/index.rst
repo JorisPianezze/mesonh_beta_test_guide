@@ -3,7 +3,7 @@ Welcome to Meso-NH beta's guide !
 
 .. note::
 
-   This guide is under *active* development.
+   This guide is under development.
 
 Contents
 ------------
