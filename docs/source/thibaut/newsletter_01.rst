@@ -5,7 +5,7 @@ Chers utilisateurs, chères utilisatrices de Méso-NH,
 
 Voici la 1ère infolettre de notre communauté Méso-NH. Vous y trouverez un entretien avec un développeur de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
 
-.. image: photo_bv.png
+.. image: photo_bv.jpg
 
 
 Entretien avec Benoît Vié (CNRM) au sujet de LIMA pour la représentation de la microphysique à deux moments
