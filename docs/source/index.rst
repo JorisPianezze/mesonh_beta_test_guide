@@ -1,3 +1,7 @@
+.. figure:: LogoMesoNH-small.png
+   :width: 100% 
+   :alt: Meso-NH logo
+
 Welcome to Meso-NH beta's guide !
 ===================================
 
