@@ -69,39 +69,33 @@ Autres nouvelles
   Le stage Méso-NH s'est bien déroulé avec 11 stagiaires de différents établissements (ONERA, Université de Lille, Université de Corse, LAERO, SUPAERO et CNRM) du 4 au 7 mars 2024. Le prochain stage aura lieu du 12 au 15 novembre 2024.
 
 
-Liste des publications utilisant Méso-NH (2024)
+Dernières publications utilisant Méso-NH
 ****************************************************************************************
 
-* **Air-sea interactions:**
+Air-sea interactions
+  - "The wave-age-dependent stress parameterisation (WASP) for momentum and heat turbulent fluxes at sea in SURFEX v8.1", :cite:t:`bouin_wave-age-dependent_2024`
+  - "A numerical study of ocean surface layer response to atmospheric shallow convection: impact of cloud shading, rain and cold pool", :cite:t:`brilouet_numerical_2024`
 
-  * "The wave-age-dependent stress parameterisation (WASP) for momentum and heat turbulent fluxes at sea in SURFEX v8.1", :cite:t:`bouin_wave-age-dependent_2024`
-  * "A numerical study of ocean surface layer response to atmospheric shallow convection: impact of cloud shading, rain and cold pool", :cite:t:`brilouet_numerical_2024`
+Boundary layer processes
+  - "Coherent subsiding structures in large eddy simulations of atmospheric boundary layers Brient", Couvreux et al. 2024
+  - "Breakdown of the velocity and turbulence in the wake of a wind turbine – Part 1: Large-eddy-simulation study", Jézéquel et al. 2024a
+  - "Breakdown of the velocity and turbulence in the wake of a wind turbine – Part 2: Analytical modeling", Jézéquel et al. 2024b
+  - "Impact of surface turbulent fluxes on the formation of convective rolls in a Mediterranean windstorm", Lfarh et al. 2024
 
-* **Boundary layer processes:**
+Fire meteorology
+  - "Numerical investigation of the Pedrógão Grande pyrocumulonimbus using a fire to atmosphere coupled model", Couto et al. 2024
 
-  * "Coherent subsiding structures in large eddy simulations of atmospheric boundary layers Brient", Couvreux et al. 2024
-  * "Breakdown of the velocity and turbulence in the wake of a wind turbine – Part 1: Large-eddy-simulation study", Jézéquel et al. 2024a
-  * "Breakdown of the velocity and turbulence in the wake of a wind turbine – Part 2: Analytical modeling", Jézéquel et al. 2024b
-  * "Impact of surface turbulent fluxes on the formation of convective rolls in a Mediterranean windstorm", Lfarh et al. 2024
+Aerosols and their interactions with clouds and dynamics:
+  - "Fractional solubility of iron in mineral dust aerosols over coastal Namibia: a link to marine biogenic emissions?", Desboeufs et al. 2024
+  - "Cyclogenesis in the tropical Atlantic: First scientific highlights from the Clouds-Atmospheric Dynamics-Dust Interactions in West Africa (CADDIWA) field campaign", Flamant et al. 2024a
+  - "The radiative impact of biomass burning aerosols on dust emissions over Namibia and the long-range transport of smoke observed during AEROCLO-sA", Flamant et al. 2024b
 
-* **Fire meteorology:**
+Extreme precipitations
+  - "Impact of urban land use on mean and heavy rainfall during the Indian summer monsoon", Falga and Wang 2024
 
-  * "Numerical investigation of the Pedrógão Grande pyrocumulonimbus using a fire to atmosphere coupled model", Couto et al. 2024
-
-* **Aerosols and their interactions with clouds and dynamics:**
-
-  * "Fractional solubility of iron in mineral dust aerosols over coastal Namibia: a link to marine biogenic emissions?", Desboeufs et al. 2024
-  * "Cyclogenesis in the tropical Atlantic: First scientific highlights from the Clouds-Atmospheric Dynamics-Dust Interactions in West Africa (CADDIWA) field campaign", Flamant et al. 2024a
-  * "The radiative impact of biomass burning aerosols on dust emissions over Namibia and the long-range transport of smoke observed during AEROCLO-sA", Flamant et al. 2024b
-
-* **Extreme precipitations:**
-
-  * "Impact of urban land use on mean and heavy rainfall during the Indian summer monsoon", Falga and Wang 2024
-
-* **Chemistry and atmospheric composition:**
-
-  * "Measurement Report: Bio-physicochemistry of tropical clouds at Maïdo (Réunion Island, Indian Ocean): overview of results from the BIO-MAÏDO campaign", Leriche et al. 2024 
-  * "Measurement Report: Insights into the chemical composition of molecular clusters present in the free troposphere over the Southern Indian Ocean: observations from the Maïdo observatory (2150 m a.s.l., Reunion Island)",  Salignat et al. 2024
+Chemistry and atmospheric composition:
+  - "Measurement Report: Bio-physicochemistry of tropical clouds at Maïdo (Réunion Island, Indian Ocean): overview of results from the BIO-MAÏDO campaign", Leriche et al. 2024 
+  - "Measurement Report: Insights into the chemical composition of molecular clusters present in the free troposphere over the Southern Indian Ocean: observations from the Maïdo observatory (2150 m a.s.l., Reunion Island)",  Salignat et al. 2024
 
 .. note::
 
