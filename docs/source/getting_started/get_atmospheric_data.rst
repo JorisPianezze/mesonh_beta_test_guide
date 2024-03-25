@@ -1,4 +1,4 @@
-Get atmospheric data (JPC & JPC)
+Get atmospheric data (JPC & JP)
 ================================================
 
 .. toctree::
