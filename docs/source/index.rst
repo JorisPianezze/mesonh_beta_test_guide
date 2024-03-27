@@ -1,9 +1,16 @@
-Welcome to Meso-NH beta's guide !
-===================================
+.. figure:: logos/LogoMesoNH.png
+   :width: 70% 
+   :alt: Meso-NH logo
+   :align: center
+
+|
+
+Meso-NH's website
+=============================
 
 .. note::
 
-   This guide is under development.
+   This website is under development.
 
 .. toctree::
    :maxdepth: 2

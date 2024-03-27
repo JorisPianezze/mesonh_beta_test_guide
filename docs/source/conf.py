@@ -38,7 +38,7 @@ html_theme = 'sphinx_rtd_theme'
 #html_theme = 'bootstrap'
 #html_theme = 'sphinx_book_theme'
 
-html_logo = 'LogoMesoNH-small.png'
+html_logo = 'logos/LogoMesoNH-small.png'
 
 #html_sidebars = {
 #'index': [],
