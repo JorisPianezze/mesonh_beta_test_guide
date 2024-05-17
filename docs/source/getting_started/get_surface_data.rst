@@ -7,37 +7,13 @@ For that purpose, you need 4 files : topography, soil texture and land user, all
 Download 
 ***********
 
-You can download the files using following bash script :
+You can download the files using direct download in following subsections or with following bash script :
 
 .. code-block:: bash
 
    #!/bin/bash
-   # 
-   #     Modif
-   #     J. Pianezze 20/09/2023 add test on directory and file's presence
-   #     J. Escobar  11/04/2014 get PGD files from 'dir_open' directory ( without psswd )
-   #     J. Escobar  25/04/2013 get LICENCE files
-   #
-   export PREP_PGD_FILES=${PREP_PGD_FILES:-"$HOME/PREP_PGD_FILES_WWW"}
-   export PGD_URL="http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_PGDFILES"
-   export WGET="wget"
-
-   if [ ! -d ${PREP_PGD_FILES} ]
-   then
-      echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-      echo "!!!!            WARNING                  !!!!"
-      echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-      echo
-      echo You need 3 Go to download these files in
-      echo
-      echo PREP_PGD_FILES=$PREP_PGD_FILES
-      echo
-      echo if OK press ENTER else CTRL-C
-      read
-      mkdir -p $PREP_PGD_FILES
-   fi
-
-   cd $PREP_PGD_FILES
+   
+   export dir_pgd_files='http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_PGDFILES'
 
    for file in LICENSE_ECOCLIMAP.txt LICENSE_soil_data.txt \
                gtopo30.hdr           gtopo30.dir           \
@@ -46,10 +22,10 @@ You can download the files using following bash script :
                ECOCLIMAP_v2.0.hdr    ECOCLIMAP_v2.0.dir    \
                etopo2.nc
    do
-      if [ ! -f $file ]
+      if [ ! -f ${file} ]
       then
          echo 'Download' ${file}
-         ${WGET} -c -nd $PGD_URL/$file.gz ; gunzip $file.gz
+         wget -c -nd ${dir_pgd_files}/${file}.gz ; gunzip ${file}.gz
       fi
    done
 
