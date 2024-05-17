@@ -9,7 +9,7 @@ Access to ADS data is restricted to registred users. See `ADS's website <https:/
 
 .. _configure_ads_api_key:
 
-Configure CDS API
+Configure
 --------------------------------------------
 
 Once your account create, you need to configure CDS API following https://ads.atmosphere.copernicus.eu/api-how-to instructions.
@@ -35,8 +35,8 @@ First you need to create a file called `.adsapirc` in your HOME directory. This 
 
 .. _install_python_cdsapi:
 
-Install CDS API
-******************************
+Installation
+--------------------------------------------
 
 You can install CDS API required to extract CAMS data using following conda command in your conda environment, do
 
@@ -74,8 +74,8 @@ Then load new created python environment :
    conda activate env_extract_cdsapi
 
 
-Example of extraction's script
-**********************************
+Example
+--------------------------------------------
 
 To extract CAMS data, you can adapt the area, the date and the path to your `.adsapirc` file in the following script :
 
