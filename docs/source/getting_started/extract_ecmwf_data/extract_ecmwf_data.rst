@@ -528,7 +528,7 @@ Then, you can launch the extraction with :
 
 .. note::
 
-   At the end of the extraction you need to have files called era5.${YEAR}${MONTH}${DAY}.${HOUR} !
+   At the end of the extraction you need to have files called era5.yearmonthday.hour !
 
 Use extracted GRIB files
 --------------------------------------------
