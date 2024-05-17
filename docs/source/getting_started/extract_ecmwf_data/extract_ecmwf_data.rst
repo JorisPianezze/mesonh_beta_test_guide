@@ -291,78 +291,244 @@ Concatenate the grib files
 
    $SRC_MESONH/src/dir_obj${XYZ}/MASTER/ECCODES-2.18.0/bin/grib_copy invariant.grib surface.grib model.grib ecmwf.EI.YYYYMMDD.HH
 
-ERA5 data 
---------------------------------------------------
 
-Get invariant data
-*************************************
+ERA5
+--------------------------------------------
 
-* go to https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=form
+Registration
+********************************************
 
-* select "Reanalysis" in "Product type"
+Access to CDS data is restricted to registred users. See `CDS's website <https://cds.climate.copernicus.eu/cdsapp#!/home>`_ for more detailed informations. 
 
-* In "Other", select the parameters "Geopotential" and "Land-sea mask"
+.. _configure_cds_api_key:
 
-* select the date YYYY-MM-DD
+Configure
+********************************************
 
-* select the time "HH:00:00"
-
-* select the step "0"
-
-* click on "retrieve GRIB"
-
-* download the grib file and rename it "invariant.grib". It should contain the variables "z", "lsm"
-
-Get surface data
-*************************************
-
-* go to https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=form
- 
-* select "Reanalysis" in "Product type"
- 
-* In "Temperature and pressure", select the parameter "Surface pressure"
- 
-* In "Snow", select the parameter "Snow depth"
- 
-* In "Soil", select the parameters "Soil temperature level 1", "Soil temperature level 2", "Soil temperature level 3", "Soil temperature level 4", "Volumetric soil water layer 1", "Volumetric soil water layer 2", "Volumetric soil water layer 3", "Volumetric soil water layer 4"
- 
-* select the date YYYY-MM-DD
- 
-* select the time "HH:00:00"
- 
-* select the step "0"
- 
-* click on "retrieve GRIB"
- 
-* download the grib file and rename it "surface.grib". It should contain the variables "sd", "sp", "swvl1", "swvl2", "swvl3", "swvl4", "stl1", "stl2", "stl3", "stl4"
-
-Get model level data
-*************************************
-
-* go to https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels?tab=form
- 
-* select "Reanalysis" in "Product type"
- 
-* In "Variable", select the parameters "Geopotential", "Specific humidity", "Temperature", "U component of wind", "V component of wind"
- 
-* In "Pressure level", select all the levels
- 
-* select the date YYYY-MM-DD
- 
-* select the time "HH:00:00"
- 
-* select the step "0"
-
-* click on "retrieve GRIB"
- 
-* download the grib file and rename it "model.grib". It should contain the variables "z", "q", "t", "u", "v"
-
-Concatenate the grib files
-*************************************
+Once your account create, you need to configure CDS API following https://cds.climate.copernicus.eu/api-how-to instructions. 
+First you need to create a file called `.cdsapirc` in your HOME directory. Your `.cdsapirc` file needs to contain lines that look likes:
 
 .. code-block:: bash
 
-   $SRC_MESONH/src/dir_obj${XYZ}/MASTER/ECCODES-2.18.0/bin/grib_copy invariant.grib surface.grib model.grib ecmwf.E5.YYYYMMDD.HH
+   url: https://cds.climate.copernicus.eu/api/v2
+   key: your_key
+
+.. note::
+
+   To fill this file go to https://cds.climate.copernicus.eu/api-how-to.
+
+.. warning::
+
+   You need to suppress rules for group and other users with ``chmod 600 .cdsapirc``.
+
+.. _install_python_cdsapi:
+
+Installation
+********************************************
+
+You can install CDS API required to extract CAMS data using following conda command in your conda environment, do
+
+.. code-block:: console
+
+   conda install cdsapi
+   
+If you want to used a dedicated conda environment you can create an environment.yml file containing :
+
+.. code-block:: python
+   
+   name: env_extract_cdsapi
+   channels:
+       - conda-forge
+   dependencies:
+       - cdsapi==0.7.0
+       - eccodes==2.35.0
+       - pip==24.0
+       - pip:
+           - yaml-config==0.1.5
+
+.. note:: 
+  
+   * This is the last version of cdsapi and yaml-config tested.
+   * yaml-config is used to read `.adsapirc` file if your are intent to extract CAMS files. For ERA5, only cdsapi is necessary.
+   * eccodes is used to concatenate grib files.
+
+Then you can create your conda environment with :
+
+.. code-block:: console
+ 
+   conda env create -f environment.yml
+
+Then load new created python environment :
+
+.. code-block:: console
+ 
+   conda activate env_extract_cdsapi
+
+
+Example
+********************************************
+
+To extract ERA5 data, you can adapt the area and the date in the following script :
+
+.. code-block:: bash
+
+   #!/bin/python
+   # --------------------------------------------------------
+   #
+   #                 Author  (    date    ) :
+   #             J. Pianezze ( 17.05.2024 )
+   #
+   #                    ~~~~~~~~~~~~~~~
+   #       Script used to extract ERA5 instantaneous fields
+   #        for Meso-NH (PREP_REAL_CASE) (1 time / file)
+   #                    ~~~~~~~~~~~~~~~
+   #
+   # --------------------------------------------------------
+   # https://cds.climate.copernicus.eu/api-how-to
+   # conda install cdsapi
+
+   import os, sys
+   import glob
+   import cdsapi
+   import datetime
+
+   cds = cdsapi.Client()
+
+   # #########################################################
+   # ###           To be defined by user                   ###
+   # #########################################################
+
+   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   # - -     First and last date to be extracted           - -
+   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   first_date_to_be_extracted = datetime.datetime(2005, 1, 1, 0, 0, 0)
+   last_date_to_be_extracted  = datetime.datetime(2005, 1, 1, 6, 0, 0)
+
+   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   # - -          Type of data to be extracted             - -
+   # - -         analyses (an) or forecast (fc)            - -
+   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   type_data_to_be_extracted = 'an'
+
+   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   # - -     period_in_hr between two forcing files        - -
+   # - -          must be a multiple of 6                  - -
+   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   period_between_last_and_first_dates_in_hr = 6
+
+   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   # - -     Area to be extracted : 'North/West/South/East'- -
+   # - -     Benguela    : '-20.0/5.0/-40.0/25.0'          - -
+   # - -     Gulf Stream : '50.0/-90.0/20.0/-30.0'         - -
+   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   area_to_be_extracted = '50.0/-90.0/20.0/-30.0'
+
+   # #########################################################
+
+   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   #   Define function to iterate over first and last dates
+   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   def range_for_date(start_date, end_date, period_in_hr):
+     for n in range(int((end_date - start_date).total_seconds()/(3600.0*period_in_hr))+1):
+       yield start_date + datetime.timedelta(seconds=n*3600.0*period_in_hr)
+
+   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   #   Loop over dates
+   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   for date in range_for_date(first_date_to_be_extracted, last_date_to_be_extracted, period_between_last_and_first_dates_in_hr):
+
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     #   Compute date and time variables
+     #     date_an format is yyyy-mm-dd
+     #     time_an format is hh
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     date_to_be_extracted   = str(date.year)+'-'+str(date.month).zfill(2)+'-'+str(date.day).zfill(2)
+     time_to_be_extracted   = str(date.hour).zfill(2)
+     name_of_extracted_file = str(date.year)+str(date.month).zfill(2)+str(date.day).zfill(2)+'.'+str(date.hour).zfill(2)
+
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     #   Retrieve Model Level fields : u, v, t, q
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cds.retrieve('reanalysis-era5-complete', {
+           'date'     : date_to_be_extracted,
+           'levelist' : '1/to/137',
+           'levtype'  : 'ml',
+           'param'    : 'u/v/t/q',
+           'stream'   : 'oper',
+           'time'     : time_to_be_extracted,
+           'type'     : type_data_to_be_extracted,
+           'area'     : area_to_be_extracted,
+           'grid'     : '0.28125/0.28125',
+       }, 'model_levels_uvtq_'+name_of_extracted_file+'.grib')
+
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     #   Retrieve Model Level fields : lnsp
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cds.retrieve('reanalysis-era5-complete', {
+           'date'     : date_to_be_extracted,
+           'levelist' : '1',
+           'levtype'  : 'ml',
+           'param'    : 'lnsp',
+           'stream'   : 'oper',
+           'time'     : time_to_be_extracted,
+           'type'     : type_data_to_be_extracted,
+           'area'     : area_to_be_extracted,
+           'grid'     : '0.28125/0.28125',
+       }, 'model_levels_lnsp_'+name_of_extracted_file+'.grib')
+
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     #   Retrieve SurFaCe fields : z, lsm
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cds.retrieve('reanalysis-era5-complete', {
+           'date'     : date_to_be_extracted,
+           'levtype'  : 'sfc',
+           'param'    : 'z/lsm',
+           'stream'   : 'oper',
+           'time'     : time_to_be_extracted,
+           'type'     : type_data_to_be_extracted,
+           'area'     : area_to_be_extracted,
+           'grid'     : '0.28125/0.28125',
+       },  'surface_levels_'+name_of_extracted_file+'.grib')
+
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     #   Retrieve SurFaCe fields : swlv1, ...
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cds.retrieve('reanalysis-era5-complete', {
+         'date'     : date_to_be_extracted,
+         'levtype'  : 'sfc',
+         'param'    : '139/141/170/183/236/39/40/41/42',
+         'stream'   : 'oper',
+         'time'     : time_to_be_extracted,
+         'type'     : type_data_to_be_extracted,
+         'area'     : area_to_be_extracted,
+         'grid'     : '0.28125/0.28125',
+     }, 'surface_'+name_of_extracted_file+'.grib')
+
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     #   Concatenate & remove grib files
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     os.system('grib_copy surface_levels_'+name_of_extracted_file+'.grib    '+\
+                         'surface_'+name_of_extracted_file+'.grib           '+\
+                         'model_levels_uvtq_'+name_of_extracted_file+'.grib '+\
+                         'model_levels_lnsp_'+name_of_extracted_file+'.grib '+\
+                         'era5.'+name_of_extracted_file)
+
+     for file in glob.glob('*.grib'):
+       os.remove(file)
+
+.. note::
+
+   You need to have eccodes installed.
+
+Then, you can launch the extraction with :
+
+.. code-block:: bash
+
+   ./your_script.sh
+
+.. note::
+
+   At the end of the extraction you need to have files called era5.${YEAR}${MONTH}${DAY}.${HOUR} !
 
 Use extracted GRIB files
 --------------------------------------------

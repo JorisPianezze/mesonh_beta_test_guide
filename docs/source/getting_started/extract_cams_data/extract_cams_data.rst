@@ -18,7 +18,7 @@ Once your account create, you need to configure CDS API following https://ads.at
 
    I recommend to create a file called `.adsapirc` and not `.cdsapirc` because you can have conflict with CDS API key if you also extract ERA5 data from CDS server.
 
-First you need to create a file called `.adsapirc` in your HOME directory. This file contains your key and email given by ADS on . Your `.adsapirc` file needs to contain lines that look likes:
+First you need to create a file called `.adsapirc` in your HOME directory. Your `.adsapirc` file needs to contain lines that look likes:
 
 .. code-block:: bash
 
@@ -52,14 +52,17 @@ If you want to used a dedicated conda environment you can create an environment.
    channels:
        - conda-forge
    dependencies:
-       - cdsapi=0.7.0
+       - cdsapi==0.7.0
+       - eccodes==2.35.0
+       - pip==24.0
        - pip:
-           - yaml-config==0.1.5       
+           - yaml-config==0.1.5
 
 .. note:: 
   
    * This is the last version of cdsapi and yaml-config tested.
    * yaml-config is used to read `.adsapirc` file.
+   * eccodes is used to concatenate grib files.   
 
 Then you can create your conda environment with :
 
