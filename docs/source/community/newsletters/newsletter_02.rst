@@ -10,7 +10,7 @@ Chers utilisateurs, chères utilisatrices de Méso-NH,
 Voici la 2ème infolettre de notre communauté Méso-NH. Vous y trouverez un entretien avec une développeuse de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
 
 Entretien avec `Fleur Couvreux <mailto:fleur.couvreux@meteo.fr>`_ (CNRM)
-*****************************************************************
+**************************************************************************
 
 .. image:: photo_bv.jpg
   :width: 300
