@@ -48,7 +48,7 @@ Brient F, Couvreux F, Rio C, Honnert R, 2024: Coherent subsiding structures in l
 Les nouvelles de l’équipe support
 ************************************
 
-.. note::
+.. warning::
 
    A changer entièrement
 
@@ -88,6 +88,10 @@ Autres nouvelles
 Dernières publications utilisant Méso-NH
 ****************************************************************************************
 
+.. warning::
+
+   A changer entièrement, inclure poster de Hugo
+
 Air-sea interactions
   - The wave-age-dependent stress parameterisation (WASP) for momentum and heat turbulent fluxes at sea in SURFEX v8.1 [`Bouin et al., 2024 <https://doi.org/10.5194/gmd-17-117-2024>`_]
   - A numerical study of ocean surface layer response to atmospheric shallow convection: impact of cloud shading, rain and cold pool [`Brilouet et al., 2024 <https://doi.org/10.1002/qj.4651>`_]
@@ -114,6 +118,9 @@ Extreme precipitations
 Chemistry and atmospheric composition:
   - Measurement Report: Bio-physicochemistry of tropical clouds at Maïdo (Réunion Island, Indian Ocean): overview of results from the BIO-MAÏDO campaign [`Leriche et al., 2024 <https://doi.org/10.5194/egusphere-2023-1362>`_]
   - Measurement Report: Insights into the chemical composition of molecular clusters present in the free troposphere over the Southern Indian Ocean: observations from the Maïdo observatory (2150 m a.s.l., Reunion Island) [`Salignat et al., 2024 <https://doi.org/10.5194/acp-24-3785-2024>`_]
+
+
+
 
 .. note::
 
