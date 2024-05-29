@@ -20,6 +20,9 @@ Fleur, tu as développé la possibilité d'inclure des traceurs passifs à décr
 
 On peut activer sans modifier le code jusqu’à trois traceurs passifs. Le 1er est émis avec un flux constant en surface, le 2eme est émis juste en dessous de la base des nuages, il a été implémenté pour estimer les échanges entre la couche sous-nuageuse et l’intérieur des nuages, voire la couche de transition. Le 3e est émis juste au-dessus du sommet moyen des nuages et permet d’estimer les échanges au sommet des nuages. Si on est en condition de ciel clair, on peut choisir d’émettre le traceur 3 au sommet de la couche limite et choisir comment déterminer cette hauteur de couche limite*. Les trois traceurs subissent une décroissance radioactive pour éviter une accumulation de leur concentration, avec un temps de vie fixé à 15 min par défaut mais qui peut être modifié en nameliste. 
 
+* NFINDTOP=1 détermination de la hauteur de couche limite comme la zone de maximum de gradient de température potentielle 
+NFINDTOP=2 détermination de la hauteur de couche limite en utilisant le niveau où la température potentielle virtuelle dépasse celle moyenne des niveaux sous-jacents plus un seuil
+
 Dans quel cas cette option est-elle recommandée?
   Cette option est recommandée dans les simulations LES en conditions idéalisées lorsqu’on veut documenter les structures cohérentes de la couche limite. De nombreux diagnostiques sont déjà codés qui permettent de faire une analyse conditionnelle de ces structures et sortir un ensemble de champs (moyenne, fraction couverte, moment d’ordre 2) en diagnostiquant les structures ayant une anomalie positive de concentration de traceurs et une anomalie positive de vitesse verticale et potentiellement un contenu en eau liquide non nul dans la couche nuageuse.
 
@@ -29,8 +32,7 @@ Quelles recommandations ferais-tu aux utilisateurs.trices ?
 Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à éviter ? 
   Attention à la mise en place des diagnostics en cas d’hétérogénéités de surface (ou de relief), l’émission des traceurs fonctionne tel quel et peut déjà être utilisé pour identifier les structures mais les calculs de diagnostics statistiques de l’analyse conditionnelle sont à adapter. Il est sans doute plus adapté dans ce cas de faire une analyse des champs 3D à partir des fichiers *OUT* plutôt que de modifier l’analyse conditionnelle. Pour cela, il faut tout d’abord bien s’assurer que les concentrations des traceurs sont sorties dans les fichiers OUT (cf. la procédure pour rajouter des variables dans les sorties fréquétentes, à appliquer à SVT). A posteriori, il est important de s'assurer d'avoir des statistiques spatiales ou temporelles qui convergent bien. Vous pouvez contacter Nathan Philippot ou Hugo Jacquet qui utilisent les traceurs  en présence d’hétérogénéités de surface respectivement de relief ou de température de surface de la mer.
 
-*
-  NFINDTOP=1 détermination de la hauteur de couche limite comme la zone de maximum de gradient de température potentielle si NFINDTOP=2 détermination de la hauteur de couche limite en utilisant le niveau où la température potentielle virtuelle dépasse celle moyenne des niveaux sousjacents plus un seuil
+
 
 Références
   Couvreux, F., F. Hourdin and C. Rio, 2010: Resolved versus parametrized boundary-layer plumes. Part I: a parametrization-oriented conditional sampling in Large-Eddy simulations. Boundary Layer Meteorology. 134, Iss 3, 441-458 DOI 10.1007/s10546-009-9456-5
