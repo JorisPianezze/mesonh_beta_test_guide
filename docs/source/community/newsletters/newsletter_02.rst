@@ -46,7 +46,11 @@ Brient F, Couvreux F, Rio C, Honnert R, 2024: Coherent subsiding structures in l
    Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@aero.obs-mip.fr>`_.
 
 Les nouvelles de l’équipe support
-***********************************
+************************************
+
+.. note::
+
+   A changer entièrement
 
 Version 5.7.0
   - La version 5.7 a été développée, évaluée et validée de septembre à décembre 2023. Plus d'infos `ici <http://mesonh.aero.obs-mip.fr/mesonh57/BooksAndGuides?action=AttachFile&do=view&target=update_from_masdev56_to_570.pdf>`_. 
