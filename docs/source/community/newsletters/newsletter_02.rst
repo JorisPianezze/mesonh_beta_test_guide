@@ -20,8 +20,8 @@ Fleur, tu as développé la possibilité d'inclure des traceurs passifs à décr
 
   On peut activer sans modifier le code jusqu’à trois traceurs passifs. Le 1er est émis avec un flux constant en surface, le 2eme est émis juste en dessous de la base des nuages, il a été implémenté pour estimer les échanges entre la couche sous-nuageuse et l’intérieur des nuages, voire la couche de transition. Le 3e est émis juste au-dessus du sommet moyen des nuages et permet d’estimer les échanges au sommet des nuages. Si on est en condition de ciel clair, on peut choisir d’émettre le traceur 3 au sommet de la couche limite et choisir comment déterminer cette hauteur de couche limite[#namelist]_. Les trois traceurs subissent une décroissance radioactive pour éviter une accumulation de leur concentration, avec un temps de vie fixé à 15 min par défaut mais qui peut être modifié en nameliste. 
 
-.. [#namelist] NFINDTOP=1 détermination de la hauteur de couche limite comme la zone de maximum de gradient de température potentielle 
-   NFINDTOP=2 détermination de la hauteur de couche limite en utilisant le niveau où la température potentielle virtuelle dépasse celle moyenne des niveaux sous-jacents plus un seuil
+.. [#namelist] NFINDTOP=1 : détermination de la hauteur de couche limite comme la zone de maximum de gradient de température potentielle. 
+   NFINDTOP=2 : détermination de la hauteur de couche limite en utilisant le niveau où la température potentielle virtuelle dépasse celle moyenne des niveaux sous-jacents plus un seuil.
 
 Dans quel cas cette option est-elle recommandée?
   Cette option est recommandée dans les simulations LES en conditions idéalisées lorsqu’on veut documenter les structures cohérentes de la couche limite. De nombreux diagnostiques sont déjà codés qui permettent de faire une analyse conditionnelle de ces structures et sortir un ensemble de champs (moyenne, fraction couverte, moment d’ordre 2) en diagnostiquant les structures ayant une anomalie positive de concentration de traceurs et une anomalie positive de vitesse verticale et potentiellement un contenu en eau liquide non nul dans la couche nuageuse.
