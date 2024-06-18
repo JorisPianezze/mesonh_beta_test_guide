@@ -51,36 +51,24 @@ Les nouvelles de l’équipe support
    A changer entièrement
 
 Version 5.7.0
-  - La version 5.7 a été développée, évaluée et validée de septembre à décembre 2023. Plus d'infos `ici <http://mesonh.aero.obs-mip.fr/mesonh57/BooksAndGuides?action=AttachFile&do=view&target=update_from_masdev56_to_570.pdf>`_. 
-  - A noter également : pour l’étape DIAG, le bogue LGXT dans compute_r00 a été corrigé, des variables supplémentaires (vent, nuages, aérosols, …) du temps courant ont été ajoutées, les valeurs négatives ont été changées par XFILLVALUE.
+  - La version 5.7 ... 
+  - A noter également : ...
 
 Version 5.7.1 (en développement)
-  - Tous les cas tests ont été ajoutés dans un commit de la branche MNH-57-branch.
-  - Les noms de fichiers seront plus flexibles (CEXP et CSEG pouvant aller jusqu'à 32 caractères, modifiable au besoin).
-  - Le nombre de fichiers de couplage ne sera plus limité (était de 24, maintenant à 1000 et extensible si nécessaire).
-  - La gestion de tous les fichiers a été réorganisée en interne. Par exemple, on ne stockera plus dès le début la totalité de la liste des fichiers de reprise (*backups*) et de sorties fréquentes (*outputs*). Le gain en espace mémoire n'est pas du tout négligeable lorsque le nombre de backups et d'outputs est important surtout si les I/O parallèles sont activées. Pour cela, il faut spécifier les instants d'écriture avec les options en fréquence dans les namelists (ie utiliser XBAK_TIME_FREQ et non XBAK_TIME).
-  - La compression (sans pertes) sera possible pour tous les fichiers écrits (au format netCDF).
-  - Pour les trajectoires lagrangiennes (programme DIAG), les champs seront maintenant stockés dans des variables 4D (x, y, z, t) et non plus dans des variables différentes pour chaque instant (fichier plus lisible et moins de *post-processing* à réaliser).
-  - Les fichiers de reprise (*backups*) pourront être écrits avec diminution de la précision des nombres en virgule flottante (attention : option dangereuse).
-  - Même fonctionnalité pour les fichiers écrits par DIAG.
-  - Pour l’étape DIAG : il sera possible d'écrire directement XT_traj, RV_traj (PW).
-
+  - ...
+ 
 Développement en cours
-  - Chimie/aérosols : un projet a commencé à restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. Le travail est en cours, les routines impactées seront nombreuses notamment à l'intérieur de ch_monitorn.f90, les ch_* et tous les *aer*.
-  - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX.
-  - SURFEX :  les modifications des fichiers dans SURFEX sont remontées au dépôt de SURFEX-offline officiel pour la prochaine version 9.2.
-  - ECRAD va prochainement faire peau neuve : suppression de la version (non open-source) 1.0.1, branchement d'une version plus récente.
-  - Outils : ajouts de fonctionnalités dans la librairie `Python Fortran Tool <https://github.com/UMR-CNRM/pyft>`_ pour gérer automatiquement certaine transformation du code source de Méso-NH pour produire du code qui tourne sur GPU.
-  - Une nouvelle mise en page du site et de la documentation est en cours de test sur des parties spécifiques.
-  - Une note pour l'utilisation de l'outil d'extraction développé par Jean Wurtz est en cours de préparation.
-  - Une comparaison de Méso-NH avec d'autres modèles concurrents en termes de performance est en cours.
+  - ...
+  - Version 6.0 : ...
+  - SURFEX :  ...
+  - ECRAD ...
+  - Outils ...
 
 Développement en cours de réflexion
-  - Dans les sorties fréquentes (*outputs*) la possibilité d'écrire des champs sur des sous-domaines plutôt que sur toute la grille est actuellement à l'étude.
+  - ...
 
 Autres nouvelles
-  - Le stage Méso-NH s'est bien déroulé avec 11 stagiaires de différents établissements (ONERA, Université de Lille, Université de Corse, LAERO, SUPAERO et CNRM) du 4 au 7 mars 2024. Le prochain stage aura lieu du 12 au 15 novembre 2024.
-  - Paul Boumendil, doctorant CNRM/IFPEN propose un tutoriel pour utiliser des bases de données à résolution métrique pour la description des couverts de surface avec Méso-NH/SURFEX. Pour obtenir une résolution précise du type de surface en utilisant ECOCLIMAP, il a utilisé Geoclimate pour récupérer les données de type de surface d'OpenStreetMap, puis il a associé à chaque type de sol une COVER d'ECOCLIMAP. La carte est ensuite rasterisée et enregistrée au format "Lat Lon Cover" pour être utilisée en entrée lors de l'étape de PREP de Méso-NH. Un tutoriel ainsi qu'un exemple de cette utilisation d'ECOCLIMAP seront bientôt disponibles sur le site de Méso-NH. En attendant il est disponible `ici <https://github.com/QuentinRodier/tuto-MNH-HighResCover/blob/main/Tutorial.ipynb>`_.
+  - ...
 
 
 Dernières publications utilisant Méso-NH
