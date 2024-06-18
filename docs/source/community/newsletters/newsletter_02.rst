@@ -39,6 +39,12 @@ Références
   - Brient F., Couvreux F, Villefranque N, Rio C, Honnert R, 2019: Object-oriented identification of coherent structures in large-eddy simulations: importance of downdrafts in stratocumulus Geophysical Research Letters, 46, 1-11, https://doi.org/10.1029/2018GL081499
   - Brient F, Couvreux F, Rio C, Honnert R, 2024: Coherent subsiding structures in large eddy simulations of atmospheric boundary layers,  QJRMS, https://doi.org/10.1002/qj.4625
 
+
+.. figure:: Snapshot-video-florent-brient.jpg
+
+   `Link to the video <https://www.youtube.com/watch?v=8lpD8rd49wc>`_. 2D simulation of the IHOP Dry Convective Boundary Layer performed with the Meso-NH model. Surface-emitted passive tracer concentration is in red, and concentration of passive tracer emitted at the domain-mean boundary-layer top is in green contours. The boundary layer top is shown with the horizontal dashed black line.
+
+
 .. note::
 
    Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@aero.obs-mip.fr>`_.
