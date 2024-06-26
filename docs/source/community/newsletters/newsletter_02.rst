@@ -26,13 +26,13 @@ Fleur, tu as développé la possibilité d'inclure des traceurs passifs à décr
    NFINDTOP=2 : détermination de la hauteur de couche limite en utilisant le niveau où la température potentielle virtuelle dépasse celle moyenne des niveaux sous-jacents plus un seuil.
 
 Dans quel cas cette option est-elle recommandée?
-  Cette option est recommandée dans les simulations LES en conditions idéalisées lorsqu’on veut documenter les structures cohérentes de la couche limite. De nombreux diagnostiques sont déjà codés qui permettent de faire une analyse conditionnelle de ces structures et sortir un ensemble de champs (moyenne, fraction couverte, moment d’ordre 2) en diagnostiquant les structures ayant une anomalie positive de concentration de traceurs et une anomalie positive de vitesse verticale et potentiellement un contenu en eau liquide non nul dans la couche nuageuse.
+  Cette option est recommandée dans les simulations LES en conditions idéalisées lorsqu’on veut documenter les structures cohérentes de la couche limite. De nombreux diagnostics sont déjà codés qui permettent de faire une analyse conditionnelle de ces structures et sortir un ensemble de champs (moyenne, fraction couverte, moment d’ordre 2) en diagnostiquant les structures ayant une anomalie positive de concentration de traceurs et une anomalie positive de vitesse verticale et potentiellement un contenu en eau liquide non nul dans la couche nuageuse.
 
 Quelles recommandations ferais-tu aux utilisateurs.trices ?
   Il est important de vérifier que les valeurs par défaut conviennent à l’utilisateur notamment  l’altitude d’émission sous la base et au-dessus du sommet des nuages pour les traceurs 2 et 3, le taux de décroissance et le seuil contrôlant l’échantillonnage conditionnel. Pour plus de détails, n’hesitez pas à me contacter ou à vous reporter au papier Couvreux et al. (2010).
 
 Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à éviter ? 
-  Attention à la mise en place des diagnostics en cas d’hétérogénéités de surface (ou de relief), l’émission des traceurs fonctionne tel quel et peut déjà être utilisé pour identifier les structures mais les calculs de diagnostics statistiques de l’analyse conditionnelle sont à adapter. Il est sans doute plus adapté dans ce cas de faire une analyse des champs 3D à partir des fichiers *OUT* plutôt que de modifier l’analyse conditionnelle. Pour cela, il faut tout d’abord bien s’assurer que les concentrations des traceurs sont sorties dans les fichiers OUT (cf. la procédure pour rajouter des variables dans les sorties fréquétentes, à appliquer à SVT). A posteriori, il est important de s'assurer d'avoir des statistiques spatiales ou temporelles qui convergent bien. Vous pouvez contacter Nathan Philippot ou Hugo Jacquet qui utilisent les traceurs  en présence d’hétérogénéités de surface respectivement de relief ou de température de surface de la mer.
+  Attention à la mise en place des diagnostics en cas d’hétérogénéités de surface (ou de relief), l’émission des traceurs fonctionne tel quel et peut déjà être utilisé pour identifier les structures mais les calculs de diagnostics statistiques de l’analyse conditionnelle sont à adapter. Il est sans doute plus adapté dans ce cas de faire une analyse des champs 3D à partir des fichiers *OUT* plutôt que de modifier l’analyse conditionnelle. Pour cela, il faut tout d’abord bien s’assurer que les concentrations des traceurs sont sorties dans les fichiers OUT (cf. la procédure pour rajouter des variables dans les sorties fréquentes, à appliquer à SVT). A posteriori, il est important de s'assurer d'avoir des statistiques spatiales ou temporelles qui convergent bien. Vous pouvez contacter Nathan Philippot ou Hugo Jacquet qui utilisent les traceurs  en présence d’hétérogénéités de surface respectivement de relief ou de température de surface de la mer.
 
 
 
@@ -54,23 +54,40 @@ Références
 Les nouvelles de l’équipe support
 ************************************
 
-.. warning::
+Version 5.7.1 (en cycle de validation)
+  Les bugfixs des contributeurs sont en cours de test. Sortie au plus tard fin septembre 2024.
 
-   A changer entièrement
 
-Version 5.7.0
   - La version 5.7 ... 
   - A noter également : ...
 
-Version 5.7.1 (en développement)
-  - ...
+Version 5.8
+  Un appel à contribution sera lancée en novembre. Toutes les contributions prêtes, c'est-à-dire testées et livrées avec un (nouveau) cas test pour décembre 2024 seront prises pour intégration.
  
 Développement en cours
-  - ...
-  - Version 6.0 : ...
-  - SURFEX :  ...
-  - ECRAD ...
-  - Outils ...
+  - Chimie/aérosols : un projet a commencé à restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. Le travail est en cours, les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les aer.
+  - ECRAD v 1.6.1 (actuellement opérationnel dans AROME et ARPEGE/IFS) sera branchée à MésoNH. ECRAD deviendra le schéma de rayonnement par défaut dans la 5.8 après validation.
+  - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX.
+  - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaine transformation du code source de Méso-NH pour produire du code qui tourne sur GPU.
+
+Stage Méso-NH
+  Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
+  Date limite d'inscription : 1er novembre
+  Inscription par mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
+
+Autres nouvelles
+  - PHYEX: la physique externalisée se dote à présent d'un driver offline en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
+  - la dernière réunion du comité de pilotage a eu lieu le 20 juin 2024.
+
+
+Nouvelles de SURFEX
+  - SURFEX : la réunion annuelle du comité de pilotage a eu lieu le 27 mai 2024. Les présentations sont disponibles `ici <https://www.umr-cnrm.fr/surfex/spip.php?article55>`_
+A retenir parmi d'autres :
+  - le `futur d'Ecoclimap <https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_steeringcommittee-27052024-physio.pdf>`_
+  - migration vers GitHub, utilisation de fourches (forks) pour les responsables d'intégration (Quentin R. pour Méso-NH)
+  - contribution à SURFEX à une date fixée par requête d'intégration (Pull-Request) avec mise à jour de la doc obligatoire
+  - la documentation est maintenant sur `GitHub <https://github.com/UMR-CNRM/SFXDOC>`_, et tout le monde peut contribuer
+
 
 Développement en cours de réflexion
   - ...
