@@ -41,10 +41,6 @@ Références
   - Object-oriented identification of coherent structures in large-eddy simulations: importance of downdrafts in stratocumulus [`Brient et al., 2019 <https://doi.org/10.1029/2018GL081499>`_]
   - Coherent subsiding structures in large eddy simulations of atmospheric boundary layers [`Brient et al., 2024 <https://doi.org/10.1002/qj.4625>`_]
 
-%Couvreux, F., F. Hourdin and C. Rio, 2010: ... Boundary Layer Meteorology. 134, Iss 3, 441-458 DOI
-%Brient F., Couvreux F, Villefranque N, Rio C, Honnert R, 2019: ... Geophysical Research Letters, 46, 1-11,
-%Brient F, Couvreux F, Rio C, Honnert R, 2024: ... QJRMS, 
-
 .. figure:: Snapshot-video-florent-brient.jpg
 
    `Link to the video <https://www.youtube.com/watch?v=8lpD8rd49wc>`_. 2D simulation of the IHOP Dry Convective Boundary Layer. Surface-emitted passive tracer concentration is in red, and concentration of passive tracer emitted at the domain-mean boundary-layer top is in green contours. The boundary layer top is shown with the horizontal dashed black line.
