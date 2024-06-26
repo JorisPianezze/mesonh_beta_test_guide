@@ -67,9 +67,7 @@ Développement en cours
   - ECRAD v 1.6.1 (actuellement opérationnel dans AROME et ARPEGE/IFS) sera branchée à MésoNH. ECRAD deviendra le schéma de rayonnement par défaut dans la 5.8 après validation.
   - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX.
   - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaine transformation du code source de Méso-NH pour produire du code qui tourne sur GPU.
-
-Développement en cours de réflexion
-  - plusieurs stratégies pour réduire encore la quantité de données dans les sorties fréquentes sans impacter négativement leur qualité. Par exemple, l'utilisation de seuils pour filtrer certains champs, de retirer une constante (i.e. pour des pressions ou des températures), de pouvoir sélectionner les paramètres de compression champ par champ...  Tout cela nécessitera des changements internes assez importants.
+  - Entrées/Sorties : plusieurs stratégies pour réduire encore la quantité de données dans les sorties fréquentes (*outputs*) sans impacter négativement leur qualité sont en cours de réflexion. Par exemple, l'utilisation de seuils pour filtrer certains champs, de retirer une constante (i.e. pour des pressions ou des températures), de pouvoir sélectionner les paramètres de compression champ par champ... Tout cela nécessitera des changements internes assez importants.
 
 .. note::
   Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions, `Philippe Wautelet <mailto:philippe.wautelet@aero.obs-mip.fr>`_ est preneur. Sinon, vous serez limités par son imagination et ses priorités du moment ;)
