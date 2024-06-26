@@ -37,10 +37,13 @@ Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à évit
 
 
 Références
-  - Couvreux, F., F. Hourdin and C. Rio, 2010: Resolved versus parametrized boundary-layer plumes. Part I: a parametrization-oriented conditional sampling in Large-Eddy simulations. Boundary Layer Meteorology. 134, Iss 3, 441-458 DOI 10.1007/s10546-009-9456-5
-  - Brient F., Couvreux F, Villefranque N, Rio C, Honnert R, 2019: Object-oriented identification of coherent structures in large-eddy simulations: importance of downdrafts in stratocumulus Geophysical Research Letters, 46, 1-11, https://doi.org/10.1029/2018GL081499
-  - Brient F, Couvreux F, Rio C, Honnert R, 2024: Coherent subsiding structures in large eddy simulations of atmospheric boundary layers,  QJRMS, https://doi.org/10.1002/qj.4625
+  - Resolved versus parametrized boundary-layer plumes. Part I: a parametrization-oriented conditional sampling in Large-Eddy simulations [`Couvreux et al., 2010<https://doi.org/10.1007/s10546-009-9456-5>`_] 
+  - Object-oriented identification of coherent structures in large-eddy simulations: importance of downdrafts in stratocumulus [`Brient et al., 2019<https://doi.org/10.1029/2018GL081499>`_]
+  - Coherent subsiding structures in large eddy simulations of atmospheric boundary layers [`Brient et al., 2024<https://doi.org/10.1002/qj.4625>`_]
 
+%Couvreux, F., F. Hourdin and C. Rio, 2010: ... Boundary Layer Meteorology. 134, Iss 3, 441-458 DOI
+%Brient F., Couvreux F, Villefranque N, Rio C, Honnert R, 2019: ... Geophysical Research Letters, 46, 1-11,
+%Brient F, Couvreux F, Rio C, Honnert R, 2024: ... QJRMS, 
 
 .. figure:: Snapshot-video-florent-brient.jpg
 
