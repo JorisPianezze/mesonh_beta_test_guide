@@ -56,8 +56,8 @@ Les nouvelles de l’équipe support
 
 Version 5.7.1 (en cycle de validation)
   - Les bugfixs des contributeurs sont en cours de test. Sortie au plus tard fin septembre 2024.
-  - en cours d'intégration : seules les données sur le domaine physique seront écrites par défaut. Les mailles non-physiques sur les bords sont automatiquement retirées. Il en est de même pour les couches d'absorptions supérieure et éventuellement inférieure. En cas de besoin, toutes ces mailles peuvent néanmoins être sauvegardées.
-  - en cours d'intégration : la possibilité de faire des écritures par boîtes (sous-domaines) dans les sorties fréquentes. Chaque boîte pourra contenir sa liste propre de champs à écrire en plus d'une liste commune.
+  - En cours d'intégration : seules les données sur le domaine physique seront écrites par défaut. Les mailles non-physiques sur les bords sont automatiquement retirées. Il en est de même pour les couches d'absorptions supérieure et éventuellement inférieure. En cas de besoin, toutes ces mailles peuvent néanmoins être sauvegardées.
+  - En cours d'intégration : la possibilité de faire des écritures par boîtes (sous-domaines) dans les sorties fréquentes. Chaque boîte pourra contenir sa liste propre de champs à écrire en plus d'une liste commune.
 
 Version 5.8
   Un appel à contribution sera lancée en novembre. Toutes les contributions prêtes pour décembre 2024, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises pour intégration.
@@ -78,17 +78,16 @@ Stage Méso-NH
   - Inscription par mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
 
 Autres nouvelles
-  - PHYEX: la physique externalisée se dote à présent d'un driver offline en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
-  - la demande récurrente de labellisation par l'INSU de notre code communautaire a été déposée en mai 2024 : parmi les nouveautés : une estimation de l’empreinte environnementale du service "code communautaire Méso-NH" (pas de la communauté utilisatrice) à 8 tonnes équivalent CO2 par an, et l’obligation du service à intégrer une infrastructure de recherche. Une demande a été faite auprès de CLIMERI-France.
-  - la dernière réunion du comité de pilotage a eu lieu le 20 juin 2024.
+  - PHYEX: la physique externalisée se dote à présent d'un pilote hors-ligne (*driver offline*) en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
+  - La demande récurrente de labellisation par l'INSU de notre code communautaire a été déposée en mai 2024 : parmi les nouveautés : une estimation de l’empreinte environnementale du service "code communautaire Méso-NH" (pas de la communauté utilisatrice) à 8 tonnes équivalent CO2 par an, et l’obligation du service à intégrer une infrastructure de recherche. Une demande a été faite auprès de CLIMERI-France.
+  - La dernière réunion du comité de pilotage a eu lieu le 20 juin 2024.
 
 Nouvelles de SURFEX
-  - SURFEX : la réunion annuelle du comité de pilotage a eu lieu le 27 mai 2024. Les présentations sont disponibles `ici <https://www.umr-cnrm.fr/surfex/spip.php?article55>`_
-A retenir parmi d'autres :
-  - le `futur d'Ecoclimap <https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_steeringcommittee-27052024-physio.pdf>`_
-  - migration vers GitHub, utilisation de fourches (*forks*) pour les responsables d'intégration (Quentin R. pour Méso-NH)
-  - contribution à SURFEX à une date fixée par requête d'intégration (*Pull-Request*) avec mise à jour de la doc obligatoire
-  - la documentation est maintenant sur `GitHub <https://github.com/UMR-CNRM/SFXDOC>`_, et tout le monde peut contribuer
+  - SURFEX : la réunion annuelle du comité de pilotage a eu lieu le 27 mai 2024. Les présentations sont disponibles `ici <https://www.umr-cnrm.fr/surfex/spip.php?article55>`_.
+  - Le `futur d'Ecoclimap <https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_steeringcommittee-27052024-physio.pdf>`_
+  - Migration vers GitHub, utilisation de fourches (*forks*) pour les responsables d'intégration (Quentin R. pour Méso-NH).
+  - Contribution à SURFEX à une date fixée par requête d'intégration (*Pull-Request*) avec mise à jour de la documentation obligatoire.
+  - La documentation est maintenant sur `GitHub <https://github.com/UMR-CNRM/SFXDOC>`_, et tout le monde peut y contribuer.
 
 
 Dernières publications utilisant Méso-NH
