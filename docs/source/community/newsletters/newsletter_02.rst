@@ -73,9 +73,9 @@ Développement en cours
   Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@aero.obs-mip.fr>`_ est preneur. Sinon, vous serez limités par son imagination et ses priorités du moment ;)
 
 Stage Méso-NH
-  Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
-  Date limite d'inscription : 1er novembre
-  Inscription par mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
+  - Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
+  - Date limite d'inscription : 1er novembre
+  - Inscription par mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
 
 Autres nouvelles
   - PHYEX: la physique externalisée se dote à présent d'un driver offline en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
