@@ -63,7 +63,7 @@ Version 5.8
   Un appel à contribution sera lancée en novembre. Toutes les contributions prêtes pour décembre 2024, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises pour intégration.
  
 Développement en cours
-  - Chimie/aérosols : un projet a commencé à restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. Le travail est en cours, les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les aer.
+  - Chimie/aérosols : un projet a commencé à restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. Le travail est en cours, les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les *aer*.
   - ECRAD v 1.6.1 (actuellement opérationnel dans AROME et ARPEGE/IFS) sera branchée à MésoNH. ECRAD deviendra le schéma de rayonnement par défaut dans la 5.8 après validation.
   - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX.
   - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaine transformation du code source de Méso-NH pour produire du code qui tourne sur GPU.
@@ -88,8 +88,8 @@ Nouvelles de SURFEX
   - SURFEX : la réunion annuelle du comité de pilotage a eu lieu le 27 mai 2024. Les présentations sont disponibles `ici <https://www.umr-cnrm.fr/surfex/spip.php?article55>`_
 A retenir parmi d'autres :
   - le `futur d'Ecoclimap <https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_steeringcommittee-27052024-physio.pdf>`_
-  - migration vers GitHub, utilisation de fourches (forks) pour les responsables d'intégration (Quentin R. pour Méso-NH)
-  - contribution à SURFEX à une date fixée par requête d'intégration (Pull-Request) avec mise à jour de la doc obligatoire
+  - migration vers GitHub, utilisation de fourches (*forks*) pour les responsables d'intégration (Quentin R. pour Méso-NH)
+  - contribution à SURFEX à une date fixée par requête d'intégration (*Pull-Request*) avec mise à jour de la doc obligatoire
   - la documentation est maintenant sur `GitHub <https://github.com/UMR-CNRM/SFXDOC>`_, et tout le monde peut contribuer
 
 
