@@ -70,7 +70,7 @@ Développement en cours
   - Entrées/Sorties : plusieurs stratégies pour réduire encore la quantité de données dans les sorties fréquentes (*outputs*) sans impacter négativement leur qualité sont en cours de réflexion. Par exemple, l'utilisation de seuils pour filtrer certains champs, de retirer une constante (i.e. pour des pressions ou des températures), de pouvoir sélectionner les paramètres de compression champ par champ... Tout cela nécessitera des changements internes assez importants.
 
 .. note::
-  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions, `Philippe Wautelet <mailto:philippe.wautelet@aero.obs-mip.fr>`_ est preneur. Sinon, vous serez limités par son imagination et ses priorités du moment ;)
+  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@aero.obs-mip.fr>`_ est preneur. Sinon, vous serez limités par son imagination et ses priorités du moment ;)
 
 Stage Méso-NH
   Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
