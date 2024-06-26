@@ -56,19 +56,23 @@ Les nouvelles de l’équipe support
 
 Version 5.7.1 (en cycle de validation)
   Les bugfixs des contributeurs sont en cours de test. Sortie au plus tard fin septembre 2024.
-
-
-  - La version 5.7 ... 
-  - A noter également : ...
+  - développement I/O en cours d'intégration : seules les données sur le domaine physique seront écrites par défaut. Les mailles non-physiques sur les bords sont automatiquement retirées. Il en est de même pour les couches d'absorptions supérieure et éventuellement inférieure. En cas de besoin, toutes ces mailles peuvent néanmoins être sauvegardées.
+  - développement I/O en cours d'intégration : la possibilité de faire des écritures par boîtes (sous-domaines) dans les sorties fréquentes. Chaque boîte pourra contenir sa liste propre de champs à écrire en plus d'une liste commune.
 
 Version 5.8
-  Un appel à contribution sera lancée en novembre. Toutes les contributions prêtes, c'est-à-dire testées et livrées avec un (nouveau) cas test pour décembre 2024 seront prises pour intégration.
+  Un appel à contribution sera lancée en novembre. Toutes les contributions prêtes pour décembre 2024, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises pour intégration.
  
 Développement en cours
   - Chimie/aérosols : un projet a commencé à restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. Le travail est en cours, les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les aer.
   - ECRAD v 1.6.1 (actuellement opérationnel dans AROME et ARPEGE/IFS) sera branchée à MésoNH. ECRAD deviendra le schéma de rayonnement par défaut dans la 5.8 après validation.
   - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX.
   - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaine transformation du code source de Méso-NH pour produire du code qui tourne sur GPU.
+
+Développement en cours de réflexion
+  - plusieurs stratégies pour réduire encore la quantité de données dans les sorties fréquentes sans impacter négativement leur qualité. Par exemple, l'utilisation de seuils pour filtrer certains champs, de retirer une constante (i.e. pour des pressions ou des températures), de pouvoir sélectionner les paramètres de compression champ par champ...  Tout cela nécessitera des changements internes assez importants.
+
+.. note::
+  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions, `Philippe Wautelet <mailto:philippe.wautelet@aero.obs-mip.fr>`_ est preneur. Sinon, vous serez limités par son imagination et ses priorités du moment ;)
 
 Stage Méso-NH
   Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
@@ -77,8 +81,8 @@ Stage Méso-NH
 
 Autres nouvelles
   - PHYEX: la physique externalisée se dote à présent d'un driver offline en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
+  - la demande récurrente de labellisation par l'INSU de notre code communautaire a été déposée en mai 2024 : parmi les nouveautés : une estimation de l’empreinte environnementale du service "code communautaire Méso-NH" (pas de la communauté utilisatrice) à 8 tonnes équivalent CO2 par an, et l’obligation du service à intégrer une infrastructure de recherche. Une demande a été faite auprès de CLIMERI-France.
   - la dernière réunion du comité de pilotage a eu lieu le 20 juin 2024.
-
 
 Nouvelles de SURFEX
   - SURFEX : la réunion annuelle du comité de pilotage a eu lieu le 27 mai 2024. Les présentations sont disponibles `ici <https://www.umr-cnrm.fr/surfex/spip.php?article55>`_
@@ -87,13 +91,6 @@ A retenir parmi d'autres :
   - migration vers GitHub, utilisation de fourches (forks) pour les responsables d'intégration (Quentin R. pour Méso-NH)
   - contribution à SURFEX à une date fixée par requête d'intégration (Pull-Request) avec mise à jour de la doc obligatoire
   - la documentation est maintenant sur `GitHub <https://github.com/UMR-CNRM/SFXDOC>`_, et tout le monde peut contribuer
-
-
-Développement en cours de réflexion
-  - ...
-
-Autres nouvelles
-  - ...
 
 
 Dernières publications utilisant Méso-NH
