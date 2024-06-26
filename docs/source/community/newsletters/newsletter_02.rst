@@ -55,9 +55,9 @@ Les nouvelles de l’équipe support
 ************************************
 
 Version 5.7.1 (en cycle de validation)
-  Les bugfixs des contributeurs sont en cours de test. Sortie au plus tard fin septembre 2024.
-  - développement I/O en cours d'intégration : seules les données sur le domaine physique seront écrites par défaut. Les mailles non-physiques sur les bords sont automatiquement retirées. Il en est de même pour les couches d'absorptions supérieure et éventuellement inférieure. En cas de besoin, toutes ces mailles peuvent néanmoins être sauvegardées.
-  - développement I/O en cours d'intégration : la possibilité de faire des écritures par boîtes (sous-domaines) dans les sorties fréquentes. Chaque boîte pourra contenir sa liste propre de champs à écrire en plus d'une liste commune.
+  - Les bugfixs des contributeurs sont en cours de test. Sortie au plus tard fin septembre 2024.
+  - en cours d'intégration : seules les données sur le domaine physique seront écrites par défaut. Les mailles non-physiques sur les bords sont automatiquement retirées. Il en est de même pour les couches d'absorptions supérieure et éventuellement inférieure. En cas de besoin, toutes ces mailles peuvent néanmoins être sauvegardées.
+  - en cours d'intégration : la possibilité de faire des écritures par boîtes (sous-domaines) dans les sorties fréquentes. Chaque boîte pourra contenir sa liste propre de champs à écrire en plus d'une liste commune.
 
 Version 5.8
   Un appel à contribution sera lancée en novembre. Toutes les contributions prêtes pour décembre 2024, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises pour intégration.
