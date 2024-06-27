@@ -107,7 +107,7 @@ Fire meteorology
   - Triggering pyro-convection in a high-resolution coupled fire–atmosphere simulation [`Couto et al., 2024 <https://doi.org/10.3390/fire7030092>`_]
   - Exploring the atmospheric conditions increasing fire danger in the Iberian Peninsula [`Purificação et al., 2024 <https://doi.org/10.1002/qj.4776>`_]
 
-Microphysics:
+Microphysics
   - A full two-moment cloud microphysical scheme for the mesoscale non-hydrostatic model Meso-NH v5-6 [`Taufour et al., 2024 <https://doi.org/10.5194/egusphere-2024-946>`_]
 
 Urban meteorology
@@ -115,7 +115,7 @@ Urban meteorology
   - The heat and health in cities (H2C) project to support the prevention of extreme heat in cities [`Lemonsu et al., 2024 <https://doi.org/10.1016/j.cliser.2024.100472>`_]
 
 
-PhD thesis:
+PhD theses
   - De l'impact des aérosols sur le cycle de vie des nuages stratiformes au sud de l'Afrique de l'Ouest [`Delbeke <https://theses.fr/s295025>`_, Université de Toulouse, 2024]
   - Impact des surfaces urbanisées sur la convection en région parisienne : observations et simulations numériques hectométriques [`Forster <https://theses.fr/s302779>`_, Université de Toulouse, 2024]
 
