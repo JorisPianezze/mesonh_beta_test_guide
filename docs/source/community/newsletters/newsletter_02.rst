@@ -32,7 +32,7 @@ Quelles recommandations ferais-tu aux utilisateurs.trices ?
   Il est important de vérifier que les valeurs par défaut conviennent à l’utilisateur notamment  l’altitude d’émission sous la base et au-dessus du sommet des nuages pour les traceurs 2 et 3, le taux de décroissance et le seuil contrôlant l’échantillonnage conditionnel. Pour plus de détails, n’hesitez pas à `me contacter <mailto:fleur.couvreux@meteo.fr>`_ ou à vous reporter à l'article `Couvreux et al. (2010) <https://doi.org/10.1007/s10546-009-9456-5>`_.
 
 Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à éviter ? 
-  Attention à la mise en place des diagnostics en cas d’hétérogénéités de surface (ou de relief), l’émission des traceurs fonctionne tel quel et peut déjà être utilisé pour identifier les structures mais les calculs de diagnostics statistiques de l’analyse conditionnelle sont à adapter. Il est sans doute plus adapté dans ce cas de faire une analyse des champs 3D à partir des fichiers *OUT* plutôt que de modifier l’analyse conditionnelle. Pour cela, il faut tout d’abord bien s’assurer que les concentrations des traceurs sont sorties dans les fichiers OUT (cf. la procédure pour rajouter des variables dans les sorties fréquentes, à appliquer à SVT). A posteriori, il est important de s'assurer d'avoir des statistiques spatiales ou temporelles qui convergent bien. Vous pouvez contacter Nathan Philippot ou Hugo Jacquet qui utilisent les traceurs  en présence d’hétérogénéités de surface respectivement de relief ou de température de surface de la mer.
+  Attention à la mise en place des diagnostics en cas d’hétérogénéités de surface (ou de relief), l’émission des traceurs fonctionne telle quelle et peut déjà être utilisée pour identifier les structures mais les calculs de diagnostics statistiques de l’analyse conditionnelle sont à adapter. Il est sans doute plus adapté dans ce cas de faire une analyse des champs 3D à partir des fichiers *OUT* plutôt que de modifier l’analyse conditionnelle. Pour cela, il faut tout d’abord bien s’assurer que les concentrations des traceurs sont sorties dans les fichiers OUT (cf. la procédure pour rajouter des variables dans les sorties fréquentes, à appliquer à SVT). A posteriori, il est important de s'assurer d'avoir des statistiques spatiales ou temporelles qui convergent bien. Vous pouvez contacter Nathan Philippot ou Hugo Jacquet qui utilisent les traceurs  en présence d’hétérogénéités de surface respectivement de relief ou de température de surface de la mer.
 
 
 
@@ -62,14 +62,14 @@ Version 5.8
   Un appel à contribution sera lancée en novembre. Toutes les contributions prêtes pour décembre 2024, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises pour intégration.
  
 Développement en cours
-  - Chimie/aérosols : un projet a commencé à restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. Le travail est en cours, les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les *aer*.
+  - Chimie/aérosols : le projet ACCALMIE a commencé à restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. La bibliothèque s'appellera ACLIB (Aerosols and Chemistry LIBrary). Le travail est en cours, les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les *aer*.
   - ECRAD v 1.6.1 (actuellement opérationnel dans AROME et ARPEGE/IFS) sera branchée à MésoNH. ECRAD deviendra le schéma de rayonnement par défaut dans la 5.8 après validation.
   - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX.
-  - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaine transformation du code source de Méso-NH pour produire du code qui tourne sur GPU.
+  - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaines transformations du code source de Méso-NH pour produire du code qui tourne sur GPU.
   - Entrées/Sorties : plusieurs stratégies pour réduire encore la quantité de données dans les sorties fréquentes (*outputs*) sans impacter négativement leur qualité sont en cours de réflexion. Par exemple, l'utilisation de seuils pour filtrer certains champs, de retirer une constante (i.e. pour des pressions ou des températures), de pouvoir sélectionner les paramètres de compression champ par champ... Tout cela nécessitera des changements internes assez importants.
 
 .. note::
-  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@aero.obs-mip.fr>`_ est preneur. Sinon, vous serez limités par son imagination et ses priorités du moment ;)
+  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est preneur. Sinon, vous serez limités par son imagination et ses priorités du moment ;)
 
 Stage Méso-NH
   - Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
@@ -78,15 +78,13 @@ Stage Méso-NH
 
 Autres nouvelles
   - PHYEX: la physique externalisée se dote à présent d'un pilote hors-ligne (*driver offline*) en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
-  - La demande récurrente de labellisation par l'INSU de notre code communautaire a été déposée en mai 2024 : parmi les nouveautés : une estimation de l’empreinte environnementale du service "code communautaire Méso-NH" (pas de la communauté utilisatrice) à 8 tonnes équivalent CO2 par an, et l’obligation du service à intégrer une infrastructure de recherche. Une demande a été faite auprès de CLIMERI-France.
-  - La dernière réunion du comité de pilotage a eu lieu le 20 juin 2024.
+  - La demande récurrente de labellisation par l'INSU de notre code communautaire a été déposée en mai 2024, parmi les nouveautés : une estimation de l’empreinte environnementale du service "code communautaire Méso-NH" (pas de la communauté utilisatrice) à 8 tonnes équivalent CO2 par an, et l’obligation du service à intégrer une infrastructure de recherche. Une demande a été faite auprès de CLIMERI-France.
 
 Nouvelles de SURFEX
   - SURFEX : la réunion annuelle du comité de pilotage a eu lieu le 27 mai 2024. Les présentations sont disponibles `ici <https://www.umr-cnrm.fr/surfex/spip.php?article55>`_.
   - Le `futur d'Ecoclimap <https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_steeringcommittee-27052024-physio.pdf>`_
   - Migration vers GitHub, utilisation de fourches (*forks*) pour les responsables d'intégration (Quentin R. pour Méso-NH).
   - Contribution à SURFEX à une date fixée par requête d'intégration (*Pull-Request*) avec mise à jour de la documentation obligatoire.
-  - La documentation est maintenant sur `GitHub <https://github.com/UMR-CNRM/SFXDOC>`_, et tout le monde peut y contribuer.
 
 
 Dernières publications utilisant Méso-NH
