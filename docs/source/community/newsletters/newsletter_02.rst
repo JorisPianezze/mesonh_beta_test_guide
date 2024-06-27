@@ -95,32 +95,29 @@ Dernières publications utilisant Méso-NH
    A changer entièrement, inclure poster de Hugo
 
 Air-sea interactions
-  - The wave-age-dependent stress parameterisation (WASP) for momentum and heat turbulent fluxes at sea in SURFEX v8.1 [`Bouin et al., 2024 <https://doi.org/10.5194/gmd-17-117-2024>`_]
-  - A numerical study of ocean surface layer response to atmospheric shallow convection: impact of cloud shading, rain and cold pool [`Brilouet et al., 2024 <https://doi.org/10.1002/qj.4651>`_]
+  - Study of the atmospheric transport of sea-spray aerosols in a coastal zone using a high-resolution model [`Limoges et al., 2024 <https://doi.org/10.3390/atmos15060702>`_]
+  -  The crucial representation of deep convection for the cyclogenesis of medicane Ianos [`Pantillon et al., 2024 <https://doi.org/10.5194/egusphere-2024-1105>`_]
 
 Boundary layer processes
-  - Coherent subsiding structures in large eddy simulations of atmospheric boundary layers Brient [`Brient et al., 2024 <https://doi.org/10.1002/qj.4625>`_]
-  - Breakdown of the velocity and turbulence in the wake of a wind turbine – Part 1: Large-eddy-simulation study [`Jézéquel et al., 2024a <https://doi.org/10.5194/wes-9-97-2024>`_]
-  - Breakdown of the velocity and turbulence in the wake of a wind turbine – Part 2: Analytical modeling [`Jézéquel et al., 2024b <https://doi.org/10.5194/wes-9-119-2024>`_]
-  - Impact of surface turbulent fluxes on the formation of convective rolls in a Mediterranean windstorm [`Lfarh et al., 2024 <https://doi.org/10.22541/essoar.169774560.07703883/v1>`_]
-  - The Marinada fall wind in the eastern Ebro sub-basin: Physical mechanisms and role of the sea, orography and irrigation [`Lunel et al., 2024 <http://dx.doi.org/10.5194/egusphere-2024-495>`_]
+  - Impact of surface turbulent fluxes on the formation of roll vortices in a Mediterranean windstorm [`Lfarh et al., 2024 <https://doi.org/10.22541/essoar.169774560.07703883/v1>`_]
+  - The Pyrenean Platform for Observation of the Atmosphere: Site, long-term dataset and science [`Lothon et al., 2024 <https://doi.org/10.5194/amt-2024-10>`_]
+  - Irrigation strongly influences near-surface conditions and induces breeze circulation: Observational and model-based evidence [`Lunel et al., 2024 <https://doi.org/10.1002/qj.4736>`_]
 
-Lightnings and Fire meteorology
-  - Numerical investigation of the Pedrógão Grande pyrocumulonimbus using a fire to atmosphere coupled model [`Couto et al., 2024 <https://doi.org/10.1016/j.atmosres.2024.107223>`_]
-  - 3D Monte-Carlo simulations of lightning optical waveforms and images observable by on-board operational instruments [`Rimboud et al., 2024 <http://dx.doi.org/10.1016/j.jqsrt.2024.108950>`_]
+Fire meteorology
+  - Triggering pyro-convection in a high-resolution coupled fire–atmosphere simulation [`Couto et al., 2024 <https://doi.org/10.3390/fire7030092>`_]
+  - Exploring the atmospheric conditions increasing fire danger in the Iberian Peninsula [`Purificação et al., 2024 <https://doi.org/10.1002/qj.4776>`_]
 
-Aerosols and their interactions with clouds and dynamics:
-  - Fractional solubility of iron in mineral dust aerosols over coastal Namibia: a link to marine biogenic emissions? [`Desboeufs et al., 2024 <https://doi.org/10.5194/acp-24-1525-2024>`_]
-  - Cyclogenesis in the tropical Atlantic: First scientific highlights from the Clouds-Atmospheric Dynamics-Dust Interactions in West Africa (CADDIWA) field campaign [`Flamant et al., 2024a <https://doi.org/10.1175/BAMS-D-23-0230.1>`_]
-  - The radiative impact of biomass burning aerosols on dust emissions over Namibia and the long-range transport of smoke observed during AEROCLO-sA [`Flamant et al., 2024b <https://doi.org/10.5194/egusphere-2023-2371>`_]
+Microphysics:
+  - A full two-moment cloud microphysical scheme for the mesoscale non-hydrostatic model Meso-NH v5-6 [`Taufour et al., 2024 <https://doi.org/10.5194/egusphere-2024-946>`_]
 
-Extreme precipitations
-  - Impact of urban land use on mean and heavy rainfall during the Indian summer monsoon [`Falga and Wang, 2024 <https://doi.org/10.5194/acp-24-631-2024>`_]
+Urban meteorology
+  - Urban influence on convective precipitation in the Paris region: Hectometric ensemble simulations in a case study [`Forster et al., 2024 <https://doi.org/10.1002/qj.4749>`_]
+  - The heat and health in cities (H2C) project to support the prevention of extreme heat in cities [`Lemonsu et al., 2024 <https://doi.org/10.1016/j.cliser.2024.100472>`_]
 
-Chemistry and atmospheric composition:
-  - Measurement Report: Bio-physicochemistry of tropical clouds at Maïdo (Réunion Island, Indian Ocean): overview of results from the BIO-MAÏDO campaign [`Leriche et al., 2024 <https://doi.org/10.5194/egusphere-2023-1362>`_]
-  - Measurement Report: Insights into the chemical composition of molecular clusters present in the free troposphere over the Southern Indian Ocean: observations from the Maïdo observatory (2150 m a.s.l., Reunion Island) [`Salignat et al., 2024 <https://doi.org/10.5194/acp-24-3785-2024>`_]
 
+PhD thesis:
+  - De l'impact des aérosols sur le cycle de vie des nuages stratiformes au sud de l'Afrique de l'Ouest [`Delbeke <https://theses.fr/s295025>`_, Université de Toulouse, 2024]
+  - Impact des surfaces urbanisées sur la convection en région parisienne : observations et simulations numériques hectométriques [`Forster <https://theses.fr/s302779>`_, Université de Toulouse, 2024]
 
 
 
