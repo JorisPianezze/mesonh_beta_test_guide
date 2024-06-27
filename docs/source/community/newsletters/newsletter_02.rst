@@ -90,10 +90,6 @@ Nouvelles de SURFEX
 Dernières publications utilisant Méso-NH
 ****************************************************************************************
 
-.. warning::
-
-   A changer entièrement, inclure poster de Hugo
-
 Boundary layer processes & Complex terrain meteorology
   - Impact of surface turbulent fluxes on the formation of roll vortices in a Mediterranean windstorm [`Lfarh et al., 2024 <https://doi.org/10.22541/essoar.169774560.07703883/v1>`_]
   - The Pyrenean Platform for Observation of the Atmosphere: Site, long-term dataset and science [`Lothon et al., 2024 <https://doi.org/10.5194/amt-2024-10>`_]
