@@ -94,7 +94,7 @@ Dernières publications utilisant Méso-NH
 
    A changer entièrement, inclure poster de Hugo
 
-Boundary layer processes and Complex terrain meteorology
+Boundary layer processes & Complex terrain meteorology
   - Impact of surface turbulent fluxes on the formation of roll vortices in a Mediterranean windstorm [`Lfarh et al., 2024 <https://doi.org/10.22541/essoar.169774560.07703883/v1>`_]
   - The Pyrenean Platform for Observation of the Atmosphere: Site, long-term dataset and science [`Lothon et al., 2024 <https://doi.org/10.5194/amt-2024-10>`_]
   - Irrigation strongly influences near-surface conditions and induces breeze circulation: Observational and model-based evidence [`Lunel et al., 2024 <https://doi.org/10.1002/qj.4736>`_]
@@ -106,7 +106,7 @@ Fire meteorology
 Microphysics
   - A full two-moment cloud microphysical scheme for the mesoscale non-hydrostatic model Meso-NH v5-6 [`Taufour et al., 2024 <https://doi.org/10.5194/egusphere-2024-946>`_]
 
-Sea spray and Cyclogenesis over Mediterranean sea
+Sea spray & Cyclogenesis over Mediterranean sea
   - Study of the atmospheric transport of sea-spray aerosols in a coastal zone using a high-resolution model [`Limoges et al., 2024 <https://doi.org/10.3390/atmos15060702>`_]
   -  The crucial representation of deep convection for the cyclogenesis of medicane Ianos [`Pantillon et al., 2024 <https://doi.org/10.5194/egusphere-2024-1105>`_]
 
