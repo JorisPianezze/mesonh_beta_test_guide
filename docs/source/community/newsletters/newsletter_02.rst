@@ -43,10 +43,9 @@ Références
 
 .. figure:: Snapshot-video-florent-brient.jpg
 
-   |location_link|. 2D simulation of the IHOP Dry Convective Boundary Layer. Surface-emitted passive tracer concentration is in red, and concentration of passive tracer emitted at the domain-mean boundary-layer top is in green contours. The boundary layer top is shown with the horizontal dashed black line.
+   |video_link|. 2D simulation of the IHOP Dry Convective Boundary Layer. Surface-emitted passive tracer concentration is in red, and concentration of passive tracer emitted at the domain-mean boundary-layer top is in green contours. The boundary layer top is shown with the horizontal dashed black line.
 
-.. |location_link| raw:: html
-
+.. |video_link| raw:: html
    <a href="https://www.youtube.com/watch?v=8lpD8rd49wc" target="_blank">Link to the video</a>
 
 
