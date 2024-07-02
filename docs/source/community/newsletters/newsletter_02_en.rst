@@ -77,7 +77,7 @@ Current developments
   If you have any needs, ideas, improvements to make, bugs to fix or suggestions concerning inputs/outputs, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ is happy to help. Otherwise, you'll be limited by his imagination and current priorities ;)
 
 Meso-NH course
-  - The next course will take place from 12 to 15 November, 2024. Schedule `here <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`
+  - The next course will take place from 12 to 15 November, 2024. Schedule `here <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_.
   - Registration deadline: 1st November
   - Registration by mail to `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
 
