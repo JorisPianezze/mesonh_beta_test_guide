@@ -50,9 +50,6 @@ Références
    <a href="https://www.youtube.com/watch?v=8lpD8rd49wc" target="_blank">Link to the video</a>
 
 
-   `Link to the video <https://www.youtube.com/watch?v=8lpD8rd49wc>`_. 2D simulation of the IHOP Dry Convective Boundary Layer. Surface-emitted passive tracer concentration is in red, and concentration of passive tracer emitted at the domain-mean boundary-layer top is in green contours. The boundary layer top is shown with the horizontal dashed black line.
-
-
 .. note::
 
    Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@aero.obs-mip.fr>`_.
