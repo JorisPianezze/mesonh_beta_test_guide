@@ -81,7 +81,7 @@ Stage Méso-NH
   - Inscription par mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
 
 Autres nouvelles
-  - PHYEX: la physique externalisée se dote à présent d'un pilote hors-ligne (*driver offline*) en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
+  - PHYEX: la physique externalisée se dote à présent d'un pilote logiciel hors-ligne (*driver offline*) en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
   - La demande récurrente de labellisation par l'INSU de notre code communautaire a été déposée en mai 2024, parmi les nouveautés : une estimation de l’empreinte environnementale du service "code communautaire Méso-NH" (pas de la communauté utilisatrice) à 8 tonnes équivalent CO2 par an, et l’obligation du service à intégrer une infrastructure de recherche. Une demande a été faite auprès de CLIMERI-France.
 
 Nouvelles de SURFEX
