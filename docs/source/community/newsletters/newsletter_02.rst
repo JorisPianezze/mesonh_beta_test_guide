@@ -43,7 +43,7 @@ Références
 
 .. figure:: Snapshot-video-florent-brient.jpg
 
-   |location_link|. 2D simulation of the IHOP Dry Convective Boundary Layer. Surface-emitted passive tracer concentration is in red, and concentration of passive tracer emitted at the domain-mean boundary-layer top is in green contours. The boundary layer top is shown with the horizontal dashed black line.
+   |location_link|. 2D simulation of the diurnal deepening of a continental boundary layer: the IHOP Dry Convective Boundary Layer. Surface-emitted passive tracer concentration is in red, and concentration of passive tracer emitted at the domain-mean boundary-layer top is in green contours. The boundary layer top is shown with the horizontal dashed black line.
 
 .. |location_link| raw:: html
 
