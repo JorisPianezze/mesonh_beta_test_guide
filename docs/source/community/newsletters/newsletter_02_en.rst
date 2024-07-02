@@ -73,6 +73,7 @@ Current developments
   - Inputs/Outputs: several strategies for further reducing the amount of data in frequent outputs without negatively impacting their quality are currently being developed. For example, using thresholds to filter certain fields, removing a constant (e.g. for pressures or temperatures), being able to select compression parameters field by field... All this will require some fairly significant internal changes.
 
 ... note::
+
   If you have any needs, ideas, improvements to make, bugs to fix or suggestions concerning inputs/outputs, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ is happy to help. Otherwise, you'll be limited by his imagination and current priorities ;)
 
 Meso-NH course
