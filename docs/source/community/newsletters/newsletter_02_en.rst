@@ -15,7 +15,7 @@ Interview with `Fleur Couvreux <mailto:fleur.couvreux@meteo.fr>`_ (CNRM)
 .. image:: photo_fc.jpg
   :width: 450
 
-Fleur, you have developed the option of including passive radioactive decay tracers in Meso-NH. Could you summarize what this option does?
+Fleur, you have developed the option of including passive radioactive-decay tracers in Meso-NH. Could you summarize what this option does?
   This option was initially developed to identify coherent structures, i.e. thermals, the rising plumes that contribute strongly to vertical transport in convective boundary layers, in LES simulations. Once the structures have been identified, their contribution to the vertical transport of heat, moisture and momentum can be quantified.
 
   Up to three passive tracers can be activated without modifying the code. The 1st is emitted with a constant surface flux, the 2nd is emitted just below the cloud base, and has been implemented to estimate exchanges between the sub-cloud layer and the cloud interior, or even the transition layer. The 3rd is emitted just above the mean cloud top and is used to estimate exchanges at the cloud top. If the sky is clear, you can choose to emit tracer 3 at the top of the boundary layer, and choose how to determine this boundary layer height [#namelist]_. All three tracers undergo radioactive decay to avoid an accumulation of their concentration, with a lifetime set at 15 min by default but which can be modified in namelist. 
