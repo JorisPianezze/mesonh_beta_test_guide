@@ -13,7 +13,7 @@ Entretien avec `Fleur Couvreux <mailto:fleur.couvreux@meteo.fr>`_ (CNRM)
 **************************************************************************
 
 .. image:: photo_fc.jpg
-  :width: 300
+  :width: 450
 
 Fleur, tu as développé la possibilité d'inclure des traceurs passifs à décroissance radioactive dans Méso-NH. Pourrais-tu résumer ce que fait cette option ?
   Cette option a initialement été développée pour identifier les structures cohérentes, à savoir les thermiques, ces panaches ascendants qui contribuent fortement au transport vertical dans les couches limites convectives, dans des simulations LES. Une fois les structures identifiées on peut quantifier leur contribution au transport vertical de chaleur, d’humidité et de quantité de mouvement.
