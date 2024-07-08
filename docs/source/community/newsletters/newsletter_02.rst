@@ -12,7 +12,7 @@ Voici la 2ème infolettre de notre communauté Méso-NH. Vous y trouverez un ent
 Entretien avec `Fleur Couvreux <mailto:fleur.couvreux@meteo.fr>`_ (CNRM)
 **************************************************************************
 
-.. image:: photo_fleur_couvreux.jpg
+.. image:: photo_fc.jpg
   :width: 300
 
 Fleur, tu as développé la possibilité d'inclure des traceurs passifs à décroissance radioactive dans Méso-NH. Pourrais-tu résumer ce que fait cette option ?
