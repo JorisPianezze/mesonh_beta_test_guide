@@ -60,7 +60,7 @@ News from the support team
 Version 5.7.1 (in validation cycle)
   - Contributors' bugfixes are being tested. Release no later than end of September 2024.
   - Integration in progress: only data on the physical domain will be written by default. Non-physical meshes on edges are automatically removed. The same applies to the top and bottom absorption layers. If required, however, all these meshes can be saved.
-  - In the course of integration: the possibility of making entries by boxes (sub-areas) in the frequent outputs. Each box will be able to contain its own list of fields to be written to, in addition to a common list.
+  - Integration in progress: the possibility of making entries by boxes (sub-areas) in the frequent outputs. Each box will be able to contain its own list of fields to be written to, in addition to a common list.
 
 Version 5.8
   A call for contributions will be launched in November. All contributions ready by December 2024, i.e. tested and delivered with a (new) test case, will be considered for integration.
