@@ -12,8 +12,8 @@ This is the 2nd newsletter from our Meso-NH community. You'll find an interview 
 Interview with `Fleur Couvreux <mailto:fleur.couvreux@meteo.fr>`_ (CNRM)
 **************************************************************************
 
-.. image:: photo_fleur_couvreux.jpg
-  :width: 300
+.. image:: photo_fc.jpg
+  :width: 450
 
 Fleur, you have developed the option of including passive radioactive decay tracers in Meso-NH. Could you summarize what this option does?
   This option was initially developed to identify coherent structures, i.e. thermals, the rising plumes that contribute strongly to vertical transport in convective boundary layers, in LES simulations. Once the structures have been identified, their contribution to the vertical transport of heat, moisture and momentum can be quantified.
