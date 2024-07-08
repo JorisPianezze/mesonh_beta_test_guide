@@ -1,7 +1,7 @@
 Infolettre #02
 ================================================
 
-**3 juillet 2024.** Version française, English version `here <newsletter_01_english.html>`_.
+**8 juillet 2024.** Version française, English version `here <newsletter_02_english.html>`_.
 
  
 
