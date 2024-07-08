@@ -1,7 +1,7 @@
 Newsletter #02
 ================================================
 
-**3 July 2024.** English version, version française `ici <newsletter_02.html>`_.
+**8 July 2024.** English version, version française `ici <newsletter_02.html>`_.
 
  
 
