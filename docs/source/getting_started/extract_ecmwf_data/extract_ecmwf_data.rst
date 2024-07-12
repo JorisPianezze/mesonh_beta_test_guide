@@ -227,6 +227,22 @@ For CNRM's users
 
 An output is available in this folder with an "out" suffix showing it works: /cnrm/ville/USERS/wurtzj/EXTRACT_ECMWF/JOB_STATUS/REQUEST_WURTZJ.json_out
 
+Known issues 
+************************************
+
+If you encounter this error during PREP_REAL_CASE :
+
+.. code-block:: bash
+
+   ECCODES ERROR: grib_accessor_data_ccsds_packing: CCSDS support not enabled. Please rebuild with -DENABLE_AEC=ON (Adaptive Entropy Coding library)
+   ECCODES ERROR : get: values Functionality not enabled
+
+this means that you are using an ECCODES version < 2.30.0, which is not able to handle CCSDS compressed fields. In this case you need :
+
+* either recompile Meso-NH with an ECCODES version > 2.30.0
+
+* or add the packing=simple option to the ECMWF API request
+
 ERA Interim
 ---------------------------------------------------------
 
