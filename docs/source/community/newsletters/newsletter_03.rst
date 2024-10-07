@@ -46,6 +46,7 @@ Quelles sont les limites pour l'instant de ce portage de Méso-NH ? les perspect
 
 .. note::
 
+   Une version longue du début de l'entretien, avec plus de détails, est disponible `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_03_extended.html>`_
    Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@univ-tlse3.fr>`_.
 
     
@@ -63,7 +64,7 @@ Version 5.8
 Développements en cours et récents
   - Chimie/aérosols : le projet ACCALMIE continue de restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. La bibliothèque ACLIB (Aerosols and Chemistry LIBrary) est en cours de montage. Les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les *aer*.
   - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX. La turbulence a été portée. A présent c'est au tour de ICE3. La branche compile sur Belenos !
-  - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaines transformations du code source de Méso-NH dans le but de produire du code qui tourne sur GPU.
+  - Outils : ajouts de fonctionnalités dans la librairie `Python Fortran Tool <https://github.com/UMR-CNRM/pyft>`_ pour gérer automatiquement certaines transformations du code source de Méso-NH dans le but de produire du code qui tourne sur GPU.
   - Forge logicielle : l'hébergeur de dépôt git koda.cnrs a été testé. Migration le 15 octobre. Les branches sur MNH-ladev seront supprimées sauf si une demande contraire est envoyée au support pour une branche particulière.
   - Site vitrine : démarches identifiées pour le nom de domaine et l'hébergement.
   - Couplage : compilation parallèle de Meso-NH débuggée quand on active OASISAUTO.
