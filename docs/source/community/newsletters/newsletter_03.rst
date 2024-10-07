@@ -71,7 +71,7 @@ Développements en cours et récents
 Ménage des fichiers en sortie
   - les fichiers .des inutiles (car vides) ne seront plus écrits. Ça concerne principalement les fichiers PGD et issus de DIAG.
   - les fichiers de statistiques détaillées des performances du solveur de pression ne sont plus écrits. Si besoin, il suffit de changer le parameter GFULLSTAT_PRESS_SLV dans modeln.f90 pour les regénérer.
-  - le fichier file_for_xtransfer a également disparu (ainsi que quelques morceaux de code devenus inutiles)
+  - le fichier file_for_xtransfer a également disparu (ainsi que quelques morceaux de code devenus inutiles).
   - le fichier OUTPUT_LISTING0 est conservé sauf s'il est vide (Méso-NH le détruit automatiquement à la fin ; il continuera d'exister pendant l'exécution et en cas de plantage). Cela concerne essentiellement l'exécutable MESONH et si des sorties complémentaires dans ce fichier ne sont pas faites (il y en a dans quelques endroits du code).
 
 .. note::
