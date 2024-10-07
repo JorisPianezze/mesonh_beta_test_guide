@@ -31,7 +31,7 @@ Y a-t-il des situations qui se prêtent particulièrement bien à l'utilisation 
   Les GPU permettent aussi de réaliser un grand nombre de simulations simultanées sur des configurations plus petites. Par exemple, sur Adastra, nous avons simulé 350 jours de météo en Corse avec une grille de 256x256x70 points à 1 km de résolution, en utilisant 1 nœud GPU par simulation. Grâce à cette approche, l’ensemble des simulations a été réalisé en seulement 3 jours.
 
 Quelles recommandations ferais-tu aux utilisateur.trices qui souhaiteraient simuler sur GPU ?
-  Il faut se rapprocher de nous, Support Méso-NH, pour mettre le pied à l'étrier sur GPU. Au niveau utilisation du code il n'y a pas de différence fondamentale pour quelqu'un qui a déjà fait tourner Méso-NH sur un supercalculateur à base de CPU. La version GPU actuelle est basé sur MNH-5-5-1, donc il faut utiliser cette version d'abord sur CPU pour mettre au point et calibrer ses simulations, et ensuite passer sur GPU.
+  Il faut se rapprocher de nous, Support Méso-NH, pour mettre le pied à l'étrier sur GPU. Au niveau utilisation du code il n'y a pas de différence fondamentale pour quelqu'un qui a déjà fait tourner Méso-NH sur un supercalculateur à base de CPU. La version GPU actuelle est basée sur MNH-5-5-1, donc il faut utiliser cette version d'abord sur CPU pour mettre au point et calibrer ses simulations, et ensuite passer sur GPU.
 
   Il faut bien sûr de préférence utiliser les paramétrisations déjà portées sur GPU, pour avoir un gain en performance. Toutefois, cela n'est pas obligatoire dans un premier temps, car le code peut être compilé pour être bit-reproductible tout en tournant en partie sur CPU et en partie sur GPU.
 
