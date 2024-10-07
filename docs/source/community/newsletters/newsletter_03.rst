@@ -22,7 +22,8 @@ Juan, tu as porté Méso-NH 5-5-1 sur GPU avec Philippe. Pourrais-tu décrire de
 Quel intérêt y a-t-il à réaliser des simulations sur les calculateurs dotés de GPU plutôt que sur ceux basés sur des CPU uniquement ?
   L'intérêt principal des GPU est leur puissance de calcul supérieure. Par exemple, sur Adastra, 338 nœuds GPU fournissent 61 Pétaflops, contre seulement 13 Pétaflops [#flop1]_ pour 556 nœuds CPU. De plus, les GPU sont bien plus efficaces énergétiquement : lors du Grand Challenge Adastra, le code tournait 5 fois plus vite sur GPU tout en consommant 2 fois moins d’énergie. Cet écart va s’accentuer. Par exemple, le futur supercalculateur européen à Jülich atteindra 1 Exaflops [#flop2]_ avec sa partition GPU, tandis que la partition CPU ne fournira que 50 Pétaflops, soit 0,5 % de la puissance totale.
 
-.. [#flop1] Pétaflops = millions de milliards d'opérations de calcul par seconde. [#flop2] 1 Exaflop = 1000 Pétaflops.
+.. [#flop1] Pétaflops = millions de milliards d'opérations de calcul par seconde. 
+.. [#flop2] 1 Exaflop = 1000 Pétaflops.
 
 Y a-t-il des situations qui se prêtent particulièrement bien à l'utilisation de Méso-NH 5-5-1 sur GPU ?
   Les GPU sont adaptés aux simulations massivement parallèles, comme les Giga-LES, où les grilles de calcul contiennent des milliards de points. Par exemple, lors du Grand Challenge Adastra GPU, nous avons utilisé des grilles de 2,14 milliards de points (4096x4096x128) pour des simulations à 100 mètres de résolution.
