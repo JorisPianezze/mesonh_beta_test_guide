@@ -9,3 +9,4 @@ Newsletters (TD)
    newsletter_01_JP.rst 
    newsletter_02.rst
    newsletter_02_en.rst
+   newsletter_03.rst
