@@ -74,13 +74,13 @@ Ménage des fichiers en sortie
   - le fichier file_for_xtransfer a également disparu (ainsi que quelques morceaux de code devenus inutiles).
   - le fichier OUTPUT_LISTING0 est conservé sauf s'il est vide (Méso-NH le détruit automatiquement à la fin ; il continuera d'exister pendant l'exécution et en cas de plantage). Cela concerne essentiellement l'exécutable MESONH et si des sorties complémentaires dans ce fichier ne sont pas faites (il y en a dans quelques endroits du code).
 
-.. note::
-  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est preneur.
-
 Stage Méso-NH
   - Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
   - Date limite d'inscription : 1er novembre
   - Inscription par mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
+
+.. note::
+  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est preneur.
 
 
 Dernières publications utilisant Méso-NH
