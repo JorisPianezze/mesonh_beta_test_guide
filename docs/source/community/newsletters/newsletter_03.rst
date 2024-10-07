@@ -42,7 +42,7 @@ Quelles sont les limites pour l'instant de ce portage de Méso-NH ? les perspect
 
   Phillippe Wautelet et moi-même collaborons avec eux, en apportant notre expertise GPU et OpenACC pour rajouter les fonctionnalités nécessaires à cet outil pyft pour transformer le code de PHYEX dans MNH-5-6-X et l'adapter aux GPU. Parmi ces fonctionnalités, on retrouve les "outils faits main" pour le portage de Méso-NH sur GPU, comme le rajout automatique d'appel à des fonctions mathématiques bit-reproductibles, le rajout automatique des appels aux routines MPPDB_CHECK permettant la vérification "au fil de l'eau" de l'identité des calculs sur GPU et CPU, la gestion optimisée de la mémoire pour les tableaux, l'expansion de l'*array syntax* en boucle imbriquée, etc.
 
-  La version MNH-5-6 + PHYEX sur GPU est en bonne voie, et devrait être intégrée *rapidement* (avant la fin d'année ;-) ) dans la toute dernière version MNH-5-7-X. Il sera ensuite question de porter d'autres parties du code, comme par exemple la convection peu profonde et LIMA.
+  La version MNH-5-6 + PHYEX sur GPU est en bonne voie, et devrait être intégrée "rapidement" (avant la fin d'année ;-) ) dans la toute dernière version MNH-5-7-X. Il sera ensuite question de porter d'autres parties du code, comme par exemple la convection peu profonde et LIMA.
 
 .. note::
 
