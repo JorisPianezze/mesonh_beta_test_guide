@@ -15,7 +15,7 @@ Entretien avec `Juan Escobar <mailto:juan.escobar-munoz@cnrs.fr>`_ (LAERO, CNRS)
   :width: 450
 
 Juan, tu as porté Méso-NH 5-5-1 sur GPU avec Philippe. Pourrais-tu décrire de quoi il s'agit et les perspectives d'utilisation que cela ouvre ?
-  Les GPU (Graphics Processing Unit) sont devenus les successeurs des supercalculateurs parallèles et vectoriels des années 2000 (comme les CRAY ou NEC). Ils possèdent des dizaines de processeurs pouvant exécuter des milliers d'instructions en parallèle, avec une bande passante mémoire bien supérieure aux CPU, tout en étant bien plus économiques et moins énergivores.
+  Les GPU (*Graphics Processing Unit*) sont devenus les successeurs des supercalculateurs parallèles et vectoriels des années 2000 (comme les CRAY ou NEC). Ils possèdent des dizaines de processeurs pouvant exécuter des milliers d'instructions en parallèle, avec une bande passante mémoire bien supérieure aux CPU, tout en étant bien plus économiques et moins énergivores.
 
   Dès les années 2010, j’ai commencé à porter Méso-NH sur GPU grâce aux compilateurs Fortran de PGI, en utilisant la programmation par directives (ACC), qui a évolué vers le standard OpenACC. Aujourd'hui, environ 90 % des parties les plus coûteuses en calcul (advection, turbulence, microphysique à un moment et solveur de pression) sont portées sur GPU, ce qui permet d’utiliser Méso-NH pour des simulations scientifiques. Cette version a été testée lors du Grand Défi Adastra GPU avec succès, simulant des événements extrêmes sur environ 1/3 de la partition GPU d’Adastra (128 nœuds de calcul dotés au total de 1024 GPU).
 
