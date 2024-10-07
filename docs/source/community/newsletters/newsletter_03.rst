@@ -48,6 +48,8 @@ Quelles sont les limites pour l'instant de ce portage de Méso-NH ? les perspect
 
    Une version longue du début de l'entretien, avec plus de détails, est disponible `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_03_extended.html>`_ .
 
+   Un article en discussion pour GMD relate le travail de portage de Méso-NH sur GPU, il est disponible en ligne ici : `Escobar et al. <https://doi.org/10.5194/egusphere-2024-2879>`_ .
+
    Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@univ-tlse3.fr>`_.
 
     
@@ -95,6 +97,9 @@ Fire meteorology
 Microphysics
   - Improving supercooled liquid water representation in the microphysical scheme ICE3 [`Dupont et al., 2024 <http://dx.doi.org/10.1002/qj.4806>`_]
   - Importance of CCN activation for fog forecasting and its representation in the two-moment microphysical scheme LIMA [`Vié et al., 2024 <https://doi.org/10.1002/qj.4812>`_]
+
+Model development
+  - Porting the Meso-NH atmospheric model on different GPU architectures for the next generation of supercomputers (version MESONH-v55-OpenACC) [`Escobar et al., in discussion <https://doi.org/10.5194/egusphere-2024-2879>`_]
 
 Radiation
   - How to observe the small-scale spatial distribution of surface solar irradiance [`He et al., in discussion <https://doi.org/10.5194/egusphere-2024-1064>`_]
