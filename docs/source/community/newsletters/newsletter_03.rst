@@ -52,44 +52,34 @@ Quelles sont les limites pour l'instant de ce portage de Méso-NH ? les perspect
 Les nouvelles de l’équipe support
 ************************************
 
-
-
-
-
-
-    
-Version 5.7.1 (en cycle de validation)
-  - Les bugfixs des contributeurs sont en cours de test. Sortie au plus tard fin septembre 2024.
-  - En cours d'intégration : seules les données sur le domaine physique seront écrites par défaut. Les mailles non-physiques sur les bords sont automatiquement retirées. Il en est de même pour les couches d'absorptions supérieure et éventuellement inférieure. En cas de besoin, toutes ces mailles peuvent néanmoins être sauvegardées.
-  - En cours d'intégration : la possibilité de faire des écritures par boîtes (sous-domaines) dans les sorties fréquentes. Chaque boîte pourra contenir sa liste propre de champs à écrire en plus d'une liste commune.
+Version 5.7.1 (sortie le 4 septembre)
+  - Liste des bugfixs et principaux nouveaux développements `ici <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=WHY_BUGFIX_571.pdf>`_
+  - Notez que tous les cas tests (namelists et scripts de lancement) sont à présent historisés et se trouvent dans MY_RUN/INTEGRATION_CASES
 
 Version 5.8
-  Un appel à contribution sera lancée en novembre. Toutes les contributions prêtes pour décembre 2024, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises pour intégration.
- 
-Développement en cours
-  - Chimie/aérosols : le projet ACCALMIE a commencé à restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. La bibliothèque s'appellera ACLIB (Aerosols and Chemistry LIBrary). Le travail est en cours, les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les *aer*.
-  - ECRAD v 1.6.1 (actuellement opérationnel dans AROME et ARPEGE/IFS) sera branchée à MésoNH. ECRAD deviendra le schéma de rayonnement par défaut dans la 5.8 après validation.
-  - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX.
-  - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaines transformations du code source de Méso-NH pour produire du code qui tourne sur GPU.
-  - Entrées/Sorties : plusieurs stratégies pour réduire encore la quantité de données dans les sorties fréquentes (*outputs*) sans impacter négativement leur qualité sont en cours de réflexion. Par exemple, l'utilisation de seuils pour filtrer certains champs, de retirer une constante (i.e. pour des pressions ou des températures), de pouvoir sélectionner les paramètres de compression champ par champ... Tout cela nécessitera des changements internes assez importants.
+  Un appel à contribution sera lancée en décembre. Toutes les contributions prêtes pour décembre 2024, c’est-à-dire testées et livrées avec un (nouveau) cas test, seront prises pour intégration.
+
+Développements en cours et récents
+  - Chimie/aérosols : le projet ACCALMIE continue de restructurer la chimie et les aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, MESO-NH) pour externaliser la chimie et les aérosols. La bibliothèque ACLIB (Aerosols and Chemistry LIBrary) est en cours de montage. Les routines impactées seront nombreuses notamment à l’intérieur de ch_monitorn.f90, les ch_* et tous les *aer*.
+  - Version 6.0 : le développement de la prochaine version majeure a commencé par la montée de version de la branche GPU (MNH-55X-dev-OPENACC-FFT) phasée sur la 5.6 dans un premier temps sans PHYEX. Cette nouvelle branche MNH-56X-dev-OPENACC-FFT-unlessPHYEX tourne sur GPU sur quelques tests. Des tests de performance sur les architectures avec GPU (AMD et Nvidia) ont été réalisés, mais cette branche n’a pas encore été validée sur CPU. Les directives OpenACC sont en cours de portage (manuel) dans PHYEX. La turbulence a été portée. A présent c'est au tour de ICE3. La branche compile sur Belenos !
+  - Outils : ajouts de fonctionnalités dans la librairie Python Fortran Tool pour gérer automatiquement certaines transformations du code source de Méso-NH dans le but de produire du code qui tourne sur GPU.
+  - Forge logicielle : test de l'hébergeur de dépôt git koda.cnrs
+  - Site vitrine : démarches identifiées pour le nom de domaine et l'hébergement.
+  - Couplage : compilation parallèle de Meso-NH débuggée quand on active OASISAUTO.
+
+Ménage des fichiers en sortie
+  - les fichiers .des inutiles (car vides) ne seront plus écrits. Ça concerne principalement les fichiers PGD et issus de DIAG.
+  - les fichiers de statistiques détaillées des performances du solveur de pression ne sont plus écrits. Si besoin, il suffit de changer le parameter GFULLSTAT_PRESS_SLV dans modeln.f90 pour les regénérer.
+  - le fichier file_for_xtransfer a également disparu (ainsi que quelques morceaux de code devenus inutiles)
+  - le fichier OUTPUT_LISTING0 est conservé sauf s'il est vide (Méso-NH le détruit automatiquement à la fin ; il continuera d'exister pendant l'exécution et en cas de plantage). Cela concerne essentiellement l'exécutable MESONH et si des sorties complémentaires dans ce fichier ne sont pas faites (il y en a dans quelques endroits du code).
 
 .. note::
-  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est preneur. Sinon, vous serez limités par son imagination et ses priorités du moment ;)
+  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est preneur.
 
 Stage Méso-NH
   - Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
   - Date limite d'inscription : 1er novembre
   - Inscription par mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
-
-Autres nouvelles
-  - PHYEX: la physique externalisée se dote à présent d'un pilote logiciel hors-ligne (*driver offline*) en python. Il permet de lancer les paramétrisations ICE3, TURB, EKDF et ICE_ADJUST individuellement en 1D ou 3D.
-  - La demande récurrente de labellisation par l'INSU de notre code communautaire a été déposée en mai 2024, parmi les nouveautés : une estimation de l’empreinte environnementale du service "code communautaire Méso-NH" (pas de la communauté utilisatrice) à 8 tonnes équivalent CO2 par an, et l’obligation du service à intégrer une infrastructure de recherche. Une demande a été faite auprès de CLIMERI-France.
-
-Nouvelles de SURFEX
-  - SURFEX : la réunion annuelle du comité de pilotage a eu lieu le 27 mai 2024. Les présentations sont disponibles `ici <https://www.umr-cnrm.fr/surfex/spip.php?article55>`_.
-  - Le `futur d'Ecoclimap <https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_steeringcommittee-27052024-physio.pdf>`_
-  - Migration vers GitHub, utilisation de fourches (*forks*) pour les responsables d'intégration (Quentin R. pour Méso-NH).
-  - Contribution à SURFEX à une date fixée par requête d'intégration (*Pull-Request*) avec mise à jour de la documentation obligatoire.
 
 
 Dernières publications utilisant Méso-NH
