@@ -8,8 +8,8 @@ Chers utilisateurs, chères utilisatrices de Méso-NH,
 
 Voici la 3ème infolettre de notre communauté Méso-NH. Vous y trouverez un entretien avec un membre de l'équipe support de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
 
-Entretien avec `Juan Escobar <mailto:juan.escobar-munoz@cnrs.fr>`_ (CNRM)
-**************************************************************************
+Entretien avec `Juan Escobar <mailto:juan.escobar-munoz@cnrs.fr>`_ (LAERO, CNRS)
+************************************************************************************
 
 .. image:: photo_je.jpg
   :width: 450
