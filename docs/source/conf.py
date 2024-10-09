@@ -31,6 +31,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinxcontrib.bibtex',
+    'sphinx-build-compatibility',
 ]
 
 bibtex_bibfiles        = ['references.bib']
