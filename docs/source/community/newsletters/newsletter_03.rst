@@ -1,7 +1,7 @@
 Infolettre #03
 ================================================
 
-**8 octobre 2024.** Version française, English version `here <newsletter_03_english.html>`_.
+**9 octobre 2024.** Version française, English version `here <newsletter_03_english.html>`_.
 
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
