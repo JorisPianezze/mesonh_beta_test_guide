@@ -8,7 +8,7 @@ Installing Meso-NH with GIT
   On a *development branch* there is a version of the code that includes the latest changes of the code made by the developpers and the support team, including parts that are not yet tested. The following steps show you how to c) get the code and d) go to a version that was tested and officially released: a version with a *tag*.
 
 
-c) Cloning the Meso-NH Source repository on the developpement branch MNH-57-branch
+c) Cloning the Meso-NH Source repository located on the developpement branch MNH-57-branch
 --------------------------------------------------------------------------------------
 
 Finally you can clone the Meso-NH Git repository with the following command:
@@ -46,7 +46,7 @@ The advantages of this way of downloading the package are:
 
 1) you can easily restore a previous version of your code, in case you are not happy with your last changes,
 
-2) in the future you could check/update quickly the differences with the new released version of the package without having to download entirely the full package, see below.
+2) in the future you could check/update quickly the differences with the new released version of the package without having to download entirely the full package:
 
 
 Suppose that a new version, for example "PACK-MNH-V5-7-2", is announced.
@@ -60,11 +60,11 @@ To see the differences with your working copy, do:
 
 To go to the new version, you can, for example, create a new local branch:
 
-``git checkout -b MYB-MNH-V5-7-1 PACK-MNH-V5-7-2``
+``git checkout -b MYB-MNH-V5-7-2 PACK-MNH-V5-7-2``
 
 .. warning::
 
-  Does this destroy the user's changes of the code? or just change the sources in the MNH repository and keep the user repository unchanged? Should we say to the user that they have to recompile then?
+  So this create a new local branch, does it stil include the user's previous changes? Should we say to the user that they have to recompile then?
 
 
 At any time, you can also check for "uptodate" changes in the Git branch dedicated to the MNH57 version, *even before* the official release of the "bugN+1" bugfix version:
@@ -79,4 +79,4 @@ And, test this development (not yet official) version by going to this branch:
 
 .. warning::
 
-  What really happens then? Do you add the last development to your branch - like a merge?
+  What really happens then? Do you add the last developments to your branch - like a merge?
