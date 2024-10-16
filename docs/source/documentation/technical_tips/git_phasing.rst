@@ -22,7 +22,7 @@ that will create the MNH-V5-7-1 directory [#note1]_ containing a clone (copy) of
 d) Checking out a given version of MESONH
 --------------------------------------------
 
-Once the repository is cloned, it's better for you to checkout your own branch (by default, you are on HEAD of the MNH-57-branch development branch).
+Once the repository is cloned, it's better for you to checkout your own branch (by default, you are on HEAD of the MNH-57-branch development branch). *I think this sentence should be changed*
 
 To create your local branch corresponding to the V5-7-1 version, type:
 
