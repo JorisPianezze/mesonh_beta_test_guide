@@ -12,7 +12,7 @@ Access to ADS data is restricted to registred users. See `ADS's website <https:/
 Configure
 --------------------------------------------
 
-Once your account create, you need to configure CDS API following https://ads.atmosphere.copernicus.eu/api-how-to instructions.
+Once your account create, you need to configure CDS API following https://ads.atmosphere.copernicus.eu/how-to-api instructions.
 
 .. warning::
 
@@ -22,12 +22,12 @@ First you need to create a file called `.adsapirc` in your HOME directory. Your 
 
 .. code-block:: bash
 
-   url: https://ads.atmosphere.copernicus.eu/api/v2
+   url: https://ads.atmosphere.copernicus.eu/api
    key: your_key
 
 .. note::
 
-   To fill this file go to https://ads.atmosphere.copernicus.eu/api-how-to.
+   To fill this file go to https://ads.atmosphere.copernicus.eu/how-to-api.
 
 .. warning::
 
@@ -42,7 +42,7 @@ You can install CDS API required to extract CAMS data using following conda comm
 
 .. code-block:: console
 
-   conda install cdsapi
+   conda install cdsapi>=0.7.2
    
 If you want to used a dedicated conda environment you can create an environment.yml file containing :
 
@@ -52,7 +52,7 @@ If you want to used a dedicated conda environment you can create an environment.
    channels:
        - conda-forge
    dependencies:
-       - cdsapi==0.7.0
+       - cdsapi>=0.7.2
        - eccodes==2.35.0
        - pip==24.0
        - pip:
@@ -175,9 +175,9 @@ To extract CAMS data, you can adapt the area, the date and the path to your `.ad
    #   Unzip, concatenate and remove tmp files
    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    unzip download.nc
-   ncks -A levtype_sfc.nc levtype_ml.nc
-   mv levtype_ml.nc CAMS_${YEAR}${MONTH}${DAY}_${HOUR}.nc
-   rm -f levtype_sfc.nc download.nc
+   ncks -A data_sfc.nc data_mlev.nc
+   mv data_mlev.nc CAMS_${YEAR}${MONTH}${DAY}_${HOUR}.nc
+   rm -f data_sfc.nc download.nc
  
    done
    done
