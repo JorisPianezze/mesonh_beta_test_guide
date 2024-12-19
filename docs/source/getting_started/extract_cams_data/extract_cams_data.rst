@@ -85,6 +85,7 @@ Example
 --------------------------------------------
 
 To extract CAMS data from example script, you have to :
+
 * create a script called `your_script.sh` with the following code
 * and adapt the path for file `.adsapirc` inside this script
 
