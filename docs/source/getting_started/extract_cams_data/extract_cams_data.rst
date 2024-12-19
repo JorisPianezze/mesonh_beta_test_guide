@@ -18,7 +18,7 @@ Configure
 
 Once your account create, you need to configure CDS API following https://ads.atmosphere.copernicus.eu/how-to-api instructions.
 
-.. warning::
+.. tip::
 
    I recommend to create a file called `.adsapirc` and not `.cdsapirc` because you can have conflict with CDS API key if you also extract ERA5 data from CDS server.
 
@@ -73,7 +73,7 @@ Then load new created python environment :
  
    conda activate env_extract_cdsapi
 
-.. warning:: 
+.. caution:: 
 
    It's mandatory to have a version of CDSAPI higher than 0.7.2.
 
