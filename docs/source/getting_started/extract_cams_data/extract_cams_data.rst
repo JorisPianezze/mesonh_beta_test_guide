@@ -42,13 +42,7 @@ First you need to create a file called `.adsapirc` in your HOME directory. Your 
 Installation
 --------------------------------------------
 
-You can install CDS API required to extract CAMS data using following conda command in your conda environment, do
-
-.. code-block:: console
-
-   conda install cdsapi>=0.7.2
-   
-If you want to used a dedicated conda environment you can create an `environment.yml` file containing :
+I suggest you to use a dedicated conda environment. For that purpose you have to create an `environment.yml` file containing following code :
 
 .. code-block:: python
    
@@ -61,7 +55,6 @@ If you want to used a dedicated conda environment you can create an `environment
        - pip==24.0
        - pip:
            - yaml-config==0.1.5
-
 .. note:: 
   
    * This is the last version of cdsapi and yaml-config tested.
@@ -79,6 +72,10 @@ Then load new created python environment :
 .. code-block:: console
  
    conda activate env_extract_cdsapi
+
+.. warning:: 
+
+   It's mandatory to have a version of CDSAPI higher than 0.7.2.
 
 
 Example
