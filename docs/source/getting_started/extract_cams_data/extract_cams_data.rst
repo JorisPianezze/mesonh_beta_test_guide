@@ -9,6 +9,10 @@ Access to ADS data is restricted to registred users. See `ADS's website <https:/
 
 .. _configure_ads_api_key:
 
+.. note::
+
+   You need to accept the licence to use CAMS products `here <https://ads.atmosphere.copernicus.eu/datasets/cams-global-reanalysis-eac4?tab=download#manage-licences>`_.
+
 Configure
 --------------------------------------------
 
@@ -44,7 +48,7 @@ You can install CDS API required to extract CAMS data using following conda comm
 
    conda install cdsapi>=0.7.2
    
-If you want to used a dedicated conda environment you can create an environment.yml file containing :
+If you want to used a dedicated conda environment you can create an `environment.yml` file containing :
 
 .. code-block:: python
    
@@ -80,7 +84,9 @@ Then load new created python environment :
 Example
 --------------------------------------------
 
-To extract CAMS data, you can adapt the area, the date and the path to your `.adsapirc` file in the following script :
+To extract CAMS data from example script, you have to :
+* create a script called `your_script.sh` with the following code
+* and adapt the path for file `.adsapirc` inside this script
 
 .. code-block:: bash
 
@@ -194,4 +200,5 @@ Then, you can launch the extraction with :
 
 .. note::
 
-   At the end of the extraction you need to have files called CAMS_${YEAR}${MONTH}${DAY}_${HOUR}.nc !
+   * At the end of the extraction you need to have files called `CAMS_${YEAR}${MONTH}${DAY}_${HOUR}.nc` !
+   * Once the example script works, you can adapt the area and the date to your case.
