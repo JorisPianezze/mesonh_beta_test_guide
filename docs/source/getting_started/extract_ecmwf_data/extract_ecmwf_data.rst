@@ -230,6 +230,8 @@ An output is available in this folder with an "out" suffix showing it works: /cn
 Known issues 
 ************************************
 
+**Error during PREP_REAL_CASE**
+
 If you encounter this error during PREP_REAL_CASE :
 
 .. code-block:: bash
@@ -242,6 +244,17 @@ this means that you are using an ECCODES version < 2.30.0, which is not able to 
 * either recompile Meso-NH with an ECCODES version > 2.30.0
 
 * or add the packing=simple option to the ECMWF API request
+
+**Expiration of access token**
+
+If you encounter this error during this error during execution of the script :
+
+.. code-block:: bash
+
+   ecmwfapi.api.APIException: 'ecmwf.API error 1: Access token expired'
+
+You need to regenerate the `.ecmwfapirc` file with new one https://api.ecmwf.int/v1/key/.
+
 
 ERA Interim
 ---------------------------------------------------------
