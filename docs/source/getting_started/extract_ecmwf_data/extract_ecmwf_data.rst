@@ -232,17 +232,6 @@ If you want to add variables to extracted grib files, go to `define_parameters.p
 
    You can find grib identifier  `here <https://codes.ecmwf.int/grib/param-db/>`_.
 
-For CNRM's users
-*************************************
-
-* Fill .json file as desired.
-
-* Name it as you want : for instance REQUEST_WURTZJ.json
-
-* Put filed file here /cnrm/ville/USERS/wurtzj/EXTRACT_ECMWF/REQUESTS/
-
-An output is available in this folder with an "out" suffix showing it works: /cnrm/ville/USERS/wurtzj/EXTRACT_ECMWF/JOB_STATUS/REQUEST_WURTZJ.json_out
-
 Known issues 
 ************************************
 
