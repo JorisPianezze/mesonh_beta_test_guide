@@ -11,7 +11,7 @@ Access to ADS data is restricted to registred users. See `ADS's website <https:/
 
 .. note::
 
-   You need to accept the licence to use CAMS products `here <https://ads.atmosphere.copernicus.eu/datasets/cams-global-reanalysis-eac4?tab=download#manage-licences>`_.
+   You need to accept the licence to extract and use CAMS products `here <https://ads.atmosphere.copernicus.eu/datasets/cams-global-reanalysis-eac4?tab=download#manage-licences>`_.
 
 Configure
 --------------------------------------------
@@ -83,7 +83,7 @@ Example
 
 To extract CAMS data from example script, you have to :
 
-* create a script called `your_script.sh` with the following code
+* create a script called `your_script.sh` containing the following code
 * and adapt the path for file `.adsapirc` inside this script
 
 .. code-block:: bash
