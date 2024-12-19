@@ -117,7 +117,7 @@ To define your extraction's area and dates, fill `user_parameters.json` file. Th
    "comments"           : "-----------------------------------------------------------",
 
    "start_time"         :"00",
-   "end_time"           :"18",
+   "end_time"           :"00",
    "step"               :"06",
    "forecast_start_time":"00",
 
@@ -160,47 +160,14 @@ To define your extraction's area and dates, fill `user_parameters.json` file. Th
 
    }
 
-.. note::
-
-   * target_directory is where your data will be written.
-
-   * date to be extracted is take between start_date and end_date if list_of_dates is empty ([]).
-
-   * start_time, first time to extract within the day
-
-   * end_time : last time extraction within the day
-
-   * step: time step extraction within the day, if end_time=start_time, only start_time will be extracted
-
-   * forecast_start_time : in case of forecast : time of launch (00 or 12 for instance)
-
-   * domain extension lat_min, lat_max, lon_min, lon_max or area. If empty get Europe domain.
-
-   * grid resolution .1 by default. Could be coarser
-
-   * type_data : type of data to be extracted : analysis, forecast or ensemble.
-
-   * get_surface : get surface parameters or not. Mandatory for Meso-NH users.
-
-   * get_sea_state : get sea state parameters or not. Used only when sea salt aerosols are activated.
-
-   * remove_tmp_files : remove temporary files or not. True by default.
-
-
 Launch extraction
 **********************************
 
-To launch extraction of the desired ECMWF data, if number of dates to extract is lower than 10 do
+Change the `target_directory` path in the `user_parameters.json` file and launch extraction of the ECMWF data after loading conda environment :
 
 .. code-block:: bash
 
    python main_extract_ecmwf.py
-
-or if number of dates is greater than 10, do 
-
-.. code-block:: bash
-
-   nohup python main_extract_ecmwf.py
 
 .. note::
 
@@ -209,6 +176,14 @@ or if number of dates is greater than 10, do
    * At the end of the script extractions are launched in background. If you are using your laptop or personal computer do not switch it off until extraction is complete. If you are using supercomputer you can logout without problems.
 
    * You can follow extraction processes on https://apps.ecmwf.int/webmars/joblist/.
+
+.. tip::
+
+   If number of dates is greater than 10, you can do 
+
+   .. code-block:: bash
+
+      nohup python main_extract_ecmwf.py
 
 Add new variables 
 ***********************************
