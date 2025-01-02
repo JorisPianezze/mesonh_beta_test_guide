@@ -87,23 +87,12 @@ Stage Méso-NH
 Dernières publications utilisant Méso-NH
 ****************************************************************************************
 
-Fire meteorology
-  - A case study of the possible meteorological causes of unexpected fire behavior in the Pantanal Wetland, Brazil [`Couto et al., 2024 <https://doi.org/10.3390/earth5030028>`_]
-  - The Role of atmospheric circulation in favouring forest fires in the extreme southern Portugal [`Purificação et al., 2024 <https://doi.org/10.3390/su16166985>`_]
+Marine atmospheric boundary layer
+  - Adjustment of the marine atmospheric boundary-layer to the North Brazil Current during the EUREC4A-OA experiment [`Giordani et al., 2024 <https://doi.org/10.1016/j.dynatmoce.2024.101500>`_]
 
-Microphysics
-  - Improving supercooled liquid water representation in the microphysical scheme ICE3 [`Dupont et al., 2024 <http://dx.doi.org/10.1002/qj.4806>`_]
-  - Importance of CCN activation for fog forecasting and its representation in the two-moment microphysical scheme LIMA [`Vié et al., 2024 <https://doi.org/10.1002/qj.4812>`_]
+Drone measurements of cumulus
+  - Experimental UAV flights to collect data Within cumulus clouds [`Hattenberger et al., 2024 <https://doi.org/10.1109/TFR.2024.3478216>`_]
 
-Model development
-  - Porting the Meso-NH atmospheric model on different GPU architectures for the next generation of supercomputers (version MESONH-v55-OpenACC) [`Escobar et al., in discussion <https://doi.org/10.5194/egusphere-2024-2879>`_]
-
-Radiation
-  - How to observe the small-scale spatial distribution of surface solar irradiance [`He et al., in discussion <https://doi.org/10.5194/egusphere-2024-1064>`_]
-
-Thermodynamics over complex terrain and in urban environment
-  - Thermodynamic processes driving thermal circulations on slopes: Modeling anabatic and katabatic flows on Reunion Island [`El Gdachi et al., 2024 <https://doi.org/10.1029/2023JD040431>`_]
-  - Energy and environmental impacts of air-to-air heat pumps in a mid-latitude city [`Meyer et al., 2024 <https://doi.org/10.1038/s41467-024-49836-3>`_]
 
 
 .. note::
