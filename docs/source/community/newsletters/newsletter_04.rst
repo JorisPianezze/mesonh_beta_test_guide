@@ -91,7 +91,7 @@ Marine atmospheric boundary layer
   - Adjustment of the marine atmospheric boundary-layer to the North Brazil Current during the EUREC4A-OA experiment [`Giordani et al., 2024 <https://doi.org/10.1016/j.dynatmoce.2024.101500>`_]
 
 Drone measurements of cumulus
-  - Experimental UAV flights to collect data Within cumulus clouds [`Hattenberger et al., 2024 <https://doi.org/10.1109/TFR.2024.3478216>`_]
+  - Experimental UAV flights to collect data within cumulus clouds [`Hattenberger et al., 2024 <https://doi.org/10.1109/TFR.2024.3478216>`_]
 
 PhD theses
   - Amélioration de la prise en compte du givrage par la modélisation et la prévision météorologique pour l'exploitation des parcs éoliens [`Dupont <https://theses.fr/s305624>`_, Université de Toulouse, 2024]
