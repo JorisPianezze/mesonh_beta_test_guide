@@ -20,17 +20,17 @@ Robert, tu as développé le couplage à plusieurs niveaux entre Méso-NH et SUR
   Le couplage à plusieurs niveaux a été développé pour représenter le fait que les bâtiments sont immergés dans l'atmosphère. Ceci contraste avec le couplage classique entre Méso-NH et TEB pour lequel les toits des bâtiments sont au niveau du sol de Méso-NH. Avec le couplage classique, la rue-canyon de TEB se situe en-dessous du sol, donc un volume d'air artificiel est introduit et il n'y a pas d'advection de ce volume d'air entre différents points de grille. Ceci est particulièrement problématique pour des villes hétérogènes avec des bâtiments de grande hauteur car les échanges horizontaux ne peuvent se faire que via l'air au-dessus des bâtiments.
 
 Comment fonctionne le couplage à plusieurs niveaux entre Méso-NH et SURFEX-TEB ?
-  Avec le couplage à plusieurs niveaux, les variables météorologiques issues de tous les niveaux de Méso-NH qui intersectent les bâtiments sont transmis à SURFEX-TEB. Dans TEB ils sont utilisés comme forçage météorologique du toit, des murs et du sol. Dans Méso-NH, l'effet des bâtiments sur l'écoulement est considéré avec une approche de coefficient de traînée sur tous les niveaux qui intersectent les bâtiments. Les flux de chaleur sensible et latent depuis le sol, les murs et le toit vers l'atmosphère sont convertis en tendances de température potentielle et de rapport de mélange de vapeur d'eau sur tous les niveaux verticaux qui intersectent ces facettes urbaines. Pour plus de détail sur le fonctionnement du couplage à plusieurs niveaux, ainsi qu'une illustration des améliorations induites, vous pouvez consulter l'article suivant :  |schoetter_etal|.
-
-.. |schoetter_etal| raw:: html
-
-   <a href="https://gmd.copernicus.org/articles/13/5609/2020/" target="_blank">Schoetter et al. (2020)</a>
+  Avec le couplage à plusieurs niveaux, les variables météorologiques issues de tous les niveaux de Méso-NH qui intersectent les bâtiments sont transmis à SURFEX-TEB. Dans TEB ils sont utilisés comme forçage météorologique du toit, des murs et du sol. Dans Méso-NH, l'effet des bâtiments sur l'écoulement est considéré avec une approche de coefficient de traînée sur tous les niveaux qui intersectent les bâtiments. Les flux de chaleur sensible et latent depuis le sol, les murs et le toit vers l'atmosphère sont convertis en tendances de température potentielle et de rapport de mélange de vapeur d'eau sur tous les niveaux verticaux qui intersectent ces facettes urbaines. Pour plus de détail sur le fonctionnement du couplage à plusieurs niveaux, ainsi qu'une illustration des améliorations induites, vous pouvez consulter l'article suivant :  |schoetter_etal|
 
 Pourquoi conseilles-tu d'utiliser ce développement ? 
   Le couplage à plusieurs niveaux a initialement été développé pour les villes avec des bâtiments de grande hauteur. Mais il peut être utile pour n'importe quelle ville car il permet d'augmenter la résolution verticale de Méso-NH et notamment de simuler de manière prognostique les variables à 2 m tout en prenant en compte le bâti urbain. Il suffit pour cela de choisir une résolution verticale de 4 m proche de la surface.
 
 Quelles sont les éventuelles limites ? Dans quel cas ce couplage est-il plutôt à éviter ?
   Des limites de cette approche ont été mises en évidence pour les villes entourées de forêts car certaines paramétrisations dans le modèle de végétation ISBA ne donnent pas de bons résultats avec une résolution verticale aussi fine. Il existe aussi des limites théoriques de l'approche de coefficient de traînée pour des villes très denses (par exemple plus de 50% de la surface des mailles occupé par des bâtiments) qui pourraient entraîner des biais. On néglige aussi le fait qu'une partie du volume des mailles de Méso-NH ne soit pas de l'air mais des bâtiments ce qui pourrait également induire des imprécisions pour des villes denses.
+
+.. |schoetter_etal| raw:: html
+
+   <a href="https://gmd.copernicus.org/articles/13/5609/2020/" target="_blank">Schoetter et al. (2020)</a>
 
 .. note::
 
