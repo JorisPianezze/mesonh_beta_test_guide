@@ -45,7 +45,7 @@ Version 6
   Un appel à contributions a été envoyé le 6 janvier. Toutes les contributions prêtes pour la fin du mois de mars, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises en compte pour l'intégration.
 
 Développements en cours et récents
-  - Chimie/aérosols : le projet ACCALMIE poursuit la restructuration de la chimie et des aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, Méso-NH) afin d'externaliser la chimie et les aérosols. La mise en place de l'ACLIB (Aerosols and Chemistry LIBrary) est en cours. De nombreuses routines seront impactées, notamment à l'intérieur des fichiers ch_monitorn.f90, ch_* et * aer * . Ce développement sera inclus dans la version 6.
+  - Chimie/aérosols : le projet ACCALMIE poursuit la restructuration de la chimie et des aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, Méso-NH) afin d'externaliser la chimie et les aérosols. La mise en place de l'ACLIB (Aerosols and Chemistry LIBrary) est en cours. De nombreuses routines seront impactées, notamment à l'intérieur des fichiers ch_monitorn.f90, ch_* et *aer* . Ce développement sera inclus dans la version 6.
   - Portage GPU : la version PHYEX-OpenACC est maintenant complètement fusionnée (branche : MNH-56X-dev-OPENACC-FFT) et fonctionne sur certains cas test. Des tests de performance sur des architectures GPU (AMD et Nvidia) ont été effectués et sont également validés sur des CPU.
   - La préparation de la version 6 est maintenant en cours (fusion contribution par contribution).
 
