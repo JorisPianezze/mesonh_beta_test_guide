@@ -6,45 +6,27 @@ Infolettre #04
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
 
-Nous vous souhaitons tout d'abord une très bonne année 2025 ! Riche en découverte grâce à vos futures simulations :)
+Nous vous souhaitons tout d'abord une très bonne année 2025 ! Riche en découvertes grâce à vos futures simulations Méso-NH :)
 
 Voici ci-dessous la 4ème infolettre de notre communauté. Vous y trouverez un entretien avec un développeur de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
 
-Entretien avec `Robert S <mailto:email@cnrs.fr>`_ (CNRM)
+Entretien avec `Robert Schoetter <mailto:robert.schoetter@meteo.fr>`_ (CNRM)
 ************************************************************************************
 
-.. image:: photo_je.jpg
+.. image:: photo_robert-s.jpg
   :width: 450
 
-Juan, tu as porté Méso-NH 5-5-1 sur GPU avec Philippe. Pourrais-tu décrire de quoi il s'agit et les perspectives d'utilisation que cela ouvre ?
-  rep
+Robert, tu as développé le couplage à plusieurs niveaux entre Méso-NH et SURFEX-TEB (module de SURFEX qui représente les interactions entre les villes et l'atmosphère). Pourrais-tu résumer ce qui a motivé ce développement ?
+  Le couplage à plusieurs niveaux a été développé pour représenter le fait que les bâtiments sont immergés dans l'atmosphère. Ceci contraste avec le couplage classique entre Méso-NH et TEB pour lequel les toits des bâtiments sont au niveau du sol de Méso-NH. Avec le couplage classique, la rue-canyon de TEB se situe en-dessous du sol, donc un volume d'air artificiel est introduit et il n'y a pas d'advection dans ce volume d'air entre différents points de grille. Ceci est particulièrement problématique pour des villes hétérogènes avec des bâtiments de grande hauteur car les échanges horizontaux ne peuvent se faire que via l'air au-dessus des bâtiments.
 
-  rep suite
+Pourquoi conseilles-tu d'utiliser le couplage à plusieurs niveaux ?
+  Avec le couplage à plusieurs niveaux, les variables météorologiques issus de tous les niveaux de Meso-NH qui intersectent les bâtiments sont transmis à SURFEX-TEB. Dans TEB ils sont utilisés comme forçage météorologique du toit, des murs et du sol. Dans Méso-NH, l'effet des bâtiments sur l'écoulement est considéré avec une approche de coefficient de traînée sur tous les niveaux qui intersectent les bâtiments. Les flux de chaleur sensible et latent depuis le sol, les murs et le toit vers l'atmosphère sont convertis en tendances de température potentielle et de rapport de mélange de vapeur d'eau sur tous les niveaux verticaux qui intersectent ces facettes urbaines.
 
-Quel intérêt y a-t-il à réaliser des simulations sur les calculateurs dotés de GPU plutôt que sur ceux basés sur des CPU uniquement ?
-  rep [#flop1]_ rep [#flop2]_ de la puissance totale.
+Y a-t-il des situations qui se prêtent particulièrement bien à l'utilisation du couplage à plusieurs niveaux ? 
+  Cette option a initialement été développée pour les villes avec des bâtiments de grande hauteur. Mais elle peut être utile pour n'importe quelle ville car elle permet d'augmenter la résolution verticale de Meso-NH et notamment d'une façon pour simuler de manière prognostique les variables à 2 m. Ceci devient possible si on choisit une résolution verticale de 4 m proche de la surface.
 
-.. [#flop1] Pétaflops = millions de milliards d'opérations de calcul par seconde. 
-.. [#flop2] 1 Exaflop = 1000 Pétaflops.
-
-Y a-t-il des situations qui se prêtent particulièrement bien à l'utilisation de Méso-NH 5-5-1 sur GPU ?
-  rep
-
-  rep suite
-
-Quelles recommandations ferais-tu aux utilisateur.trices qui souhaiteraient simuler sur GPU ?
-  rep
-
-  rep
-
-Quelles sont les limites pour l'instant de ce portage de Méso-NH ? les perspectives ?
-  rep
-
-  rep
-
-  rep
-
-  rep
+Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à éviter ?
+  Des limites de cette approche ont été mises en évidence pour les villes entourées de forêts car certaines paramétrisations dans le modèle de végétation ISBA ne donnent pas de bons résultats avec une résolution verticale aussi fine. Il existe aussi des limites théoriques de l'approche de coefficient de traînée pour des villes très denses (par exemple plus de 50% de la surface des mailles occupé par des bâtiments) qui pourraient entraîner des biais. On néglige aussi le fait qu'une partie du volume des mailles de Méso-NH ne soit pas de l'air mais des bâtiments ce qui pourrait également induire des imprécisions pour des villes denses.
 
 .. note::
 
