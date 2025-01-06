@@ -41,10 +41,6 @@ Quelles sont les éventuelles limites ? Dans quel cas ce couplage est-il plutô
 Les nouvelles de l’équipe support
 ************************************
 
-Version 5.7.1 (sortie le 4 septembre)
-  - Liste des bugfixs
-  - Notez que tous les cas tests 
-
 Version 6
   Un appel à contributions a été envoyé le 6 janvier. Toutes les contributions prêtes pour la fin du mois de mars, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises en compte pour l'intégration.
 
