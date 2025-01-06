@@ -14,7 +14,7 @@ Entretien avec `Robert Schoetter <mailto:robert.schoetter@meteo.fr>`_ (CNRM)
 ************************************************************************************
 
 .. image:: photo_robert-s.jpg
-  :width: 250
+  :width: 150
 
 Robert, tu as développé le couplage à plusieurs niveaux entre Méso-NH et SURFEX-TEB, le module de SURFEX qui représente les interactions entre les villes et l'atmosphère. Pourrais-tu résumer ce qui a motivé ce développement ?
   Le couplage à plusieurs niveaux a été développé pour représenter le fait que les bâtiments sont immergés dans l'atmosphère. Ceci contraste avec le couplage classique entre Méso-NH et TEB pour lequel les toits des bâtiments sont au niveau du sol de Méso-NH. Avec le couplage classique, la rue-canyon de TEB se situe en-dessous du sol, donc un volume d'air artificiel est introduit et il n'y a pas d'advection de ce volume d'air entre différents points de grille. Ceci est particulièrement problématique pour des villes hétérogènes avec des bâtiments de grande hauteur car les échanges horizontaux ne peuvent se faire que via l'air au-dessus des bâtiments.
