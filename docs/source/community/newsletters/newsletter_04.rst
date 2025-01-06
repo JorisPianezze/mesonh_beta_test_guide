@@ -45,25 +45,22 @@ Version 5.7.1 (sortie le 4 septembre)
   - Liste des bugfixs
   - Notez que tous les cas tests 
 
-Version 5.8
-  Un appel à contribution sera lancée en décembre. 
+Version 6
+  Un appel à contributions a été envoyé le 6 janvier. Toutes les contributions prêtes pour la fin du mois de mars, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises en compte pour l'intégration.
 
 Développements en cours et récents
-  - Chimie/aérosols
-  - Version 6.0
-  - Outils
-  - Forge logicielle
-  - Site vitrine
-  - Couplage
+  - Chimie/aérosols : le projet ACCALMIE poursuit la restructuration de la chimie et des aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, Méso-NH) afin d'externaliser la chimie et les aérosols. La mise en place de l'ACLIB (Aerosols and Chemistry LIBrary) est en cours. De nombreuses routines seront impactées, notamment à l'intérieur des fichiers ch_monitorn.f90, ch_* et * aer * . Ce développement sera inclus dans la version 6.
+  - Portage GPU : la version PHYEX-OpenACC est maintenant complètement fusionnée (branche : MNH-56X-dev-OPENACC-FFT) et fonctionne sur certains cas test. Des tests de performance sur des architectures GPU (AMD et Nvidia) ont été effectués et sont également validés sur des CPU.
+  - La préparation de la version 6 est maintenant en cours (fusion contribution par contribution).
 
-Ménage des fichiers en sortie
-  - les fichiers .des inutiles (car vides) ne seront plus écrits.
-  - les fichiers de statistiques détaillées des performances du solveur de pression ne sont plus écrits.
-  - le fichier file_for_xtransfer a également disparu (ainsi que quelques morceaux de code devenus inutiles).
-  - le fichier OUTPUT_LISTING0 est conservé sauf s'il est vide 
+Dépôt Méso-NH sur une forge logicielle 
+  L'hôte du dépôt git koda.cnrs est maintenant officiellement utilisé : https://src.koda.cnrs.fr/mesonh/mesonh-code
+
+  La documentation peut également être mise à jour par tout le monde par pull-request : https://src.koda.cnrs.fr/mesonh/mesonh-doc
+
 Stage Méso-NH
-  - Le prochain stage aura lieu du 12 au 15 novembre 2024. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
-  - Date limite d'inscription : 1er novembre
+  - Le prochain stage aura lieu du 10 au 13 mars 2025. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
+  - Date limite d'inscription : 14 février
   - Inscription par mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_
 
 .. note::
