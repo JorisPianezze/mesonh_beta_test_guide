@@ -50,9 +50,8 @@ Développements en cours et récents
   - La préparation de la version 6 est maintenant en cours (fusion contribution par contribution).
 
 Dépôt Méso-NH sur une forge logicielle 
-  L'hôte du dépôt git koda.cnrs est maintenant officiellement utilisé : https://src.koda.cnrs.fr/mesonh/mesonh-code
-
-  La documentation peut également être mise à jour par tout le monde par pull-request : https://src.koda.cnrs.fr/mesonh/mesonh-doc
+  - L'hôte du dépôt git koda.cnrs est maintenant officiellement utilisé : https://src.koda.cnrs.fr/mesonh/mesonh-code
+  - La documentation peut également être mise à jour par tout le monde par pull-request : https://src.koda.cnrs.fr/mesonh/mesonh-doc
 
 Stage Méso-NH
   - Le prochain stage aura lieu du 10 au 13 mars 2025. Planning `ici <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTutorial>`_
