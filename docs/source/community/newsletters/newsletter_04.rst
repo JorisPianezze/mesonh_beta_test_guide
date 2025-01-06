@@ -49,7 +49,7 @@ Développements en cours et récents
   - Portage GPU : la version PHYEX-OpenACC est maintenant complètement fusionnée (branche : MNH-56X-dev-OPENACC-FFT) et fonctionne sur certains cas test. Des tests de performance sur des architectures GPU (AMD et Nvidia) ont été effectués et sont également validés sur des CPU.
   - La préparation de la version 6 est maintenant en cours (fusion contribution par contribution).
 
-Dépôt Méso-NH sur une forge logicielle 
+Dépôt Méso-NH sur forge logicielle 
   - L'hôte du dépôt git koda.cnrs est maintenant officiellement utilisé : https://src.koda.cnrs.fr/mesonh/mesonh-code
   - La documentation peut également être mise à jour par tout le monde par pull-request : https://src.koda.cnrs.fr/mesonh/mesonh-doc
 
