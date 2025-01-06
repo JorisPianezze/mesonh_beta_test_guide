@@ -6,7 +6,7 @@ Infolettre #04
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
 
-Nous vous souhaitons tout d'abord une très bonne année 2025 ! Riche en découvertes grâce à vos futures simulations Méso-NH :)
+Nous vous souhaitons tout d'abord une très bonne année 2025 ! Riche en découvertes grâce à vos simulations Méso-NH :)
 
 Voici ci-dessous la 4ème infolettre de notre communauté. Vous y trouverez un entretien avec un développeur de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
 
