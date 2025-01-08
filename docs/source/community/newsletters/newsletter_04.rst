@@ -42,7 +42,7 @@ Les nouvelles de l’équipe support
 ************************************
 
 Labellisation "Code Communautaire" de Méso-NH par l'INSU
-  La demande a été acceptée par la Commission spécialisée Océan-Atmosphère (CSOA) pour la période 2025-2029. L'avis favorable souligne entre autres la production scientifique de la communauté, les capacités de couplage du modèle et les efforts pour réduire l'empreinte environnementale des simulations (passage au GPU, simple précision, compression des sorties, réalisation de simulations communautaires).
+  La demande a été acceptée par la Commission spécialisée Océan-Atmosphère (CSOA) pour la période 2025-2029. L'avis très favorable souligne entre autres la production scientifique de la communauté, les capacités de couplage du modèle et les efforts pour réduire l'empreinte environnementale des simulations (passage au GPU, simple précision, compression des sorties, réalisation de simulations communautaires).
 
 Version 6
   Un appel à contributions a été envoyé le 6 janvier. Toutes les contributions prêtes pour la fin du mois de mars, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises en compte pour l'intégration.
