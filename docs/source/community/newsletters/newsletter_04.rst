@@ -41,7 +41,7 @@ Quelles sont les éventuelles limites ? Dans quel cas ce couplage est-il plutô
 Les nouvelles de l’équipe support
 ************************************
 
-Labellisation **Code Communautaire** de Méso-NH par l'INSU
+Labellisation "Code Communautaire" de Méso-NH par l'INSU
   La demande a été acceptée par la Commission spécialisée Océan-Atmosphère (CSOA) pour la période 2025-2029. L'avis favorable souligne entre autres la production scientifique de la communauté, les capacités de couplage du modèle et les efforts pour réduire l'empreinte environnementale des simulations (passage au GPU, simple précision, compression des sorties, réalisation de simulations communautaires).
 
 Version 6
