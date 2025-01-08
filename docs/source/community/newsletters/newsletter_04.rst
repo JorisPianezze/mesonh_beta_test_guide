@@ -41,13 +41,19 @@ Quelles sont les éventuelles limites ? Dans quel cas ce couplage est-il plutô
 Les nouvelles de l’équipe support
 ************************************
 
+Labellisation *Code Communautaire* de Méso-NH par l'INSU
+  La demande a été acceptée par la Commission spécialisée Océan-Atmosphère (CSOA) pour la période 2025-2029. L'avis favorable souligne entre autres la production scientifique de la communauté, les capacités de couplage du modèle et les efforts pour réduire l'empreinte environnementale des simulations (passage au GPU, simple précision, compression des sorties, réalisation de simulations communautaires).
+
 Version 6
   Un appel à contributions a été envoyé le 6 janvier. Toutes les contributions prêtes pour la fin du mois de mars, c'est-à-dire testées et livrées avec un (nouveau) cas test, seront prises en compte pour l'intégration.
 
 Développements en cours et récents
   - Chimie/aérosols : le projet ACCALMIE poursuit la restructuration de la chimie et des aérosols dans les modèles de Météo-France (ARPEGE, MOCAGE, AROME, Méso-NH) afin d'externaliser la chimie et les aérosols. La mise en place de l'ACLIB (Aerosols and Chemistry LIBrary) est en cours. De nombreuses routines seront impactées, notamment à l'intérieur des fichiers ch_monitorn.f90, ch_* et *aer* . Ce développement sera inclus dans la version 6.
   - Portage GPU : la version PHYEX-OpenACC est maintenant complètement fusionnée (branche : MNH-56X-dev-OPENACC-FFT) et fonctionne sur certains cas test. Des tests de performance sur des architectures GPU (AMD et Nvidia) ont été effectués et sont également validés sur des CPU.
+  - Compression des données : la possibilité de donner des paramètres de compression (avec ou sans pertes) variable par variable dans les fichiers d'outputs ("sorties fréquentes") que ce soit pour tout le domaine ou dans chaque boîte (sous-domaine) est ajoutée, pour le moment seulement dans la branche MNH-57X-dev-IO. Cela a impliqué une réorganisation interne car le choix de la compression se faisait uniquement au niveau des fichiers et non des champs.
+  - Sorties fréquentes : d'autres fonctionnalités à l'étude comme le filtrage par seuil.
   - La préparation de la version 6 est maintenant en cours (fusion contribution par contribution).
+  - Site web et documentation 2.0 : élaboration en cours, une première version est prévue pour les journées des utilisateurs de Méso-NH de cette année 
 
 Dépôt Méso-NH sur forge logicielle 
   - L'hôte du dépôt git koda.cnrs est maintenant officiellement utilisé : https://src.koda.cnrs.fr/mesonh/mesonh-code
