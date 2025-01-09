@@ -53,7 +53,7 @@ Développements en cours et récents
   - Compression des données : la possibilité de donner des paramètres de compression (avec ou sans pertes) variable par variable dans les fichiers d'outputs ("sorties fréquentes") que ce soit pour tout le domaine ou dans chaque boîte (sous-domaine) est ajoutée, pour le moment seulement dans la branche MNH-57X-dev-IO. Cela a impliqué une réorganisation interne car le choix de la compression se faisait uniquement au niveau des fichiers et non des champs.
   - Sorties fréquentes : d'autres fonctionnalités à l'étude comme le filtrage par seuil.
   - La préparation de la version 6 est maintenant en cours (fusion contribution par contribution).
-  - Site web et documentation 2.0 : élaboration en cours, une première version est prévue pour les journées des utilisateurs de Méso-NH de cette année 
+  - Site web et documentation 2.0 : élaboration en cours, une première version est prévue pour les journées des utilisateurs de Méso-NH de cette année.
 
 Dépôt Méso-NH sur forge logicielle 
   - L'hôte du dépôt git koda.cnrs est maintenant officiellement utilisé : https://src.koda.cnrs.fr/mesonh/mesonh-code
