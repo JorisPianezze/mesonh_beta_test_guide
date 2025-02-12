@@ -1,0 +1,25 @@
+Single Column (1D)
+================================================
+
+What is a 1D simulation ?
+------------------------------
+* uniform vertical profiles
+
+
+Why using 1D simulation ?
+------------------------------
+
+
+How it works ?
+------------------------------
+Ingredients:
+* 
+
+
+How to set up ?
+------------------------------
+
+Use case
+------------------------------
+* 
+* Lien vers le catalogue
