@@ -88,75 +88,53 @@ Hereafter is a very quick description of Meso-NH's tree :
    "src/Rules.*", "compiled options for different compilers"
    "src/SURFEX/", "SURFEX source code"
 
-Get Meso-NH's package
-------------------------------------------------
 
-Meso-NH package is developed and maintained using Git [#git]_.
-It is now strongly recommended, but not mandatory, for all users to download Meso-NH package using Git (Section XXX), because:
-
-* It's more easy for us (Meso-NH support's team) to give you some assistance in case of trouble... as Git permits us to know exactly what you have changed in the original package ;
-
-* It's much more easy for you to update to the last version...  or at least see the change made for bug fix directly on our installation.
-
-However, if you are allergic to Git, you can still download a tarball of Meso-NH package (Section XXX).
-
-.. [#git] https://git-scm.com/
-
-Download a tarball of Meso-NH (for basic users ; not recommended)
+Configuring the Meso-NH package
 *****************************************************************************
 
-If you are a basic user of Meso-NH, you can download a tarball containing Meso-NH package. With your preferred web browser go to the `Meso-NH's website <http://mesonh.aero.obs-mip.fr/mesonh>`_ and click on **Download** link on the left part or you can directly download the last validated version of Meso-NH via http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz.
-Then untar the file MNH-V5-7-1.tar.gz where you want to.
-For example, in your home directory:
+For the installation process, you could now use the `./configure` script like this:
 
 .. code-block:: bash
 
-   cd
-   tar xvfz MNH-V5-7-1.tar.gz
+   cd ~/MNH-V5-7-1/src
+   ./configure
+   . ../conf/profile_mesonh
 
-Next step is to configure Meso-NH package, for that go to Section XXX.
+This will create a configuration file `profile_mesonh` with an extension reflecting the different choices made automatically to match the computer on which you want to install Meso-NH.
 
+.. warning::
 
-Download via git (for users only ; highly recommended)
-*****************************************************************************
+  On GENCI, ECMWF, Meteo-France and some supercomputers, the './configure' script is tuned to identify the machine on which the command is run. For them, the compiler, MPI and netCDF libraries are automatically chosen.
+
+  To install this version on one of these machines, go to go to Section XXX (COMPILING/INSTALLING ON GENCI & ECMWF & METEO COMPUTERS).
+
+If you are installing Meso-NH on an unknown computer, to configure the Meso-NH package, there are 3 main environment variables that can be set:
+
+- `ARCH`: the architecture to use (OS + compiler, default is `LXgfortran` for Linux with gfortran compiler)
+- `VER_MPI`: the version of MPI to use (default is `MPIVIDE` for no parallel run)
+- `OPTLEVEL`: the level of optimization for the compiler (default is `DEBUG` for development purpose, debugging and fast compilation)
+
+If needed, you can change the default values of these environment variables. For example, if you want to use the Intel compiler `ifx`` with the Intel MPI library and an optimisation level of `-O2`, you can run the following commands:
+
+.. code-block:: bash
+
+   export ARCH=LXifort
+   export VER_MPI=MPIAUTO
+   export OPTLEVEL=O2
+   ./configure
+
+Then, you have to source the generated file before compiling the code:
+
+.. code-block:: bash
+   . ../conf/profile_mesonh-LXifx-R8I4-MNH-V5-7-1-MPIINTEL-O2
 
 .. note::
 
-   * If you will modify the code, go to Section XXX.
-   
-   * Some basic Git commands are presented in Appendice XXX.
-   
-   
-Prerequisites
-++++++++++++++++++++++++++++++++++++++++
+   - The options specific to the architecture and compiler such as `OPTLEVEL` are defined inside the `Rules.${ARCH}.mk` files.
+   - The options specific to the MPI library (`VER_MPI`) are defined inside `Makefile.MESONH.mk` **is it correct? est-ce qu'il y a aussi des options pour les bibli dans les Rules?**
+   - There are also options for the netCDF library (see the `VER_CDF` variable)
+   - If needed, for adaptation to your requirements, look inside the files and changes options for your needs.
+   - On a Linux PC, if you need to compile the MPI library, look at the "MesonhTEAM Wiki" to know `how to compile the OpenMPI library with MESONH <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTEAMFAQ/PC_Linux>`_ **A remplacer par un nouveau lien, texte pas à jour**
 
-In order to clone the Meso-NH git repository the git LFS extension is required to handle binary (or large) files (LFS meaning Large File Storage). So before starting, be sure:
-
-* to have git v1.8.2 or higher installed on your workstation. You can run and check with:
-
-.. code-block:: bash
-
-   git --version
-
-* to install the git LFS extension (not included by default in the Git package :
-
-  * get the linux git-lfs archive from the 'Download v1.X.Y (Linux)' link on the web page https://git-lfs.github.com/
-  
-  * extract the archive and copy the git-lfs binary in your `$HOME/bin` (the provided install.sh script doesn't need to be executed)
-  
-  * execute the following command if it's not already in your `$HOME/.bash_profile`: `export PATH=$PATH:$HOME/bin`
-  
-  * from any directory, you can now execute:
-
-.. code-block:: bash
-
-   git lfs install
-
-that will set up some filters under the name 'lfs' in the global Git config file `$HOME/.gitconfig`.
-
-
-Before cloning
-++++++++++++++++++++++++++++++++++++++++
-
-...
-
+Compiling and installing the Meso-NH package
+*****************************************************************************
