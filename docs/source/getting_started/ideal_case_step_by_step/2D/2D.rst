@@ -1,0 +1,31 @@
+2-Dimension 
+================================================
+
+What is a 2D simulation ?
+------------------------------
+* uniform vertical profiles
+
+
+Why using 2D simulation ?
+------------------------------
+
+
+How it works ?
+------------------------------
+Ingredients:
+* 
+
+
+How to set up ?
+------------------------------
+
+.. code-block:: fortran
+
+    &NAM_VER_GRID NKMAX=48,
+                  ZDZGRD=8 /
+                  
+
+Use case
+------------------------------
+* 
+* Lien vers le catalogue
