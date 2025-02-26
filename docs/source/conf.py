@@ -16,7 +16,7 @@ if os.environ.get("READTHEDOCS", "") == "True":
 # -- Project information
 
 project   = 'Meso-NH'
-copyright = '2024, Meso-NH\'s support'
+copyright = '2025, Meso-NH\'s support'
 author    = 'Meso-NH\'s support'
 
 release = '0.0'
@@ -52,6 +52,9 @@ html_theme = 'sphinx_rtd_theme'
 #html_theme = 'sphinx_book_theme'
 
 html_logo = 'logos/LogoMesoNH-small.png'
+
+#html_static_path = ['_static']
+#html_css_files = ['custom.css']
 
 #html_sidebars = {
 #'index': [],

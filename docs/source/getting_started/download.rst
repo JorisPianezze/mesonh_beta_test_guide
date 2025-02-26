@@ -1,21 +1,18 @@
-Download (TD, PW)
-================================================
+Download
+=============================================================================
 
 .. note::
 
     The following instructions assume that you are working on a Linux machine.
 
-
-
-Meso-NH package is developed and maintained using |git_link| .
+Meso-NH package is developed and maintained using |git_link|.
 It is now strongly recommended, but not mandatory, for all users to download Meso-NH package using Git (next Section), because:
 
 * It's easier for us (Meso-NH support's team) to give you some assistance in case of trouble... as Git allows us to know exactly what you have changed in the original package ;
 
-* It's much easier for you to update to the last version...  or at least see the changes made for bug fix directly on our installation. ("our installation" or "your installation" ??)
+* It's much easier for you to update to the last version...  or at least see the changes made for bug fix directly on our installation.
 
 * Git is strongly recommended if you intend to modify the code.
-
 
 However, if you are allergic to Git, you can still download a tarball of Meso-NH package (Section XXX).
 
@@ -24,10 +21,8 @@ However, if you are allergic to Git, you can still download a tarball of Meso-NH
    <a href="https://git-scm.com/" target="_blank">Git</a>
 
 
-Download via git (for users only ; highly recommended)
-------------------------------------------------
-
-
+Git (highly recommended)
+-----------------------------------------------------------------------------
 
 Prerequisites
 *****************************************************************************
@@ -58,7 +53,9 @@ that will set up some filters under the name 'lfs' in the global Git config file
 
    <a href="https://git-lfs.github.com/" target="_blank">Git LFS</a>
 
+.. error::
 
+   * C'est toujours utile ?
 
 
 Cloning
@@ -75,12 +72,60 @@ that will create the MNH-V5-7-1 directory containing a clone (copy) of the Meso-
 
 The next step is to configure the Meso-NH package, for that go to Section XXX.
 
+.. error::
 
-Download a tarball of Meso-NH (for basic users ; not recommended)
-------------------------------------------------
+   * Faire le lien entre cette section et celle du depot zenodo
+   
+   * plutot que de recuperer la branche MNH-57-branch il faudrait plutot recuperer le tag MNH-V5-7-1 non ?
 
-If you are a basic user of Meso-NH, you can download a tarball containing Meso-NH package. With your preferred web browser go to the |mesonh_link| and click on **Download** link on the left part.
-Alternatively, you can directlyly download the last validated version of Meso-NH `here <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz>`_.
+Checking out a given version
+*****************************************************************************
+
+Once the repository is cloned, it's better for you to checkout your own branch (by default, you are on HEAD of the MNH-57-branch development branch). To create your local branch corresponding to the V5-7-1 version, type:
+
+.. code-block:: bash
+
+   cd MNH-V5-7-1
+   git checkout -b MYB-MNH-V5-7-1 PACK-MNH-V5-7-1
+
+MYB-MNH-V5-7-1 is the name of the local branch you created and PACK-MNH-V5-7-1 is the remote/origin tag on which it is based. The advantage of this way of downloading the package is that in the future you could check and update quickly differences with the new version of the package without having to download entirely the full package.
+
+Suppose that a new version, for example "PACK-MNH-V5-7-1", is announced. To see the differences
+with your working copy, do:
+
+.. code-block:: bash
+
+   git fetch
+   git diff HEAD PACK-MNH-V5-7-1
+
+To go to the new version, you can, for example, create a new local branch:
+
+.. code-block:: bash
+
+   git checkout -b MYB-MNH-V5-7-1 PACK-MNH-V5-7-1
+
+At any time, you can also check for "uptodate" changes in the Git branch dedicated to the MNH57
+version before the official release of the "bugN+1" bugfix version.
+
+.. code-block:: bash
+
+   git fetch
+   git diff HEAD MNH-57-branch
+
+And, test this development (not yet official) version by going to this branch:
+
+.. code-block:: bash
+
+   git checkout --track origin/MNH-57-branch
+
+.. tip::
+
+   Next step is to configure Meso-NH's package, for that go to Section XXX.
+
+Tarball (not recommended)
+-----------------------------------------------------------------------------
+
+You can also download a tarball containing Meso-NH's package. With your preferred web browser go to the |mesonh_link| and click on **Download** link on the left part. Alternatively, you can directlyly download the last validated version of Meso-NH `here <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz>`_.
 
 Then untar the file MNH-V5-7-1.tar.gz where you want to.
 For example, in your home directory:
@@ -104,3 +149,42 @@ The next step is to configure the Meso-NH package, for that go to Section XXX.
 
    * Some basic Git commands are presented in Appendice XXX.
 
+.. error::
+
+   * Remplacer tous les liens vers l'ancien site mesonh par un depot zenodo.
+
+What do you download ?
+-----------------------------------------------------------------------------
+
+Meso-NH's package contains sources, makefiles, pre-compiled executables, graphic tools and basic examples.
+
+Hereafter is a very quick description of Meso-NH's tree :
+
+.. csv-table:: Description of the Meso-NH's package
+   :header: "Tree", "Description"
+   :widths: 30, 30
+
+   "A-INSTALL", "Instructions to install Meso-NH"
+   "bin/", "Miscellaneous scripts for compilation and execution"
+   "bin_tools/", ""
+   "conf/", "location of profile_mesonh files (See Section XXX)"
+   "exe/", "links to binary compiled programs (See Section XXX)"
+   "LIBTOOLS/", ""
+   "Licence_CeCILL-C_V1-en.txt", "licence in French"
+   "Licence_CeCILL-C_V1-fr.txt", "licence in English"
+   "LICENSE", ""
+   "MY_RUN/", "ktests and benchs  (See Section XXX)"
+   "pub/", "public tools"
+   "README_MNH_CONDA", "instructions to install https://github.com/QuentinRodier/MNHPy via conda, a python library to plot Meso-NH outputs"
+   "src/ARCH_SRC/", ""
+   "src/configure", "script to configure Meso-NH (See Section XXX)"
+   "src/include/", ""
+   "src/job_make_examples_*", "script to launch examples on different computers"
+   "src/job_make_mesonh_*", "script to launch examples on different computers"
+   "src/LIB/", "location of external libraries (ECCODES, ECRAD, NETCDF, OASIS, ...)"
+   "src/Makefile", "script for compilation"
+   "src/Makefile.MESONH.mk", "script for compilation"
+   "src/MNH/", "Meso-NH source code"
+   "src/PHYEX/", "PHYEX source code, externalized atmospheric physics common to AROME and HARMONIE-AROME"
+   "src/Rules.*", "compiled options for different compilers"
+   "src/SURFEX/", "SURFEX source code"
