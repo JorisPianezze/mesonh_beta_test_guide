@@ -1,6 +1,13 @@
 Get atmospheric data (JPC & JP)
 ================================================
 
+* decrire les donnees atmospheriques :
+  * 3d atmospheric data (u, v, t, q, lnsp, z, ...) --> initialisation atmosphere + surface, forçage aux CLL + nudging si souhaité
+  * source : GFS, ERA5, ECMWF oper, AROME, ARPEGE avec les liens
+
+* champs atmosphériques pour la chimie :
+  * CAMS
+
 .. toctree::
    :maxdepth: 2
 
