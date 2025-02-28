@@ -1,4 +1,4 @@
-Newsletters (TD)
+Newsletters
 ================================================
 
 .. toctree::

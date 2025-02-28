@@ -16,23 +16,22 @@ Meso-NH's website
    :maxdepth: 2
    :caption: Getting started
 
-   getting_started/why_using_mesonh.rst
    getting_started/download.rst
-   getting_started/installation_compilation.rst
-   getting_started/get_atmospheric_data.rst
-   getting_started/get_surface_data.rst
-   getting_started/ideal_case_step_by_step.rst
-   getting_started/real_case_step_by_step.rst
+   getting_started/configuration_compilation.rst
+   getting_started/simulation.rst
    
 .. toctree::
    :maxdepth: 2
    :caption: Documentation
 
-   documentation/user_guides.rst
-   documentation/scientific_documentation.rst
+   documentation/scientific_references.rst
+   documentation/code_description.rst
    documentation/graphics.rst
    documentation/training_material.rst
-   documentation/faq.rst
+   documentation/coding_instructions.rst   
+   documentation/how_to.rst
+   documentation/external_data.rst
+   documentation/external_tools.rst   
 
 .. toctree::
    :maxdepth: 2
@@ -46,7 +45,7 @@ Meso-NH's website
    :caption: Community
 
    community/meetings.rst
-   Publications (JPC) <http://mesonh.aero.obs-mip.fr/cgi-bin/mesonh/publi.pl?art=on&phd=on>
+   Publications <http://mesonh.aero.obs-mip.fr/cgi-bin/mesonh/publi.pl?art=on&phd=on>
    community/newsletters/newsletters.rst
 
 .. toctree::

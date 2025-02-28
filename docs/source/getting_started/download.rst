@@ -10,7 +10,7 @@ It is now strongly recommended, but not mandatory, for all users to download Mes
 
 * It's easier for us (Meso-NH support's team) to give you some assistance in case of trouble... as Git allows us to know exactly what you have changed in the original package ;
 
-* It's much easier for you to update to the last version...  or at least see the changes made for bug fix directly on our installation.
+* It's much easier for you to update to the last version...  or at least see the changes made for bug fix directly on our installation ;
 
 * Git is strongly recommended if you intend to modify the code.
 
@@ -167,24 +167,24 @@ Hereafter is a very quick description of Meso-NH's tree :
    "A-INSTALL", "Instructions to install Meso-NH"
    "bin/", "Miscellaneous scripts for compilation and execution"
    "bin_tools/", ""
-   "conf/", "location of profile_mesonh files (See Section XXX)"
-   "exe/", "links to binary compiled programs (See Section XXX)"
+   "conf/", "Location of profile_mesonh files (See Section XXX)"
+   "exe/", "Links to binary compiled programs (See Section XXX)"
    "LIBTOOLS/", ""
-   "Licence_CeCILL-C_V1-en.txt", "licence in French"
-   "Licence_CeCILL-C_V1-fr.txt", "licence in English"
+   "Licence_CeCILL-C_V1-en.txt", "Licence in French"
+   "Licence_CeCILL-C_V1-fr.txt", "Licence in English"
    "LICENSE", ""
-   "MY_RUN/", "ktests and benchs  (See Section XXX)"
-   "pub/", "public tools"
-   "README_MNH_CONDA", "instructions to install https://github.com/QuentinRodier/MNHPy via conda, a python library to plot Meso-NH outputs"
+   "MY_RUN/", "Ktests and benchmarks  (See Section XXX)"
+   "pub/", "Public tools"
+   "README_MNH_CONDA", "Instructions to install https://github.com/QuentinRodier/MNHPy via conda, a python library to plot Meso-NH outputs"
    "src/ARCH_SRC/", ""
-   "src/configure", "script to configure Meso-NH (See Section XXX)"
+   "src/configure", "Script to configure Meso-NH (See Section XXX)"
    "src/include/", ""
-   "src/job_make_examples_*", "script to launch examples on different computers"
-   "src/job_make_mesonh_*", "script to launch examples on different computers"
-   "src/LIB/", "location of external libraries (ECCODES, ECRAD, NETCDF, OASIS, ...)"
-   "src/Makefile", "script for compilation"
-   "src/Makefile.MESONH.mk", "script for compilation"
-   "src/MNH/", "Meso-NH source code"
-   "src/PHYEX/", "PHYEX source code, externalized atmospheric physics common to AROME and HARMONIE-AROME"
-   "src/Rules.*", "compiled options for different compilers"
-   "src/SURFEX/", "SURFEX source code"
+   "src/job_make_examples_*", "Script to launch examples on different computers"
+   "src/job_make_mesonh_*", "Script to compile Meso-NH on different computers"
+   "src/LIB/", "Mocation of external libraries (ECCODES, ECRAD, NETCDF, OASIS, ...)"
+   "src/Makefile", "Script for compilation"
+   "src/Makefile.MESONH.mk", "Script for compilation"
+   "src/MNH/", "Meso-NH's source code"
+   "src/PHYEX/", "PHYEX's source code, externalized atmospheric physics common to AROME and HARMONIE-AROME"
+   "src/Rules.*", "Compiled options for various compilers"
+   "src/SURFEX/", "SURFEX's source code"

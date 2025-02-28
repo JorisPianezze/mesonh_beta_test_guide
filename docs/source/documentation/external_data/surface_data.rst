@@ -1,4 +1,4 @@
-Get surface data (JP)
+Surface data
 ================================================
 
 Surface data are necessary if you want to prepare idealised and/or real case study above realistic surface using PREP_PGD program.

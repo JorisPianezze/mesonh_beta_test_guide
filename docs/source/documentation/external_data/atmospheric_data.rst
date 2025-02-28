@@ -1,4 +1,4 @@
-Get atmospheric data (JPC & JP)
+Atmospheric data
 ================================================
 
 * decrire les donnees atmospheriques :
@@ -12,5 +12,6 @@ Get atmospheric data (JPC & JP)
    :maxdepth: 2
 
    extract_ecmwf_data/extract_ecmwf_data.rst
-   extract_cams_data/extract_cams_data.rst
+   extract_meteofrance_data/extract_meteofrance_data.rst
    extract_gfs_data/extract_gfs_data.rst
+   extract_cams_data/extract_cams_data.rst

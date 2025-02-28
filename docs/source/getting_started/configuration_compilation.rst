@@ -1,4 +1,4 @@
-Configuration and compilation
+Configuration & Compilation
 =============================================================================
 
 Principles
@@ -12,7 +12,7 @@ For the configuration and the compilation processes, you will use following comm
 
 .. code-block:: bash
 
-   cd ~/MNH-V5-7-1/src
+   cd ~/MNH-VX-Y-Z/src
    ./configure
    . ../conf/profile-mesonh
    make
@@ -20,39 +20,57 @@ For the configuration and the compilation processes, you will use following comm
 
 .. note::
 
-   * :file:`configure` script will create a configuration file `profile_mesonh` with an extension reflecting the different choices made automatically to match the computer on which you want to install Meso-NH.
+   * :file:`configure` script will create a configuration file :file:`profile_mesonh` in conf/ directory with an extension reflecting the different choices made automatically to match the computer on which you want to install Meso-NH.
    
-   * make will compile the code
+   * :file:`make` will compile the code
    
-   * make installmaster will link the compiled executables in the exe directory
+   * :file:`make installmaster` will link the compiled executables in the exe directory (cf List of compiled executable). Need to be done only one time by “version”
 
+   * the object files "*.o" and main executables of the Meso-NH's package are compiled in one step and created in the directory src/dir_obj-your_configuration/MASTER
+   
+      * the lib.*.a is only created and removed at the link phase this allows a parallel compilation of the sources ...
+      
+      * The name "dir obj..." depends on the different environment variables set by the "profile_mesonh" which you have loaded before the compilation. This allows by loading different "profile mesonh ..." files to compile in the same source/installation directory different versions of Meso-NH, with different compilers, different versions of MPI, different USER sources ...
+      
+.. note::
+
+   To have information about compiled executables, go to XXX.
 
 Configuration
 *****************************************************************************
 
-On supercomputer (IDRIS, CINES, ECMWF, METEO-FRANCE, CALMIP, NUWA, ...)
------------------------------------------------------------------------------
-
-On GENCI, ECMWF, Meteo-France and some supercomputers, the './configure' script is tuned to identify the machine on which the command is run. For them, the compiler, MPI and netCDF libraries are automatically chosen.
-
-On these computers, you just have to to do :
-
-.. code-block:: bash
-
-   cd MNH-V5-7-0/src
-   ./configure
-
 .. tip::
 
-   * Next step is to compile Meso-NH's package, for that go to Section XXX.
-   
-   * To verify if the supercomputer you are using is recognized by :file:`configure` script, look at the :command:`case` condition :
+   * To verify if the supercomputer you are using is recognized by :file:`configure` script, look at the :command:`case` condition in the :file:`configure` script to find your configuration :
    
    .. code-block:: bash
    
       TARG=$(uname -s -n)
       #
       case "$TARG" in
+
+   * If you do not have sufficient space in your $HOME directory, install the whole package directly on the $WORKDIR. The name of the $WORKDIR differs in the differents computer center, most of them manage disk space throw 'multi-projet' with only one unique login.
+
+     .. warning::
+
+        Think to do a backup of your installation. $WORKDIR space is not everytime purged but a crash disk could/will probably occur !!!      
+      
+
+On recognized computer (IDRIS, CINES, ECMWF, METEO-FRANCE, CALMIP, NUWA, ...)
+-----------------------------------------------------------------------------
+
+On GENCI, ECMWF, Meteo-France and some supercomputers, the :file:`configure` script is tuned to identify the machine on which the command is run. For them, the compiler, MPI and NetCDF libraries are automatically chosen.
+
+On these computers, you just have to to do :
+
+.. code-block:: bash
+
+   cd MNH-V5-7-1/src
+   ./configure
+
+.. tip::
+
+   * Next step is to compile Meso-NH's package, for that go to Section XXX.
 
 On unknown computer
 -----------------------------------------------------------------------------
@@ -90,14 +108,8 @@ During the first Meso-NH's compilation, almost all the numerical schemes and all
 When you want to modify the code contained in the Meso-NH's package, you create a folder containing the modified code and you compile only the modified code: in the Meso-NH language we say that we compile the **VER_USER**. This compilation is shorter than the MASTER one, it depends on how many
 sources are modified.
 
-On supercomputer (IDRIS, CINES, ECMWF, METEO-FRANCE, CALMIP, NUWA, ...)
+On recognized computer (IDRIS, CINES, ECMWF, METEO-FRANCE, CALMIP, NUWA, ...)
 -----------------------------------------------------------------------------
-
-If you do not have sufficient space in your $HOME directory, install the whole package directly on the $WORKDIR. The name of the $WORKDIR differs in the differents computer center, most of them manage disk space throw 'multi-projet' with only one unique login.
-
-.. warning::
-
-   Think to do a backup of your installation. $WORKDIR space is not everytime purged but a crash disk could/will probably occur !!!
    
 Due to limitation in time and memory on interactive connection, in some computer you have to compile the Meso-NH's package in batch mode with the different 'src/job_make_mesonh*' files.
 
@@ -109,7 +121,7 @@ The compilation can be do in interactive :
 
 .. code-block:: bash
 
-   cd MNH-V5-7-0/src
+   cd MNH-V5-7-1/src
    . ../conf/profile_mesonh-LXifort-R8I4-MNH-V5-7-0-MPIINTEL-O2
    make -j16 |& tee error$XYZ
    make installmaster
@@ -120,7 +132,7 @@ You can also use the “compil” partition :
 
    sbatch job_make_mesonh_HPE_jeanzay
    
-To run the test case examples run
+To run the test case examples, do :
 
 .. code-block:: bash
 
@@ -134,12 +146,12 @@ Install the PACKAGE in your $HOME (default 50Go of quota) and compile in interac
 
 .. code-block:: bash
 
-   cd MNH-V5-7-0/src
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V5-7-0-MPIINTEL-O2
+   cd MNH-V5-7-1/src
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V5-7-1-MPIINTEL-O2
    make -j16 |& tee error$XYZ
    make installmaster
 
-To run the test case examples run :
+To run the test case examples, do :
 
 .. code-block:: bash
 
@@ -149,29 +161,51 @@ TGCC on IRENE (BULLX)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 At TGCC, you have two architectures accessible throw 2 differents frontals but with a commun disk
-space , connect to :
+space, for both install Meso-NH in your $CCCHOME (default 20Go of quota) and compile in interactive mode :
 
-• ssh irene-fr : for Intel SkyLake/KNL processors. On Intel processors the MPI use is OPEN-
-MPI/2.0.4, the configure will generate a profile mesonh-LXifort-R8I4-MNH-V5-7-0-MPIAUTO-O2
-• ssh irene-amd : for AMD, processors. On AMD processors the MPI use is OPENMPI/4.02, the
-configure will generate a profile mesonh-LXifort-R8I4-MNH-V5-7-0-AMD-MPIAUTO-O2
-Install the PACKAGE in your $CCCHOME (default 20Go of quota) and compile in interactive mode
-(see 4.2.1).
-To run the test case examples run :
-• On intel Skylake : ccc msub job make examples BullX irene
-• On intel Knl : ccc msub -q knl job make examples BullX irene
-• On intel AMD : ccc msub job make examples BullX irene AMD
+* On intel Skylake, do:
+
+.. code-block:: bash
+
+   cd MNH-V5-7-1/src
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V5-7-0-MPIAUTO-O2
+   make -j16 |& tee error$XYZ
+   make installmaster
+
+* On intel AMD, do :
+
+.. code-block:: bash
+
+   cd MNH-V5-7-1/src
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V5-7-0-AMD-MPIAUTO-O2
+   make -j16 |& tee error$XYZ
+   make installmaster
+
+To run the test case examples, do :
+
+* On intel Skylake :
+
+.. code-block:: bash
+
+   ccc msub job_make_examples_BullX_irene
+
+* On intel Knl :
+
+.. code-block:: bash
+
+   ccc msub -q knl job_make_examples_BullX_irene
+
+* On intel AMD :
+
+.. code-block:: bash
+
+   ccc msub job_make_examples_BullX_irene_AMD
+   
 
 ECMWF on hpc-login ( ATOS/HPCF ) :
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To install Meso-NH's package go to your $HPCPERM directory and do
-
-.. code-block:: bash
-
-   ./configure
-
-Then connect to an ”interactive compute node” and compile the code ( 16 core 16GO of memory)
+To compile Meso-NH's package go to $HPCPERM directory and connect to an interactive compute node and compile the code (16 core 16GO of memory) :
 
 .. code-block:: bash
 
@@ -180,8 +214,7 @@ Then connect to an ”interactive compute node” and compile the code ( 16 core
    make
    make installmaster
 
-etc ...
-To run the test case examples run
+To run test case examples, do :
 
 .. code-block:: bash
 
@@ -190,26 +223,15 @@ To run the test case examples run
 Meteo-France on belenos
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To install the whole package on your $HOME directory, untar the file ”MNH-V5-7-0.tar.gz” from its
-location and run the ”./configure” command:
-
-.. code-block:: bash
-
-   cd ~
-   tar xvf $MESONH/MNH-V5-7-0.tar.gz
-   cd MNH-V5-7-0/src
-   ./configure
-
-Due to limitation in time memory on interactive connection then compile the MESONH PACKAGE
-in batch mode with the job make mesonh BullX belenos file :
+Due to limitation in time memory on interactive connection, compile Meso-NH in batch mode with :
 
 .. code-block:: bash
 
    sbatch job_make_mesonh_BullX_belenos
 
-This job does “gmake -j 4”, then “make installmaster”
+This job does "gmake -j 4", then "make installmaster".
 
-To run basic KTEST examples :
+To run test case examples, do :
 
 .. code-block:: bash
 
@@ -218,7 +240,7 @@ To run basic KTEST examples :
 CALMIP on OLYMPE (BULLX) :
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Install the PACKAGE in your /tmpdir/$USER and compile in interactive mode using
+Compile in interactive mode using :
 
 .. code-block:: bash
 
@@ -226,7 +248,7 @@ Install the PACKAGE in your /tmpdir/$USER and compile in interactive mode using
    make
    make installmaster
 
-To run the test case examples run :
+To run test case examples, do :
 
 .. code-block:: bash
 
@@ -235,33 +257,22 @@ To run the test case examples run :
 On unknown computer
 -----------------------------------------------------------------------------
 
-Go to the directory “src” :
-1 cd MNH-V5-7-0/src
-if you have not already configured your Meso-NH environment either manually in your interactive
-session or automatically through your .profile (or .bashrc), do:
-1 . ../conf/profile_mesonh-your_configuration
-run the compilation by
-1 make
-The compilation will take about 20 minutes on modern PC-Linux ... If you have a multi-processor
-machine you can speedup the compilation, for example on four cores, with:
-1 make -j 4
-The object files ”*.o” and main executables of the Meso-NH’s package : MESONH , PREP IDEAL CASE
-, PREP REAL CASE , etc ... are compiled in one step and created in the directory :
-1 src/dir_obj-your_configuration/MASTER
-Remark : the lib...a is only created and removed at the link phase this allows a parallel compilation
-of the sources ...
-The name “dir obj...” depends on the different environment variables set by the “profile mesonh
-...” which you have loaded before the compilation. This allows by loading different “profile mesonh ...”
-files to compile in the same source/installation directory different versions of Meso-NH, with different
-compilers, different versions of MPI, different USER sources ...
-To install the new compiled program in the “$SRC MESONH/exe” directory, after compilation, just
-run
-1 make installmaster
-The executables with their full name, including $ARCH, compiler, MPI and level of optimization, will
-be linked in the “../exe” directory.
-Remark : The “make installmaster” need to be done only one time by “version”. If you only
-change/add source, you have to do “make”
-1 make
+Compile the code :
+
+.. code-block:: bash
+
+   . ../conf/profile-mesonh-your_configuration
+   make
+   make installmaster
+
+
+.. note::
+
+   The compilation will take about 20 minutes on modern PC-Linux ... If you have a multi-processor machine you can speedup the compilation, for example on four cores, with:
+
+   .. code-block:: bash
+ 
+      make -j 4
 
 Cleaning previous compiled version
 -----------------------------------------------------------------------------
@@ -410,7 +421,7 @@ To use MEGAN, do :
 
 To compile Meso-NH with MEGAN, you can follow th steps described in the section dedicated to your computer (interactive or batch mode).
 
-Compilation of your own sources
+Compilation with modified sources
 *****************************************************************************
 
 Now you can generate and recompile your own sources.
@@ -418,49 +429,56 @@ Now you can generate and recompile your own sources.
 Prepare your source directory
 -----------------------------------------------------------------------------
 
-Suppose you want to create a “MY MODIF” version. Put your own sources in a subdirectory of
-“$SRC MESONH/src” named $SRC MESONH/src/MY MODIF. All subdirectories in “MY MODIF”
-will be scanned. So if you want, you could make a subdirectory for each component of the MESONH
-Package :
-1 cd MY_MODIF
-2 mkdir MNH
-3 mkdir SURFEX
-4 cp ../MNH/mesonh.f90 MNH/
-5 cp ../SURFEX/isba.f90 SURFEX/
-Remark : In this subdirectory, put only fortran source you want to compile !!! Don’t use it as a
-trash with old sources file like “my source.f90.old” or “tar” files “mysource.tar”. All “spirituous” file will
-confuse the “make” command.
+Suppose you want to create a MY_MODIF version of Meso-NH. Put your own sources in a subdirectory src/MY_MODIF. All subdirectories in MY_MODIF will be scanned during compilation process. So if you want, you could make a subdirectory for each component of the Meso-NH's package, by example :
 
-Configure Meso-NH with modified sources
+.. code-block:: bash
+
+   cd MY_MODIF
+   mkdir MNH
+   mkdir SURFEX
+   cp ../MNH/mesonh.f90 MNH/
+   cp ../SURFEX/isba.f90 SURFEX/
+   
+.. tip::
+
+   In this subdirectory, put only fortran source you want to compile !!! Don't use it as a trash with old sources file like :file:`mysource.f90.old` or :file:`tar` files. All spirituous file will confuse the :file:`make` command.
+
+Configure with modified sources
 -----------------------------------------------------------------------------
 
-Logout of the current session to be sure to unset all the environment variables loaded with the your
-MASTER “profile mesonh”.
-Login again and:
-• set the environment variable VER USER to the name of your user directory (MY MODIF, by
-example),
-• set also the optional environment variable ARCH, VER MPI... you want to use.
-and run again the “./configure” command
-1 export VER_USER=MY_MODIF
-2 ./configure
-This will regenerate the “profile-mesonh” file and a copy of this with the extent “profile mesonh
-...$VER USER...”.
+Logout of the current session to be sure to unset all the environment variables loaded with the your MASTER :file:`profile_mesonh`. Login again and:
 
-Compile Meso-NH with modified sources
+* set the environment variable VER USER to the name of your user directory (MY_MODIF, by example),
+* set also the optional environment variable ARCH, VER MPI... you want to use, has to be the same as the MASTER
+
+and run again the :file:`configure` command
+
+.. code-block:: bash
+
+   export VER_USER=MY_MODIF
+   ./configure
+
+This will regenerate the :file:`profile_mesonh` file and a copy of this with the $VER USER information.
+
+Compile with modified sources
 -----------------------------------------------------------------------------
-Compile with the “make user” command :
-1 . ../conf/profile_mesonh...${VER_USER}...
-2 make user
-3 make installuser
-This will compile only your sources and the files depending on your sources and generate the new
-executables in your own directory
-1 dir_obj-your_configuration/${VER_USER}
-The “make installuser” needs to be done only one time by version. And run the examples. Your
-version should appear in the name of the used executables.
-. Before compiling your own sources be sure that these ones are younger than the ”*.o” files
-of the MASTER directory. If any doubt, at any time use the command :
-1 touch *.f*
-on your sources, and only on yours do that!!!
-ò Where you compile the MASTER of Meso-NH in batch mode, you can also
-compile VER USER in batch mode. For belenos, by example, use the script
-job make mesonh user BullX belenos to compile your own sources.
+
+Now you can compile with the :file:`make user` command in interactive with
+
+.. code-block:: bash
+
+   . ../conf/profile_mesonh...${VER_USER}...
+   make user
+   make installuser
+   
+or in batch mode using script you used to cpompiler the MASTER. For belenos, by example, use the script job_make_mesonh_user_BullX_belenos to compile your own sources.
+   
+.. note::
+
+   * This will compile only your sources and the files depending on your sources and generate the new executables in your own directory dir_obj-your_configuration/${VER_USER}
+   * The “make installuser” needs to be done only one time by version. And run the examples. Your version should appear in the name of the used executables.
+   * Before compiling your own sources be sure that these ones are younger than the ”*.o” files of the MASTER directory. If any doubt, at any time use the command (on your sources, and only on yours do that!!!) :
+
+   .. code-block:: bash 
+   
+      touch *.f*
