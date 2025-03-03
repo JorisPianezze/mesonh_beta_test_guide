@@ -6,7 +6,7 @@ Download
     The following instructions assume that you are working on a Linux machine.
 
 Meso-NH package is developed and maintained using |git_link|.
-It is now strongly recommended, but not mandatory, for all users to download Meso-NH package using Git (next Section), because:
+It is now strongly recommended, but not mandatory, for all users to download Meso-NH package using :ref:`git <git>`, because:
 
 * It's easier for us (Meso-NH support's team) to give you some assistance in case of trouble... as Git allows us to know exactly what you have changed in the original package ;
 
@@ -14,12 +14,13 @@ It is now strongly recommended, but not mandatory, for all users to download Mes
 
 * Git is strongly recommended if you intend to modify the code.
 
-However, if you are allergic to Git, you can still download a tarball of Meso-NH package (Section XXX).
+However, if you are allergic to Git, you can still download a :ref:`tarball <tarball>` of Meso-NH package.
 
 .. |git_link| raw:: html
 
    <a href="https://git-scm.com/" target="_blank">Git</a>
 
+.. _git:
 
 Git (highly recommended)
 -----------------------------------------------------------------------------
@@ -70,7 +71,9 @@ Clone the Meso-NH Source repository from the developpement branch MNH-57-branch 
 
 that will create the MNH-V5-7-1 directory containing a clone (copy) of the Meso-NH package on the remote developpement branch MNH-57-branch.
 
-The next step is to configure the Meso-NH package, for that go to Section XXX.
+.. tip::
+
+   The next step is to :ref:`configure <configuration>` of the Meso-NH package.
 
 .. error::
 
@@ -120,12 +123,14 @@ And, test this development (not yet official) version by going to this branch:
 
 .. tip::
 
-   Next step is to configure Meso-NH's package, for that go to Section XXX.
+   The next step is to :ref:`configure <configuration>` of the Meso-NH package.
+
+.. _tarball:
 
 Tarball (not recommended)
 -----------------------------------------------------------------------------
 
-You can also download a tarball containing Meso-NH's package. With your preferred web browser go to the |mesonh_link| and click on **Download** link on the left part. Alternatively, you can directlyly download the last validated version of Meso-NH `here <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz>`_.
+You can also download a tarball containing Meso-NH's package. With your preferred web browser go to the |mesonh_link| and click on **Download** link on the left part. Alternatively, you can directly download the last validated version of Meso-NH `here <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz>`_.
 
 Then untar the file MNH-V5-7-1.tar.gz where you want to.
 For example, in your home directory:
@@ -135,7 +140,9 @@ For example, in your home directory:
    cd
    tar xvfz MNH-V5-7-1.tar.gz
 
-The next step is to configure the Meso-NH package, for that go to Section XXX.
+.. tip::
+
+   The next step is to :ref:`configure <configuration>` of the Meso-NH package.
 
 .. |mesonh_link| raw:: html
 
@@ -167,23 +174,23 @@ Hereafter is a very quick description of Meso-NH's tree :
    "A-INSTALL", "Instructions to install Meso-NH"
    "bin/", "Miscellaneous scripts for compilation and execution"
    "bin_tools/", ""
-   "conf/", "Location of profile_mesonh files (See Section XXX)"
-   "exe/", "Links to binary compiled programs (See Section XXX)"
+   "conf/", "Location of profile_mesonh files (:ref:`configuration`)"
+   "exe/", "Links to binary :ref:`compiled <compilation>` programs"
    "LIBTOOLS/", ""
    "Licence_CeCILL-C_V1-en.txt", "Licence in French"
    "Licence_CeCILL-C_V1-fr.txt", "Licence in English"
    "LICENSE", ""
-   "MY_RUN/", "Ktests and benchmarks  (See Section XXX)"
+   "MY_RUN/", "Ktests and benchmarks (:ref:`compilation`)"
    "pub/", "Public tools"
    "README_MNH_CONDA", "Instructions to install https://github.com/QuentinRodier/MNHPy via conda, a python library to plot Meso-NH outputs"
    "src/ARCH_SRC/", ""
-   "src/configure", "Script to configure Meso-NH (See Section XXX)"
+   "src/configure", "Script to configure Meso-NH (:ref:`configuration`)"
    "src/include/", ""
    "src/job_make_examples_*", "Script to launch examples on different computers"
-   "src/job_make_mesonh_*", "Script to compile Meso-NH on different computers"
+   "src/job_make_mesonh_*", "Script to :ref:`compile <compilation>` Meso-NH on different computers"
    "src/LIB/", "Mocation of external libraries (ECCODES, ECRAD, NETCDF, OASIS, ...)"
-   "src/Makefile", "Script for compilation"
-   "src/Makefile.MESONH.mk", "Script for compilation"
+   "src/Makefile", "Script for :ref:`compilation`"
+   "src/Makefile.MESONH.mk", "Script for :ref:`compilation`"
    "src/MNH/", "Meso-NH's source code"
    "src/PHYEX/", "PHYEX's source code, externalized atmospheric physics common to AROME and HARMONIE-AROME"
    "src/Rules.*", "Compiled options for various compilers"

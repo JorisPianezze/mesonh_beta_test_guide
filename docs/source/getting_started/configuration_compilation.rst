@@ -20,11 +20,11 @@ For the configuration and the compilation processes, you will use following comm
 
 .. note::
 
-   * :file:`configure` script will create a configuration file :file:`profile_mesonh` in conf/ directory with an extension reflecting the different choices made automatically to match the computer on which you want to install Meso-NH.
+   * :file:`configure` script will create a :ref:`configuration` file :file:`profile_mesonh` in conf/ directory with an extension reflecting the different choices made automatically to match the computer on which you want to install Meso-NH.
    
-   * :file:`make` will compile the code
+   * :file:`make` will :ref:`compile <compilation>` the code
    
-   * :file:`make installmaster` will link the compiled executables in the exe directory (cf List of compiled executable). Need to be done only one time by “version”
+   * :file:`make installmaster` will link the compiled executables in the exe directory (cf List of compiled executable). Need to be done only one time by "version".
 
    * the object files "*.o" and main executables of the Meso-NH's package are compiled in one step and created in the directory src/dir_obj-your_configuration/MASTER
    
@@ -35,6 +35,8 @@ For the configuration and the compilation processes, you will use following comm
 .. note::
 
    To have information about compiled executables, go to XXX.
+
+.. _configuration:
 
 Configuration
 *****************************************************************************
@@ -70,7 +72,7 @@ On these computers, you just have to to do :
 
 .. tip::
 
-   * Next step is to compile Meso-NH's package, for that go to Section XXX.
+   The next step is to :ref:`compile <compilation>` Meso-NH's package
 
 On unknown computer
 -----------------------------------------------------------------------------
@@ -90,7 +92,9 @@ If needed, you can change the default values of these environment variables. For
    export OPTLEVEL=O2
    ./configure
 
-Next step is to compile Meso-NH's package, for that go to Section XXX.
+.. tip::
+
+   The next step is to :ref:`compile <compilation>` Meso-NH's package
 
 .. note::
 
@@ -99,6 +103,8 @@ Next step is to compile Meso-NH's package, for that go to Section XXX.
    - There are also options for the netCDF library (see the `VER_CDF` variable)
    - If needed, for adaptation to your requirements, look inside the files and changes options for your needs.
    - On a Linux PC, if you need to compile the MPI library, look at the "MesonhTEAM Wiki" to know `how to compile the OpenMPI library with MESONH <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTEAMFAQ/PC_Linux>`_ **A remplacer par un nouveau lien, texte pas à jour**
+
+.. _compilation:
 
 Compilation
 *****************************************************************************
@@ -313,13 +319,13 @@ The FOREFIRE API package himself must be compiled independently from Meso-NH. Th
 
    git clone -b 2014.01 https://github.com/forefireAPI/firefront.git
 
-It depend on netcdf and scons for is compilation the 'libForeFIre.so' generate must by referenced in the LD_LIBRARY_PATH or move/linked to the exe directory of MesoNH.
+It depend on netcdf and scons for is compilation the 'libForeFIre.so' generate must by referenced in the LD_LIBRARY_PATH or move/linked to the exe directory of Meso-NH.
 
 MNH_RTTOV for optional radiative computation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The RTTOV 13.2 package was not included into the open source version of Meso-NH because it needs a licence agrement.
-Run the “configure” script preceded with the setting of the MNH RTTOV variable:
+Run the "configure" script preceded with the setting of the MNH_RTTOV variable:
 
 .. code-block:: bash
 
@@ -357,8 +363,7 @@ and build RTTOV :
 
    Other available options are gfortran, NAG, pgf90 and IBM.
 
-Then, you can follow the steps described in the section dedicated to your computer (interactive or
-batch mode).
+Then, you can follow the steps described in the section dedicated to your computer (interactive or batch mode).
 
 MNH_ECRAD for optional compilation of new ECRAD radiative library from ECMWF
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -476,7 +481,7 @@ or in batch mode using script you used to cpompiler the MASTER. For belenos, by 
 .. note::
 
    * This will compile only your sources and the files depending on your sources and generate the new executables in your own directory dir_obj-your_configuration/${VER_USER}
-   * The “make installuser” needs to be done only one time by version. And run the examples. Your version should appear in the name of the used executables.
+   * The "make installuser" needs to be done only one time by version. And run the examples. Your version should appear in the name of the used executables.
    * Before compiling your own sources be sure that these ones are younger than the ”*.o” files of the MASTER directory. If any doubt, at any time use the command (on your sources, and only on yours do that!!!) :
 
    .. code-block:: bash 
