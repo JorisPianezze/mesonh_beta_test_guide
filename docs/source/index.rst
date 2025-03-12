@@ -17,7 +17,7 @@ Meso-NH's website
    :caption: Getting started
 
    getting_started/download.rst
-   getting_started/configuration_compilation.rst
+   getting_started/compilation.rst
    getting_started/simulation.rst
    
 .. toctree::

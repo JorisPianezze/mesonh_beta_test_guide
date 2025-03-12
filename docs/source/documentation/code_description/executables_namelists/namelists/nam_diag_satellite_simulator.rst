@@ -3,7 +3,7 @@
 NAM_DIAG - Satellite simulator
 -----------------------------------------------------------------------------
 
-Since RTTOV requires a license agreement, no RTTOV package is included in the open source version of Meso-NH. However, a subroutine calling RTTOV 13 is included in Meso-NH version 57. To compile and use Meso-NH with RTTOV, you must follow the instructions in :ref:`compile_mesonh_with_rttov`.
+Since RTTOV requires a license agreement, no RTTOV package is included in the open source version of Meso-NH. However, a subroutine calling RTTOV13 is included in Meso-NH version 57. To compile and use Meso-NH with RTTOV, you must follow the instructions in :ref:`compile_mesonh_with_rttov`.
   
 .. csv-table::
    :header: "Fortran name", "Fortran type", "Default value"

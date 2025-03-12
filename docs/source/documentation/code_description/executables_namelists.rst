@@ -1,3 +1,5 @@
+.. _executables_and_namelists:
+
 Executables & Namelists
 =============================================================================
 

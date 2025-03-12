@@ -1,4 +1,4 @@
-Configuration & Compilation
+Compilation
 =============================================================================
 
 Principles
@@ -7,6 +7,10 @@ Principles
 .. warning::
 
    * This subsection is just for your information, please go to the dedicated following subection to configure and compile your code.
+
+During the first Meso-NH's compilation, almost all the numerical schemes and all the physical parameterizations are compiled and it is then in namelist (during simulations) that we choose the type of numerical scheme and physical parameterization. In the Meso-NH language, we say that we compile the **MASTER**. This compilation is quite long, more than 20 minutes in 1 core in O2.
+
+When you want to modify the code contained in the Meso-NH's package, you create a folder containing the modified code and you compile only the modified code: in the Meso-NH language we say that we compile the **VER_USER**. This compilation is shorter than the MASTER one, it depends on how many sources are modified.
 
 For the configuration and the compilation processes, you will use following commands :
 
@@ -22,7 +26,7 @@ For the configuration and the compilation processes, you will use following comm
 
    * :file:`configure` script will create a :ref:`configuration` file :file:`profile_mesonh` in conf/ directory with an extension reflecting the different choices made automatically to match the computer on which you want to install Meso-NH.
    
-   * :file:`make` will :ref:`compile <compilation>` the code
+   * :file:`make` will compile the code
    
    * :file:`make installmaster` will link the compiled executables in the exe directory (cf List of compiled executable). Need to be done only one time by "version".
 
@@ -34,14 +38,11 @@ For the configuration and the compilation processes, you will use following comm
       
 .. note::
 
-   To have information about compiled executables, go to XXX.
-
-.. _configuration:
-
-Configuration
-*****************************************************************************
+   To have information about compiled executables, go to :ref:`executables_and_namelists`.
 
 .. tip::
+
+   On GENCI, ECMWF, Meteo-France and some supercomputers, the configure script is tuned to identify the machine on which the command is run. For them, the compiler, MPI and NetCDF libraries are automatically chosen.
 
    * To verify if the supercomputer you are using is recognized by :file:`configure` script, look at the :command:`case` condition in the :file:`configure` script to find your configuration :
    
@@ -56,78 +57,20 @@ Configuration
      .. warning::
 
         Think to do a backup of your installation. $WORKDIR space is not everytime purged but a crash disk could/will probably occur !!!      
-      
+ 
+   * Due to limitation in time and memory on interactive connection, in some computer you have to compile the Meso-NH's package in batch mode with the different 'src/job_make_mesonh*' files.
 
-On recognized computer (IDRIS, CINES, ECMWF, METEO-FRANCE, CALMIP, NUWA, ...)
------------------------------------------------------------------------------
+.. _compilation_jeanzay_idris:
 
-On GENCI, ECMWF, Meteo-France and some supercomputers, the :file:`configure` script is tuned to identify the machine on which the command is run. For them, the compiler, MPI and NetCDF libraries are automatically chosen.
-
-On these computers, you just have to to do :
-
-.. code-block:: bash
-
-   cd MNH-V5-7-1/src
-   ./configure
-
-.. tip::
-
-   The next step is to :ref:`compile <compilation>` Meso-NH's package
-
-On unknown computer
------------------------------------------------------------------------------
-
-If you are installing Meso-NH on an unknown computer, to configure the Meso-NH package, there are 3 main environment variables that can be set:
-
-- `ARCH`: the architecture to use (OS + compiler, default is `LXgfortran` for Linux with gfortran compiler)
-- `VER_MPI`: the version of MPI to use (default is `MPIVIDE` for no parallel run)
-- `OPTLEVEL`: the level of optimization for the compiler (default is `DEBUG` for development purpose, debugging and fast compilation)
-
-If needed, you can change the default values of these environment variables. For example, if you want to use the Intel compiler `ifx`` with the Intel MPI library and an optimisation level of `-O2`, you can run the following commands:
-
-.. code-block:: bash
-
-   export ARCH=LXifort
-   export VER_MPI=MPIAUTO
-   export OPTLEVEL=O2
-   ./configure
-
-.. tip::
-
-   The next step is to :ref:`compile <compilation>` Meso-NH's package
-
-.. note::
-
-   - The options specific to the architecture and compiler such as `OPTLEVEL` are defined inside the `Rules.${ARCH}.mk` files.
-   - The options specific to the MPI library (`VER_MPI`) are defined inside `Makefile.MESONH.mk` **is it correct? est-ce qu'il y a aussi des options pour les bibli dans les Rules?**
-   - There are also options for the netCDF library (see the `VER_CDF` variable)
-   - If needed, for adaptation to your requirements, look inside the files and changes options for your needs.
-   - On a Linux PC, if you need to compile the MPI library, look at the "MesonhTEAM Wiki" to know `how to compile the OpenMPI library with MESONH <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTEAMFAQ/PC_Linux>`_ **A remplacer par un nouveau lien, texte pas à jour**
-
-.. _compilation:
-
-Compilation
-*****************************************************************************
-
-During the first Meso-NH's compilation, almost all the numerical schemes and all the physical parameterizations are compiled and it is then in namelist (during simulations) that we choose the type of numerical scheme and physical parameterization. In the Meso-NH language, we say that we compile the **MASTER**. This compilation is quite long, more than 20 minutes in 1 core in O2.
-
-When you want to modify the code contained in the Meso-NH's package, you create a folder containing the modified code and you compile only the modified code: in the Meso-NH language we say that we compile the **VER_USER**. This compilation is shorter than the MASTER one, it depends on how many
-sources are modified.
-
-On recognized computer (IDRIS, CINES, ECMWF, METEO-FRANCE, CALMIP, NUWA, ...)
------------------------------------------------------------------------------
-   
-Due to limitation in time and memory on interactive connection, in some computer you have to compile the Meso-NH's package in batch mode with the different 'src/job_make_mesonh*' files.
-
-
-IDRIS (JEAN-ZAY)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+On Jean-Zay (IDRIS)
+*****************************************************************************      
 
 The compilation can be do in interactive :
 
 .. code-block:: bash
 
    cd MNH-V5-7-1/src
+   ./configure
    . ../conf/profile_mesonh-LXifort-R8I4-MNH-V5-7-0-MPIINTEL-O2
    make -j16 |& tee error$XYZ
    make installmaster
@@ -144,9 +87,10 @@ To run the test case examples, do :
 
    sbatch -A {your_projet}@cpu job_make_examples_BullX_jeanzay
 
+.. _compilation_adastra_cines:
 
-CINES on ADASTRA (BULLX)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+On ADASTRA (CINES)
+*****************************************************************************  
 
 Install the PACKAGE in your $HOME (default 50Go of quota) and compile in interactive mode :
 
@@ -162,18 +106,20 @@ To run the test case examples, do :
 .. code-block:: bash
 
    sbatch job_make_examples_BullX_occigen
-      
-TGCC on IRENE (BULLX)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-At TGCC, you have two architectures accessible throw 2 differents frontals but with a commun disk
-space, for both install Meso-NH in your $CCCHOME (default 20Go of quota) and compile in interactive mode :
+.. _compilation_irene_tgcc:
+
+On IRENE (TGCC)
+***************************************************************************** 
+
+At TGCC, you have two architectures accessible throw 2 differents frontals but with a commun disk space, for both install Meso-NH in your $CCCHOME (default 20Go of quota) and compile in interactive mode :
 
 * On intel Skylake, do:
 
 .. code-block:: bash
 
    cd MNH-V5-7-1/src
+   ./configure
    . ../conf/profile_mesonh-LXifort-R8I4-MNH-V5-7-0-MPIAUTO-O2
    make -j16 |& tee error$XYZ
    make installmaster
@@ -183,6 +129,7 @@ space, for both install Meso-NH in your $CCCHOME (default 20Go of quota) and com
 .. code-block:: bash
 
    cd MNH-V5-7-1/src
+   ./configure   
    . ../conf/profile_mesonh-LXifort-R8I4-MNH-V5-7-0-AMD-MPIAUTO-O2
    make -j16 |& tee error$XYZ
    make installmaster
@@ -207,15 +154,17 @@ To run the test case examples, do :
 
    ccc msub job_make_examples_BullX_irene_AMD
    
+.. _compilation_hpc_ecmwf:
 
-ECMWF on hpc-login ( ATOS/HPCF ) :
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+On hpc-login (ECMWF)
+***************************************************************************** 
 
 To compile Meso-NH's package go to $HPCPERM directory and connect to an interactive compute node and compile the code (16 core 16GO of memory) :
 
 .. code-block:: bash
 
    ecinteractive -c16 -m 16G -t 12:00:00
+   ./configure
    . ../profile_mesonh-your_configuration
    make
    make installmaster
@@ -226,13 +175,17 @@ To run test case examples, do :
 
    sbatch job_make_examples_Atos_HPCF
 
-Meteo-France on belenos
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. _compilation_belenos_meteofrance:
+
+On belenos (Meteo-France)
+***************************************************************************** 
 
 Due to limitation in time memory on interactive connection, compile Meso-NH in batch mode with :
 
 .. code-block:: bash
 
+   cd MNH-V5-7-1/src
+   ./configure
    sbatch job_make_mesonh_BullX_belenos
 
 This job does "gmake -j 4", then "make installmaster".
@@ -243,13 +196,17 @@ To run test case examples, do :
 
    sbatch job_make_examples_BullX_belenos
      
-CALMIP on OLYMPE (BULLX) :
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. _compilation_olympe_calmip:
+     
+On Olympe (CALMIP)
+***************************************************************************** 
 
 Compile in interactive mode using :
 
 .. code-block:: bash
 
+   cd MNH-V5-7-1/src
+   ./configure
    . ../conf/profile-mesonh
    make
    make installmaster
@@ -260,8 +217,33 @@ To run test case examples, do :
 
    sbatch job_make_examples_BullX_olympe
 
+.. _compilation_unknown_computer:
+
 On unknown computer
------------------------------------------------------------------------------
+***************************************************************************** 
+
+If you are installing Meso-NH on an unknown computer, to configure the Meso-NH package, there are 3 main environment variables that can be set:
+
+- `ARCH`: the architecture to use (OS + compiler, default is `LXgfortran` for Linux with gfortran compiler)
+- `VER_MPI`: the version of MPI to use (default is `MPIVIDE` for no parallel run)
+- `OPTLEVEL`: the level of optimization for the compiler (default is `DEBUG` for development purpose, debugging and fast compilation)
+
+If needed, you can change the default values of these environment variables. For example, if you want to use the Intel compiler `ifx`` with the Intel MPI library and an optimisation level of `-O2`, you can run the following commands:
+
+.. code-block:: bash
+
+   export ARCH=LXifort
+   export VER_MPI=MPIAUTO
+   export OPTLEVEL=O2
+   ./configure
+
+.. note::
+
+   - The options specific to the architecture and compiler such as `OPTLEVEL` are defined inside the `Rules.${ARCH}.mk` files.
+   - The options specific to the MPI library (`VER_MPI`) are defined inside `Makefile.MESONH.mk` **is it correct? est-ce qu'il y a aussi des options pour les bibli dans les Rules?**
+   - There are also options for the netCDF library (see the `VER_CDF` variable)
+   - If needed, for adaptation to your requirements, look inside the files and changes options for your needs.
+   - On a Linux PC, if you need to compile the MPI library, look at the "MesonhTEAM Wiki" to know `how to compile the OpenMPI library with MESONH <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTEAMFAQ/PC_Linux>`_ **A remplacer par un nouveau lien, texte pas à jour**
 
 Compile the code :
 
@@ -280,8 +262,8 @@ Compile the code :
  
       make -j 4
 
-Cleaning previous compiled version
------------------------------------------------------------------------------
+Clean previous compiled version
+***************************************************************************** 
 
 If you have already compiled exactly the same version of Meso-NH on this computer (same $XYZ value) you have first to clean this version with
 
@@ -293,8 +275,8 @@ If you have already compiled exactly the same version of Meso-NH on this compute
 
    This will delete the dir-obj $XYZ directory and all the preprocessed sources contained on it.
 
-Use additional libraries (FOREFIRE, RTTOV, ECRAD, MEGAN, OASIS, ...)
------------------------------------------------------------------------------
+Compile with additional libraries (FOREFIRE, RTTOV, ECRAD, MEGAN, OASIS, ...)
+***************************************************************************** 
 
 MNH_FOREFIRE for forefire runs ( external package needed)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -428,7 +410,7 @@ To use MEGAN, do :
 
 To compile Meso-NH with MEGAN, you can follow th steps described in the section dedicated to your computer (interactive or batch mode).
 
-Compilation with modified sources
+Compile with modified and/or new sources
 *****************************************************************************
 
 Now you can generate and recompile your own sources.
