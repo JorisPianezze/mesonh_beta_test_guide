@@ -1,6 +1,10 @@
 Variables
 =============================================================================
 
+.. note::
+
+   This part of the documentation is still under construction.
+
 We will make a list of the variables present in a MESONH file without LES and budget variables. For the DIAG program the list is made in the chapter 10. Only the MESONH variables are referenced, not SURFEX one.
 
 .. csv-table:: List of variables
@@ -86,6 +90,25 @@ We will make a list of the variables present in a MESONH file without LES and bu
    "ZENITH","[2D]","zenith","rad"
    "ZS","[2D]","orography","m"
    "ZSMT","[2D]","smoothed orography for SLEVE vertical coordinate","m"
+
+.. csv-table:: List of general output variables dedicated to DIAG program
+   :header: "Name", "Meaning [Unit, Dim.]", "Condition"
+   :widths: 30, 30, 30
+   
+   "ZS",      "orography [m, 2D]", "by default"
+   "ZSMT",    "smoothed orography for SLEVE vertical coordinate [m, 2D]",   "by default"
+   "RHODREF", "dry density for reference state with orography [kg/m3, 3D]", "by default"
+   "THVREF",  "thetav for reference state with orography [K, 3D]",          "by default"
+   "RHOREFZ", "rhodz for reference state without orography [kg/m3, 1D]",    "by default"
+   "THVREFZ", "thetavz for reference state without orography [K, 1D]",      "by default"
+   "EXNTOP",  "Exner function at model top", "by default"
+   "UT",      "u-wind speed [m/s, 3D]", "LVAR_RS=T in NAM_DIAG"
+   "VT",      "u-wind speed [m/s, 3D]", "LVAR_RS=T in NAM_DIAG"
+   "WT",      "u-wind speed [m/s, 3D]", "LVAR_RS=T in NAM_DIAG"
+   "RVT",     "water vapor mixing ratio [kg/kg, 3D]", "LVAR_RS=T in NAM_DIAG"
+   "UT_ZM",   "Zonal component of horizontal wind [m/s, 3D]", "LVAR_RS=T and LWIND_ZM=T in NAM_DIAG"   
+   "...",     "...",                                  "..."
+  
 
 .. csv-table:: List of variables dedicated to hurricane initialization in PREP_REAL_CASE program
    :header: "Name", "Dimension", "Meaning", "Unit"

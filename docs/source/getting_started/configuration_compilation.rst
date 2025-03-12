@@ -321,6 +321,8 @@ The FOREFIRE API package himself must be compiled independently from Meso-NH. Th
 
 It depend on netcdf and scons for is compilation the 'libForeFIre.so' generate must by referenced in the LD_LIBRARY_PATH or move/linked to the exe directory of Meso-NH.
 
+.. _compile_mesonh_with_rttov:
+
 MNH_RTTOV for optional radiative computation
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
