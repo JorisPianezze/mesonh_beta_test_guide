@@ -14,3 +14,4 @@ Newsletters
    newsletter_NV.rst
    newsletter_NV_extended.rst
    newsletter_JPC.rst
+   newsletter_SSQL.rst
