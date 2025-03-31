@@ -11,3 +11,6 @@ Newsletters
    newsletter_02_en.rst
    newsletter_03.rst
    newsletter_04.rst
+   newsletter_NV.rst
+   newsletter_NV_extended.rst
+   newsletter_JPC.rst
