@@ -12,21 +12,22 @@ Entretien avec `Clotilde Augros <mailto:clotilde.augros@meteo.fr>`_ (CNRM)
 ************************************************************************************
 
 Clotilde, tu as développé un simulateur radar qui peut tourner à partir des sorties de Méso-NH. Pourrais-tu résumer ce que fait ce module ?
-  Ce code, appelé **operadar** (`Augros et al., 2016 <https://doi.org/10.1002/qj.2572>`_, `David et al. 2025 <https://doi.org/10.5194/egusphere-2025-685>`_) prend les variables du modèle en entrée (contenus, concentrations en hydrométéores, température, altitude, pression) et calcule en chaque point de grille du modèle les variables radar (réflectivité Zh, réflectivité différentielle Zdr, phase différentielle spécifique Kdp, coefficient de corrélation ρhv) à partir de la lecture de tables de coefficients de rétrodiffusion calculées en bande S, C, X (en cours de préparation : Ka, W).
+  Ce code, appelé **operadar** (`Augros et al., 2016 <https://doi.org/10.1002/qj.2572>`_, `David et al. 2025 <https://doi.org/10.5194/egusphere-2025-685>`_) prend les variables du modèle en entrée (rapports de mélange et éventuellement concentrations en nombre des hydrométéores, température, altitude, pression) et calcule en chaque point de grille du modèle les variables radar (réflectivité Zh, réflectivité différentielle Zdr, phase différentielle spécifique Kdp, coefficient de corrélation ρhv) à partir de la lecture de tables de coefficients de rétrodiffusion calculées en bande S, C, X (en cours de préparation : Ka, W).
 
   La méthode de diffusion utilisée est la méthode de la matrice T (`Waterman, 1965 <https://doi.org/10.1109/PROC.1965.4058>`_) qui représente les hydrométéores comme des sphéroïdes aplatis. 
 
-  Cet outil implémenté en python est indépendant du code de MesoNH. Il a été développé en “offline” de sorte à pouvoir être utilisé à la fois avec Méso-NH ou AROME. Ainsi, des améliorations réalisées à l’occasion de travaux s’appliquant à AROME peuvent ensuite être utilisée pour MésoNH et vice versa. 
+  Cet outil écrit en python est indépendant du code Méso-NH. Il a été développé de sorte à pouvoir être utilisé aussi bien avec Méso-NH qu'avec AROME. Ainsi, des améliorations réalisées à l’occasion de travaux s’appliquant à AROME peuvent ensuite être utilisée pour MésoNH et vice versa. 
 
 Pourquoi vaut-il mieux utiliser ce module que l'autre simulateur radar inclus dans les diagnostics de Méso-NH ?
-  ll existe aussi deux versions “online” du simulateur radar dans Meso-NH, implémentées dans la partie DIAG.
+  ll existe aussi deux versions “online” du simulateur radar dans Méso-NH, implémentées dans la partie DIAG.
 
   - la première version de simulateur radar de MésoNH (NVERSION_RAD=1, Richard et al, 2003) permet de calculer les variables radar dans la géométrie du modèle (grille 3D), en appliquant l’approximation de Rayleigh pour le calcul de la diffusion, qui reste valide tant que la taille des hydrométéores est très petite devant la taille de la longueur d’onde λ. Pour des radars en bande S (λ~10 cm), cette hypothèse est valide pour tous les hydrométéores sauf la grêle. Pour des radars en bande C (λ~5 cm), on sort du cadre de cette hypothèse si on simule des pluies intenses avec de grosses gouttes d’eau (~8 mm).
 
   - une deuxième version (NVERSION_RAD=2, Caumont et al, 2006, Augros et al 2016) a été implémentée dans MésoNH en fortran pour inclure différentes méthodes de diffusion, dont la diffusion de la matrice T (Waterman, 1965) qui permet de simuler la diffusion pour des hydrométéores aplatis y compris lorsqu’on sort du régime de Rayleigh (soit pour la pluie intense dès la bande C, ou pour la grêle, ou pour des bandes de fréquence plus faibles: K, Ka, Ku, W). Mais : cette deuxième version n’a pas été maintenue depuis 2018. 
 
   Les besoins de cet opérateur d’observation radar pour l’évaluation de simulations AROME également, ont conduit à privilégier le développement d’une version offline pour la recherche compatible à la fois avec AROME et MésoNH, et donc plus facile à maintenir et à faire évoluer de manière collaborative (operadar: https://github.com/UMR-CNRM/operadar)
-  Le module offline operadar permet de calculer dans la géométrie du modèle les variables radar à la fois avec la méthode de diffusion T-matrice, mais aussi avec l’approximation de Rayleigh.   Des options bien plus avancées que dans les versions online de MesoNH sont disponibles:
+
+  Le module offline operadar permet de calculer dans la géométrie du modèle les variables radar à la fois avec la méthode de diffusion T-matrice, mais aussi avec l’approximation de Rayleigh. Des options bien plus avancées que dans les versions online de MesoNH sont disponibles:
 
   - prise en compte de l’oscillation des hydrométéores (important pour simuler les variables polarimétriques dans la grêle) 
 
@@ -35,7 +36,8 @@ Pourquoi vaut-il mieux utiliser ce module que l'autre simulateur radar inclus da
   - version plus avancée de la représentation de la fonte et de la phase mixte (via l'espère graupel qu'on "convertit" en graupel fondant lorsqu'elle co-existe avec de l'eau de pluie, y compris à des températures négatives). Ce module a permis de simuler avec succès les colonnes de Zdr (qui traduisent la présence de grosses gouttes d’eau liquide à température négative au sein des courants ascendants des orages, Kumjian et al, 2014) avec AROME et le schéma LIMA (David et al., 2025)
 
   - le code utilise explicitement la concentration lorsque celle-ci est pronostique (2-moments), pour calculer les variables radars intégrées sur la distribution de taille
-Les comparaisons entre simulations et observations montrent une très bonne représentation des variables Zh, Zdr et Kdp dans la pluie avec le schéma microphysique LIMA (David et al. 2025) sur plus de 30 cas d’orage simulés avec AROME.
+
+  Les comparaisons entre simulations et observations montrent une très bonne représentation des variables Zh, Zdr et Kdp dans la pluie avec le schéma microphysique LIMA (David et al. 2025) sur plus de 30 cas d’orage simulés avec AROME. La Figure 1 ci-dessous illustre la très bonne capacité du schéma microphysique LIMA couplé à AROME à reproduire des réflectivités simulées dans les cœurs convectifs (en vert) si on ne considère pas la grêle dans les observations (courbe grise). Au contraire, avec le schéma microphysique ICE3 (courbe orange), les réflectivités maximales sont largement sous-estimées.
 
 .. figure:: figure_reflectivity.png
   :width: 500
@@ -44,19 +46,19 @@ Les comparaisons entre simulations et observations montrent une très bonne repr
 
 
 Dans quel cas recommandes-tu l'utilisation de ce module ?
-  Je recommande l’utilisation d’operadar dès qu’on s’intéresse à des cas de pluie forte pour des bandes de fréquence C et inférieures. 
-  Et pour pour tous types de précipitations avec toutes les bandes de fréquence inférieure à C (W, K, Ka, Ku)
+  Je recommande l’utilisation d’operadar dès qu’on s’intéresse à des cas de pluie forte pour des bandes de fréquence C et inférieures.  
 
-Quelles recommandations ferais-tu aux utilisateurs.trices ? (peut inclure des choix de valeurs de certains paramètres)
+  Et pour tous types de précipitations avec toutes les bandes de fréquence inférieure à C (W, K, Ka, Ku)
+
+Quelles recommandations ferais-tu aux utilisateurs.trices ? 
   Le code est en constante évolution, en particulier dans le cadre de la thèse de Cloé David. Les travaux d’amélioration vont se poursuivre en 2025 et 2026 avec un focus particulier sur les espèces glacées (revisite des choix de rapport d’axe, d’oscillation, lois densité-diamètre, PSD). Il vaut mieux me contacter pour tout souhait d’utilisation, afin qu’on détermine ensemble les options les plus pertinentes, parmi celles disponibles au moment de l’étude.
 
 Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à éviter ?
   - la géométrie du radar n'est pas encore implémentée, mais elle doit l'être en 2025 (avec le calcul de l'atténuation le long du faisceau)
 
-  - pour les bandes de fréquence K, Ka, Ku, W la pertinence des simulations avec la méthode T-matrice reste à confirmer pour la neige et des travaux seront menés dans ce sens en 2025. D'autres méthodes plus complexes (Discrete Dipole Approximation DDA, Self Similar Rayleigh Gans Approximation SSRGA) sont utilisées dans la littérature. 
-Une comparaison avec le simulateur radar de RTTOV-SCAT qui utilise des tables produites avec la méthode DDA est envisagée à termes.
+  - pour les bandes de fréquence K, Ka, Ku, W la pertinence des simulations avec la méthode T-matrice reste à confirmer pour la neige et des travaux seront menés dans ce sens en 2025. D'autres méthodes plus complexes (Discrete Dipole Approximation DDA, Self Similar Rayleigh Gans Approximation SSRGA) sont utilisées dans la littérature.
 
-
+  Une comparaison avec le simulateur radar de RTTOV-SCAT qui utilise des tables produites avec la méthode DDA est envisagée à termes.
 
 Références
   - Comparisons between S, C, and X band polarimetric radar observations and convective-scale simulations of HyMeX first special observing period [`Augros et al., 2016 <https://doi.org/10.1002/qj.2572>`_]
