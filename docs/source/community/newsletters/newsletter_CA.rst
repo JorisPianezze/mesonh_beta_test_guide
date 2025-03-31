@@ -20,14 +20,20 @@ Clotilde, tu as développé un simulateur radar qui peut tourner à partir des s
 
 Pourquoi vaut-il mieux utiliser ce module que l'autre simulateur radar inclus dans les diagnostics de Méso-NH ?
   ll existe aussi deux versions “online” du simulateur radar dans Meso-NH, implémentées dans la partie DIAG.
+
   - la première version de simulateur radar de MésoNH (NVERSION_RAD=1, Richard et al, 2003) permet de calculer les variables radar dans la géométrie du modèle (grille 3D), en appliquant l’approximation de Rayleigh pour le calcul de la diffusion, qui reste valide tant que la taille des hydrométéores est très petite devant la taille de la longueur d’onde λ. Pour des radars en bande S (λ~10 cm), cette hypothèse est valide pour tous les hydrométéores sauf la grêle. Pour des radars en bande C (λ~5 cm), on sort du cadre de cette hypothèse si on simule des pluies intenses avec de grosses gouttes d’eau (~8 mm).
+
   - une deuxième version (NVERSION_RAD=2, Caumont et al, 2006, Augros et al 2016) a été implémentée dans MésoNH en fortran pour inclure différentes méthodes de diffusion, dont la diffusion de la matrice T (Waterman, 1965) qui permet de simuler la diffusion pour des hydrométéores aplatis y compris lorsqu’on sort du régime de Rayleigh (soit pour la pluie intense dès la bande C, ou pour la grêle, ou pour des bandes de fréquence plus faibles: K, Ka, Ku, W). Mais : cette deuxième version n’a pas été maintenue depuis 2018. 
 
   Les besoins de cet opérateur d’observation radar pour l’évaluation de simulations AROME également, ont conduit à privilégier le développement d’une version offline pour la recherche compatible à la fois avec AROME et MésoNH, et donc plus facile à maintenir et à faire évoluer de manière collaborative (operadar: https://github.com/UMR-CNRM/operadar)
   Le module offline operadar permet de calculer dans la géométrie du modèle les variables radar à la fois avec la méthode de diffusion T-matrice, mais aussi avec l’approximation de Rayleigh.   Des options bien plus avancées que dans les versions online de MesoNH sont disponibles:
+
   - prise en compte de l’oscillation des hydrométéores (important pour simuler les variables polarimétriques dans la grêle) 
+
   - différents choix de formulation des constantes diélectriques
+
   - version plus avancée de la représentation de la fonte et de la phase mixte (via l'espère graupel qu'on "convertit" en graupel fondant lorsqu'elle co-existe avec de l'eau de pluie, y compris à des températures négatives). Ce module a permis de simuler avec succès les colonnes de Zdr (qui traduisent la présence de grosses gouttes d’eau liquide à température négative au sein des courants ascendants des orages, Kumjian et al, 2014) avec AROME et le schéma LIMA (David et al., 2025)
+
   - le code utilise explicitement la concentration lorsque celle-ci est pronostique (2-moments), pour calculer les variables radars intégrées sur la distribution de taille
 Les comparaisons entre simulations et observations montrent une très bonne représentation des variables Zh, Zdr et Kdp dans la pluie avec le schéma microphysique LIMA (David et al. 2025) sur plus de 30 cas d’orage simulés avec AROME.
 
