@@ -11,11 +11,6 @@ Voici ci-dessous la Xème infolettre de notre communauté. Vous y trouverez un e
 Entretien avec `Clotilde Augros <mailto:clotilde.augros@meteo.fr>`_ (CNRM)
 ************************************************************************************
 
-.. ---------------------------------------------------------------
-.. image:: photo_robert-s.jpg
-..  :width: 200 (point point à enlever)
-.. ---------------------------------------------------------------
-
 
 
 
