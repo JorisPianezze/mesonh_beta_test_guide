@@ -38,7 +38,7 @@ Pourquoi vaut-il mieux utiliser ce module que l'autre simulateur radar inclus da
 Les comparaisons entre simulations et observations montrent une très bonne représentation des variables Zh, Zdr et Kdp dans la pluie avec le schéma microphysique LIMA (David et al. 2025) sur plus de 30 cas d’orage simulés avec AROME.
 
 .. figure:: figure_reflectivity.png
-  :width: 200
+  :width: 500
 
    Extrait de David et al., 2025 (Figure 5): Fréquence relative des valeurs maximales de réflectivité radar (maximum sur la verticale) au sein des cœurs convectifs des orages, définis par un seuil de réflectivité > 40 dBZ, pour 34 cas d’orages sévères observés par radar sur la France métropolitaine. Courbe grise : toutes les observations qui ne sont pas associées à de la grêle (telle que détectée par radar), courbe noire : toutes les observations. Courbe orange : simulations AROME avec ICE3, courbe verte : simulations AROME avec LIMA.
 
