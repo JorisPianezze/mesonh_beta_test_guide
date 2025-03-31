@@ -13,7 +13,7 @@ Entretien avec `Clotilde Augros <mailto:clotilde.augros@meteo.fr>`_ (CNRM)
 
 .. ---------------------------------------------------------------
 .. image:: photo_robert-s.jpg
-  :width: 200
+..  :width: 200 (point point à enlever)
 .. ---------------------------------------------------------------
 
 
