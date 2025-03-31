@@ -27,15 +27,8 @@ Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à évite
   RTTOV est un code très rapide pour lequel les effets d’absorption gazeuse et de diffusion des gaz et des particules sont paramétrés. Les utilisateurs expérimentés peuvent préférer des codes de recherche, plus précis mais plus lents, par exemple pour prendre en compte les effets tridimensionnels ou de diffusion multiple. Un effet bien connu est celui de parallaxe, valable par exemple, pour les nuages convectifs profonds observés à fine résolution avec un grand angle de vue. Un autre écueil à éviter est l’utilisation de RTTOV pour ajuster les propriétés optiques ou microphysiques des aérosols et des nuages. Il faut veiller à ce que ces propriétés soient cohérentes entre les différents schémas microphysiques et radiatifs utilisés. Il en va de même pour l'évaluation des propriétés de la surface continentale.
 
 
-.. |villefranque_etal| raw:: html
-
-   <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018MS001602" target="_blank">Villefranque et al. (2019)</a>
 
 .. note::
-
-.. note::
-
-   Une version longue de l'entretien, avec plus de détails, est disponible `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_NV_extended.html>`_.
 
    Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@univ-tlse3.fr>`_.
 
