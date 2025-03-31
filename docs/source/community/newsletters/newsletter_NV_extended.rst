@@ -24,4 +24,4 @@ Quelles sont les limites ?
 
 .. |villefranque_etal| raw:: html
 
-   <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018MS001602" target="_blank">Villefranque et al. (2019)</a>
+   <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018MS001602" target="_blank">(Villefranque et al., 2019)</a>
