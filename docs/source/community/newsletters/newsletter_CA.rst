@@ -39,6 +39,20 @@ Les comparaisons entre simulations et observations montrent une très bonne repr
 
 
 
+Dans quel cas recommandes-tu l'utilisation de ce module ?
+  Je recommande l’utilisation d’operadar dès qu’on s’intéresse à des cas de pluie forte pour des bandes de fréquence C et inférieures. 
+  Et pour pour tous types de précipitations avec toutes les bandes de fréquence inférieure à C (W, K, Ka, Ku)
+
+Quelles recommandations ferais-tu aux utilisateurs.trices ? (peut inclure des choix de valeurs de certains paramètres)
+  Le code est en constante évolution,en particulier dans le cadre de la thèse de Cloé David. Les travaux d’amélioration vont se poursuivre en 2025 et 2026 avec un focus particulier sur les espèces glacées (revisite des choix de rapport d’axe, d’oscillation, lois densité-diamètre, PSD). Il vaut mieux me contacter pour tout souhait d’utilisation, afin qu’on détermine ensemble les options les plus pertinentes, parmi celles disponibles au moment de l’étude.
+
+Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à éviter ?
+  - la géométrie du radar n'est pas encore implémentée, mais elle doit l'être en 2025 (avec le calcul de l'atténuation le long du faisceau)
+
+  - pour les bandes de fréquence K, Ka, Ku, W la pertinence des simulations avec la méthode T-matrice reste à confirmer pour la neige et des travaux seront menés dans ce sens en 2025. D'autres méthodes plus complexes (Discrete Dipole Approximation DDA, Self Similar Rayleigh Gans Approximation SSRGA) sont utilisées dans la littérature. 
+Une comparaison avec le simulateur radar de RTTOV-SCAT qui utilise des tables produites avec la méthode DDA est envisagée à termes.
+
+
 
 Références
   - Comparisons between S, C, and X band polarimetric radar observations and convective-scale simulations of HyMeX first special observing period [`Augros et al., 2016 <https://doi.org/10.1002/qj.2572>`_]
