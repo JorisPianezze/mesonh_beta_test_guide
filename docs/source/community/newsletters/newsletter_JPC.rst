@@ -1,4 +1,4 @@
-Infolettre #05
+Infolettre #0X
 ================================================
 
 **X xxxxx 2025.** Version française, English version `here <newsletter_03_english.html>`_.
@@ -29,7 +29,8 @@ Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à évite
 
 
 .. note::
-   Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@univ-tlse3.fr>`_.
+
+  Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@univ-tlse3.fr>`_.
 
     
     
