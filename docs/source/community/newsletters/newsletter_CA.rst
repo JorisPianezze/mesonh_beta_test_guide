@@ -13,7 +13,9 @@ Entretien avec `Clotilde Augros <mailto:clotilde.augros@meteo.fr>`_ (CNRM)
 
 Clotilde, tu as développé un simulateur radar qui peut tourner à partir des sorties de Méso-NH. Pourrais-tu résumer ce que fait ce module ?
   Ce code, appelé **operadar** (Augros et al., 2016, David et al. 2025) prend les variables du modèle en entrée (contenus, concentrations en hydrométéores, température, altitude, pression) et calcule en chaque point de grille du modèle les variables radar (réflectivité Zh, réflectivité différentielle Zdr, phase différentielle spécifique Kdp, coefficient de corrélation ρhv) à partir de la lecture de tables de coefficients de rétrodiffusion calculées en bande S, C, X (en cours de préparation : Ka, W).
+
   La méthode de diffusion utilisée est la méthode de la matrice T (Waterman, 1965) qui représente les hydrométéores comme des sphéroïdes aplatis. 
+
   Cet outil implémenté en python est indépendant du code de MesoNH. Il a été développé en “offline” de sorte à pouvoir être utilisé à la fois avec Méso-NH ou AROME. Ainsi, des améliorations réalisées à l’occasion de travaux s’appliquant à AROME peuvent ensuite être utilisée pour MésoNH et vice versa. 
 
 Pourquoi vaut-il mieux utiliser ce module que l'autre simulateur radar inclus dans les diagnostics de Méso-NH ?
