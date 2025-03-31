@@ -1,4 +1,4 @@
-Infolettre #05
+Infolettre #NV
 ================================================
 
 **4 avril 2025.** Version française, English version `here <newsletter_03_english.html>`_.
