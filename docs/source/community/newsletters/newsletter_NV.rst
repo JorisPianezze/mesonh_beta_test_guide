@@ -14,6 +14,11 @@ Entretien avec `Najda Villefranque <mailto:najda.villefranque@meteo.fr>`_ (CNRM)
 .. image:: photo_robert-s.jpg
   :width: 200
 
+.. note::
+
+   Une version longue de l'entretien, avec plus de détails, est disponible `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_NV_extended.html>`_.
+
+
 Najda, tu as développé un simulateur de rayonnement 3D qui peut être appliqué à des champs 3D issus de simulations Méso-NH. Pourrais-tu résumer ce que fait ce programme ?
   Le logiciel `htrdr <https://www.meso-star.com/projects/htrdr/htrdr.html>`_ est un code basé sur les méthodes de Monte Carlo qui simule la trajectoire d'un grand nombre de photons pour résoudre le transfert radiatif atmosphérique. Il prend en entrée une description 3D de l'atmosphère, typiquement des sorties de simulations Meso-NH, ainsi qu'une description des surfaces (par exemple d'une ville comme `ici <https://web.lmd.jussieu.fr/~nvillefranque/pages/teapot_city>`_ mais on peut évidemment aussi prescrire une surface plane). Les photons interagissent avec les hydrométéores, les aérosols, les gaz et les surfaces au travers de phénomènes d'absorption / émission et de diffusion / réflexion. La répartition des photons sur les capteurs virtuels positionnés dans la scène par l'utilisatrice donne une estimation de l'intensité du rayonnement sur ces capteurs.
 
@@ -36,10 +41,6 @@ Quelles sont les limites ?
    <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018MS001602" target="_blank">Villefranque et al. (2019)</a>
 
 .. note::
-
-.. note::
-
-   Une version longue de l'entretien, avec plus de détails, est disponible `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_NV_extended.html>`_.
 
    Si vous aussi vous souhaitez expliquer un développement que vous avez mis en place dans Méso-NH, ou une méthode d’analyse que vous partagez à la communauté, n’hésitez pas à me le signaler par `mail <mailto:thibaut.dauhut@univ-tlse3.fr>`_.
 
