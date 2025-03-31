@@ -6,7 +6,7 @@ Infolettre #0X
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
 
-Voici ci-dessous la Xème infolettre de notre communauté. Vous y trouverez un entretien avec deux dévelop'heur.euse de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
+Voici ci-dessous la Xème infolettre de notre communauté. Vous y trouverez un entretien avec deux dévelop'heur.euses de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
 
 Entretien avec `Quentin Libois <quentin.libois@meteo.fr>`_ (CNRM) et `Sophia Schaefer <sophia.schaefer@meteo.fr>`_ (CNRM)
 *************************************************************************************************************************************
