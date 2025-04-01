@@ -29,11 +29,11 @@ Pourquoi vaut-il mieux utiliser ce module que l'autre simulateur radar inclus da
 
   - différents choix de formulation des constantes diélectriques
 
-  - version plus avancée de la représentation de la fonte et de la phase mixte (via l'espère graupel qu'on "convertit" en graupel fondant lorsqu'elle co-existe avec de l'eau de pluie, y compris à des températures négatives). Ce module a permis de simuler avec succès les colonnes de Zdr (qui traduisent la présence de grosses gouttes d’eau liquide à température négative au sein des courants ascendants des orages, Kumjian et al, 2014) avec AROME et le schéma LIMA (David et al., 2025 <https://doi.org/10.5194/egusphere-2025-685>`_)
+  - version plus avancée de la représentation de la fonte et de la phase mixte (via l'espère graupel qu'on "convertit" en graupel fondant lorsqu'elle co-existe avec de l'eau de pluie, y compris à des températures négatives). Ce module a permis de simuler avec succès les colonnes de Zdr (qui traduisent la présence de grosses gouttes d’eau liquide à température négative au sein des courants ascendants des orages, Kumjian et al, 2014) avec AROME et le schéma LIMA (`David et al., 2025 <https://doi.org/10.5194/egusphere-2025-685>`_)
 
   - le code utilise explicitement la concentration en nombre lorsque celle-ci est pronostique (2-moments), pour calculer les variables radars intégrées sur la distribution de taille
 
-  Les comparaisons entre simulations et observations montrent une très bonne représentation des variables Zh, Zdr et Kdp dans la pluie avec le schéma microphysique LIMA (David et al., 2025 <https://doi.org/10.5194/egusphere-2025-685>`_) sur plus de 30 cas d’orage simulés avec AROME. La Figure 1 ci-dessous illustre la très bonne capacité du schéma microphysique LIMA couplé à AROME à reproduire des réflectivités simulées dans les cœurs convectifs (en vert) si on ne considère pas la grêle dans les observations (courbe grise). Au contraire, avec le schéma microphysique ICE3 (courbe orange), les réflectivités maximales sont largement sous-estimées.
+  Les comparaisons entre simulations et observations montrent une très bonne représentation des variables Zh, Zdr et Kdp dans la pluie avec le schéma microphysique LIMA (`David et al., 2025 <https://doi.org/10.5194/egusphere-2025-685>`_) sur plus de 30 cas d’orage simulés avec AROME. La Figure 1 ci-dessous illustre la très bonne capacité du schéma microphysique LIMA couplé à AROME à reproduire des réflectivités simulées dans les cœurs convectifs (en vert) si on ne considère pas la grêle dans les observations (courbe grise). Au contraire, avec le schéma microphysique ICE3 (courbe orange), les réflectivités maximales sont largement sous-estimées.
 
 .. figure:: figure_reflectivity.png
   :width: 500
