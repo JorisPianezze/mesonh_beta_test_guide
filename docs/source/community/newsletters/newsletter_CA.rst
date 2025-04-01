@@ -45,7 +45,7 @@ Dans quel cas recommandes-tu l'utilisation de ce module ?
   Je recommande l’utilisation d’operadar dès qu’on s’intéresse à des cas de pluie forte pour des bandes de fréquence C et inférieures, ainsi que pour tout type de précipitations avec toutes les bandes de fréquence inférieure à C (W, K, Ka, Ku).
 
 Quelles recommandations ferais-tu aux utilisateurs.trices ? 
-  Le code est en constante évolution, en particulier dans le cadre de la thèse de Cloé David. Les travaux d’amélioration vont se poursuivre en 2025 et 2026 avec un focus particulier sur les espèces glacées (revisite des choix de rapport d’axe, d’oscillation, lois densité-diamètre, PSD). Il vaut mieux me contacter pour tout souhait d’utilisation, afin qu’on détermine ensemble les options les plus pertinentes, parmi celles disponibles au moment de l’étude.
+  Le code est en constante évolution, en particulier dans le cadre de la thèse de Cloé David. Les travaux d’amélioration vont se poursuivre en 2025 et 2026 avec un focus particulier sur les espèces glacées (revisite des choix de rapport d’axe, d’oscillation, lois densité-diamètre, PSD). Il vaut mieux `me contacter <mailto:clotilde.augros@meteo.fr>`_ pour tout souhait d’utilisation, afin qu’on détermine ensemble les options les plus pertinentes, parmi celles disponibles au moment de l’étude.
 
 Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à éviter ?
   - la géométrie du radar n'est pas encore implémentée, mais elle doit l'être en 2025 (avec le calcul de l'atténuation le long du faisceau)
