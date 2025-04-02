@@ -72,7 +72,7 @@ Meso-NH Zenodo repository
 Meso-NH internship
   The Meso-NH course was held successfully for the first time in hybrid mode, with 8 people in the room and 13 remotely, from March 10 to 13, 2025.
 
-... note::
+.. note::
   If you have any needs, ideas, improvements to make, bugs to fix or suggestions concerning inputs/outputs, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ is keen to hear from you.
 
 
