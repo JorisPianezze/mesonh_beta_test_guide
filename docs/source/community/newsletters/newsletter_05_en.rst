@@ -44,3 +44,37 @@ What are its limitations?
 .. note::
 
    If you too would like to explain a development you've implemented in Meso-NH, or an analysis method you share with the community, please don't hesitate to let me know by `mail <mailto:thibaut.dauhut@univ-tlse3.fr>`_.
+
+
+
+News from the support team
+************************************
+
+Version 6
+  - Preparations for version 6 are still underway, and the MNH-60-branch has been declared.
+  - The ACLIB library (externalized chemistry and aerosols) continues to be developed for integration into version 6. A first version of ACLIB will be integrated into MNH-60-branch in May.
+  - The GPU-ported version of PHYEX within Meso-NH has been transferred to the PHYEX repository for integration into IAL cycle 50 (IFS-ARPEGE-LAM). The latest version of PHYEX will be transferred to MNH-60-branch in May-June. As a result, the physics of AROME cycle 50 will be very close to that of Meso-NH version 6.
+  - A more efficient lossless compression library, Zstandard, mainly in terms of CPU cost and slightly in compression ratio, is currently being integrated.
+  - Coming soon, an internal clean-up program with restructuring of source directories and major pruning of parts of the repository that are no longer maintained and/or topical.
+
+In the meantime, version 5.7.2 will be released shortly.
+  - For frequent output *output*, you can perform threshold filtering by removing or assigning a particular value to elements of a variable that are smaller, larger or outside a range, criteria that may or may not be absolute values.
+  - For frequent output *output*, possibility of rounding variable values to a multiple of a chosen value (e.g. round all to a multiple of 0.1). Combined with compression, this is a form of lossy compression.
+
+
+Other ongoing and recent developments
+  - The websites (showcase site + new documentation site) continue to be developed.
+  - The inclusion of ocean surface currents in the Meso-NH turbulence scheme has been validated.
+
+Meso-NH Zenodo repository
+  In order to have a DOI associated with each new version of Méso-NH, a `Zenodo repository <https://zenodo.org/records/15095131>` has just been created. For each version of Meso-NH, the tar ball will be deposited there and a DOI will be associated with it. **Think about it for your future publications**, you'll be able to refer to this repository in the *Data availability* section or equivalent. 
+
+Meso-NH internship
+  The Meso-NH course was held successfully for the first time in hybrid mode, with 8 people in the room and 13 remotely, from March 10 to 13, 2025.
+
+... note::
+  If you have any needs, ideas, improvements to make, bugs to fix or suggestions concerning inputs/outputs, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ is keen to hear from you.
+
+
+Latest publications using Meso-NH
+****************************************************************************************
