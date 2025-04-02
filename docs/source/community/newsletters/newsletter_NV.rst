@@ -12,7 +12,7 @@ Entretien avec `Najda Villefranque <mailto:najda.villefranque@meteo.fr>`_ (CNRM)
 ************************************************************************************
 
 .. image:: photo_nv.jpg
-  :width: 200
+  :width: 250
 
 
 .. note::
