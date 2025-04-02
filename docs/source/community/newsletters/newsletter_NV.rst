@@ -55,20 +55,20 @@ Version 6
   - La librairie ACLIB (chimie et aérosols externalisés) continue son développement pour intégration dans la version 6. Une première version d'ACLIB sera intégrée ``MNH-60-branch`` courant mai.
   - La version portée sur GPU de PHYEX au sein de Méso-NH a été reportée dans le dépot PHYEX pour intégration dans le cycle 50 d'IAL (IFS-ARPEGE-LAM). La dernière version de PHYEX sera reportée dans ``MNH-60-branch`` courant mai-juin. Ainsi la physique du cycle 50 d'AROME sera très proche de celle de la version 6 de Méso-NH.
   - Une bibliothèque de compression sans pertes plus performante, principalement en coût CPU et un peu en taux de compression, Zstandard est en cours d'intégration.
+  - A venir, un programme de ménage interne avec restructuration des répertoires des sources et gros élagage de parties du dépôt qui ne sont plus maintenues et/ou d'actualité.
 
 Autres développements en cours et récents
   - Les sites internet (site vitrine + nouveau site de documentation) continuent d'être développés
   - La prise en compte des courants de surface océanique dans le schéma de turbulence de Méso-NH a été validée
-  - En attendant la version 6, une version 5.7.2 va sortir prochainement avec, pour les sorties fréquentes (*outputs*) :
+  - En attendant la version 6, une version 5.7.2 va sortir prochainement avec, les développements suivants pour les sorties fréquentes (*outputs*) :
   - Possibilité de faire du filtrage par seuil en retirant ou en mettant une valeur particulière aux éléments d'une variable qui sont plus petits, plus grands ou en dehors d'une plage, critères qui peuvent être en valeur absolue ou pas.
   - Possibilité d'arrondir les valeurs d'une variable à un multiple d'une valeur choisie (par exemple tout arrondir à un multiple de 0.1). Associé à de la compression, il s'agit d'une forme de compression avec pertes.
-  
 
 Dépôt Zenodo de Méso-NH
-  Afin d'avoir un DOI associé à chaque nouvelle version de Méso-NH, un `dépôt Zenodo <https://zenodo.org/records/15095131>`_ vient d'être créé. Pour chaque version la tar ball y sera déposée et un DOI y sera associé. Pensez-y pour vos futures publications, vous pourrez faire référence à ce dépôt notamment dans la section *Data availability* ou équivalent. 
+  Afin d'avoir un DOI associé à chaque nouvelle version de Méso-NH, un `dépôt Zenodo <https://zenodo.org/records/15095131>`_ vient d'être créé. Pour chaque version de Méso-NH, la tar ball y sera déposée et un DOI y sera associé. Pensez-y pour vos futures publications, vous pourrez faire référence à ce dépôt notamment dans la section *Data availability* ou équivalent. 
 
 Stage Méso-NH
-  Le stage Méso-NH s'est déroulé avec succès pour la première fois en hybride avec 8 personnes dans la salle et 13 à distance.
+  Le stage Méso-NH s'est déroulé avec succès pour la première fois en hybride, avec 8 personnes dans la salle et 13 à distance, du 10 au 13 mars 2025.
 
 .. note::
   Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est preneur.
