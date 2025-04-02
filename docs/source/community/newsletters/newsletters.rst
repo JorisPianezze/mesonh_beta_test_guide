@@ -11,8 +11,8 @@ Newsletters
    newsletter_02_en.rst
    newsletter_03.rst
    newsletter_04.rst
-   newsletter_NV.rst
-   newsletter_NV_extended.rst
+   newsletter_05.rst
+   newsletter_05_en.rst
    newsletter_JPC.rst
    newsletter_CA.rst
    newsletter_SSQL.rst
