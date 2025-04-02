@@ -11,6 +11,10 @@ Voici ci-dessous la 5ème infolettre de notre communauté. Vous y trouverez un e
 Entretien avec `Najda Villefranque <mailto:najda.villefranque@meteo.fr>`_ (CNRM)
 ************************************************************************************
 
+.. image:: photo_nv.jpg
+  :width: 200
+
+
 .. note::
 
    Une version longue de l'entretien, avec plus de détails, est disponible `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_NV_extended.html>`_.
