@@ -56,7 +56,7 @@ Version 6
   - La version portée sur GPU de PHYEX au sein de Méso-NH a été reportée dans le dépot PHYEX pour intégration dans le cycle 50 d'IAL (IFS-ARPEGE-LAM). La dernière version de PHYEX sera reportée dans ``MNH-60-branch`` courant mai-juin. Ainsi la physique du cycle 50 d'AROME sera très proche de celle de la version 6 de Méso-NH.
   - Une bibliothèque de compression sans pertes plus performante, principalement en coût CPU et un peu en taux de compression, Zstandard est en cours d'intégration.
 
-En attendant la version 6, une version 5.7.2 va sortir prochainement avec les développements suivants pour les sorties fréquentes dites *outputs*
+En attendant, une version 5.7.2 prochainement avec, pour les sorties fréquentes (*outputs*)
   - Possibilité de faire du filtrage par seuil en retirant ou en mettant une valeur particulière aux éléments d'une variable qui sont plus petits, plus grands ou en dehors d'une plage, critères qui peuvent être en valeur absolue ou pas.
   - Possibilité d'arrondir les valeurs d'une variable à un multiple d'une valeur choisie (par exemple tout arrondir à un multiple de 0.1). Associé à de la compression, il s'agit d'une forme de compression avec pertes.
 
