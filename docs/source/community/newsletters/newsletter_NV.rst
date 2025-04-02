@@ -84,7 +84,7 @@ Atmosphere-surface interactions
   - Atmosphere response to an oceanic submesoscale SST front: A coherent structure analysis [`Jacquet et al. <https://doi.org/10.1029/2024JD042312>`_]
   - Land-surface interactions with the atmosphere over the Iberian Semi-arid Environment (LIAISE): First mesoscale modelling intercomparison [`Jiménez et al., 2025 <https://doi.org/10.1002/qj.4949>`_]
 
-Clouds electrification
+Cloud electrification
   - Numerical investigation of the role of Saharan dust on the anomalous electrical structure of a thunderstorm over Corsica [`Barthe, C., P. Tulet, S. de Sevin, I. Vongpaseut, and S. Coquillat, <https://doi.org/10.1016/j.atmosres.2025.107988>`_]
   - Distinct effects of several ice production processes on thunderstorm electrification and lightning activity [`Vongpaseut and Barthe, 2025 <http://doi.org/10.5194/egusphere-2025-214>`_]
 
