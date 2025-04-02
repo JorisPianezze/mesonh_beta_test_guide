@@ -59,7 +59,7 @@ Version 6
 Autres développements en cours et récents
   - Les sites internet (site vitrine + nouveau site de documentation) continuent d'être développés
   - La prise en compte des courants de surface océanique dans le schéma de turbulence de Méso-NH a été validée
-  Et en attendant la version 6, une version 5.7.2 va sortir prochainement avec, pour les sorties fréquentes (*outputs*) :
+  - En attendant la version 6, une version 5.7.2 va sortir prochainement avec, pour les sorties fréquentes (*outputs*) :
   - Possibilité de faire du filtrage par seuil en retirant ou en mettant une valeur particulière aux éléments d'une variable qui sont plus petits, plus grands ou en dehors d'une plage, critères qui peuvent être en valeur absolue ou pas.
   - Possibilité d'arrondir les valeurs d'une variable à un multiple d'une valeur choisie (par exemple tout arrondir à un multiple de 0.1). Associé à de la compression, il s'agit d'une forme de compression avec pertes.
   
