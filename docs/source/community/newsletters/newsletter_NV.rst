@@ -65,7 +65,6 @@ En attendant, une version 5.7.2 va sortir prochainement
 Autres développements en cours et récents
   - Les sites internet (site vitrine + nouveau site de documentation) continuent d'être développés
   - La prise en compte des courants de surface océanique dans le schéma de turbulence de Méso-NH a été validée
-  - En attendant la version 6, une version 5.7.2 va sortir prochainement avec, les développements suivants pour les sorties fréquentes (*outputs*) :
 
 Dépôt Zenodo de Méso-NH
   Afin d'avoir un DOI associé à chaque nouvelle version de Méso-NH, un `dépôt Zenodo <https://zenodo.org/records/15095131>`_ vient d'être créé. Pour chaque version de Méso-NH, la tar ball y sera déposée et un DOI y sera associé. Pensez-y pour vos futures publications, vous pourrez faire référence à ce dépôt notamment dans la section *Data availability* ou équivalent. 
