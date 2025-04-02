@@ -6,7 +6,7 @@ Infolettre #NV
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
 
-Voici ci-dessous la 5ème infolettre de notre communauté. Vous y trouverez un entretien avec une développeuse de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
+Voici ci-dessous la 5ème infolettre de notre communauté. Vous y trouverez un entretien avec la développeuse d'un outil utile aux utilisateurs.trices de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
 
 Entretien avec `Najda Villefranque <mailto:najda.villefranque@meteo.fr>`_ (CNRM)
 ************************************************************************************
