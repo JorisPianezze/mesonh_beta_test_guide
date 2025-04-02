@@ -57,12 +57,15 @@ Version 6
   - Une bibliothèque de compression sans pertes plus performante, principalement en coût CPU et un peu en taux de compression, Zstandard est en cours d'intégration.
   - A venir, un programme de ménage interne avec restructuration des répertoires des sources et gros élagage de parties du dépôt qui ne sont plus maintenues et/ou d'actualité.
 
+En attendant, une version 5.7.2 va sortir prochainement
+  - Pour les sorties fréquentes *output*, possibilité de faire du filtrage par seuil en retirant ou en mettant une valeur particulière aux éléments d'une variable qui sont plus petits, plus grands ou en dehors d'une plage, critères qui peuvent être en valeur absolue ou pas.
+  - Pour les sorties fréquentes *output*, possibilité d'arrondir les valeurs d'une variable à un multiple d'une valeur choisie (par exemple tout arrondir à un multiple de 0.1). Associé à de la compression, il s'agit d'une forme de compression avec pertes.
+
+
 Autres développements en cours et récents
   - Les sites internet (site vitrine + nouveau site de documentation) continuent d'être développés
   - La prise en compte des courants de surface océanique dans le schéma de turbulence de Méso-NH a été validée
   - En attendant la version 6, une version 5.7.2 va sortir prochainement avec, les développements suivants pour les sorties fréquentes (*outputs*) :
-  - Possibilité de faire du filtrage par seuil en retirant ou en mettant une valeur particulière aux éléments d'une variable qui sont plus petits, plus grands ou en dehors d'une plage, critères qui peuvent être en valeur absolue ou pas.
-  - Possibilité d'arrondir les valeurs d'une variable à un multiple d'une valeur choisie (par exemple tout arrondir à un multiple de 0.1). Associé à de la compression, il s'agit d'une forme de compression avec pertes.
 
 Dépôt Zenodo de Méso-NH
   Afin d'avoir un DOI associé à chaque nouvelle version de Méso-NH, un `dépôt Zenodo <https://zenodo.org/records/15095131>`_ vient d'être créé. Pour chaque version de Méso-NH, la tar ball y sera déposée et un DOI y sera associé. Pensez-y pour vos futures publications, vous pourrez faire référence à ce dépôt notamment dans la section *Data availability* ou équivalent. 
