@@ -50,19 +50,21 @@ Quelles sont les limites ?
 Les nouvelles de l’équipe support
 ************************************
 
-
-
 Version 6
+  - La préparation de la version 6 est toujours en cours, la branche de travail MNH-60-branch a été déclarée.
+  - La librairie ACLIB (chimie et aérosols externalisés) continue son développement pour intégration dans la version 6. Une première version d'ACLIB sera intégrée ``MNH-60-branch`` courant mai.
+  - La version portée sur GPU de PHYEX au sein de Méso-NH a été reportée dans le dépot PHYEX pour intégration dans le cycle 50 d'IAL (IFS-ARPEGE-LAM). La dernière version de PHYEX sera reportée dans ``MNH-60-branch`` courant mai-juin. Ainsi la physique du cycle 50 d'AROME sera très proche de celle de la version 6 de Méso-NH.
+  - Une bibliothèque de compression sans pertes plus performante, principalement en coût CPU et un peu en taux de compression, Zstandard est en cours d'intégration.
 
+En attendant la version 6, une version 5.7.2 va sortir prochainement avec les développements suivants pour les sorties fréquentes dites *outputs*
+  - Possibilité de faire du filtrage par seuil en retirant ou en mettant une valeur particulière aux éléments d'une variable qui sont plus petits, plus grands ou en dehors d'une plage, critères qui peuvent être en valeur absolue ou pas.
+  - Possibilité d'arrondir les valeurs d'une variable à un multiple d'une valeur choisie (par exemple tout arrondir à un multiple de 0.1). Associé à de la compression, il s'agit d'une forme de compression avec pertes.
 
-Développements en cours et récents
-
-
-Dépôt Méso-NH sur forge logicielle 
+Dépôt Zenodo de Méso-NH
 
 
 Stage Méso-NH
-
+  Le stage Méso-NH s'est déroulé avec succès pour la première fois en hybride avec 8 personnes dans la salle et 13 à distance.
 
 .. note::
   Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est preneur.
