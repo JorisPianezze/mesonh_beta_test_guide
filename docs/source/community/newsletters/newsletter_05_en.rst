@@ -78,3 +78,36 @@ Meso-NH internship
 
 Latest publications using Meso-NH
 ****************************************************************************************
+
+Atmosphere-surface interactions
+  - Rolling DICE to advance knowledge of land–atmosphere interactions [`Best et al., 2025 <https://doi.org/10.1002/qj.4944>`_]
+  - Atmosphere response to an oceanic submesoscale SST front: A coherent structure analysis [`Jacquet et al. <https://doi.org/10.1029/2024JD042312>`_]
+  - Land-surface interactions with the atmosphere over the Iberian Semi-arid Environment (LIAISE): First mesoscale modelling intercomparison [`Jiménez et al., 2025 <https://doi.org/10.1002/qj.4949>`_]
+
+Cloud electrification
+  - Numerical investigation of the role of Saharan dust on the anomalous electrical structure of a thunderstorm over Corsica [`Barthe et al., 2025 <https://doi.org/10.1016/j.atmosres.2025.107988>`_]
+  - Distinct effects of several ice production processes on thunderstorm electrification and lightning activity [`Vongpaseut and Barthe, 2025 <http://doi.org/10.5194/egusphere-2025-214>`_]
+
+Deep and shallow convection around Africa
+  - Failed cyclogenesis of a mesoscale convective system near Cape Verde: The role of the Saharan trade wind layer among other inhibiting factors observed during the CADDIWA field campaign [`Feger et al., 2025 <https://doi.org/10.5194/egusphere-2025-105>`_]
+  - The dry-season low-level cloud cover over western equatorial Africa: A case study with a mesoscale atmospheric model [`Berger et al., 2025 <https://doi.org/10.1002/qj.4962>`_]
+      
+Fire meteorology
+  - Modelling aerodynamics and combustion of firebrands in long-range spotting [`Alonso-Pinar et al., 2025 <https://doi.org/10.1016/j.firesaf.2025.104348>`_]
+  - Fire-weather conditions during two fires in Southern Portugal: Meteorology, Orography, and Fuel Characteristics [`Purificação et al., 2025 <https://doi.org/10.1007/s40808-025-02308-z>`_]
+      
+Porting on GPU supercomputers
+  - Porting the Meso-NH atmospheric model on different GPU architectures for the next generation of supercomputers (version MESONH-v55-OpenACC) [`Escobar et al., 2025 <https://doi.org/10.5194/egusphere-2024-2879>`_]
+
+PhD theses
+  - Analyse globale, régionale et locale des mesures de vapeur d'eau dans la haute TTL pendant STRATÉOLE 2 [`Carbone <https://theses.fr/s297336>`_, Université de Reims Champagne-Ardenne, 2025]
+
+.. note::
+
+   If you would like to share with the community the fact that one of your projects using Meso-NH has been funded, or any other communication about your work (including posters and presentations *available online*), please write to me. I'd also be delighted to hear your views on the proposed format for these newsletters.
+
+Happy simulations with Meso-NH!
+
+See you soon,
+
+Thibaut Dauhut and the entire Meso-NH team: Philippe Wautelet, Quentin Rodier, Didier Ricard, Joris Pianezze, Juan Escobar and Jean-Pierre Chaboureau
