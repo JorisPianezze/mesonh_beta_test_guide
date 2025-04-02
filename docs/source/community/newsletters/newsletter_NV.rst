@@ -96,7 +96,7 @@ Fire meteorology
   - Modelling aerodynamics and combustion of firebrands in long-range spotting [`Alonso-Pinar et al., 2025 <https://doi.org/10.1016/j.firesaf.2025.104348>`_]
   - Fire-weather conditions during two fires in Southern Portugal: Meteorology, Orography, and Fuel Characteristics [`Purificação et al., 2025 <https://doi.org/10.1007/s40808-025-02308-z>`_]
       
-Porting Meso-NH on GPU supercomputers
+Porting on GPU supercomputers
   - Porting the Meso-NH atmospheric model on different GPU architectures for the next generation of supercomputers (version MESONH-v55-OpenACC) [`Escobar et al., 2025 <https://doi.org/10.5194/egusphere-2024-2879>`_]
 
 PhD theses
