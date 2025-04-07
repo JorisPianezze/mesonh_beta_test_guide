@@ -1,7 +1,7 @@
 Infolettre #05
 ================================================
 
-**4 avril 2025.** Version française, English version `here <newsletter_05_english.html>`_.
+**7 avril 2025.** Version française, English version `here <newsletter_05_english.html>`_.
 
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
@@ -20,7 +20,7 @@ Entretien avec `Najda Villefranque <mailto:najda.villefranque@meteo.fr>`_ (CNRM)
    Une version longue de l'entretien, avec plus de détails, est disponible `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_05_extended.html>`_.
 
 
-Najda, tu as développé un simulateur de rayonnement 3D qui peut être appliqué à des champs 3D issus de simulations Méso-NH. Pourrais-tu résumer ce que fait ce programme ?
+Najda, tu as développé un simulateur de rayonnement 3D qui peut être appliqué à des champs 3D issus de simulations Méso-NH. Pourrais-tu résumer ce que fait ce logiciel ?
   `htrdr <https://www.meso-star.com/projects/htrdr/htrdr.html>`_ est un logiciel libre basé sur les méthodes de Monte Carlo qui simule la trajectoire d'un grand nombre de photons pour résoudre le transfert radiatif atmosphérique. Il prend en entrée une description 3D de l'atmosphère, typiquement des sorties de simulations Meso-NH, ainsi qu'une description des surfaces (par exemple d'une ville comme `ici <https://web.lmd.jussieu.fr/~nvillefranque/pages/teapot_city>`_ mais on peut évidemment aussi prescrire une surface plane). Les photons interagissent avec les hydrométéores, les aérosols, les gaz et les surfaces au travers de phénomènes d'absorption / émission et de diffusion / réflexion. La répartition des photons sur les capteurs virtuels positionnés dans la scène par l'utilisatrice donne une estimation de l'intensité du rayonnement sur ces capteurs.
 
 Pour quelles applications conseilles-tu d'utiliser htrdr ?
