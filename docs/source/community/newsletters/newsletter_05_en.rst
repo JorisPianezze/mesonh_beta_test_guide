@@ -67,7 +67,7 @@ Other ongoing and recent developments
   - The inclusion of ocean surface currents in the Meso-NH turbulence scheme has been validated.
 
 Meso-NH Zenodo repository
-  In order to have a DOI associated with each new version of Méso-NH, a `Zenodo repository <https://zenodo.org/records/15095131>`_ has just been created. For each version of Meso-NH, the tar ball will be deposited there and a DOI will be associated with it. 
+  In order to have a DOI associated with each new version of Meso-NH, a `Zenodo repository <https://zenodo.org/records/15095131>`_ has just been created. For each version of Meso-NH, the tar ball will be deposited there and a DOI will be associated with it. 
 
 .. note::
   **Think about it for your future publications**, you'll be able to refer to this repository in the *Data availability* section or equivalent. 
