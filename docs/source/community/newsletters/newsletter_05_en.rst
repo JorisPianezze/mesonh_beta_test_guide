@@ -20,7 +20,7 @@ Interview with `Najda Villefranque <mailto:najda.villefranque@meteo.fr>`_ (CNRM)
    A longer version of the interview, with more details, is available `here <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_05_extended_english.html>`_.
 
 
-Najda, you've developed a 3D radiation simulator that can be applied to 3D fields output from Meso-NH simulations. Could you summarize what this software does?
+Najda, you've developed a 3D radiation simulator that can be applied to 3D fields from Meso-NH simulations. Could you summarize what this software does?
   `htrdr <https://www.meso-star.com/projects/htrdr/htrdr.html>`_ is a free software based on Monte Carlo methods that simulates the trajectory of a large number of photons to solve atmospheric radiative transfer. It takes as input a 3D description of the atmosphere, typically output from Meso-NH simulations, as well as a description of surfaces (e.g. of a city like `here <https://web.lmd.jussieu.fr/~nvillefranque/pages/teapot_city>`_ but we can obviously also prescribe a flat surface). Photons interact with hydrometeors, aerosols, gases and surfaces through absorption/emission and scattering/reflection phenomena. The distribution of photons on virtual sensors positioned in the scene by the user gives an estimate of the intensity of radiation on these sensors.
 
 What applications do you recommend using htrdr for?
