@@ -57,9 +57,10 @@ Version 6
   - A more efficient lossless compression library, Zstandard, mainly in terms of CPU cost and slightly in compression ratio, is currently being integrated.
   - Coming soon, an internal clean-up program with restructuring of source directories and major pruning of parts of the repository that are no longer maintained and/or topical.
 
-In the meantime, version 5.7.2 will be released shortly. For frequent *output* (not *backup* files):
-  - You will be able to perform threshold filtering by removing or assigning a particular value to elements of a variable that are smaller, larger or outside a range, criteria that may or may not be absolute values.
-  - You will be able to round variable values to a multiple of a chosen value (e.g. round all to a multiple of 0.1). Combined with compression, this is a form of lossy compression.
+In the meantime, version 5.7.2 will be released shortly
+  - For frequent *output* (not *backup* files), you will be able to:
+  - perform threshold filtering by removing or assigning a particular value to elements of a variable that are smaller, larger or outside a range, criteria that may or may not be absolute values.
+  - round variable values to a multiple of a chosen value (e.g. round all to a multiple of 0.1). Combined with compression, this is a form of lossy compression.
 
 
 Other ongoing and recent developments
