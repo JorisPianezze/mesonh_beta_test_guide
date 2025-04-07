@@ -59,8 +59,8 @@ Version 6
 
 In the meantime, version 5.7.2 will be released shortly
   - For frequent *output* (not *backup* files), you will be able to:
-    - perform threshold filtering by removing or assigning a particular value to elements of a variable that are smaller, larger or outside a range, criteria that may or may not be absolute values.
-    - round variable values to a multiple of a chosen value (e.g. round all to a multiple of 0.1). Combined with compression, this is a form of lossy compression.
+  - perform threshold filtering by removing or assigning a particular value to elements of a variable that are smaller, larger or outside a range, criteria that may or may not be absolute values.
+  - round variable values to a multiple of a chosen value (e.g. round all to a multiple of 0.1). Combined with compression, this is a form of lossy compression.
 
 
 Other ongoing and recent developments
