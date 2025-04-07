@@ -1,7 +1,7 @@
 Newsletter #05
 ================================================
 
-**4 April 2025.** English version, version française `ici <newsletter_05.html>`_.
+**7 April 2025.** English version, version française `ici <newsletter_05.html>`_.
 
 
 Dear Meso-NH users,
@@ -20,8 +20,8 @@ Interview with `Najda Villefranque <mailto:najda.villefranque@meteo.fr>`_ (CNRM)
    A longer version of the interview, with more details, is available `here <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_05_extended_english.html>`_.
 
 
-Najda, you've developed a 3D radiation simulator that can be applied to 3D fields derived from Meso-NH simulations. Could you summarize what this program does?
-  `htrdr <https://www.meso-star.com/projects/htrdr/htrdr.html>`_ is a free software program based on Monte Carlo methods that simulates the trajectory of a large number of photons to solve atmospheric radiative transfer. It takes as input a 3D description of the atmosphere, typically output from Meso-NH simulations, as well as a description of surfaces (e.g. of a city like `here <https://web.lmd.jussieu.fr/~nvillefranque/pages/teapot_city>`_ but we can obviously also prescribe a flat surface). Photons interact with hydrometeors, aerosols, gases and surfaces through absorption/emission and scattering/reflection phenomena. The distribution of photons on virtual sensors positioned in the scene by the user gives an estimate of the intensity of radiation on these sensors.
+Najda, you've developed a 3D radiation simulator that can be applied to 3D fields output from Meso-NH simulations. Could you summarize what this software does?
+  `htrdr <https://www.meso-star.com/projects/htrdr/htrdr.html>`_ is a free software based on Monte Carlo methods that simulates the trajectory of a large number of photons to solve atmospheric radiative transfer. It takes as input a 3D description of the atmosphere, typically output from Meso-NH simulations, as well as a description of surfaces (e.g. of a city like `here <https://web.lmd.jussieu.fr/~nvillefranque/pages/teapot_city>`_ but we can obviously also prescribe a flat surface). Photons interact with hydrometeors, aerosols, gases and surfaces through absorption/emission and scattering/reflection phenomena. The distribution of photons on virtual sensors positioned in the scene by the user gives an estimate of the intensity of radiation on these sensors.
 
 What applications do you recommend using htrdr for?
   htrdr is the ideal reference calculation software for accurately determining radiative quantities, whether solar (SW) or thermal (LW), in map form or horizontally integrated. It is particularly useful for estimating the radiative effect of clouds or aerosols, studying their impact as a function of their properties, and evaluating the parameterizations of large-scale models. htrdr also serves as a target for calibrating these parameterizations in idealized cases, where observations are lacking. In short, htrdr is to radiation what Meso-NH is to atmospheric dynamics! 
@@ -57,9 +57,10 @@ Version 6
   - A more efficient lossless compression library, Zstandard, mainly in terms of CPU cost and slightly in compression ratio, is currently being integrated.
   - Coming soon, an internal clean-up program with restructuring of source directories and major pruning of parts of the repository that are no longer maintained and/or topical.
 
-In the meantime, version 5.7.2 will be released shortly.
-  - For frequent output *output*, you can perform threshold filtering by removing or assigning a particular value to elements of a variable that are smaller, larger or outside a range, criteria that may or may not be absolute values.
-  - For frequent output *output*, possibility of rounding variable values to a multiple of a chosen value (e.g. round all to a multiple of 0.1). Combined with compression, this is a form of lossy compression.
+In the meantime, version 5.7.2 will be released shortly
+  For frequent *output* (not *backup* files):
+  - You will be able to perform threshold filtering by removing or assigning a particular value to elements of a variable that are smaller, larger or outside a range, criteria that may or may not be absolute values.
+  - You will be able to round variable values to a multiple of a chosen value (e.g. round all to a multiple of 0.1). Combined with compression, this is a form of lossy compression.
 
 
 Other ongoing and recent developments
@@ -67,7 +68,10 @@ Other ongoing and recent developments
   - The inclusion of ocean surface currents in the Meso-NH turbulence scheme has been validated.
 
 Meso-NH Zenodo repository
-  In order to have a DOI associated with each new version of Méso-NH, a `Zenodo repository <https://zenodo.org/records/15095131>` has just been created. For each version of Meso-NH, the tar ball will be deposited there and a DOI will be associated with it. **Think about it for your future publications**, you'll be able to refer to this repository in the *Data availability* section or equivalent. 
+  In order to have a DOI associated with each new version of Méso-NH, a `Zenodo repository <https://zenodo.org/records/15095131>`_ has just been created. For each version of Meso-NH, the tar ball will be deposited there and a DOI will be associated with it. 
+
+.. note::
+  **Think about it for your future publications**, you'll be able to refer to this repository in the *Data availability* section or equivalent. 
 
 Meso-NH internship
   The Meso-NH course was held successfully for the first time in hybrid mode, with 8 people in the room and 13 remotely, from March 10 to 13, 2025.
@@ -104,7 +108,7 @@ PhD theses
 
 .. note::
 
-   If you would like to share with the community the fact that one of your projects using Meso-NH has been funded, or any other communication about your work (including posters and presentations *available online*), please write to me. I'd also be delighted to hear your views on the proposed format for these newsletters.
+   If you would like to share with the community the fact that one of your projects using Meso-NH has been funded, or any other communication about your work (including posters and presentations *available online*), please write to `me <thibaut.dauhut@univ-tlse3.fr>`_.
 
 Happy simulations with Meso-NH!
 
