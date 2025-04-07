@@ -4,7 +4,7 @@ Version longue de l'entretien avec `Najda Villefranque <mailto:najda.villefranqu
 .. image:: photo_nv.jpg
   :width: 250
 
-Najda, tu as développé un simulateur de rayonnement 3D qui peut être appliqué à des champs 3D issus de simulations Méso-NH. Pourrais-tu résumer ce que fait ce programme ?
+Najda, tu as développé un simulateur de rayonnement 3D qui peut être appliqué à des champs 3D issus de simulations Méso-NH. Pourrais-tu résumer ce que fait ce logiciel ?
   Le logiciel `htrdr <https://www.meso-star.com/projects/htrdr/htrdr.html>`_ est un code basé sur les méthodes de Monte Carlo qui simule la trajectoire d'un grand nombre de photons pour résoudre le transfert radiatif atmosphérique. Il prend en entrée une description 3D de l'atmosphère, typiquement des sorties de simulations Méso-NH, ainsi qu'une description des surfaces (par exemple d'une ville comme `ici <https://web.lmd.jussieu.fr/~nvillefranque/pages/teapot_city>`_ mais on peut évidemment aussi prescrire une surface plane). Les photons interagissent avec les hydrométéores, les aérosols, les gaz et les surfaces au travers de phénomènes d'absorption / émission et de diffusion / réflexion. La répartition des photons sur les capteurs virtuels positionnés dans la scène par l'utilisateur.trice donne une estimation de l'intensité du rayonnement sur ces capteurs.
 
 Pour quelles applications conseilles-tu d'utiliser htrdr ?
