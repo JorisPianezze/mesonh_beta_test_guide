@@ -99,11 +99,6 @@ The following namelists can be used in the :file:`EXSEG1.nam` file :
 * :ref:`nam_surf_slt`
 * :ref:`nam_watfluxn`
 * :ref:`nam_flaken`
-* :ref:`nam_treedrag`
-* :ref:`nam_deepsoil`
-* :ref:`nam_agri`
-* :ref:`nam_assim`
-* :ref:`nam_sgh_isban`
 * :ref:`nam_isban`
 * :ref:`nam_surf_dst`
 * :ref:`nam_ideal_flux`
@@ -205,11 +200,6 @@ The following namelists can be used in the :file:`EXSEG1.nam` file :
 .. include:: namelists/nam_surf_slt.rst
 .. include:: namelists/nam_watfluxn.rst
 .. include:: namelists/nam_flaken.rst
-.. include:: namelists/nam_treedrag.rst
-.. include:: namelists/nam_deepsoil.rst
-.. include:: namelists/nam_agri.rst
-.. include:: namelists/nam_assim.rst
-.. include:: namelists/nam_sgh_isban.rst
 .. include:: namelists/nam_isban.rst
 .. include:: namelists/nam_surf_dst.rst
 .. include:: namelists/nam_ideal_flux.rst
