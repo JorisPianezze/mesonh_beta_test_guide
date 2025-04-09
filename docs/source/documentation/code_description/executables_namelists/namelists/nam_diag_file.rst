@@ -7,13 +7,13 @@ NAM_DIAG_FILE
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "YINIFILE","array of character (len=NFILENAMELGTMAX)",""
-   "YINIFILEPGD","array of character (len=NFILENAMELGTMAX)",""
-   "YSUFFIX","character (len=5)","_DIAG"
+   "YINIFILE","ARRAY(CHARACTER(LEN=128))",""
+   "YINIFILEPGD","ARRAY(CHARACTER(LEN=128))",""
+   "YSUFFIX","ARRAY(CHARACTER(LEN=5))","_DIAG"
 
 
-* YINIFILE : name of the input synchronous backup files.
+* :code:`YINIFILE` : name of the input synchronous backup files.
 
-* YINIFILEPGD : name of the PGD file associated to YINIFILE.
+* :code:`YINIFILEPGD` : name of the PGD file associated to YINIFILE.
 
-* YSUFFIX : suffix appended to input file name to form output file name.
+* :code:`YSUFFIX` : suffix appended to input file name to form output file name.

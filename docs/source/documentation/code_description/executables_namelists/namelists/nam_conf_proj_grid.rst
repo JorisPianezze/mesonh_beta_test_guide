@@ -9,21 +9,21 @@ This namelists defines the horizontal domain in case CGRID="CONF PROJ ".
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "XLATCEN", "real", "none"
-   "XLONCEN", "real", "none"
-   "NIMAX", "integer", "none"
-   "NJMAX", "integer", "none"
-   "XDX", "real", "none"
-   "XDY", "real", "none"
+   "XLATCEN", "REAL", ""
+   "XLONCEN", "REAL", ""
+   "NIMAX", "INTEGER", ""
+   "NJMAX", "INTEGER", ""
+   "XDX", "REAL", ""
+   "XDY", "REAL", ""
 
-* XLATCEN: latitude of the point of the center of the domain (real, decimal degrees)
+* :code:`XLATCEN` : latitude of the point of the center of the domain (real, decimal degrees)
 
-* XLONCEN: longitude of the point of the center of the domain (real, decimal degrees)
+* :code:`XLONCEN` : longitude of the point of the center of the domain (real, decimal degrees)
 
-* NIMAX: number of surface points of the grid in direction x.
+* :code:`NIMAX` : number of surface points of the grid in direction x.
 
-* NJMAX: number of surface points of the grid in direction y.
+* :code:`NJMAX` : number of surface points of the grid in direction y.
 
-* XDX: grid mesh size on the conformal plane in x direction (real, meters).
+* :code:`XDX` : grid mesh size on the conformal plane in x direction (real, meters).
 
-* XDY: grid mesh size on the conformal plane in y direction (real, meters).
+* :code:`XDY` : grid mesh size on the conformal plane in y direction (real, meters).

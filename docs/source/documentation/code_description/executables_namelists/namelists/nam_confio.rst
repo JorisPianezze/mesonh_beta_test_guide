@@ -10,7 +10,7 @@ NAM_CONFIO
    "LCDF4", "LOGICAL", ".FALSE."
    "LLFIOUT", "LOGICAL", ".FALSE."
    "LLFIREAD", "LOGICAL", ".FALSE."
-   "CIO_DIR", "CHARACTER(len=512)", ""
+   "CIO_DIR", "CHARACTER(LEN=512)", ""
    "LVERB_OUTLST", "LOGICAL", ".TRUE."
    "LVERB_STDOUT", "LOGICAL", ".FALSE."
    "LVERB_ALLPRC", "LOGICAL", ".FALSE."
@@ -29,66 +29,66 @@ NAM_CONFIO
    "NFILE_NUM_MAX", "INTEGER", "999"
    
    
-*  LCDF4: read and write files in netCDF-4 file format
+* :code:`LCDF4`:
 
-   * .TRUE. : read and write files in netCDF-4 file format (read file format can be forced to only LFI if LLFIREAD = .TRUE.)
-   * .FALSE. : read and write files in LFI file format
+  * .TRUE. :  read and write files in netCDF-4 file format (read file format can be forced to only LFI if LLFIREAD=.TRUE.)
+  * .FALSE. : read and write files in LFI file format
    
-* LLFIOUT: write files in LFI file format
+* :code:`LLFIOUT`:
 
-  * .TRUE. : write files in LFI file format (even if LCDF4 = .TRUE.)
+  * .TRUE. : write files in LFI file format (even if LCDF4=.TRUE.)
   * .FALSE. : do not write files in LFI file format
   
-* LLFIREAD: read files in LFI file format (even if LCDF4 = .TRUE.)
+* :code:`LLFIREAD`:
 
-  * .TRUE. : read files in LFI file format. If LCDF 4 = .TRUE., the reading will be forced with the LFI file format (no reading with netCDF-4 file format).
+  * .TRUE. : read files in LFI file format. If LCDF4=.TRUE., the reading will be forced with the LFI file format (no reading with netCDF-4 file format).
   * .FALSE. : do not read files in LFI file format
 
 .. warning::
 
-   * If LCDF 4 = .FALSE. and LLFIOUT = .FALSE. (which are the default), LCDF4 will be forced to .TRUE..
+   * If :code:`LCDF4=.FALSE.` and :code:`LLFIOUT=.FALSE.` (which are the default), LCDF4 will be forced to .TRUE..
    
    * If a file is not found in the requested fileformat (netCDF or LFI), Meso-NH will check if it exists in the other format and use it if found. This could be useful if you need to mix the reading of different files with different fileformats.
 
-* CIO_DIR : Directory used to write outputs, backups and diachronic files (current directory by default). It can be overridden by CBAK_DIR for backups and diachronic files and by COUT_DIR for outputs.
+* :code:`CIO_DIR` : directory used to write outputs, backups and diachronic files (current directory by default). It can be overridden by CBAK_DIR for backups and diachronic files and by COUT_DIR for outputs.
 
-* LVERB_OUTLST : flag to write application messages in OUTPUT_LISTINGn files (in current directory, n is for the current model)
+* :code:`LVERB_OUTLST` : flag to write application messages in :file:`OUTPUT_LISTINGn` files (in current directory, n is for the current model)
 
-* LVERB_STDOUT : flag to write application messages on the standard output
+* :code:`LVERB_STDOUT` : flag to write application messages on the standard output
 
-* NGEN_VERB : set the verbosity level for ’generic’ messages
+* :code:`NGEN_VERB` : set the verbosity level for generic messages
 
-  * 0: no messages
-  * 1: fatal messages
-  * 2: error messages (and lower values)
-  * 3: warning messages (and lower values)
-  * 4: info messages (and lower values)
-  * 5: debug messages (and lower values)
+  * 0 : no messages
+  * 1 : fatal messages
+  * 2 : error messages (and lower values)
+  * 3 : warning messages (and lower values)
+  * 4 : info messages (and lower values)
+  * 5 : debug messages (and lower values)
   
-* NGEN_ABORT_LEVEL : set the minimum level of ’generic’ message to abort the application (same levels as for NGEN_VERB)
+* :code:`NGEN_ABORT_LEVEL` : set the minimum level of generic message to abort the application (same levels as for NGEN_VERB)
 
-* NBUD_VERB : set the verbosity level for ’budget’ messages (same levels as for NGEN_VERB)
+* :code:`NBUD_VERB` : set the verbosity level for budget messages (same levels as for NGEN_VERB)
 
-* NBUD_ABORT_LEVEL : set the minimum level of ’budget’ message to abort the application (same levels as for NGEN_VERB)
+* :code:`NBUD_ABORT_LEVEL` : set the minimum level of budget message to abort the application (same levels as for NGEN_VERB)
 
-* NIO_VERB : set the verbosity level for ’IO’ messages (same levels as for NGEN_VERB)
+* :code:`NIO_VERB` : set the verbosity level for IO messages (same levels as for NGEN_VERB)
 
-* NIO_ABORT_LEVEL : set the minimum level of ’IO’ message to abort the application (same levels as for NGEN_VERB)
+* :code:`NIO_ABORT_LEVEL` : set the minimum level of IO message to abort the application (same levels as for NGEN_VERB)
 
 .. warning::
 
    Not all messages use this infrastructure. Therefore, some of them are not affected by these options.
 
-* LIO_COMPRESS: enable lossless compression of data for all files (only for files in netCDF format, not for LFI format). This can have a negative impact on performance. This option takes precedence over their equivalent in NAM_BACKUP and NAM_OUTPUT namelists.
+* :code:`LIO_COMPRESS` : enable lossless compression of data for all files (only for files in netCDF format, not for LFI format). This can have a negative impact on performance. This option takes precedence over their equivalent NAM_BACKUP and NAM_OUTPUT namelists.
 
-* LOUT_COMPRESS_LEVEL: set the compression level (only for files in netCDF format, not for LFI format). The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option takes precedence over their equivalent in NAM_BACKUP and NAM_OUTPUT namelists (only if LIO_COMPRESS=.TRUE.).
+* :code:`LOUT_COMPRESS_LEVEL` : set the compression level (only for files in netCDF format, not for LFI format). The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option takes precedence over their equivalent in NAM_BACKUP and NAM_OUTPUT namelists (only if LIO_COMPRESS=.TRUE.).
 
-* LDIAG_REDUCE_FLOAT_PRECISION: force writing of floating points numbers in single precision for diagnostic files (written by the DIAG program) (only for files in netCDF format, not for LFI format)
+* :code:`LDIAG_REDUCE_FLOAT_PRECISION` : force writing of floating points numbers in single precision for diagnostic files (written by the :program:`DIAG` program) (only for files in netCDF format, not for LFI format)
 
-* LIO_ALLOW_REDUCED_PRECISION_BACKUP: flag to allow writing of backup files with a reduced precision as well as reading of reduced precision files and files written with MesoNH compiled with a lower precision for integers or reals (ie MNH_INT=4 and MNH_REAL=4).
+* :code:`LIO_ALLOW_REDUCED_PRECISION_BACKUP` : flag to allow writing of backup files with a reduced precision as well as reading of reduced precision files and files written with Meso-NH compiled with a lower precision for integers or reals (ie MNH_INT=4 and MNH_REAL=4).
 
-* LIO_ALLOW_NO_BACKUP : allow to have no valid backup time (useful for some tests)
+* :code:`LIO_ALLOW_NO_BACKUP` : allow to have no valid backup time (useful for some tests)
 
-* LIO_NO_WRITE : disable file writes (useful for benchs)
+* :code:`LIO_NO_WRITE` : disable file writes (useful for benchs)
 
-* NFILE_NUM_MAX: maximum number for numbered files (mainly backup and output files). If less than 1000, the numbers will be on 3 digits. From 1000, they will be on the number of digits of NFILE_NUM_MAX (5 if NFILE_NUM_MAX=12345).
+* :code:`NFILE_NUM_MAX` : maximum number for numbered files (mainly backup and output files). If less than 1000, the numbers will be on 3 digits. From 1000, they will be on the number of digits of NFILE_NUM_MAX (5 if NFILE_NUM_MAX=12345).

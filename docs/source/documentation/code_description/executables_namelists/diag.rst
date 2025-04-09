@@ -3,7 +3,7 @@
 DIAG
 ***************************************************************************** 
 
-After running the model, useful quantities can be diagnosed from prognostic variables contained in the synchronous backup files. It is done by the program :file:`DIAG` which computes diagnostic variables.
+After running the model, useful quantities can be diagnosed from prognostic variables contained in the synchronous backup files. It is done by the program :program:`DIAG` which computes diagnostic variables.
 
 .. csv-table:: DIAG program and its corresponding namelist and function
    :header: "Executable", "Namelist", "Function", "Output"
@@ -78,7 +78,7 @@ The following namelists can be used in the :file:`DIAG1.nam` file :
 .. include:: namelists/nam_diag_surf_atmn.rst
 .. include:: namelists/nam_write_diag_surfn.rst
 .. include:: namelists/nam_diag_surfn.rst
-.. include:: namelists/nam_diag_isba.rst`
+.. include:: namelists/nam_diag_isban.rst
 .. include:: namelists/nam_diag_tebn.rst
 .. include:: namelists/nam_diag_flaken.rst
 .. include:: namelists/nam_diag_oceann.rst

@@ -9,35 +9,35 @@ TEB diagnostics.
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "LPGD", "logical", "F"
-   "LSURF_MISC_BUDGET", "logical", "F"
-   "LSURF_DIAG_ALBEDO", "logical", "F"
-   "LUTCI", "logical", "F"
+   "LPGD", "LOGICAL", ".FALSE."
+   "LSURF_MISC_BUDGET", "LOGICAL", ".FALSE."
+   "LSURF_DIAG_ALBEDO", "LOGICAL", ".FALSE."
+   "LUTCI", "LOGICAL", ".FALSE."
    
-* LPGD: gflag to save PGD fields if TEB garden is activated
+* :code:`LPGD` : flag to save PGD fields if TEB garden is activated
 
-* LSURF_MISC_BUDGET: flag to save in the output file miscelleaneous fields. The diagnosed fields are:
+* :code:`LSURF_MISC_BUDGET` : flag to save in the output file miscelleaneous fields. The diagnosed fields are:
 
-  * Z0_TOWN: groughness length for town
-  * QF_BLD: gdomestic heating
-  * QF_BLDWFR: gdomestic heating
-  * FLX_BLD: gheat flux from bld
-  * TI_BLD_EQ: ginternal temperature without heating
-  * TI_BLDWFR: ginternal temperature without heating
-  * QF_TOWN: gtotal anthropogenic heat
-  * DQS_TOWN: gstorage inside building
-  * H_WALL: gwall sensible heat flux
+  * Z0_TOWN: roughness length for town
+  * QF_BLD: domestic heating
+  * QF_BLDWFR: domestic heating
+  * FLX_BLD: heat flux from bld
+  * TI_BLD_EQ: internal temperature without heating
+  * TI_BLDWFR: internal temperature without heating
+  * QF_TOWN: total anthropogenic heat
+  * DQS_TOWN: storage inside building
+  * H_WALL: wall sensible heat flux
   * H_ROOF: roof sensible heat flux
   * H_ROAD: road sensible heat flux
-  * RN_WALL: gnet radiation at wall
-  * RN_ROOF: gnet radiation at roof
+  * RN_WALL: net radiation at wall
+  * RN_ROOF: net radiation at roof
   * RN_ROAD: net radiation at road
-  * GFLUX_WALL: gnet wall conduction flux
-  * GFLUX_ROOF: gnet roof conduction flux
-  * GFLUX_ROAD: gnet road conduction flux
-  * LE_ROOF: groof latent heat flux
-  * LE_ROAD: groad latent heat flux
+  * GFLUX_WALL: net wall conduction flux
+  * GFLUX_ROOF: net roof conduction flux
+  * GFLUX_ROAD: net road conduction flux
+  * LE_ROOF: roof latent heat flux
+  * LE_ROAD: road latent heat flux
   
-* LSURF_DIAG_ALBEDO: gflag to save in the output file albedo diagnostics
+* :code:`LSURF_DIAG_ALBEDO` : flag to save in the output file albedo diagnostics
 
-* LUTCI: gto calculate and write UTCI diagnostics
+* :code:`LUTCI` : to calculate and write UTCI diagnostics

@@ -13,13 +13,13 @@ Since RTTOV requires a license agreement, no RTTOV package is included in the op
 
 For each instrument nb you want (1 ≤ nb ≤ 10) :
 
-* NRTTOVinfo(1,nb) : Plt = Plateforme
+* :code:`NRTTOVinfo(1,nb)` : Plt = Plateforme
 
-* NRTTOVinfo(2,nb) : Sat = Satellite
+* :code:`NRTTOVinfo(2,nb)` : Sat = Satellite
 
-* NRTTOVinfo(3,nb) : Sen = Sensor
+* :code:`NRTTOVinfo(3,nb)` : Sen = Sensor
 
-* NRTTOVinfo(4,nb) : 0
+* :code:`NRTTOVinfo(4,nb)` : 0
 
 Following variable will be store :
 

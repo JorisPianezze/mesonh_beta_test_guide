@@ -9,18 +9,18 @@ This namelist is only available for CTYPEFILE='AROME'. It contains the caracteri
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "NI", "integer", "750"
-   "NJ", "integer", "720"
-   "NK", "integer", "60"
-   "XDELTAX", "integer", "2500"
-   "XDELTAY", "integer", "2500"
+   "NI", "INTEGER", "750"
+   "NJ", "INTEGER", "720"
+   "NK", "INTEGER", "60"
+   "XDELTAX", "INTEGER", "2500"
+   "XDELTAY", "INTEGER", "2500"
 
-* NI : number of points to read in I direction 
+* :code:`NI` : number of points to read in I direction 
 
-* NJ : number of points to read in J direction 
+* :code:`NJ` : number of points to read in J direction 
 
-* NK : number of vertical levels to read 
+* :code:`NK` : number of vertical levels to read 
 
-* XDELTAX : gridsize of arome file in I direction (m)
+* :code:`XDELTAX` : gridsize of arome file in I direction (m)
 
-* XDELTAY : gridsize of arome file in J direction (m)    
+* :code:`XDELTAY` : gridsize of arome file in J direction (m)    

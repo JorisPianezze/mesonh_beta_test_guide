@@ -7,6 +7,6 @@ NAM_INIFILE
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "YINIFILE", "CHARACTER (LEN=NFILENAMELGTMAX)", ""
+   "YINIFILE", "CHARACTER(LEN=128)", ""
 
-* YINIFILE : name of input file.
+* :code:`YINIFILE` : name of input file.

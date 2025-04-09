@@ -11,7 +11,7 @@ NAM_DIAG - Default
    "CISO", "CHARACTER(LEN=NFILENAMELGTMAX)", "PREVTK"
    "LVAR_RS", "LOGICAL", "TRUE"
 
-* XDTSTEP : time step of the DIAG program (one time step is performed). By default time step of the simulation is used (XTSTEP).
+* :code:`XDTSTEP` : time step of the DIAG program (one time step is performed). By default time step of the simulation is used (XTSTEP).
 
 * :code:`CISO="PREVTK"` will store following variables :
 
@@ -58,4 +58,4 @@ NAM_DIAG - Default
 
 The numerous following namelists can be added to :code:`NAM_DIAG` namelist :
 
-* :ref:`nam_diag_general_options`
+* :ref:`nam_diag_general`

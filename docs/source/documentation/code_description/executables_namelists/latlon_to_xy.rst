@@ -1,7 +1,7 @@
 LATLON_TO_XY
 ***************************************************************************** 
 
-LATLON_TO_XY program is used to compute x and y from latitude and longitude.
+:program:`LATLON_TO_XY` program is used to compute x and y from latitude and longitude.
 
 .. csv-table:: LATLON_TO_XY program and its corresponding namelist and function
    :header: "Executable", "Input namelist file", "Function", "Output"
@@ -16,3 +16,7 @@ The following namelists can be used in the :file:`LATLON_TO_XY1.nam` file :
 
 .. include:: namelists/nam_confio.rst
 .. include:: namelists/nam_inifile.rst
+
+.. warning::
+
+   This program is not used by Meso-NH users and will disapear soon from the list of compiled executables.

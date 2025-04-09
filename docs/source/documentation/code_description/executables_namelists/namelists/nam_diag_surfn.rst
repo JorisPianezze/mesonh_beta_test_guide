@@ -9,42 +9,44 @@ Diagnostics for each grid cell and each tile.
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "N2M", "integer", "2"
-   "LSURF_BUDGET", "logical", "F"
-   "LSURF_BUDGETC", "logical", "F"
-   "LRESET_BUDGETC", "logical", "F"
-   "LRAD_BUDGET", "logical", "F"
-   "LCOEF", "logical", "F"
-   "LSURF_VARS", "logical", "F"
-   "L2M_MIN_ZS", "logical", "F"
+   "N2M", "INTEGER", "2"
+   "LSURF_BUDGET", "LOGICAL", ".FALSE."
+   "LSURF_BUDGETC", "LOGICAL", ".FALSE."
+   "LRESET_BUDGETC", "LOGICAL", ".FALSE."
+   "LRAD_BUDGET", "LOGICAL", ".FALSE."
+   "LCOEF", "LOGICAL", ".FALSE."
+   "LSURF_VARS", "LOGICAL", ".FALSE."
+   "L2M_MIN_ZS", "LOGICAL", ".FALSE."
    
-• N2M: gflag to compute surface boundary layer characteristics:
+* :code:`N2M` : flag to compute surface boundary layer characteristics:
 
-  * N2M=2: gcomputes temperature at 2 m, specific humidity at 2 m, relative humidity, zonal and meridian wind at 10 m, and Richardson number. 2m and 10m quantities are calculated interpolating between atmospheric forcing variables and surface temperature and humidity.
+  * N2M=2 : computes temperature at 2 m, specific humidity at 2 m, relative humidity, zonal and meridian wind at 10 m, and Richardson number. 2m and 10m quantities are calculated interpolating between atmospheric forcing variables and surface temperature and humidity.
 
-* LSURF_BUDGET: flag to save in the output file the terms of the surface energy balance (net radiation, sensible heat flux, latent heat flux, ground flux), for each scheme (on the four separate tiles), on each patch of the vegetation scheme if existing, and aggregated for the whole surface. The diagnosed fields are (* stands for the scheme considered (*=nothing: gfield aggregated on the whole surface;*=name of a scheme : field for this scheme):
+* :code:`LSURF_BUDGET` : flag to save in the output file the terms of the surface energy balance (net radiation, sensible heat flux, latent heat flux, ground flux), for each scheme (on the four separate tiles), on each patch of the vegetation scheme if existing, and aggregated for the whole surface. The diagnosed fields are (* stands for the scheme considered (* = nothing: gfield aggregated on the whole surface; * = name of a scheme : field for this scheme):
 
-  * RN_*: gnet radiation
-  * H_*: gturbulent sensible heat flux
-  * LE_*: gturbulent latent heat flux
-  * GFLUX_*: ground or storage heat flux
-  * FMU_*: gzonal wind stress
-  * FMV_*: gmeridian wind stress
+  * RN_*: net radiation
+  * H_*: turbulent sensible heat flux
+  * LE_*: turbulent latent heat flux
+  * GFLUX_*: round or storage heat flux
+  * FMU_*: zonal wind stress
+  * FMV_*: meridian wind stress
 
-If both LSURF_BUDGET and LRAD_BUDGET are T then downward and upward short-wave radiation per spectral band will be written into output file (they are computed even if LRAD_BUDGET is False). The following output fields are then available:
+.. note::
 
-  * SWD_*: gdownward short wave radiation
-  * SWU_*: upward short wave radiation
-  * SWBD_*: gdownward short wave radiation for each spectral band
-  * SWBU_*: gupward short wave radiation for each spectral band
-  * LWD_*:downward long wave radiation
-  * LWU_*: gupward long wave radiation
+   If both LSURF_BUDGET and LRAD_BUDGET are T then downward and upward short-wave radiation per spectral band will be written into output file (they are computed even if LRAD_BUDGET is False). The following output fields are then available:
+
+     * SWD_*: downward short wave radiation
+     * SWU_*: upward short wave radiation
+     * SWBD_*: downward short wave radiation for each spectral band
+     * SWBU_*: upward short wave radiation for each spectral band
+     * LWD_*: downward long wave radiation
+     * LWU_*: upward long wave radiation
   
-* LSURF_BUDGETC: flag to save in the output file the time integrated values of all budget terms that have been activated
+* :code:`LSURF_BUDGETC` : flag to save in the output file the time integrated values of all budget terms that have been activated
 
-* LRESET_BUDGETC: flag to reset cumulatives variables at the beginning of a run
+* :code:`LRESET_BUDGETC` : flag to reset cumulatives variables at the beginning of a run
 
-* LCOEF: flag to save in the output file the transfer coefficients used in the computation of the surface energy fluxes, for each scheme (on the four separate tiles) and aggregated for the whole surface. The diagnosed fields are (* stands for the scheme considered (*=nothing: gfield aggregated on the whole surface; *=name of a scheme : field for this scheme):
+* :code:`LCOEF` : flag to save in the output file the transfer coefficients used in the computation of the surface energy fluxes, for each scheme (on the four separate tiles) and aggregated for the whole surface. The diagnosed fields are (* stands for the scheme considered * = nothing: field aggregated on the whole surface; * = name of a scheme : field for this scheme):
 
   * CD_*: gdrag coefficient for momentum
   * CH_*: gdrag coefficient for heat
@@ -52,8 +54,8 @@ If both LSURF_BUDGET and LRAD_BUDGET are T then downward and upward short-wave r
   * Z0_*: groughness length
   * Z0H_*: gthermal roughness length
   
-* LSURF_VARS: flag to save in the output file the surface specific humidity for each scheme (on the four separate tiles), on each patch of the vegetation scheme if existing. The diagnosed fields are (* stands for the scheme considered (*=nothing: gfield aggregated on the whole surface; *=name of a scheme :< field for this scheme):
+* :code:`LSURF_VARS` : flag to save in the output file the surface specific humidity for each scheme (on the four separate tiles), on each patch of the vegetation scheme if existing. The diagnosed fields are (* stands for the scheme considered (* = nothing: gfield aggregated on the whole surface; * = name of a scheme :< field for this scheme):
 
-  *  QS_*: gspecific humidity
+  *  QS_*: specific humidity
 
-* L2M_MIN_ZS: flag for 2 meters quantities evaluated on the minimum orographyy of the grid
+* :code:`L2M_MIN_ZS` : flag for 2 meters quantities evaluated on the minimum orography of the grid

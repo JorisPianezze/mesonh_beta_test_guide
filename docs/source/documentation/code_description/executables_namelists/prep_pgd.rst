@@ -3,7 +3,7 @@
 PREP_PGD
 *****************************************************************************
 
-PREP_PGD program is used to create the horizontal grid file for some realistic Meso-NH applications. This file is called the PGD (for PhysioGraphic Data) file in Meso-NH terminology and it contains :
+:program:`PREP_PGD` program is used to create the horizontal grid file for some realistic Meso-NH applications. This file is called the PGD (for PhysioGraphic Data) file in Meso-NH terminology and it contains :
 
 * the definition of the projection, the horizontal grid extension and resolution ;
 
@@ -40,7 +40,7 @@ The following namelists can be used in the :file:`PRE_PGD1.nam` file :
 
 .. note::
 
-   For additional SURFEX namelists (NAM_CARTESIAN, ...) , please go to SURFEX documentation https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+   For additional SURFEX namelists (:code:`NAM_CARTESIAN`, ...) , please go to SURFEX documentation https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
 
 .. include:: namelists/nam_confio.rst
 .. include:: namelists/nam_conf_pgd.rst

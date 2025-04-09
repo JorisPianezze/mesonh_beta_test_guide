@@ -7,12 +7,12 @@ NAM_PGDN
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "YPGDN", "CHARACTER(LEN=NFILENAMELGTMAX)", ""
+   "YPGDN", "CHARACTER(LEN=128)", ""
    "IDAD", "INTEGER", "0"
 
-* YPGDN: name of the PGD file N.
+* :code:`YPGDN` : name of the PGD file N.
 
-* IDAD: number of the DAD file of file N. The DAD file number IDAD must be smaller than N.
+* :code:`IDAD` : number of the DAD file of file N. The DAD file number IDAD must be smaller than N.
 
 .. note::
 

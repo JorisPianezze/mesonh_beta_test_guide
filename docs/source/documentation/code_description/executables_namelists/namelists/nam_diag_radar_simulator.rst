@@ -110,53 +110,53 @@ NAM_DIAG - RADAR simulator
       "LSNRT","logical",".TRUE."
       "XSNRMIN","real","0"
 
-   * XLAT_RAD : latitude of each radar
+   * :code:`XLAT_RAD` : latitude of each radar
 
-   * XLON_RAD : longitude of each radar
+   * :code:`XLON_RAD` : longitude of each radar
    
-   * XALT_RAD : altitudes of radars (m)
+   * :code:`XALT_RAD` : altitudes of radars (m)
    
-   * CNAME_RAD : names of radars
+   * :code:`CNAME_RAD` : names of radars
    
-   * XLAM_RAD : radar wavelengths
+   * :code:`XLAM_RAD` : radar wavelengths
    
-   * XDT_RAD : beam width to the -3 dB level for one-way transmission (:math:`\Delta\theta`)
+   * :code:`XDT_RAD` : beam width to the -3 dB level for one-way transmission (:math:`\Delta\theta`)
    
-   * XELEV : radar elevations (:math:`\theta`). First dimension: radar; second: site number
+   * :code:`XELEV` : radar elevations (:math:`\theta`). First dimension: radar; second: site number
    
-   * NBSTEPMAX : number of gates
+   * :code:`NBSTEPMAX` : number of gates
    
-   * XSTEP_RAD : gate length (m)
+   * :code:`XSTEP_RAD` : gate length (m)
    
-   * LATT : attenuation is taken into account if true
+   * :code:`LATT` : attenuation is taken into account if true
    
-   * LQUAD : if true Gauss-Legendre quadrature if false Gauss-Hermite quadrature
+   * :code:`LQUAD` : if true Gauss-Legendre quadrature if false Gauss-Hermite quadrature
    
-   * NPTS_H : number of angles for the quadrature in horizontal
+   * :code:`NPTS_H` : number of angles for the quadrature in horizontal
    
-   * NPTS_V : number of angles for the quadrature in vertical
+   * :code:`NPTS_V` : number of angles for the quadrature in vertical
    
-   * CARF : 
+   * :code:`CARF` : 
    
      * "PB70" : Pruppacher and Beard (1970).
      * "AND99" : axis ratio of raindrops : Andsager et al. (1999).
      * "BR02" : axis ratio of raindrops : Brandes et al. (2002).
      * "SPHE" : axis ratio for spheres (r=1)
      
-   * LREFR : if true writes out refractivity (:math:`N\equiv(n-1)\times10^6`)
+   * :code:`LREFR` : if true writes out refractivity (:math:`N\equiv(n-1)\times10^6`)
    
-   * LDNDZ : if true writes out vertical gradient of refractivity (:math:`\partial N/\partial z`)
+   * :code:`LDNDZ` : if true writes out vertical gradient of refractivity (:math:`\partial N/\partial z`)
    
-   * NCURV_INTERPOL : 
+   * :code:`NCURV_INTERPOL` : 
    
      * 0 : use an average beam bending equivalent to 4/3 of the Earth's radius
      * 1 : compute the beam bending at each gate by using model variables
 
-   * LCART_RAD : if true interpolation of reflectivity on a cartesian grid ; false if polar
+   * :code:`LCART_RAD` : if true interpolation of reflectivity on a cartesian grid ; false if polar
    
-   * NBAZIM : Number of azimuths in polar coordinates (used only if LCART_RAD=.FALSE)
+   * :code:`NBAZIM` : Number of azimuths in polar coordinates (used only if LCART_RAD=.FALSE)
    
-   * NDIFF : 
+   * :code:`NDIFF` : 
    
      * 0 : Rayleigh scattering
      * 1 : Mie scattering
@@ -164,21 +164,21 @@ NAM_DIAG - RADAR simulator
      * 4 : Rayleigh with 6th order for attenuation calculations
      * 7 : T-matrix scattering (from lookup tables reading)
 
-   * NPTS_GAULAG : number of points of the quadrature
+   * :code:`NPTS_GAULAG` : number of points of the quadrature
    
-   * XGRID : size of the Cartesian grid (m)
+   * :code:`XGRID` : size of the Cartesian grid (m)
    
-   * LFALL : if true takes into account hydrometeor fall speeds
+   * :code:`LFALL` : if true takes into account hydrometeor fall speeds
    
-   * LWREFL : if true takes into account the weighting by reflectivities
+   * :code:`LWREFL` : if true takes into account the weighting by reflectivities
    
-   * LWBSCS : if true takes into account the weighting by hydrometeor concentrations
+   * :code:`LWBSCS` : if true takes into account the weighting by hydrometeor concentrations
    
-   * XREFLMIN : minimum detectable reflectivity (in dBZ)
+   * :code:`XREFLMIN` : minimum detectable reflectivity (in dBZ)
    
-   * XREFLVDOPMIN : minimum detectable reflectivity to compute Doppler velocities (in dBZ; useless when LWREFL=.FALSE.)
+   * :code:`XREFLVDOPMIN` : minimum detectable reflectivity to compute Doppler velocities (in dBZ; useless when LWREFL=.FALSE.)
    
-   * LSNRT : if true ZHH ZER ZEI ZES ZEG and doppler velocity are thresholded when NR < XSNRMIN
+   * :code:`LSNRT` : if true ZHH ZER ZEI ZES ZEG and doppler velocity are thresholded when NR < XSNRMIN
    
-   * XSNRMIN : minimum SNR (used only if LSNRT=T)
+   * :code:`XSNRMIN` : minimum SNR (used only if LSNRT=T)
 

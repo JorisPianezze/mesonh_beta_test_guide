@@ -10,6 +10,6 @@ NAM_CONF_PGD
    "NHALO_MNH", "INTEGER", "1"
    "JPHEXT", "INTEGER", "1"   
 
-* NHALO_MNH : Size of the halo for parallel distribution. This variable is related to computer performance but has no impact on simulation results.
+* :code:`NHALO_MNH` : Size of the halo for parallel distribution. This variable is related to computer performance but has no impact on simulation results.
 
-* JPHEXT: Horizontal External points number. JPHEXT must be equal to 3 for cyclic cases with WENO5.
+* :code:`JPHEXT` : Horizontal External points number. JPHEXT must be equal to 3 for cyclic cases with WENO5.

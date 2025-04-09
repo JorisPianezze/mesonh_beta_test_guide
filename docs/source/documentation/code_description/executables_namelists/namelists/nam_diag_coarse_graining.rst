@@ -7,12 +7,12 @@ NAM_DIAG - Coarse graining
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "LCOARSE", "logical", ".FALSE."
-   "NDXCOARSE", "integer", "1"
+   "LCOARSE", "LOGICAL", ".FALSE."
+   "NDXCOARSE", "INTEGER", "1"
  
-* LCOARSE: flag to compute TKE (summation of the gridscale and the subgridscale parts) using coarse graining by both block and moving average
+* :code:`LCOARSE` : flag to compute TKE (summation of the gridscale and the subgridscale parts) using coarse graining by both block and moving average
 
-* NDXCOARSE: number of gridpoints over which the averaging is done
+* :code:`NDXCOARSE` : number of gridpoints over which the averaging is done
 
 Following variables will be stored :
 

@@ -7,9 +7,9 @@ NAM_DIAG_FLAKEN
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "LWATER_PROFILE", "logical", "F"
-   "XZWAT_PROFILE", "real", ""
+   "LWATER_PROFILE", "LOGICAL", ".FALSE."
+   "XZWAT_PROFILE", "REAL", ""
 
-* LWATER_PROFILE: flag to save in the output file miscelleaneous fields. The diagnostic is temperature at the depths defined by:
+* :code:`LWATER_PROFILE` : flag to save in the output file miscelleaneous fields. The diagnostic is temperature at the depths defined by:
 
-* XZWAT_PROFILE: gdepth of output levels (m) in namelist
+* :code:`XZWAT_PROFILE` : depth of output levels (m) in namelist

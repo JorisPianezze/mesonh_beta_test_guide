@@ -7,18 +7,18 @@ NAM_ZOOM_SPECTRE
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "LZOOM","logical",".FALSE."
-   "NXDEB","integer",""
-   "NYDEB","integer",""
-   "NITOT","integer",""
-   "NJTOT","integer",""
+   "LZOOM","LOGICAL",".FALSE."
+   "NXDEB","INTEGER",""
+   "NYDEB","INTEGER",""
+   "NITOT","INTEGER",""
+   "NJTOT","INTEGER",""
 
-* LZOOM : flag to make a zoom on the file domain
+* :code:`LZOOM` : flag to make a zoom on the file domain
 
-* NXDEB : first point I index, left to and out of the wanted domain
+* :code:`NXDEB` : first point I index, left to and out of the wanted domain
 
-* NYDEB : first point J index, under and out of the wanted domain
+* :code:`NYDEB` : first point J index, under and out of the wanted domain
 
-* NITOT : number of grid points in I direction. It must be equal to :math:`2^m \times 3^n \times 5^p` with :math:`(m,n,p) \ge 0`.
+* :code:`NITOT` : number of grid points in I direction. It must be equal to :math:`2^m \times 3^n \times 5^p` with :math:`(m,n,p) \ge 0`.
 
-* NJTOT : number of grid points in J direction. It must be equal to :math:`2^m \times 3^n \times 5^p` with :math:`(m,n,p) \ge 0`.   
+* :code:`NJTOT` : number of grid points in J direction. It must be equal to :math:`2^m \times 3^n \times 5^p` with :math:`(m,n,p) \ge 0`.   

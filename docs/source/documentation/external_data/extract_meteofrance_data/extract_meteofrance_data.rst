@@ -13,6 +13,10 @@ To initialize Meso-NH as close as possible to AROME, we need to run a PREP_REAL_
 
    The namelist NAM_PREP_SURF_ATM must be added to PRE REAL1.nam. This namelist will contain the files to be used by SURFEX: the AROME surface analysis and the associated AROME PGD file.
 
+.. warning::
+
+   AROME forecasts are only available for a moving 3-year period.
+
 Non-belenos user
 *****************************************************************************
 

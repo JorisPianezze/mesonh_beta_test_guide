@@ -7,18 +7,18 @@ NAM_DIAG - Clustering
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "LCLSTR", "logical", ".FALSE."
-   "LBOTUP", "logical", ".TRUE."
-   "CFIELD", "character(*8)", "’CLOUD’"
-   "XTHRES", "real", "0.00001"
+   "LCLSTR", "LOGICAL", ".FALSE."
+   "LBOTUP", "LOGICAL", ".TRUE."
+   "CFIELD", "CHARACTER(LEN=8)", "'CLOUD'"
+   "XTHRES", "REAL", "0.00001"
    
-* LCLSTR: flag for 3D clustering
+* :code:`LCLSTR` : flag for 3D clustering
 
-* LBOTUP: to propagate clustering from bottom to top (when TRUE); otherwise from top to bottom
+* :code:`LBOTUP` : to propagate clustering from bottom to top (when TRUE); otherwise from top to bottom
 
-* CFIELD: field on which clustering is applied, could be ’W’ or ’CLOUD’
+* :code:`CFIELD` : field on which clustering is applied, could be 'W' or 'CLOUD'
 
-* XTHRES: threshold value to detect the 3D structures
+* :code:`XTHRES` : threshold value to detect the 3D structures
 
 Following variables will be stored :
 

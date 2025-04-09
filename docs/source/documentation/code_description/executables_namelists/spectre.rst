@@ -1,7 +1,7 @@
 SPECTRE
 ***************************************************************************** 
 
-After running the model, you can compute spectra with the program SPECTRE, that gives the kinetic energy density according to the wavelength or the wave number :cite:p:`ricard_kinetic_2013`. The calculation uses a discrete cosinus transform to convert grid-point fields into spectral space ones.
+After running the model, you can compute spectra with the program :program:`SPECTRE`, that gives the kinetic energy density according to the wavelength or the wave number :cite:p:`ricard_kinetic_2013`. The calculation uses a discrete cosinus transform to convert grid-point fields into spectral space ones.
 
 .. csv-table:: SPECTRE program and its corresponding namelist and function
    :header: "Executable", "Namelist", "Function"

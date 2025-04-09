@@ -10,6 +10,6 @@ NAM_PGDFILE
    "CPGDFILE", "CHARACTER (LEN=88)", ""
    "NHALO", "INTEGER", "15"
  
-* CPGDFILE : name of the output Physiographic Data File
+* :code:`CPGDFILE` : name of the output Physiographic Data File
 
-* NHALO : Size of the halo for parallel distribution     
+* :code:`NHALO` : Size of the halo for parallel distribution     

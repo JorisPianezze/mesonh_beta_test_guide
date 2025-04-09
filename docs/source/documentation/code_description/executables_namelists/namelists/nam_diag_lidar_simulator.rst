@@ -12,7 +12,6 @@ NAM_DIAG - LIDAR simulator
    "LIDAR", "total backscatter coefficient (1/m/sr)", "3D"
    "LIPAR", "particle backscatter coefficient (1/m/sr)", "3D"
    
-   
 .. note::
 
    Following options can be used in :code:`NAM_DIAG` when :code:`LLIDAR` is activated :
@@ -21,12 +20,12 @@ NAM_DIAG - LIDAR simulator
       :header: "Fortran name", "Fortran type", "Default value"
       :widths: 30, 30, 30
    
-      "CVIEW_LIDAR", "character(*5)", "’NADIR’"
-      "XALT_LIDAR", "real", "0"
-      "XWVL_LIDAR", "real", "0.532E-6"
+      "CVIEW_LIDAR", "CHARACTER(LEN=5)", "'NADIR'"
+      "XALT_LIDAR", "REAL", "0"
+      "XWVL_LIDAR", "REAL", "0.532E-6"
 
-   * CVIEW_LIDAR : gives the lidar point of view : either ’NADIR’ or ’ZENIT’
+   * :code:`CVIEW_LIDAR` : gives the lidar point of view : either 'NADIR' or 'ZENIT'
  
-   * XALT_LIDAR : gives the altitude of the lidar source (in meters) (by default, the altitude of the ground will be used for zenithal view, and the altitude of the model top will be used for nadir view)
+   * :code:`XALT_LIDAR` : gives the altitude of the lidar source (in meters) (by default, the altitude of the ground will be used for zenithal view, and the altitude of the model top will be used for nadir view)
    
-   * XWVL_LIDAR : gives the wavelength of the lidar source (in meters)
+   * :code:`XWVL_LIDAR` : gives the wavelength of the lidar source (in meters)

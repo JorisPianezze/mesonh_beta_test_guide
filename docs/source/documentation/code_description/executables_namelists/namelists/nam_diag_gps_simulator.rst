@@ -30,20 +30,20 @@ NAM_DIAG - GPS simulator
       :header: "Fortran name", "Fortran type", "Default value"
       :widths: 30, 30, 30
    
-      "CNAM_GPS", "array(character)", "50*"
-      "XLAT_GPS", "array(real)", "50* XUNDEF"
-      "XLON_GPS", "array(real)", "50* XUNDEF"
-      "XZS_GPS", "array(real)", "50* -999."
-      "XDIFFORO", "real", "150.0"
+      "CNAM_GPS", "ARRAY(CHARACTER)", "50*"
+      "XLAT_GPS", "ARRAY(REAL)", "50* XUNDEF"
+      "XLON_GPS", "ARRAY(REAL)", "50* XUNDEF"
+      "XZS_GPS", "ARRAY(REAL)", "50* -999.0"
+      "XDIFFORO", "REAL", "150.0"
 
-   * CNAM_GPS: name of the GPS stations
+   * :code:`CNAM_GPS` : name of the GPS stations
 
-   * XLAT_GPS: latitude of the GPS stations
+   * :code:`XLAT_GPS` : latitude of the GPS stations
    
-   * XLON_GPS: longitude of the GPS stations
+   * :code:`XLON_GPS` : longitude of the GPS stations
    
-   * XZS_GPS: height of the GPS stations (m)
+   * :code:`XZS_GPS` : height of the GPS stations (m)
 
-   * XDIFFORO: maximum difference between model orography and station height accepted when computing interpolated delays value (m)
+   * :code:`XDIFFORO` : maximum difference between model orography and station height accepted when computing interpolated delays value (m)
    
    For stations where latitude, longitude and height are different from default values, the interpolated values of GPS delays are written in ASCII files YINIFILEYSUFFIXGPS[.P00n] (where n is the number of processor).

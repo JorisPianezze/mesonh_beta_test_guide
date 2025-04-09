@@ -9,16 +9,16 @@ This namelist defines the projection in case CGRID="CONF PROJ ".
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "XLAT0", "real", "none"
-   "XLON0", "real", "none"
-   "XRPK", "real", "none"
-   "XBETA", "real", "none"
+   "XLAT0", "REAL", ""
+   "XLON0", "REAL", ""
+   "XRPK", "REAL", ""
+   "XBETA", "REAL", ""
 
-* XLAT0: reference latitude for conformal projection (real, decimal degrees)
+* :code:`XLAT0` : reference latitude for conformal projection (real, decimal degrees)
 
-* XLON0: reference longitude for conformal projection (real, decimal degrees)
+* :code:`XLON0` : reference longitude for conformal projection (real, decimal degrees)
 
-* XRPK: cone factor for the projection (real):
+* :code:`XRPK` : cone factor for the projection (real):
 
   * XRPK=1: polar stereographic projection from north pole
   * 1>XRPK>0: Lambert projection from south pole
@@ -26,4 +26,4 @@ This namelist defines the projection in case CGRID="CONF PROJ ".
   * -1<XRPK<0: Lambert projection from north pole
   * XRPK=-1: polar stereographic projection from south pole
   
-* XBETA: rotation angle of the simulation domain around the reference longitude (real)
+* :code:`XBETA` : rotation angle of the simulation domain around the reference longitude (real)

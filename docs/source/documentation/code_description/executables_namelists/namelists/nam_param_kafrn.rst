@@ -7,33 +7,33 @@ NAM_PARAM_KAFRN
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "XDTCONV","real","MAX(300.0,XTSTEP)"
-   "NICE","integer","1"
-   "LREFRESH_ALL","logical","TRUE"
-   "LCHTRANS","logical","FALSE"
-   "LDOWN","logical","TRUE"
-   "LSETTADJ","logical","FALSE"
-   "XTADJD","real","3600"
-   "XTADJS","real","10800"
-   "LDIAGCONV","logical","FALSE"
-   "NENSM","integer","0"
+   "XDTCONV","REAL","MAX(300.0,XTSTEP)"
+   "NICE","INTEGER","1"
+   "LREFRESH_ALL","LOGICAL",".TRUE."
+   "LCHTRANS","LOGICAL",".FALSE."
+   "LDOWN","LOGICAL",".TRUE."
+   "LSETTADJ","LOGICAL",".FALSE."
+   "XTADJD","REAL","3600"
+   "XTADJS","REAL","10800"
+   "LDIAGCONV","LOGICAL",".FALSE."
+   "NENSM","INTEGER","0"
 
-* XDTCONV : timestep for the call of the convective scheme. Maximum value is 300s. 
+* :code:`XDTCONV` : timestep for the call of the convective scheme. Maximum value is 300s. 
 
-* NICE : flag to include ice proceses in convection scheme ( 1 = yes, 0 = no ice ).
+* :code:`NICE` : flag to include ice proceses in convection scheme ( 1 = yes, 0 = no ice ).
 
-* LREFRESH_ALL : flag to refresh convective columns at every call of the convection scheme.
+* :code:`LREFRESH_ALL` : flag to refresh convective columns at every call of the convection scheme.
 
-* LCHTRANS: flag to take into account the convective transport for scalar variables (chemical variables, passive pollutants\ldots). Can only be used with the options CDCONV='KAFR'.
+* :code:`LCHTRANS` : flag to take into account the convective transport for scalar variables (chemical variables, passive pollutants, ...). Can only be used with the options CDCONV='KAFR'.
 
-* LDOWN : flag to use downdrafts in deep convection.
+* :code:`LDOWN` : flag to use downdrafts in deep convection.
 
-* LSETTADJ : flag to allow user to define adjustment time.
+* :code:`LSETTADJ` : flag to allow user to define adjustment time.
 
-* XTADJD : deep convective adjustment time (if LSETTADJ=TRUE).
+* :code:`XTADJD` : deep convective adjustment time (if LSETTADJ=TRUE).
 
-* XTADJS : shallow convective adjustment time (if LSETTADJ=TRUE).
+* :code:`XTADJS` : shallow convective adjustment time (if LSETTADJ=TRUE).
 
-* LDIAGCONV : flag to store diagnostic variables in module MODD_DEEP_CONVECTIONn: (CAPE, deep and shallow convective cloud top and base levels, up-and downdraft mass fluxes).
+* :code:`LDIAGCONV` : flag to store diagnostic variables in module MODD_DEEP_CONVECTIONn (CAPE, deep and shallow convective cloud top and base levels, up-and downdraft mass fluxes).
 
-* NENSM : number of additional convective ensemble members for deep convection (for the moment limited to 3).
+* :code:`NENSM` : number of additional convective ensemble members for deep convection (for the moment limited to 3).

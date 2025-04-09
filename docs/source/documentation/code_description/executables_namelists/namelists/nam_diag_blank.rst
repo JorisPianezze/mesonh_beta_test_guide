@@ -7,10 +7,10 @@ NAM_DIAG_BLANK
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "XDUMMY_DIAG","array(real)","20* 0."
-   "NDUMMY_DIAG","array(integer)","20* 0"
-   "LDUMMY_DIAG","array(logical)","20* TRUE"
-   "CDUMMY_DIAG","array(80 characters)","20* ''"
+   "XDUMMY_DIAG","ARRAY(REAL)","20* 0.0"
+   "NDUMMY_DIAG","ARRAY(INTEGER)","20* 0"
+   "LDUMMY_DIAG","ARRAY(LOGICAL)","20* .TRUE."
+   "CDUMMY_DIAG","ARRAY(CHARACTER(LEN=80))","20* ''"
 
 .. note::
 

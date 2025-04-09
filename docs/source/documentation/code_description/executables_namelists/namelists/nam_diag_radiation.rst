@@ -69,12 +69,12 @@ Only available if CRAD not NONE in YINIFILE.des.
    :header: "Name", "Meaning [Unit]", "Dimension"
    :widths: 30, 30, 30  
    
-PLAN_ALB_VIS : [2D] planetary albedo in visible (_)
-PLAN_ALB_NIR : [2D] planetary albedo in near-infrared (_)
-PLAN_TRA_VIS : [2D] planetary transmission in visible(_)
-PLAN_TRA_NIR : [2D] planetary transmission in near-infrared (_)
-PLAN_ABS_VIS : [2D] planetary absorption in visible (_)
-PLAN_ABS_NIR : [2D] planetary absorption in near-infrared (_)
+   "PLAN_ALB_VIS", "planetary albedo in visible (-)", "[2D]"
+   "PLAN_ALB_NIR", "planetary albedo in near-infrared (-)", "[2D]"
+   "PLAN_TRA_VIS", "planetary transmission in visible (-)", "[2D]"
+   "PLAN_TRA_NIR", "planetary transmission in near-infrared (-)", "[2D]"
+   "PLAN_ABS_VIS", "planetary absorption in visible (-)", "[2D]"
+   "PLAN_ABS_NIR", "planetary absorption in near-infrared (-)", "[2D]"
 
 * add :code:`NRAD_3D=4` in :code:`NAM_DIAG` to store following variables (in addition to :code:`NRAD_3D=3,2,1,0` variables):
 

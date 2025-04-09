@@ -3,19 +3,19 @@
 NAM_STO_FILE
 -----------------------------------------------------------------------------
 
-controls trajectories computation) only read if LTRAJ=.TRUE. in NAM_DIAG
+Controls trajectories computation, only read if LTRAJ=.TRUE. in NAM_DIAG.
 
 .. csv-table:: NAM_STO_FILE content
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "CFILES","array of character (len=\NFILENAMELGTMAX{})","''"
-   "NSTART_SUPP","array of integer","100*NUNDEF"
+   "CFILES","ARRAY(CHARACTER(LEN=128)",""
+   "NSTART_SUPP","ARRAY(INTEGER)","100*NUNDEF"
 
 
-* CFILES : name of all the input synchronous backup files used to compute trajectories. They must be in inverse chronological order, and correspond to a reinitialisation of Lagrangian tracers (see :ref:`mesonh.rst`).
+* :code:`CFILES` : name of all the input synchronous backup files used to compute trajectories. They must be in inverse chronological order, and correspond to a reinitialisation of Lagrangian tracers (see :ref:`mesonh`).
 
-* NSTART_SUPP : extra origins for trajectory computations. In the second example below, the output files will contain the set of variables (X_TRAJ, Y_TRAJ, Z_TRAJ, THT_TRAJ, MRV_TRAJ).
+* :code:`NSTART_SUPP` : extra origins for trajectory computations. In the second example below, the output files will contain the set of variables (X_TRAJ, Y_TRAJ, Z_TRAJ, THT_TRAJ, MRV_TRAJ).
 
 .. note::
 
@@ -42,7 +42,7 @@ controls trajectories computation) only read if LTRAJ=.TRUE. in NAM_DIAG
    
       &NAM_DIAG
       LVAR_PR=T, LTOTAL_PR=T, LTPZH=T, LVAR_MRSV=T, LTRAJ=T /
-      &NAM_DIAG_FILE YSUFFIX=’d18-6’
+      &NAM_DIAG_FILE YSUFFIX='d18-6',
       YINIFILE(1) = "NAPE2.1.APE05.001" ,
       YINIFILEPGD(1) = "PGD_NAPE2" /
       &NAM_STO_FILE CFILES(1) = "NAPE2.1.APE05.001" ,

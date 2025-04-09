@@ -7,6 +7,6 @@ NAM_DIAG_OCEANN
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "LDIAG_OCEAN", "logical", "F"
+   "LDIAG_OCEAN", "LOGICAL", ".FALSE."
 
-* LDIAG_OCEAN: flag for ocean variables
+* :code:`LDIAG_OCEAN` : flag for ocean variables
