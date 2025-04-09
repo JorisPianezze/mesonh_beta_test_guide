@@ -8,3 +8,13 @@ The previous condition on the orography needed when using the gridnesting techni
    :widths: 30, 30, 30
 
    "ZOOM_PGD", "PRE_ZOOM1.nam", "Zoom on PGD file to make an inner domain at the same resolution"
+   
+The following namelists can be used in the :file:`PRE_ZOOM1.nam` file :
+
+* :ref:`nam_confio`
+* :ref:`nam_mesonh_dom`
+* :ref:`nam_pgdfile_for_zoompgd`
+
+.. include:: namelists/nam_confio.rst
+.. include:: namelists/nam_mesonh_dom.rst
+.. include:: namelists/nam_pgdfile_for_zoompgd.rst
