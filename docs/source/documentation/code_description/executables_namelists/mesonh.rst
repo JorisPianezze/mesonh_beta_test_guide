@@ -91,7 +91,7 @@ The following namelists can be used in the :file:`EXSEG1.nam` file :
 * :ref:`nam_stationn`
 * :ref:`nam_turbn`
 * :ref:`nam_visc`
-* :ref:`nam_sso`
+* :ref:`nam_sson`
 * :ref:`nam_surf_csts`
 * :ref:`nam_surf_atm`
 * :ref:`nam_write_surf_atm`
@@ -100,7 +100,7 @@ The following namelists can be used in the :file:`EXSEG1.nam` file :
 * :ref:`nam_watfluxn`
 * :ref:`nam_flaken`
 * :ref:`nam_isban`
-* :ref:`nam_surf_dst`
+* :ref:`nam_surf_dust`
 * :ref:`nam_ideal_flux`
 * :ref:`nam_tebn`
 * :ref:`nam_ch_controln`
@@ -192,7 +192,7 @@ The following namelists can be used in the :file:`EXSEG1.nam` file :
 .. include:: namelists/nam_stationn.rst
 .. include:: namelists/nam_turbn.rst
 .. include:: namelists/nam_visc.rst
-.. include:: namelists/nam_sso.rst
+.. include:: namelists/nam_sson.rst
 .. include:: namelists/nam_surf_csts.rst
 .. include:: namelists/nam_surf_atm.rst
 .. include:: namelists/nam_write_surf_atm.rst
@@ -201,7 +201,7 @@ The following namelists can be used in the :file:`EXSEG1.nam` file :
 .. include:: namelists/nam_watfluxn.rst
 .. include:: namelists/nam_flaken.rst
 .. include:: namelists/nam_isban.rst
-.. include:: namelists/nam_surf_dst.rst
+.. include:: namelists/nam_surf_dust.rst
 .. include:: namelists/nam_ideal_flux.rst
 .. include:: namelists/nam_tebn.rst
 .. include:: namelists/nam_ch_controln.rst
