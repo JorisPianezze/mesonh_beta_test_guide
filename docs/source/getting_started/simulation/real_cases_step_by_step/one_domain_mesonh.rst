@@ -1,3 +1,2 @@
-Three dimensional (xyz) with realistic surface
+One domain initialized and forced by Meso-NH
 ==================================================================
-

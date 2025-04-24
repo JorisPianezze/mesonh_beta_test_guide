@@ -1,3 +1,5 @@
+.. _cases_catalogue:
+
 Cases catalogue
 ============================================
 

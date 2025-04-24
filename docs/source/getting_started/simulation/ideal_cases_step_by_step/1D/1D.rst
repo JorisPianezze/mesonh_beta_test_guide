@@ -1,25 +1,42 @@
-Single Column (1D)
-================================================
+One dimensional (single column z) with ideal surface
+==================================================================
 
-What is a 1D simulation ?
-------------------------------
-* uniform vertical profiles
+Some of the most important advantages to use vertical 1D atmospheric simulations are :
 
+* **Simplicity :** simpler and require fewer computing resources than 2D or 3D models.
 
-Why using 1D simulation ?
-------------------------------
+* **Study vertical processes and surface-atmosphère interactions :** focus on vertical processes in the atmosphere, such as convection, cloud formation, and heat and moisture exchange without the complexity of horizontal advection.
 
+* **Parameterisation development and testing :** used to develop and test new physical parameterisations (e.g. for clouds, precipitation or radiation) before they are integrated into more complex models.
 
-How it works ?
-------------------------------
-Ingredients:
-* 
+To perform a 1D simulation with Meso-NH you need only to prepare the initial conditions and run the model using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections :
 
+Prepare initial condition (:ref:`prep_ideal_case`)
+------------------------------------------------------------------
 
-How to set up ?
-------------------------------
+* Pour les cas 1D, pas besoin de PGD généralement. On peut tout faire avec le programme PREP_IDEAL_CASE.
 
-Use case
-------------------------------
-* 
-* Lien vers le catalogue
+* Présentation d'un cas typique en décrivant la namelist et en renvoyant vers :ref:`prep_ideal_case` pour les gens qui veulent adapter. Préciser les points importants pour le 1D.
+
+.. note::
+
+   Avoir une namelist simplifiée, la plus light possible.
+
+Launch the simulation (:ref:`mesonh`)
+-----------------------------------------------------------------
+
+* Présenter une namelist typique d'une simulation en 1D et la décrire.
+
+.. note::
+
+   Avoir une namelist simplifiée, la plus light possible.
+
+Plot results
+-----------------------------------------------------------------
+
+* Afficher un petit tracé rapide du run
+
+Other examples
+-----------------------------------------------------------------
+
+* Lien vers les cas 1D du :ref:`cases_catalogue`

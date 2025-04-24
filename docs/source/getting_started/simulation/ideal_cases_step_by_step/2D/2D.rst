@@ -1,5 +1,5 @@
-2-Dimension 
-================================================
+Two dimensional (cross-section xz or yz) with ideal surface
+==================================================================
 
 What is a 2D simulation ?
 ------------------------------
