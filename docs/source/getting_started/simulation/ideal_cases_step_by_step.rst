@@ -5,25 +5,27 @@ Ideal cases
 
 The general workflow for ideal case simulation is :
 
-* initialize of the surface fields : idealised (:ref:`prep_ideal_case`) or realistic (:ref:`prep_pgd`)
+* initialize the surface fields : idealised (:ref:`prep_ideal_case`) or realistic (:ref:`prep_pgd`)
 
-* specify an uniform atmosphere from a profile (:ref:`prep_ideal_case`)
+* specify an horizontally uniform atmosphere from a profile (:ref:`prep_ideal_case`)
 
-* add a perturbation (:ref:`prep_ideal_case`)
+* specify atmospheric vertical forcings (:ref:`prep_ideal_case`)
 
-* launch the simulation (:ref:`mesonh`)
+* (optional) add a perturbation (:ref:`prep_ideal_case`)
 
-* compute diagnostics (:ref:`diag` and :ref:`spectra`)
+* start the time-integration (:ref:`mesonh`)
+
+* (optional) compute diagnostics (:ref:`diag` and :ref:`spectra`)
 
 This workflow is describe in the following figure : 
 
 .. figure:: ideal_cases_step_by_step/algorithm_ideal_cases.png
    :scale: 50 %
-   :alt: General algorithm for ideal case's simulation.
+   :alt: Ideal simulation workflow
    
-   General algorithm for ideal case's simulation.
+   Ideal simulation workflow
 
-Some basic example are describe hereafter : 
+A few examples are described hereafter : 
 
 .. toctree::
    :maxdepth: 1

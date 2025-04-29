@@ -10,9 +10,9 @@ In Meso-NH, simulations can be divived in two categories:
    
 * :ref:`real_cases` category corresponds to simulations which are initialized with large-scale 3d atmospheric fields (IFS, ARPEGE, AROME, GFS, etc.).
 
-For both catergories, you will have to use several :ref:`executables_and_namelists` to prepare, run and compute diagnostics of your simulation. To deepns Meso-NH's functionality please go to the following tutorials. 
+For both catergories, you will have to use several :ref:`executables_and_namelists` to pre-process, run and post-process diagnostics of your simulation. To deepens Meso-NH's functionalities, please go to the following tutorials. 
 
-Some basic tutorial
+Workflows examples
 *****************************************************************************
 
 Both categories are described in the following sections :
