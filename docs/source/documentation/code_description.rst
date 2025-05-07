@@ -1,4 +1,4 @@
-Code's description
+User's guide
 ================================================
 
 .. toctree::

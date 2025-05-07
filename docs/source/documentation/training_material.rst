@@ -1,4 +1,4 @@
-Training material
+Tutorial material
 ==============================================================================
 
 A 4-day tutorial class is organized two times a year at Toulouse (France) :
