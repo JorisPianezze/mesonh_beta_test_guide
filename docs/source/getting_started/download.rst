@@ -8,15 +8,15 @@ Download
     The following instructions assume that you are working on a Linux machine.
 
 Meso-NH package is developed and maintained using |git_link|.
-It is now strongly recommended, but not mandatory, for all users to download Meso-NH package using :ref:`git <git>`, because:
+It is strongly recommended, but not mandatory, to download Meso-NH package using :ref:`git <git>`, because:
 
-* It's easier for us (Meso-NH support's team) to give you some assistance in case of trouble... as Git allows us to know exactly what you have changed in the original package ;
+* It is easier for the Meso-NH support team to give you some assistance in case of trouble... as Git allows us to know exactly what you have changed in the original package ;
 
-* It's much easier for you to update to the last version...  or at least see the changes made for bug fix directly on our installation ;
+* It is easier for you to update to the last version...  or at least see the changes made for bug fix directly on our installation ;
 
 * Git is strongly recommended if you intend to modify the code.
 
-However, if you are allergic to Git, you can still download a :ref:`tarball <tarball>` of Meso-NH package.
+A :ref:`tarball <tarball>` of Meso-NH package is available.
 
 .. |git_link| raw:: html
 
@@ -24,7 +24,7 @@ However, if you are allergic to Git, you can still download a :ref:`tarball <tar
 
 .. _git:
 
-Git (highly recommended)
+Git repository
 -----------------------------------------------------------------------------
 
 Prerequisites
@@ -129,7 +129,7 @@ And, test this development (not yet official) version by going to this branch:
 
 .. _tarball:
 
-Tarball (not recommended)
+Tarball
 -----------------------------------------------------------------------------
 
 You can also download a tarball containing Meso-NH's package. With your preferred web browser go to the |mesonh_link| and click on **Download** link on the left part. Alternatively, you can directly download the last validated version of Meso-NH `here <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz>`_.
@@ -196,4 +196,24 @@ Hereafter is a very quick description of Meso-NH's tree :
    "src/MNH/", "Meso-NH's source code"
    "src/PHYEX/", "PHYEX's source code, externalized atmospheric physics common to AROME and HARMONIE-AROME"
    "src/Rules.*", "Compiled options for various compilers"
-   "src/SURFEX/", "SURFEX's source code"
+   "src/SURFEX/", "SURFEX's source code, externalized surface physics (also used in AROME and ARPEGE)"
+
+Releases
+------------------------------------------------------------------------
+
+Tarball of releases are available following the links below. A release note describes the change from the previous version.
+
+.. toctree::
+   :maxdepth: 1
+
+   releases/release_note_572.rst
+
+.. csv-table:: Releases of Méso-NH
+   :header: "Date", "Tarball", "Release note"
+   :widths: 30, 40, 40
+   
+   "?", "5-7-2", ":ref:`release_note_572 <release_note_572>`"
+   "04/09/2024", "`5-7-1 <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz>`_", "`Note <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=WHY_BUGFIX_571.pdf>`_"
+   "11/01/2024", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-0.tar.gz>`_", "`Note <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=update_from_masdev56_to_570.pdf>`_"
+
+
