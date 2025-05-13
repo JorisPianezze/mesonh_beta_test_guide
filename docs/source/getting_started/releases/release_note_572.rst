@@ -34,10 +34,14 @@ Lagrangian trajectories
 * Computation optimization
 * Z_TRAJ initial positions were not initialized correctly
 
-Ocean-Atm-Wave coupling
+Ocean-Atmosphere-Wave coupling
 **********************************
-* Parallel compilation of the toy model
-* Add sea surface currents in turbulence
+* Fixed a bug in the parallel compilation of the toy model (when using export VER_OASIS=OASISAUTO)
+* Added sea surface currents in the turbulence scheme (by default, sea surface currents are set to 0 m/s)
+
+Chemistry
+**********************************
+* Modified the read CAMS routine to support the new extracted NetCDF files using the CDS API (https://ads.atmosphere.copernicus.eu/how-to-api).
 
 Reproductibility
 ***********************
@@ -49,6 +53,7 @@ Cleaning
 * REMAP files are not written any more
 * OUTPUT_LISTING0 not written any more if empty
 * ZOOM_PGD is deleted
+* Changed LA to LAERO in some output files
 
 External libraries and tools
 ***********************************
