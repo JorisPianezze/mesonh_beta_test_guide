@@ -228,20 +228,22 @@ then recompile your modified code, and then execute the steps 2 to 4 as previous
    /
     
     
-Generate the tree of Meso-NH (Doxygen)
+Generate the tree of Meso-NH (doxygen)
 *****************************************************************************  
 
-If you have the necessary build tools installed (i.e. g++, python, cmake, flex, bison), you should do the following to get the initial copy of the repository:
+Install doxygen
+-----------------------------------------------------------------------------
+
+.. tip::
+
+   You can install doxygen automatically or manually by following the procedure described below.
+
+First ensure that you have the necessary build tools installed (e.g., g++, Python, CMake, Flex, Bison), then follow these steps:
 
 .. code-block:: bash
 
    git clone https://github.com/doxygen/doxygen.git
    cd doxygen
-
-After that you can use
-
-.. code-block:: bash
-
    mkdir build
    cd build
    cmake -G "Unix Makefiles" ..
@@ -249,17 +251,26 @@ After that you can use
 
 To force a fresh build after an earlier check-out simple remove the build directory and redo the steps above.
 
-After the binaries have been built, you can use
+After the binaries have been built, you can install them with:
 
 .. code-block:: bash
 
    make install
 
-to install them.
+Use doxygen with Meso-NH
+-----------------------------------------------------------------------------
 
 To generate the doxygen documentation of Meso-NH, you need a configuration file such as :download:`Doxyfile_MesoNH <how_to/Doxyfile_MesoNH>`.
 
-In the Doxyfile_MesoNH file, change all the YOURPATHTOMNH mention to your own path to the MesoNH folder.
+.. note::
+
+   Depending of the version of doxgen you use, you probably need to update this file. You can do that with:
+
+   .. code-block:: bash
+
+      doxygen -u Doxyfile_MesoNH
+
+In the Doxyfile_MesoNH file, change all the YOURPATHTOMNH mention to your own path to the Meso-NH folder.
 
 Then, generate the documentation with
 
