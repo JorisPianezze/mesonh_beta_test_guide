@@ -93,7 +93,7 @@ Restarts: better reproducibility
 The behavior related to the NITR parameter of the NAM_DYNn namelist has been modified.
 
 * in case of START, if NITR is provided, it is used (unchanged from the previous Meso-NH versions). If not provided, it is set to a default value (instead of using the value from the .des file). Most of the time, this should (slightly) reduce the computation time at start (due to the fact that NITR should generally be higher at the PREP stage).
-* in case of restart, NITR may not be provided (before: it was forced to the value of EXSEGn.nam if provided). The value used is the one found in the .des file from which the restart is performed.
+* in case of restart, NITR may not be provided (before: it was forced to the value of EXSEGn.nam if provided). The value used is the previous one (found in the .des file from which the restart is performed).
  
 
 SURFEX
@@ -120,10 +120,6 @@ Ocean-Atmosphere-Wave coupling
 Chemistry
 **********************************
 * Modified the read CAMS routine to support the new extracted NetCDF files using the CDS API (https://ads.atmosphere.copernicus.eu/how-to-api).
-
-Reproductibility
-***********************
-* Improve restart reproducibility (always force NITR to previous value) + reset it for starts (drop the value from the PREP step)
 
 Cleaning
 *******************
