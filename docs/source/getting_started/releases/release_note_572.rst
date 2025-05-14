@@ -133,6 +133,7 @@ Cleaning
 External libraries and tools
 ***********************************
 * Fix MNH2LPDM
+* Due to changes in Anaconda's licensing terms in 31 March 2024 (https://legal.anaconda.com/policies/), we migrate from Anaconda (:file:`README_MNH_COND`) to Miniforge (:file:`README_MNH_CONDA_MINIFORGE`) for Python environment management
 * Upgrade HDF5 to version 1.14.6 (instead of 1.14.2)
 * Upgrade libaec to version 1.1.3 (instead of 1.1.2)
 * Upgrade netCDF-C to version 4.9.3 (instead of 4.9.2).
