@@ -1,8 +1,11 @@
 MNH-V5-7-2
 ============================================================================
+
 Release date : XX/05/2025
 
-We fully encourage all users to move to 5-7-2 especially those using grid-nesting (see major bugfix)
+.. warning::
+   
+   We fully encourage all users to move to 5-7-2 especially those using grid-nesting (see major bugfix)
 
 Major bugfix
 *****************
@@ -20,15 +23,15 @@ It is now possible to set the compression parameters independently for each vari
 
 To use it, you have to set the following parameters in the NAM_OUTPUT namelist (m: model number, NBM: maximum number of boxes/subdomains (20), NVM: maximum number of fields/variables (192)). Settings that take priority over global settings for the file:
 
-* COUT_COMPRESS_LOSSY_ALGO(m) = 'NONE' has been added (default value remains GranularBR)
-* NOUT_VAR_REDUCE_FLOAT_PRECISION(m,NVM): reduction of floating point precision per variable (netCDF)
-* NOUT_VAR_COMPRESS_LEVEL(m,NVM): compression level per variable (netCDF)
-* COUT_VAR_COMPRESS_LOSSY_ALGO(m,NVM): lossy compression per variable (netCDF, only floating points fields)
-* NOUT_VAR_COMPRESS_LOSSY_NSD(m,NVM): number of significant decimals (or bits) to keep per variable
-* NOUT_BOX_VAR_REDUCE_FLOAT_PRECISION(m,NBM,NVM): reduction of floating point precision for variables in boxes/subdomains (netCDF)
-* NOUT_BOX_VAR_COMPRESS_LEVEL(m,NBM,NVM): compression level for variables in boxes/subdomains (netCDF)
-* COUT_BOX_VAR_COMPRESS_LOSSY_ALGO(m,NBM,NVM): lossy compression for variables in boxes/subdomains (netCDF, only floating points fields)
-* NOUT_BOX_VAR_COMPRESS_LOSSY_NSD(m,NBM,NVM): number of significant decimals (or bits) to keep for variables in boxes/subdomains
+* :code:`COUT_COMPRESS_LOSSY_ALGO(m) = 'NONE'` has been added (default value remains GranularBR)
+* :code:`NOUT_VAR_REDUCE_FLOAT_PRECISION(m,NVM)`: reduction of floating point precision per variable (netCDF)
+* :code:`NOUT_VAR_COMPRESS_LEVEL(m,NVM)`: compression level per variable (netCDF)
+* :code:`COUT_VAR_COMPRESS_LOSSY_ALGO(m,NVM)`: lossy compression per variable (netCDF, only floating points fields)
+* :code:`NOUT_VAR_COMPRESS_LOSSY_NSD(m,NVM)`: number of significant decimals (or bits) to keep per variable
+* :code:`NOUT_BOX_VAR_REDUCE_FLOAT_PRECISION(m,NBM,NVM)`: reduction of floating point precision for variables in boxes/subdomains (netCDF)
+* :code:`NOUT_BOX_VAR_COMPRESS_LEVEL(m,NBM,NVM)`: compression level for variables in boxes/subdomains (netCDF)
+* :code:`COUT_BOX_VAR_COMPRESS_LOSSY_ALGO(m,NBM,NVM)`: lossy compression for variables in boxes/subdomains (netCDF, only floating points fields)
+* :code:`NOUT_BOX_VAR_COMPRESS_LOSSY_NSD(m,NBM,NVM)`: number of significant decimals (or bits) to keep for variables in boxes/subdomains
 
 
 Outputs: threshold filtering (per variable)
@@ -40,8 +43,8 @@ This is only available for variables stored in floating point format.
 
 To use it, you have to set the following parameters in the NAM_OUTPUT namelist (m: model number, NBM: maximum number of boxes/subdomains (20), NVM: maximum number of fields/variables (192)):
 
-* XOUT_VAR_THR_MIN(m,NVM), XOUT_VAR_THR_MAX(m,NVM), XOUT_VAR_THR_ABSMIN(m,NVM), XOUT_VAR_THR_ABSMAX(m,NVM): threshold values (min, max, absolute value min or max; not active by default)
-* COUT_VAR_THR_MIN_BEHAVIOR(m,NVM), COUT_VAR_THR_MAX_BEHAVIOR(m,NVM), COUT_VAR_THR_ABSMIN_BEHAVIOR(m,NVM), COUT_VAR_THR_ABSMAX_BEHAVIOR(m,NVM): replacement value for filtered values. Possible options depend on the threshold type:
+* :code:`XOUT_VAR_THR_MIN(m,NVM)`, :code:`XOUT_VAR_THR_MAX(m,NVM)`, :code:`XOUT_VAR_THR_ABSMIN(m,NVM)`, :code:`XOUT_VAR_THR_ABSMAX(m,NVM)`: threshold values (min, max, absolute value min or max; not active by default)
+* :code:`COUT_VAR_THR_MIN_BEHAVIOR(m,NVM)`, :code:`COUT_VAR_THR_MAX_BEHAVIOR(m,NVM)`, :code:`COUT_VAR_THR_ABSMIN_BEHAVIOR(m,NVM)`, :code:`COUT_VAR_THR_ABSMAX_BEHAVIOR(m,NVM)`: replacement value for filtered values. Possible options depend on the threshold type:
 
   * NONE
   * ZERO (default for MIN if >0 and for ABSMIN)
@@ -52,8 +55,8 @@ To use it, you have to set the following parameters in the NAM_OUTPUT namelist (
   * ABSMIN, ABSMAX
   * EXCLRANGE (to remove values in a range)
 
-* XOUT_BOX_VAR_THR_MIN(m,NBM,NVM), XOUT_BOX_VAR_THR_MAX(m,NBM,NVM), XOUT_BOX_VAR_THR_ABSMIN(m,NBM,NVM), XOUT_BOX_VAR_THR_ABSMAX(m,NBM,NVM): threshold values for the variables inside the boxes/subdomains
-* COUT_BOX_VAR_THR_MIN_BEHAVIOR(m,NBM,NVM), COUT_BOX_VAR_THR_MAX_BEHAVIOR(m,NBM,NVM), COUT_BOX_VAR_THR_ABSMIN_BEHAVIOR(m,NBM,NVM), COUT_BOX_VAR_THR_ABSMAX_BEHAVIOR(m,NBM,NVM): replacement value for filtered values for the variables inside the boxes/subdomains
+* :code:`XOUT_BOX_VAR_THR_MIN(m,NBM,NVM)`, :code:`XOUT_BOX_VAR_THR_MAX(m,NBM,NVM)`, :code:`XOUT_BOX_VAR_THR_ABSMIN(m,NBM,NVM)`, :code:`XOUT_BOX_VAR_THR_ABSMAX(m,NBM,NVM)`: threshold values for the variables inside the boxes/subdomains
+* :code:`COUT_BOX_VAR_THR_MIN_BEHAVIOR(m,NBM,NVM)`, :code:`COUT_BOX_VAR_THR_MAX_BEHAVIOR(m,NBM,NVM)`, :code:`COUT_BOX_VAR_THR_ABSMIN_BEHAVIOR(m,NBM,NVM)`, :code:`COUT_BOX_VAR_THR_ABSMAX_BEHAVIOR(m,NBM,NVM)`: replacement value for filtered values for the variables inside the boxes/subdomains
 
 
 Outputs: rounding factor (per variable)
@@ -70,8 +73,8 @@ It is now possible to round each value of a field to a multiple of a choosen val
 
 To use it, you have to set the following parameters in the NAM_OUTPUT namelist (m: model number, NBM: maximum number of boxes/subdomains (20), NVM: maximum number of fields/variables (192)):
 
-* XOUT_VAR_RND_FACTOR(m,NVM): rounding factor (non active by default)
-* XOUT_BOX_VAR_RND_FACTOR(m,NBM,NVM): same for the variables inside the boxes/subdomains
+* :code:`XOUT_VAR_RND_FACTOR(m,NVM)`: rounding factor (non active by default)
+* :code:`XOUT_BOX_VAR_RND_FACTOR(m,NBM,NVM)`: same for the variables inside the boxes/subdomains
 
 
 Other changes
@@ -81,27 +84,27 @@ Other changes
 * Stations / Profilers: add precipitation fields (instantaneous and accumulated) 
 * Stations / Profilers: possible with a dry atmosphere
 * Stations / Profilers: possible with a cartesian domain
-* Zsplit files: automatic detection of the number of Zsplit files (NB_PROCIO_R in namelist NAM_CONFZ not necessary anymore to read netCDF files written from version Meso-NH 5.7.2)
+* Zsplit files: automatic detection of the number of Zsplit files (NB_PROCIO_R` in namelist NAM_CONFZ not necessary anymore to read netCDF files written from version Meso-NH 5.7.2)
 * MNH_COMPRESS_LEVEL, MNH_NSUBFILES and MNH_IS_ROOTFILE attributes have been added in all netCDF files
 * level and MNH_SUBFILE_TYPE attributes added in Zsplit netCDF files
-* Useless .des file are not written any more (mainly at PGD and DIAG steps)
+* Useless .des file are not written any more (mainly at :program:`PGD` and :program:`DIAG` steps)
 * Useless files not written any more (empty OUTPUT_LISTING0, file_for_xtransfer and pressure solver statistics files)
 
 Restarts: better reproducibility
 -----------------
 
-The behavior related to the NITR parameter of the NAM_DYNn namelist has been modified.
+The behavior related to the :code:`NITR` parameter of the NAM_DYNn namelist has been modified.
 
-* in case of START, if NITR is provided, it is used (unchanged from the previous Meso-NH versions). If not provided, it is set to a default value (instead of using the value from the .des file). Most of the time, this should (slightly) reduce the computation time at start (due to the fact that NITR should generally be higher at the PREP stage).
-* in case of restart, NITR may not be provided (before: it was forced to the value of EXSEGn.nam if provided). The value used is the previous one (found in the .des file from which the restart is performed).
+* in case of START, if :code:`NITR` is provided, it is used (unchanged from the previous Meso-NH versions). If not provided, it is set to a default value (instead of using the value from the .des file). Most of the time, this should (slightly) reduce the computation time at start (due to the fact that NITR should generally be higher at the PREP stage).
+* in case of restart, :code:`NITR` may not be provided (before: it was forced to the value of EXSEGn.nam if provided). The value used is the previous one (found in the .des file from which the restart is performed).
  
 
 SURFEX
 *********************
-* LCHECK_TEB adaptation for single precision
+* :code:`LCHECK_TEB` adaptation for single precision
 * Multiple fixes for multilayer TEB
 * ZENITAL angle needs to be taken into account for URBTREE
-* Fix PREP_REAL_CASE in real4 with surface PGD in Lfi real8
+* Fix :program:`PREP_REAL_CASE` in real4 with surface PGD in Lfi real8
 
 Mean field
 **********************
@@ -114,7 +117,7 @@ Lagrangian trajectories
 
 Ocean-Atmosphere-Wave coupling
 **********************************
-* Fixed a bug in the parallel compilation of the toy model (when using export VER_OASIS=OASISAUTO)
+* Fixed a bug in the parallel compilation of the toy model (when using :code:`export VER_OASIS=OASISAUTO` before configure)
 * Added sea surface currents in the turbulence scheme (by default, sea surface currents are set to 0 m/s)
 
 Chemistry
@@ -124,7 +127,7 @@ Chemistry
 Cleaning
 *******************
 * Tabulations are removed (not conformant to Fortran standard)
-* ZOOM_PGD is deleted
+* :program:`ZOOM_PGD` is deleted
 * Changed LA to LAERO in some output files
 
 External libraries and tools
@@ -132,4 +135,8 @@ External libraries and tools
 * Fix MNH2LPDM
 * Upgrade HDF5 to version 1.14.6 (instead of 1.14.2)
 * Upgrade libaec to version 1.1.3 (instead of 1.1.2)
-* Upgrade netCDF-C to version 4.9.3 (instead of 4.9.2). Remark: a bugfix has been applied to the library (see https://github.com/Unidata/netcdf-c/issues/3091)
+* Upgrade netCDF-C to version 4.9.3 (instead of 4.9.2).
+
+.. note::
+   
+   A bugfix has been applied to the library netCDF-C (see https://github.com/Unidata/netcdf-c/issues/3091)
