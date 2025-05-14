@@ -228,15 +228,15 @@ then recompile your modified code, and then execute the steps 2 to 4 as previous
    /
     
     
-Generate the tree of Meso-NH (doxygen)
+Generate the tree of Meso-NH (Doxygen)
 *****************************************************************************  
 
-Install doxygen
+Install Doxygen
 -----------------------------------------------------------------------------
 
 .. tip::
 
-   You can install doxygen automatically or manually by following the procedure described below.
+   You can install Doxygen automatically or manually by following the procedure described below. Last version tested is version 1.13.2 released 9 January 2025.
 
 First ensure that you have the necessary build tools installed (e.g., g++, Python, CMake, Flex, Bison, Graphviz), then follow these steps:
 
@@ -244,6 +244,7 @@ First ensure that you have the necessary build tools installed (e.g., g++, Pytho
 
    git clone https://github.com/doxygen/doxygen.git
    cd doxygen
+   git checkout Release_1_13_2
    mkdir build
    cd build
    cmake -G "Unix Makefiles" ..
@@ -257,14 +258,14 @@ After the binaries have been built, you can install them with:
 
    make install
 
-Use doxygen with Meso-NH
+Use Doxygen with Meso-NH
 -----------------------------------------------------------------------------
 
-To generate the doxygen documentation of Meso-NH, you need a configuration file such as :download:`Doxyfile_MesoNH <how_to/Doxyfile_MesoNH>`.
+To generate the Doxygen documentation of Meso-NH, you need a configuration file such as :download:`Doxyfile_MesoNH <how_to/Doxyfile_MesoNH>`.
 
 .. note::
 
-   Depending of the version of doxgen you use, you probably need to update this file. You can do that with:
+   Depending of the version of Doxygen you use, you probably need to update this file. You can do that with:
 
    .. code-block:: bash
 
