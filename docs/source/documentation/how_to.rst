@@ -238,7 +238,7 @@ Install doxygen
 
    You can install doxygen automatically or manually by following the procedure described below.
 
-First ensure that you have the necessary build tools installed (e.g., g++, Python, CMake, Flex, Bison), then follow these steps:
+First ensure that you have the necessary build tools installed (e.g., g++, Python, CMake, Flex, Bison, Graphviz), then follow these steps:
 
 .. code-block:: bash
 
@@ -280,6 +280,6 @@ Then, generate the documentation with
 
 You can now open the documentation in a web-browser by loading the file /doxygen_mesonh_doc/index.html.
 
-If you have trouble to generate the tree, the documentation is available on demand (~1.2 Go) at quentin.rodier .at. meteo.fr
+If you have trouble to generate the tree, the documentation is available on demand (~1.2 Go) at mesonhsupport .at. obs-mip.fr
 
 
