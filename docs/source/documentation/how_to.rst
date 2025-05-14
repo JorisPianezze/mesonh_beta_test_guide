@@ -236,7 +236,7 @@ Install Doxygen
 
 .. tip::
 
-   You can install Doxygen automatically or manually by following the procedure described below. Last version tested is version 1.13.2 released 9 January 2025.
+   You can install Doxygen automatically or manually by following the procedure described below. Last version tested is version 1.13.2 released on 9 January 2025.
 
 First ensure that you have the necessary build tools installed (e.g., g++, Python, CMake, Flex, Bison, Graphviz), then follow these steps:
 
@@ -257,6 +257,10 @@ After the binaries have been built, you can install them with:
 .. code-block:: bash
 
    make install
+
+.. tip::
+
+   If you don't have the permission to link the executable into the bin directory, you can use absolute path to launch Doxygen (doxygen/build/bin/doxygen).
 
 Use Doxygen with Meso-NH
 -----------------------------------------------------------------------------
