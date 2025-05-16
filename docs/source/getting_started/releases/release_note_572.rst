@@ -136,8 +136,8 @@ External libraries and tools
 * Due to changes in Anaconda's licensing terms in 31 March 2024 (https://legal.anaconda.com/policies/), we migrate from Anaconda (:file:`README_MNH_COND`) to Miniforge (:file:`README_MNH_CONDA_MINIFORGE`) for Python environment management
 * Upgrade HDF5 to version 1.14.6 (instead of 1.14.2)
 * Upgrade libaec to version 1.1.3 (instead of 1.1.2)
-* Upgrade netCDF-C to version 4.9.3 (instead of 4.9.2).
-
+* Upgrade netCDF-C to version 4.9.3 (instead of 4.9.2)
+* Upgrade ecCodes to version 2.41.0 (instead of 2.25.0).
 .. note::
    
    A bugfix has been applied to the library netCDF-C (see https://github.com/Unidata/netcdf-c/issues/3091)
