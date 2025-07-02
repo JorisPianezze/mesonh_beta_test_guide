@@ -78,9 +78,7 @@ that will create the MNH-V5-7-1 directory containing a clone (copy) of the Meso-
    The next step is to :ref:`configure <configuration>` of the Meso-NH package.
 
 .. error::
-
-   * Faire le lien entre cette section et celle du depot zenodo
-   
+  
    * plutot que de recuperer la branche MNH-57-branch il faudrait plutot recuperer le tag MNH-V5-7-1 non ?
 
 Checking out a given version
@@ -129,10 +127,10 @@ And, test this development (not yet official) version by going to this branch:
 
 .. _tarball:
 
-Tarball
+Tarball (from Zenodo)
 -----------------------------------------------------------------------------
 
-You can also download a tarball containing Meso-NH's package. With your preferred web browser go to the |mesonh_link| and click on **Download** link on the left part. Alternatively, you can directly download the last validated version of Meso-NH `here <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz>`_.
+You can download a compressed tarball containing the Meso-NH package from |zenodo_mesonh_link| .
 
 Then untar the file MNH-V5-7-1.tar.gz where you want to.
 For example, in your home directory:
@@ -146,9 +144,9 @@ For example, in your home directory:
 
    The next step is to :ref:`configure <configuration>` of the Meso-NH package.
 
-.. |mesonh_link| raw:: html
+.. |zenodo_mesonh_link| raw:: html
 
-   <a href="http://mesonh.aero.obs-mip.fr/mesonh" target="_blank">Meso-NH's website</a>
+   <a href="https://doi.org/10.5281/zenodo.15095130" target="_blank">Meso-NH on Zenodo website</a>
 
 .. note::
 
@@ -158,9 +156,6 @@ For example, in your home directory:
 
    * Some basic Git commands are presented in Appendice XXX.
 
-.. error::
-
-   * Remplacer tous les liens vers l'ancien site mesonh par un depot zenodo.
 
 What do you download ?
 -----------------------------------------------------------------------------
@@ -212,8 +207,10 @@ Tarball of releases are available following the links below. A release note desc
    :header: "Date", "Tarball", "Release note"
    :widths: 30, 40, 40
    
-   "?", "5-7-2", ":ref:`release_note_572 <release_note_572>`"
-   "04/09/2024", "`5-7-1 <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-1.tar.gz>`_", "`Note <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=WHY_BUGFIX_571.pdf>`_"
+   "16/05/2025", "`5-7-2 <https://zenodo.org/records/15698760/files/MNH-V5-7-2.tar.gz?download=1>`_", ":ref:`release_note_572 <release_note_572>`"
+   "04/09/2024", "`5-7-1 <https://zenodo.org/records/15095131/files/MNH-V5-7-1.tar.gz?download=1>`_", "`Note <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=WHY_BUGFIX_571.pdf>`_"
    "11/01/2024", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-0.tar.gz>`_", "`Note <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=update_from_masdev56_to_570.pdf>`_"
 
 
+.. error::
+    * mettre tous les liens vers les releases et notes vers zenodo (quand sera dispo)
