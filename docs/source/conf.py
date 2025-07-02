@@ -70,3 +70,13 @@ html_theme_options = {
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
+
+rst_epilog = """
+.. |MNH_branch_current| replace:: MNH-57-branch
+.. |MNH_pack_current| replace:: PACK-MNH-V5-7-2
+.. |MNH_x_version_current| replace:: 5
+.. |MNH_xy_version_current| replace:: 5.7
+.. |MNH_xyz_version_current| replace:: 5.7.2
+.. |MNH_xyz_version_hyphen_current| replace:: 5-7-2
+.. |MNH_directory_extract_current| replace:: MNH-V5-7-2
+"""
