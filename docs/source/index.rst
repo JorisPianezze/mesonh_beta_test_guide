@@ -5,7 +5,7 @@
 
 |
 
-Meso-NH's website
+Meso-NH website
 =============================
 
 .. note::
