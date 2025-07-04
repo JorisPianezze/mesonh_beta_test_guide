@@ -387,11 +387,7 @@ Then, you can follow the steps described in the section dedicated to your comput
 MNH_ECRAD for optional compilation of new ECRAD radiative library from ECMWF
 -----------------------------------------------------------------------------
 
-.. error::
-
-   A réécrire maintentant que ECRAD est open source ?
-
-The default version of ECRAD is 1.4.0 (open-source). To use ECRAD, do:
+The default version of ECRAD is 1.4.0 (open-source) and is provided in the Meso-NH package. To use ECRAD, do:
 
 .. code-block:: bash
 
@@ -404,38 +400,23 @@ The version of ECRAD is set by (by default):
 
    export VER_ECRAD=140
 
-The full ECRAD package 1.0.1 was not included into the open source version of Meso-NH because it needs a licence agrement. See here to get the licence and full sources https://software.ecmwf.int/wiki/display/ECRAD/ECMWF+Radiation+Scheme+Home
+If you want to use a different version of ECRAD, you can set the environment variable `VER_ECRAD` to the desired version number. But you must have the corresponding ECRAD package installed in the Meso-NH source directory.
 
 .. note::
 
-   Some of the files modified for MNH are included in the directory $SRC MESONH/src/LIB/RAD/ecrad-1.0.1_mnh.
-
-Install the ECRAD package ecrad-1.0.1.tar.gz in the MNH tree directory :
-
-.. code-block:: bash
-
-   cd ${SRC_MESONH}/src/LIB/RAD
-   tar xvfz ecrad-1.0.1.tar.gz
-
-To use this version of ECRAD, do :
-
-.. code-block:: bash
-
-   export MNH_ECRAD=1
-   export VER_ECRAD=101
-   ./configure
+   ECRAD has been tailored to Meso-NH. The modified files are included in the directory :file:`${SRC_MESONH}/src/LIB/RAD/ecrad-1.4.0_mnh`.
 
 To compile Meso-NH with ECRAD, you can follow the steps described in the section dedicated to
 your computer (interactive or batch mode). To use ECRAD during a simulation, replace RAD=’ECMW’ by RAD=’ECRA’ in EXSEG1.nam and
-add link to all “ecrad-1.X.X/data” files in your Meso-NH run directory :
+add link to all “ecrad-1.X.X/data” files in your Meso-NH run directory:
 
 .. code-block:: bash
 
    ln -sf ${SRC_MESONH}/src/LIB/RAD/ecrad-1.X.X/data/* .
 
-.. note::
+.. tip::
 
-   You can replace CDATADIR = “.” by CDATADIR = “data” of ini radiations ecrad.f90 to link only the data folder instead of all the files one by one. See MY RUN/KTEST/007 16janvier/008 run2 test case for example.
+   You can replace CDATADIR = “.” by CDATADIR = “data” of ini radiations ecrad.f90 to link only the data folder instead of all the files one by one. See :file:`MY_RUN/KTEST/007_16janvier/008_run2` test case for example.
 
 
 MNH_MEGAN for optional compilation of MEGAN code
