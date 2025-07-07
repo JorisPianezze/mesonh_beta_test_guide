@@ -71,6 +71,8 @@ Stage Méso-NH
 Dernières publications utilisant Méso-NH
 ****************************************************************************************
 
+Articles
+  RCEMIP-ACI: Aerosol-Cloud Interactions in a Multimodel Ensemble of Radiative-Convective Equilibrium Simulations [`Dagan et al., 2025 <https://doi.org/10.22541/essoar.174534436.64971999/v1>`_ ]
 
 
 .. note::
