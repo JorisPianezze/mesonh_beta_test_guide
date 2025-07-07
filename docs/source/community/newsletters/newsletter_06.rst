@@ -40,8 +40,21 @@ Les nouvelles de l’équipe support
 
 
 
-Version 6
+Version 5.7.2
+La version 5.7.2 est sortie, elle contient un nombre important de commits et certaines corrections importantes.
+Vous trouverez `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/getting_started/releases/release_note_572.html>`_ la note associée à sa sortie.
 
+Version 6
+- La préparation de la version 6 est toujours en cours, la branche de travail MNH-60-branch a été déclarée. Un appel à contribution sera proposé courant septembre.
+Le travail de préparation de cette version se poursuit, ainsi que le programme de ménage interne (déjà annoncé).
+- La librairie ACLIB (chimie et aérosols externalisés) continue son développement pour intégration dans la v6 (une première version d'ACLIB sera intégrée MNH-60-branch en juillet).
+La bibliothèque de compression Zstandard y est totalement intégrée. De plus, elle devient la bibliothèque de compression par défaut et surtout la compression sera activée par défaut (débrayable via les namelistes).
+
+Et finalement, la mise en place et la rédaction des nouveaux sites internet se poursuivent.
+
+Médaille de Cristal du CNRS pour Juan !
+
+Le CNRS a décerné une médaille de cristal à Juan Escobar pour tout son travail sur le code Méso-NH, toutes nos félicitations Juan !
 
 Développements en cours et récents
 
@@ -50,6 +63,7 @@ Dépôt Méso-NH sur forge logicielle
 
 
 Stage Méso-NH
+Le prochain stage Méso-NH est programmé du 1er au 4 décembre 2025. Envoyer un mail à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_ pour informations et inscriptions. Le stage se déroulera en présentiel et en français. Les places sont limitées.
 
 
 .. note::
