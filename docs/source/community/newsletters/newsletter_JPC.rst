@@ -1,4 +1,4 @@
-Infolettre #JPC
+Infolettre #06
 ================================================
 
 **8 juillet 2025.** Version française, English version `here <newsletter_03_english.html>`_.
