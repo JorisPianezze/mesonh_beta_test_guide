@@ -1,7 +1,7 @@
 Infolettre #JPC
 ================================================
 
-**X xxxxx 2025.** Version française, English version `here <newsletter_03_english.html>`_.
+**8 juillet 2025.** Version française, English version `here <newsletter_03_english.html>`_.
 
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
@@ -12,7 +12,7 @@ Entretien avec `Jean-Pierre Chaboureau <mailto:jean-pierre.chaboureau@utoulouse.
 ************************************************************************************
 
 Jean-Pierre, tu as implanté RTTOV dans Méso-NH. Pourrais-tu résumer ce que fait ce code ?
-  RTTOV (Radiative Transfer for TOVS) est un code de transfert radiatif très rapide pour les radiomètres et autres interféromètres passifs dans le visible, l’infrarouge et les micro-ondes, ainsi que pour les radars, à bord des satellites opérationnels et de recherche. Il est développé par le consortium européen `NWP SAF <https://www.nwpsaf.eu/site/software/rttov/>`_ (Satellite Application Facility for Numerical Weather Prediction). Il s'agit d'un code Fortran 90 pour la simulation des radiances et des réflectivités obtenues à partir de satellites, conçu pour être incorporé dans les applications des utilisateurs. Dans le monde Méso-NH version 5, RTTOV peut être ainsi appelé par DIAG à l’aide de la subroutine ``call_rttov13.f90``. (Dans Méso-NH version 6, RTTOV version 14 sera appelé par la  la subroutine ``call_rttov14.f90``.) 
+  RTTOV (Radiative Transfer for TOVS) est un code de transfert radiatif très rapide pour les radiomètres et autres interféromètres passifs dans le visible, l’infrarouge et les micro-ondes, ainsi que pour les radars, à bord des satellites opérationnels et de recherche. Il est développé par le consortium européen `NWP SAF <https://www.nwpsaf.eu/site/software/rttov/>`_ (Satellite Application Facility for Numerical Weather Prediction). Il s'agit d'un code Fortran 90 pour la simulation des radiances et des réflectivités obtenues à partir de satellites, conçu pour être incorporé dans les applications des utilisateurs. Dans le monde Méso-NH version 5, RTTOV peut être ainsi appelé par DIAG à l’aide de la subroutine ``call_rttov13.f90``. (Dans Méso-NH version 6, RTTOV version 14 sera appelé par la subroutine ``call_rttov14.f90``.) 
 
 Pourquoi conseilles-tu d'utiliser RTTOV ?
   L’émulation d’une image satellite synthétique Méso-NH avec RTTOV permet de valider une sortie de simulation avec l'image satellite. Cette approche, dite modèle vers satellite, fait une comparaison directe avec les variables satellites, sans nécessiter d’hypothèses supplémentaires (contrairement aux produits satellites dérivés de l’inversion de l’équation du transfert radiatif). Toutes les erreurs proviennent donc du monde du modèle, c’est-à-dire de la simulation Méso-NH interprétée par RTTOV. Cette approche est un outil particulièrement pertinent pour évaluer la représentation des nuages dans une simulation Méso-NH à maille kilométrique. A cette échelle, la taille des pixels de l’observation satellitale est commensurable à celle de la maille du modèle.
