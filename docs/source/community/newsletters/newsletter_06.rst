@@ -12,7 +12,7 @@ Entretien avec `Jean-Pierre Chaboureau <mailto:jean-pierre.chaboureau@utoulouse.
 ************************************************************************************
 
 .. image:: photo_jpc.jpg
-  :width: 250
+  :width: 200
 
 
 Jean-Pierre, tu as implanté RTTOV dans Méso-NH. Pourrais-tu résumer ce que fait ce code ?
