@@ -55,7 +55,7 @@ Nouveaux sites web
   La mise en place et la rédaction des nouveaux sites internet se poursuivent.
 
 Médaille de Cristal du CNRS pour Juan !
-  Le CNRS a décerné une médaille de cristal à Juan Escobar pour tout son travail pour le code Méso-NH et sa communauté, toutes nos félicitations Juan et un grand merci pour ton implication !
+  Le CNRS a décerné une médaille de cristal à Juan Escobar pour tout son travail pour le code Méso-NH et sa communauté. Toutes nos félicitations Juan et un grand merci pour ton implication !
 
 Dépôt Méso-NH sur forge logicielle 
 
