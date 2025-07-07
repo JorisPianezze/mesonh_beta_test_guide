@@ -11,6 +11,10 @@ Voici ci-dessous la 6ème infolettre de notre communauté. Vous y trouverez un e
 Entretien avec `Jean-Pierre Chaboureau <mailto:jean-pierre.chaboureau@utoulouse.fr>`_ (LAERO)
 ************************************************************************************
 
+.. image:: photo_jpc.jpg
+  :width: 250
+
+
 Jean-Pierre, tu as implanté RTTOV dans Méso-NH. Pourrais-tu résumer ce que fait ce code ?
   RTTOV (Radiative Transfer for TOVS) est un code de transfert radiatif très rapide pour les radiomètres et autres interféromètres passifs dans le visible, l’infrarouge et les micro-ondes, ainsi que pour les radars, à bord des satellites opérationnels et de recherche. Il est développé par le consortium européen `NWP SAF <https://www.nwpsaf.eu/site/software/rttov/>`_ (Satellite Application Facility for Numerical Weather Prediction). Il s'agit d'un code Fortran 90 pour la simulation des radiances et des réflectivités obtenues à partir de satellites, conçu pour être incorporé dans les applications des utilisateurs. Dans le monde Méso-NH version 5, RTTOV peut être ainsi appelé par DIAG à l’aide de la subroutine ``call_rttov13.f90``. (Dans Méso-NH version 6, RTTOV version 14 sera appelé par la subroutine ``call_rttov14.f90``.) 
 
