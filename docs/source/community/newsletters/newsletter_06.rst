@@ -48,7 +48,7 @@ Version 5.7.2
 Version 6
   - La préparation de la version 6 est toujours en cours, la branche de travail MNH-60-branch a été déclarée. 
   - Un appel à contribution sera proposé courant septembre.
-  - Le programme de ménage interne (déjà annoncé) se poursuit.
+  - Le ménage interne (déjà annoncé) se poursuit.
   - La bibliothèque de compression Zstandard y est totalement intégrée. De plus, elle devient la bibliothèque de compression par défaut et surtout la compression sera activée par défaut (débrayable via les namelistes).
   - La librairie ACLIB (chimie et aérosols externalisés) continue son développement pour intégration dans la v6 (une première version d'ACLIB sera intégrée MNH-60-branch en juillet).
 
