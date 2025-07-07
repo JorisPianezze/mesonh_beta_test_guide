@@ -6,7 +6,7 @@ Infolettre #JPC
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
 
-Voici ci-dessous la Xème infolettre de notre communauté. Vous y trouverez un entretien avec un développeur de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
+Voici ci-dessous la 6ème infolettre de notre communauté. Vous y trouverez un entretien avec un développeur de Méso-NH, les dernières nouvelles de l’équipe support et la liste des dernières publications utilisant Méso-NH.
 
 Entretien avec `Jean-Pierre Chaboureau <mailto:jean-pierre.chaboureau@utoulouse.fr>`_ (LAERO)
 ************************************************************************************
