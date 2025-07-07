@@ -39,7 +39,7 @@ Les nouvelles de l’équipe support
 ************************************
 
 Médaille de Cristal du CNRS pour Juan !
-  Le CNRS a décerné une `médaille de cristal à Juan Escobar <https://www.insu.cnrs.fr/fr/cnrsinfo/juan-escobar-munoz-une-medaille-de-cristal-pour-son-expertise-sur-le-calcul-intensif-pour>`_ pour tout son travail pour le code Méso-NH et sa communauté. Toutes nos félicitations Juan et un grand merci pour ton implication !
+  Le CNRS a décerné une `médaille de cristal à Juan Escobar <https://www.insu.cnrs.fr/fr/cnrsinfo/juan-escobar-munoz-une-medaille-de-cristal-pour-son-expertise-sur-le-calcul-intensif-pour>`_  pour son expertise sur le calcul intensif pour les sciences de l’atmosphère. Toutes nos félicitations Juan ! et un grand merci pour tout ton travail pour le code Méso-NH et sa communauté !
 
 Version 5.7.2
   - La version 5.7.2 est sortie, elle contient de nombreux commits et certaines corrections importantes.
