@@ -56,7 +56,7 @@ Nouveaux sites web
   La mise en place et la rédaction des nouveaux sites internet se poursuivent.
 
 .. note::
-  **Pensez au dépôt Zenodo pour vos futures publications**, la tar ball y est déposée et un DOI y sera associé. Vous pourrez faire référence à ce `dépôt <https://zenodo.org/records/15095131>`_ notamment dans la section *Data availability* ou équivalente. 
+  **Pensez au dépôt Zenodo pour vos futures publications**, la tar ball y est déposée et un DOI y est associé. Vous pourrez faire référence à ce `dépôt <https://zenodo.org/records/15095131>`_ notamment dans la section *Data availability* ou équivalente. 
 
 
 Stage Méso-NH
