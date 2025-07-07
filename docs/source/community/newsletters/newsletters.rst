@@ -13,6 +13,6 @@ Newsletters
    newsletter_04.rst
    newsletter_05.rst
    newsletter_05_en.rst
-   newsletter_JPC.rst
+   newsletter_06.rst
    newsletter_CA.rst
    newsletter_SSQL.rst
