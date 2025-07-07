@@ -74,17 +74,17 @@ Dernières publications utilisant Méso-NH
 ****************************************************************************************
 
 Aerosol-cloud interactions
-  RCEMIP-ACI: Aerosol-Cloud Interactions in a Multimodel Ensemble of Radiative-Convective Equilibrium Simulations [`Dagan et al., 2025 <https://doi.org/10.22541/essoar.174534436.64971999/v1>`_ ]
+  RCEMIP-ACI: Aerosol-Cloud Interactions in a Multimodel Ensemble of Radiative-Convective Equilibrium Simulations [`Dagan et al., 2025 <https://doi.org/10.22541/essoar.174534436.64971999/v1>`_]
 
 Object tracking
-  A Unified Open-Source Toolkit for Atmospheric Object Tracking and Analysis [`Hahn et al., 2025 <https://doi.org/10.5194/egusphere-2025-1328>`_ ]
+  A Unified Open-Source Toolkit for Atmospheric Object Tracking and Analysis [`Hahn et al., 2025 <https://doi.org/10.5194/egusphere-2025-1328>`_]
 
 Shallow convection
-  An update of shallow cloud parameterization in the AROME NWP model [`Marcel et al., 2025 <https://doi.org/10.5194/egusphere-2025-2504>`_ ]
+  An update of shallow cloud parameterization in the AROME NWP model [`Marcel et al., 2025 <https://doi.org/10.5194/egusphere-2025-2504>`_]
 
 
 PhD thesis
-  Investigation des effets aérodynamiques de la canopée forestière sur le comportement de feux expérimentaux [`Antolin, Université de Toulouse, 2025>`_ ]
+  Investigation des effets aérodynamiques de la canopée forestière sur le comportement de feux expérimentaux [`Antolin, Université de Toulouse, 2025 <https://theses.fr/s305185>`_]
 
 .. note::
 
