@@ -86,7 +86,7 @@ Shallow convection
 PhD thesis
   Investigation des effets aérodynamiques de la canopée forestière sur le comportement de feux expérimentaux [`Antolin, Université de Toulouse, 2025 <https://theses.fr/s305185>`_]
 
-Presentations at Ateliers de Modélisation de l'Atsmophère 2025
+Presentations at Ateliers de Modélisation de l'Atmosphère 2025
   De nombreux utilisateurs et utilisatrices de Méso-NH ont présenté leurs travaux lors des AMA 2025. Leurs présentations (pdf et enregistrements) sont disponibles `en ligne ici <http://www.meteo.fr/cic/meetings/2025/AMA/presentations.html>`_.
 
 .. note::
