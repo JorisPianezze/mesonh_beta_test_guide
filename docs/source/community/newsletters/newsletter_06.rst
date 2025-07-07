@@ -52,12 +52,14 @@ Version 6
   - La bibliothèque de compression Zstandard est totalement intégrée dans la version 6. De plus, elle devient la bibliothèque de compression par défaut et surtout la compression sera activée par défaut (débrayable via les namelistes).
   - La librairie ACLIB (chimie et aérosols externalisés) continue son développement pour intégration dans la v6 (une première version d'ACLIB sera intégrée MNH-60-branch en juillet).
 
-Nouveaux sites web
-  La mise en place et la rédaction des nouveaux sites internet se poursuivent.
-
 .. note::
   **Pensez au dépôt Zenodo pour vos futures publications**, la tar ball y est déposée et un DOI y est associé. Vous pourrez faire référence à ce `dépôt <https://zenodo.org/records/15095131>`_ notamment dans la section *Data availability* ou équivalente. 
 
+Journées des utilisateurs et utilisatrices de Méso-NH
+  Elles se tiendront cette année du 13 au 15 octobre 2025 au CNRM, Météo-France.
+
+Nouveaux sites web
+  La mise en place et la rédaction des nouveaux sites internet se poursuivent.
 
 Stage Méso-NH
   - Le prochain stage Méso-NH est programmé du 1er au 4 décembre 2025. 
