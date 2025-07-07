@@ -38,7 +38,8 @@ Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à évite
 Les nouvelles de l’équipe support
 ************************************
 
-
+Médaille de Cristal du CNRS pour Juan !
+  Le CNRS a décerné une médaille de cristal à Juan Escobar pour tout son travail pour le code Méso-NH et sa communauté. Toutes nos félicitations Juan et un grand merci pour ton implication !
 
 Version 5.7.2
   - La version 5.7.2 est sortie, elle contient de nombreux commits et certaines corrections importantes.
@@ -53,9 +54,6 @@ Version 6
 
 Nouveaux sites web
   La mise en place et la rédaction des nouveaux sites internet se poursuivent.
-
-Médaille de Cristal du CNRS pour Juan !
-  Le CNRS a décerné une médaille de cristal à Juan Escobar pour tout son travail pour le code Méso-NH et sa communauté. Toutes nos félicitations Juan et un grand merci pour ton implication !
 
 Dépôt Méso-NH sur forge logicielle 
 
