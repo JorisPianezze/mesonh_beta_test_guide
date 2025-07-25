@@ -271,8 +271,8 @@ NAM_DIAG - General
    :header: "Name", "Meaning [Unit]", "Dimension"
    :widths: 30, 30, 30
    
-   "UM90", "u-wind components of moisture ground flux (kg/s/m2)", "2D"
-   "VM90", "v-wind components of moisture ground flux (kg/s/m2)", "2D"   
+   "UM90", "u-wind components of moisture ground flux (kg/s/m2)", "3D"
+   "VM90", "v-wind components of moisture ground flux (kg/s/m2)", "3D"   
    "UM91", "u-wind components of moisture ground flux integrated on 3000 meters (kg/s/m)", "2D"
    "VM91", "v-wind components of moisture ground flux integrated on 3000 meters (kg/s/m)", "2D"   
    "HMCONV", "Horizontal CONVergence of moisture flux (kg/s/m2)", "2D"
