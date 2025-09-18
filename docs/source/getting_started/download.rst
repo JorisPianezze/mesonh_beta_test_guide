@@ -8,7 +8,7 @@ Download
     The following instructions assume that you are working on a Linux machine.
 
 Meso-NH package is developed and maintained using |git_link|.
-It is strongly recommended, but not mandatory, to download Meso-NH package using :ref:`git <git>`, because:
+It is strongly recommended, but not mandatory, to download Meso-NH package using :ref:`Git repository <git>`, because:
 
 * It is easier for the Meso-NH support team to give you some assistance in case of trouble... as Git allows us to know exactly what you have changed in the original package ;
 
@@ -16,7 +16,7 @@ It is strongly recommended, but not mandatory, to download Meso-NH package using
 
 * Git is strongly recommended if you intend to modify the code.
 
-A :ref:`tarball <tarball>` of Meso-NH package is available.
+A :ref:`Tarball (from Zenodo) <tarball>` of Meso-NH package with an associated DOI is also vailable and can be use to cite Meso-NH in your publications.
 
 .. |git_link| raw:: html
 
@@ -30,58 +30,51 @@ Git repository
 Prerequisites
 *****************************************************************************
 
-In order to clone the Meso-NH git repository the Git LFS extension is required to handle binary (or large) files (LFS meaning Large File Storage). So before starting, be sure:
+To clone the Meso-NH Git repository the |gitlfs_link| extension, not included by default in the Git package, is required to handle binary (or large) files (LFS meaning Large File Storage). To install this extension:
 
-To install the Git LFS extension (not included by default in the Git package):
-
-* either, install the Git LFS package on your system (you need root access)
+* either, install the |gitlfs_link| package on your system (you need root access)
 
 * or, if not possible, install it in your own environment
 
-  * get the git-lfs archive from the 'Download vX.Y.Z' link on the web page |gitlfs_link|
+  * get the git-lfs archive from the 'Download vX.Y.Z' link on the |gitlfs_link| web page
 
-  * extract the archive and copy the git-lfs binary in your `$HOME/bin` (the provided install.sh script doesn't need to be executed)
-
-  * add the following command if it's not already in your `$HOME/.bash_profile`: `export PATH=$PATH:$HOME/bin`
+  * extract the archive and copy the git-lfs binary in a `$HOME/bin` directory (create this directory if it doesn't exist)
 
   * from any directory, you can now execute:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-   git lfs install
+       export PATH=$PATH:$HOME/bin
+       git lfs install
 
-that will set up some filters under the name 'lfs' in the global Git config file `$HOME/.gitconfig`.
+    that will set up some filters under the name 'lfs' in the global Git config file `$HOME/.gitconfig`.
 
 .. |gitlfs_link| raw:: html
 
    <a href="https://git-lfs.github.com/" target="_blank">Git LFS</a>
 
-.. error::
-
-   * C'est toujours utile ?
-
-
 Cloning
 *****************************************************************************
 
-
-Clone the Meso-NH Source repository from the developpement branch |MNH_branch_current| with the following command:
+Clone the Meso-NH Git repository from the developpement branch |MNH_branch_current| with the following command:
 
 ..
   PW: J'ai remplacé les code-block par des parsed-literal pour rendre possible la
       substitution qui n'est pas possible dans 1 code-block
       mais le syntax highligting est perdu...
   .. code-block:: bash
+
 .. parsed-literal::
 
    git clone https://src.koda.cnrs.fr/mesonh/mesonh-code.git -b |MNH_branch_current| |MNH_directory_extract_current|
 
 that will create the |MNH_directory_extract_current| directory containing a clone (copy) of the Meso-NH package on the remote developpement branch |MNH_branch_current|.
 
-.. tip::
+.. warning::
 
-   The next step is to :ref:`configure <configuration>` of the Meso-NH package.
+   This version of Meso-NH doesn't correspond to a stable version. Please continue this documentation to :ref:`check out a given version <check_out_given_version>`. If you want to stay in this development branch you can go to :ref:`compilation` section.
 
+.. _check_out_given_version:
 
 Checking out a given version
 *****************************************************************************
@@ -131,7 +124,7 @@ And, test this development (not yet official) version by going to this branch:
 
 .. tip::
 
-   The next step is to :ref:`configure <configuration>` of the Meso-NH package.
+   The next step is to :ref:`compile <compilation>` Meso-NH package.
 
 .. _tarball:
 
@@ -139,33 +132,22 @@ Tarball (from Zenodo)
 -----------------------------------------------------------------------------
 
 You can download a compressed tarball containing the Meso-NH package from |zenodo_mesonh_link| .
-
-Then untar the file MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz where you want to.
-For example, in your home directory:
+Then untar the file MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz where you want to. For example, in your home directory:
 
 ..
    .. code-block:: bash
 .. parsed-literal::
 
    cd
-   tar xvfz  MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz
+   tar xvfz MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz
 
 .. tip::
 
-   The next step is to :ref:`configure <configuration>` of the Meso-NH package.
+   The next step is to :ref:`compile <compilation>` Meso-NH package.
 
 .. |zenodo_mesonh_link| raw:: html
 
    <a href="https://doi.org/10.5281/zenodo.15095130" target="_blank">Meso-NH on Zenodo website</a>
-
-.. note::
-
-  A conserver ?
-
-   * If you will modify the code, go to Section XXX.
-
-   * Some basic Git commands are presented in Appendice XXX.
-
 
 What do you download ?
 -----------------------------------------------------------------------------
@@ -206,21 +188,13 @@ Hereafter is a very quick description of Meso-NH's tree :
 Releases
 ------------------------------------------------------------------------
 
-Tarball of releases are available following the links below. A release note describes the change from the previous version.
+Tarball of releases are available following the links below and the release notes describe the change from the previous version.
 
-.. toctree::
-   :maxdepth: 1
-
-   releases/release_note_572.rst
-
-.. csv-table:: Releases of Méso-NH
+.. csv-table:: Releases of Meso-NH
    :header: "Date", "Tarball", "Release note"
    :widths: 30, 40, 40
    
-   "16/05/2025", "`5-7-2 <https://zenodo.org/records/15698760/files/MNH-V5-7-2.tar.gz?download=1>`_", ":ref:`release_note_572 <release_note_572>`"
-   "04/09/2024", "`5-7-1 <https://zenodo.org/records/15095131/files/MNH-V5-7-1.tar.gz?download=1>`_", "`Note <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=WHY_BUGFIX_571.pdf>`_"
-   "11/01/2024", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-0.tar.gz>`_", "`Note <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=update_from_masdev56_to_570.pdf>`_"
+   "16/05/2025", "`5-7-2 <https://zenodo.org/records/15698760/files/MNH-V5-7-2.tar.gz?download=1>`_", ":ref:`5-7-2 <release_note_572>`"
+   "04/09/2024", "`5-7-1 <https://zenodo.org/records/15095131/files/MNH-V5-7-1.tar.gz?download=1>`_", "`5-7-1 <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=WHY_BUGFIX_571.pdf>`_"
+   "11/01/2024", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-0.tar.gz>`_", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=update_from_masdev56_to_570.pdf>`_"
 
-
-.. error::
-    * mettre tous les liens vers les releases et notes vers zenodo (quand sera dispo)

@@ -11,6 +11,7 @@ Meso-NH website
 .. note::
 
    This website is under development.
+   For Meso-NH version lower than 6.0.0, please go to the |old_mesonh_website|. 
 
 .. toctree::
    :maxdepth: 2
@@ -52,4 +53,9 @@ Meso-NH website
    :maxdepth: 2
    :caption: Sphinx examples
 
-   sphinx_examples/examples.rst
+   isphinx_examples/examples.rst
+
+.. |old_mesonh_website| raw:: html
+
+   <a href="http://mesonh.aero.obs-mip.fr" target="_blank">old website</a>
+

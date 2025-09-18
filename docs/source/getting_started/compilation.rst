@@ -1,3 +1,5 @@
+.. _compilation:
+
 Compile
 *****************************************************************************
 
@@ -6,19 +8,17 @@ Principle
 
 .. warning::
 
-   * This subsection is just for your information, please go to the dedicated subsection depending on the computer you want to use to configure and compile your code.
+   * This subsection is just for your information, please go to the dedicated subsection depending on the computer you want to compile Meso-NH.
 
 During the first Meso-NH compilation, almost all the numerical schemes and all the physical parameterizations are compiled.
-The numerical scheme and physical parameterizations are chosen in namelist files read at the start of the simulations.
+The numerical scheme and physical parameterizations are chosen in :ref:`namelists <executables_and_namelists>` files.
 In the Meso-NH language, we say that we compile the **MASTER** version. This compilation is quite long,
 typically more than 20 minutes on one core.
 
-When you want to modify the code contained in the Meso-NH package, you create a folder containing the modified
-code and you compile only the modified code.
-In the Meso-NH language, we say that we compile a **VER_USER** version. This compilation is shorter than the
-MASTER one, it depends on how many sources are modified.
+When you want to modify the Meso-NH code, you need to create a folder containing the modified code and you can compile it.
+In the Meso-NH language, we say that we compile a **VER_USER** version. This compilation is shorter than the MASTER one, it depends on how many sources are modified.
 
-For the configuration and compilation processes, you will use following commands:
+For the compilation, you will use following commands:
 
 .. code-block:: bash
 
@@ -33,7 +33,7 @@ For the configuration and compilation processes, you will use following commands
 
    * :file:`configure`, script that creates a :ref:`configuration` file :file:`profile_mesonh` in the conf/ directory with an extension reflecting the different choices made automatically to match the computer on which you install Meso-NH.
 
-   * export MAKE_FLAGS='-j 8', optional command to speed up the compilation on up to 8 parallel processes. You can change the number of processes according to the number of cores available for the compilation. If you do not set this variable, the default value is 1 process.
+   * :code:`export MAKE_FLAGS='-j 8'`, optional command to speed up the compilation on up to 8 parallel processes. You can change the number of processes according to the number of cores available for the compilation. If you do not set this variable, the default value is 1 process.
 
    * :file:`make`, command that compiles the code
 
@@ -53,7 +53,7 @@ For the configuration and compilation processes, you will use following commands
 
 .. tip::
 
-   On GENCI (IDRIS, CINES and TGCC/CCRT), ECMWF, Meteo-France and some other supercomputers, the configure script is tuned to automatically identify the machine on which the command is run. For them, the compiler, MPI and NetCDF libraries and optimisation settings are automatically chosen. If necessary, these settings can be modified (see :ref:`compilation_unknown_computer`).
+   On GENCI (IDRIS, CINES and TGCC/CCRT), ECMWF, Meteo-France and some other supercomputers, the configure script is tuned to automatically identify the machine you are using. For them, the compiler, MPI and NetCDF libraries and optimisation settings are automatically chosen. If necessary, these settings can be modified (see :ref:`Compilation on other systems <compilation_unknown_computer>`).
 
    * To check if the supercomputer you are using is recognized by the :file:`configure` script, look at the :command:`case` condition in the :file:`configure` script to find your configuration:
 
@@ -93,14 +93,21 @@ The compilation can be done in interactively using the following commands:
 
 You can also use the “compil” partition:
 
-.. code-block:: bash
+..
+   .. code-block:: bash
+.. parsed-literal::
 
+   cd |MNH_directory_extract_current|/src
+   ./configure
    sbatch job_make_mesonh_HPE_jeanzay
 
 To run the test case examples, do:
 
-.. code-block:: bash
+..
+  .. code-block:: bash
+.. parsed-literal::
 
+   cd |MNH_directory_extract_current|/src
    sbatch -A {your_projet}@cpu job_make_examples_BullX_jeanzay
 
 
@@ -303,8 +310,10 @@ If you have already compiled the same version of Meso-NH on this computer (same 
    This will delete the dir-obj$XYZ directory content with all the preprocessed sources contained in it.
 
 
-Compile with additional libraries (FOREFIRE, RTTOV, ECRAD, MEGAN, OASIS...)
+Compile with additional libraries
 =============================================================================
+
+It's possible to compile Meso-NH with additionnal libraries like FOREFIRE, RTTOV, ECRAD, MEGAN, OASIS... In the following subsections you will find information to compile Meso-NH with these libraries.
 
 MNH_FOREFIRE for forefire runs (external package needed)
 -----------------------------------------------------------------------------
@@ -434,7 +443,8 @@ To compile Meso-NH with MEGAN, you can follow the steps described in the section
 
 Compile with modified and/or new sources
 =============================================================================
-Now you can generate and recompile your own sources.
+
+Once the MASTER is compiled, you can can compile your own sources.
 
 Prepare your source directory
 -----------------------------------------------------------------------------
@@ -475,7 +485,7 @@ This generates a :file:`profile_mesonh` file with the $VER USER information.
 Compile with modified sources
 -----------------------------------------------------------------------------
 
-Now you can compile with the :file:`make user` command in interactive with:
+Now, you can compile with the :file:`make user` command in interactive with:
 
 .. code-block:: bash
 
@@ -483,14 +493,16 @@ Now you can compile with the :file:`make user` command in interactive with:
    make user
    make installuser
 
-or in batch mode using the script you used to compile the MASTER. For belenos, for example, use the script job_make_mesonh_user_BullX_belenos to compile your own sources.
+or in batch mode using a script located in src/ directory with user in its name.
 
 .. note::
 
-   * This will compile only your sources and the files depending on your sources and generate the new executables in your own directory :file:`dir_obj-your_configuration/${VER_USER}`
+   * This will compile only your sources and the files depending on your sources and generate the new executables in the directory :file:`dir_obj-your_configuration/${VER_USER}`
+
    * The "make installuser" needs to be done only one time by version. When you run the examples, your version should appear in the name of the used executables.
-   * Before compiling your own sources be sure that these ones are younger than the ”*.o” files of the MASTER directory. If any doubt, at any time use the command on your sources ,and only on yours:
 
-   .. code-block:: bash
+   * Before compiling your own sources be sure that these ones are younger than the "*.o" files of the MASTER directory. If any doubt, at any time use the command on your sources ,and only on yours:
 
-      touch *.f*
+     .. code-block:: bash
+
+        touch your_files
