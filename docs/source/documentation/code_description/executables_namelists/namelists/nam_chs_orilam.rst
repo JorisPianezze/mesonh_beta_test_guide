@@ -21,12 +21,12 @@ Chemical aerosol scheme ORILAM.
 
 * :code:`LCO2PM` : switch to activate emission of primary aerosol (Black and Organic carbon) compute from CO emssion. Uses only if CO emission is defined in the surface field (see :ref:`prep_pgd`) and if there is no data for primary aerosol emissison.
 
-* :code:`XEMISRADIUSI` : Aerosol flux, mean radius of aitken mode in μm (only if LCH_AERO_FLUX=T).
+* :code:`XEMISRADIUSI` : Aerosol flux, mean radius of aitken mode in :math:`mu` m (only if LCH_AERO_FLUX=T).
 
-* :code:`XEMISRADIUSJ` : Aerosol flux, mean radius of accumulation mode in μm (only if LCH_AERO_FLUX=T).
+* :code:`XEMISRADIUSJ` : Aerosol flux, mean radius of accumulation mode in :math:`mu` m (only if LCH_AERO_FLUX=T).
 
-* :code:`XEMISSIGI` : Aerosol flux, standard deviation of aitken mode in μm (only if LCH_AERO_FLUX=T).
+* :code:`XEMISSIGI` : Aerosol flux, standard deviation of aitken mode in :math:`mu` m (only if LCH_AERO_FLUX=T).
 
-* :code:`XEMISSIGJ` : Aerosol flux, standard deviation of accumulation mode in μm (only if LCH_AERO_FLUX=T).
+* :code:`XEMISSIGJ` : Aerosol flux, standard deviation of accumulation mode in :math:`mu` m (only if LCH_AERO_FLUX=T).
 
 * :code:`CRGUNIT` : Aerosol flux, Definition of XEMISRADIUSI or XEMISRADIUSJ: mean radius can be define in mass ("MASS") or in number (NUMB).

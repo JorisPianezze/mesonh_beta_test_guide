@@ -11,7 +11,7 @@ Since RTTOV requires a license agreement, no RTTOV package is included in the op
   
    "NRTTOVinfo", "INTEGER(1:4,10)", "999"
 
-For each instrument nb you want (1 ≤ nb ≤ 10) :
+For each instrument nb you want (1 :math:`\leq` nb :math:`\leq` 10) :
 
 * :code:`NRTTOVinfo(1,nb)` : Plt = Plateforme
 

@@ -153,7 +153,7 @@ Data of the vertical profile are written in the free-format part of PRE_IDEA1.na
 
 * MOIST BRUNT VAISALA FREQUENCY at all layers (the number of layers is the number of levels - 1)
 
-In this case, the level number can even be equal to 1, because the profile information is linearly interpolated on the model grid without orography (wind components, θv and humidity) before the application of the Laplace relation to deduce the pressure and the vapor mixing ratio. Thus, the layers’ thicknesses are never too large to invalidate the Laplace relation. 
+In this case, the level number can even be equal to 1, because the profile information is linearly interpolated on the model grid without orography (wind components, :math:`\theta_v` and humidity) before the application of the Laplace relation to deduce the pressure and the vapor mixing ratio. Thus, the layers’ thicknesses are never too large to invalidate the Laplace relation. 
 
 .. note::
 
@@ -179,7 +179,7 @@ keyword: **ZFRC** or **PFRC**
 
 For idealized simulations a forced mode can be useful to impose the effects of a simplified large scale environment to the model solution. This functionality works (LFORCING=.TRUE. in module MODD_CONF) when CIDEAL=’RSOU’ or ’CSTN’ (see 5.2.10 and 5.3) and only in the case LGEOSBAL =.FALSE. for inclusion of a geostrophic wind forcing. All forcing fields are issued from spatial interpolation of chronological series of 1D data (provided by the user onto the model grid). They are prepared during the prep_ideal_case sequence and are stored in the LFI files for further use in case of RESTART model run.
 
-The forcing fields can be time dependent. Application of the forcing begins as soon as the date and time of the first set of forcing field given by the user, is lower or equal to the current date and time of the model run. The forcing action of the last forcing field is remanant, this is a way to impose a stationnary forcing. When the current date and time of the model run is bounded by two successive forcing fields, a simple linear interpolation in time is made. Note that an available Newtonian relaxation forcing type on [u, v] and/or [θ, rv] is exclusive from the other physical forcings.
+The forcing fields can be time dependent. Application of the forcing begins as soon as the date and time of the first set of forcing field given by the user, is lower or equal to the current date and time of the model run. The forcing action of the last forcing field is remanant, this is a way to impose a stationnary forcing. When the current date and time of the model run is bounded by two successive forcing fields, a simple linear interpolation in time is made. Note that an available Newtonian relaxation forcing type on [u, v] and/or [:math:`\theta`, rv] is exclusive from the other physical forcings.
 
 The forcing information and soundings have to be added at the end of the free-format part already written for CIDEAL=’CSTN’ or ’RSOU’. First, the type of forcing and the number of time dependent forcing are given:
 
@@ -198,14 +198,14 @@ The 1D forcing data are different from the one used to initialize the model beca
 
 * ground pressure (real, Pa)
 
-θd (real, K) at ground level (Nota: it is used later in the code to compute - if asked - a
+:math:`\theta_d` (real, K) at ground level (Nota: it is used later in the code to compute - if asked - a
 time varying sea surface temperature).
 
 * rv (real, kg/kg) at ground level
 
 * number of level (integer)
 
-* height of level1 (real, m) if ZFRC or pressure at level1 (real, Pa) if PFRC, uf rc component at level1 (real, m/s), vf rc component at level1 (real, m/s), θf rc at level1 (real, K), rv f rc at level1 (real, kg/kg), wf rc at level1 (real, m/s), (∂θ/∂t)f rc at level1 (real, K s) and (∂rv/∂t)f rc at level1 (real, 1/s). (∂u/∂t)f rc at level1 (real, m/s2). (∂v/∂t)f rc at level1 (real, m/s2). 
+* height of level1 (real, m) if ZFRC or pressure at level1 (real, Pa) if PFRC, uf rc component at level1 (real, m/s), vf rc component at level1 (real, m/s), :math:`\theta f` rc at level1 (real, K), rv f rc at level1 (real, kg/kg), wf rc at level1 (real, m/s), (:math:`\partial\theta/\partial t`)f rc at level1 (real, K s) and (:math:`\partial rv/\partial t`)f rc at level1 (real, 1/s). (:math:`\partial u/\partial t`)f rc at level1 (real, m/s2). (:math:`partial v/ \partial t`)f rc at level1 (real, m/s2). 
 
 * idem at level2
 
@@ -218,7 +218,7 @@ levels into height levels with enough accuracy. Data are organized as follows:
 
 * number of level (integer)
 
-* pressure at level1 (real, Pa), θ at level1 (real, K) and rv at level1 (real, kg/kg).
+* pressure at level1 (real, Pa), :math:`theta` at level1 (real, K) and rv at level1 (real, kg/kg).
 
 This operation is repeated until the previous number of sounding is reached.
 

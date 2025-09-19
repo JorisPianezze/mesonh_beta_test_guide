@@ -36,11 +36,11 @@ NAM_BACKUP
 
 * :code:`LBAK_END` : force a backup at the last timestep
 
-* :code:`LBAK_REDUCE_FLOAT_PRECISION(m)` : force writing of floating points numbers in single precision for each model $m$ (only for files in netCDF format, not for LFI format). This option can not be enabled if LIO_ALLOW_REDUCED_PRECISION_BACKUP has not been forced to .TRUE. in :ref:`nam_confio`. Be careful, this loss of precision could impact restarted computations. This option should only be used if you understand the risks.
+* :code:`LBAK_REDUCE_FLOAT_PRECISION(m)` : force writing of floating points numbers in single precision for each model m (only for files in netCDF format, not for LFI format). This option can not be enabled if LIO_ALLOW_REDUCED_PRECISION_BACKUP has not been forced to .TRUE. in :ref:`nam_confio`. Be careful, this loss of precision could impact restarted computations. This option should only be used if you understand the risks.
 
 * :code:`LBAK_COMPRESS(m)` : enable lossless compression of data for each model m (only for files in netCDF format, not for LFI format). This can have a negative impact on performance. This option loses precedence over LIO_COMPRESS of :ref:`nam_confio`. 
 
-* :code:`LBAK_COMPRESS_LEVEL(m)` : set the compression level for each model $m$ (only for files in netCDF format, not for LFI format). The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option loses precedence over LIO_COMPRESS_LEVEL of :ref:`nam_confio` if  LIO_COMPRESS=.TRUE.
+* :code:`LBAK_COMPRESS_LEVEL(m)` : set the compression level for each model m (only for files in netCDF format, not for LFI format). The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option loses precedence over LIO_COMPRESS_LEVEL of :ref:`nam_confio` if  LIO_COMPRESS=.TRUE.
 
 * :code:`CBAK_DIR` : directory used to write backups and diachronic files (current directory by default). It overrides CIO_DIR.
 

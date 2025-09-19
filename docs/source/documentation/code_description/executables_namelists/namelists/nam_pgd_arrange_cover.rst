@@ -14,7 +14,7 @@ This namelist initializes change water (not lake) to nature and/or town to rock 
    "LTOWN_TO_COVER", "LOGICAL", ".FALSE."
    "NREPLACE_COVER", "INTEGER", ""
 
-* :code:`LWATER_TO_NATURE` : Change Wetland treated as inland water into nature, i.e. covers with 0. ≤ FRAC_WATER ≤ 1.
+* :code:`LWATER_TO_NATURE` : Change Wetland treated as inland water into nature, i.e. covers with 0. :math:`\leq` FRAC_WATER :math:`\leq` 1.
 
 * :code:`LTOWN_TO_ROCK` : Change Town into Rock
 

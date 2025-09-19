@@ -12,7 +12,7 @@ This namelist gives the information to compute the surface cover fractions when 
    "XUNIF_COVER", "REAL", ""
    "YCOVER", "CHARACTER(LEN=28)", ""
    "YCOVERFILETYPE", "CHARACTER(LEN=6)", ""
-   "XRM_COVER", "REAL", "10−6"
+   "XRM_COVER", "REAL", "10-6"
    "XRM_COAST", "REAL", "1.0"
    "XRM_LAKE", "REAL", "0.0"
    "XRM_SEA", "REAL", "0.0"

@@ -7,8 +7,8 @@ NAM_IDEAL_FLUX
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "NFORCF", "INTEGER", "≤48 2"
-   "NFORCT", "INTEGER", "≤48 2"
+   "NFORCF", "INTEGER", "2 (:math:`\leq` 48)"
+   "NFORCT", "INTEGER", "2 (:math:`\leq` 48)"
    "XTIMEF", "REAL(NFORCF)", "0"
    "XTIMET", "REAL(NFORCT)", "0"
    "XSFTH", "REAL(NFORCF)", "0.0"

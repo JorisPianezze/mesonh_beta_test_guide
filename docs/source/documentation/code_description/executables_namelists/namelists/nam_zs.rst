@@ -36,7 +36,7 @@ This namelist defines the orography file and orographic treatment to be done.
 * :code:`COROGTYPE` : type of orography:
 
   * 'AVG': mean orography Zs.
-  * 'ENV': envelope relief, defined from mean orography and the subgrid orography standard deviation as: Zs + XEN V ∗ σ(Zs)
+  * 'ENV': envelope relief, defined from mean orography and the subgrid orography standard deviation as: Zs + XENV * :math:`\sigma(Zs)`
   * 'SIL': silhouette relief, defined as the mean of the two subgrid silhouettes in directions x and y (if two main directions can be defined for the grid chosen).
   * 'MAX': maximum orography over grid box (avoid averaging in case of sea/land grid box).
   

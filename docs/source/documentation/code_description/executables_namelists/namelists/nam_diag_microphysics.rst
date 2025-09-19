@@ -27,7 +27,7 @@ NAM_DIAG - Microphysics
    "MRC", "Mixing Ratio for Cloud (g/kg) (if LUSERC=T)", "3D"
    "MRR", "Mixing Ratio for Rain (g/kg) (if LUSERR=T)", "3D"
    "MRI", "Mixing Ratio for Ice (g/kg) (if LUSERI=T)", "3D"
-   "CIT", "Ice concentration (m−3 (if LUSECI=T)", "3D"
+   "CIT", "Ice concentration (m-3 (if LUSECI=T)", "3D"
    "MRS", "Mixing Ratio for Snow (g/kg) (if LUSERS=T)", "3D"
    "MRG", "Mixing Ratio for Graupel (g/kg) (if LUSERG=T)", "3D"
    "MRH", "Mixing Ratio for Hail (g/kg) (if LUSERH=T)", "3D"

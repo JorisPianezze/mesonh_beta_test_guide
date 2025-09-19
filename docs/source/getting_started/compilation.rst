@@ -108,7 +108,7 @@ To run the test case examples, do:
 .. parsed-literal::
 
    cd |MNH_directory_extract_current|/src
-   sbatch -A {your_projet}@cpu job_make_examples_BullX_jeanzay
+   sbatch -A your_projet.at.cpu job_make_examples_BullX_jeanzay
 
 
 .. _compilation_adastra_cines:

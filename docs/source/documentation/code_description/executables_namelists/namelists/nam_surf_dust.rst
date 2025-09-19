@@ -15,4 +15,4 @@ NAM_SURF_DUST
 
 * :code:`CVERMOD` : New parameterization of the dust emission formulation. In development, not recommended to uses it in this version.
 
-* :code:`XFLX_MSS_FDG_FCT` : Value of the α factor representing the ratio of the vertical mass flux over the horizontal mass flux in the saltation layer (use only If CVERMOD=’NONE’). This α factor depend on the size distribution of the aerosol consider in the model.
+* :code:`XFLX_MSS_FDG_FCT` : Value of the :math:`\alpha` factor representing the ratio of the vertical mass flux over the horizontal mass flux in the saltation layer (use only If CVERMOD=’NONE’). This :math:`\alpha` factor depend on the size distribution of the aerosol consider in the model.
