@@ -9,3 +9,4 @@ User's guide
    code_description/variables.rst
    code_description/input_output.rst      
    code_description/diagnostics.rst         
+   code_description/how_to.rst

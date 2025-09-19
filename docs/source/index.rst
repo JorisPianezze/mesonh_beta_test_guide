@@ -30,30 +30,29 @@ Meso-NH website
    documentation/graphics.rst
    documentation/training_material.rst
    documentation/coding_instructions.rst   
-   documentation/how_to.rst
-   documentation/external_data.rst
-   documentation/external_tools.rst   
 
 .. toctree::
    :maxdepth: 2
    :caption: Examples
 
    examples/test_cases.rst
-   examples/gallery.rst
+   Applications <https://mesonh.cnrs.fr/#Applications>
 
 .. toctree::
    :maxdepth: 2
    :caption: Community
 
-   community/meetings.rst
+   Meetings <https://mesonh.cnrs.fr/meetings/>
    Publications <http://mesonh.aero.obs-mip.fr/cgi-bin/mesonh/publi.pl?art=on&phd=on>
    community/newsletters/newsletters.rst
+   Contributors <https://mesonh.cnrs.fr/contributors/>
 
 .. toctree::
    :maxdepth: 2
-   :caption: Sphinx examples
+   :caption: External ressources
 
-   isphinx_examples/examples.rst
+   Data <documentation/external_data.rst>
+   Tools <documentation/external_tools.rst>
 
 .. |old_mesonh_website| raw:: html
 

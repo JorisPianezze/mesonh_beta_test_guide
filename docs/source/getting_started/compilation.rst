@@ -6,19 +6,15 @@ Compile
 Principle
 =============================================================================
 
-.. warning::
-
-   * This subsection is just for your information, please go to the dedicated subsection depending on the computer you want to compile Meso-NH.
-
 During the first Meso-NH compilation, almost all the numerical schemes and all the physical parameterizations are compiled.
 The numerical scheme and physical parameterizations are chosen in :ref:`namelists <executables_and_namelists>` files.
 In the Meso-NH language, we say that we compile the **MASTER** version. This compilation is quite long,
 typically more than 20 minutes on one core.
 
-When you want to modify the Meso-NH code, you need to create a folder containing the modified code and you can compile it.
-In the Meso-NH language, we say that we compile a **VER_USER** version. This compilation is shorter than the MASTER one, it depends on how many sources are modified.
+When you want to modify the Meso-NH code, you need to create a directory containing the modified code and you can compile it.
+In the Meso-NH language, we say that we compile a **VER_USER** version. This compilation is shorter than the MASTER one, it depends on how many sources are modified but you need to compile the **MASTER** version before the **VER_USER** one.
 
-For the compilation, you will use following commands:
+For the **MASTER** compilation, you will use following commands:
 
 .. code-block:: bash
 
@@ -28,6 +24,18 @@ For the compilation, you will use following commands:
    . ../conf/profile-mesonh
    make
    make installmaster
+
+For the **VER_USER** compilation, you will use following commands:
+
+.. code-block:: bash
+
+   cd ~/MNH-VX-Y-Z/src
+   export VER_USER=NAME_OF_THE_DIRECTORY_CONTAINING_THE_MODIFIED_CODE
+   ./configure
+   export MAKE_FLAGS='-j 8' # optional, to speed up the compilation on up to 8 processes/cores
+   . ../conf/profile-mesonh
+   make user
+   make installuser
 
 .. note::
 
@@ -41,7 +49,7 @@ For the compilation, you will use following commands:
 
 .. note::
 
-   The object files :file:`*.o` and main executables of the Meso-NH package are compiled in one step and created in the directory src/dir_obj-your_configuration/MASTER
+   * The object files :file:`*.o` and main executables of the Meso-NH package are compiled in one step and created in the directory src/dir_obj-your_configuration/MASTER
 
    * the :file:`lib.*.a` is only created and removed at the link phase. This allows a parallel compilation of the sources.
 
@@ -53,15 +61,15 @@ For the compilation, you will use following commands:
 
 .. tip::
 
-   On GENCI (IDRIS, CINES and TGCC/CCRT), ECMWF, Meteo-France and some other supercomputers, the configure script is tuned to automatically identify the machine you are using. For them, the compiler, MPI and NetCDF libraries and optimisation settings are automatically chosen. If necessary, these settings can be modified (see :ref:`Compilation on other systems <compilation_unknown_computer>`).
+   * On GENCI (IDRIS, CINES and TGCC/CCRT), ECMWF, Meteo-France and some other supercomputers, the configure script is tuned to automatically identify the machine you are using. For them, the compiler, MPI and NetCDF libraries and optimisation settings are automatically chosen. If necessary, these settings can be modified (see :ref:`Compilation on other systems <compilation_unknown_computer>`).
 
    * To check if the supercomputer you are using is recognized by the :file:`configure` script, look at the :command:`case` condition in the :file:`configure` script to find your configuration:
 
-   .. code-block:: bash
+     .. code-block:: bash
 
-      TARG=$(uname -s -n)
-      #
-      case "$TARG" in
+        TARG=$(uname -s -n)
+        #
+        case "$TARG" in
 
    * If you do not have sufficient space in your $HOME directory, install the whole package directly on the $WORKDIR. The name of the $WORKDIR differs in the differents computer centers.
 
@@ -79,7 +87,7 @@ Compile on different systems
 On Jean-Zay (IDRIS)
 -----------------------------------------------------------------------------
 
-The compilation can be done in interactively using the following commands:
+The compilation can be done interactively using the following commands:
 
 ..
    .. code-block:: bash
@@ -186,14 +194,13 @@ To run the test case examples, do:
 On hpc-login (ECMWF)
 -----------------------------------------------------------------------------
 
-To the compile Meso-NH package, go to the $HPCPERM directory, connect to an interactive compute node
-and compile the code (16 cores, 16GB of memory):
+To compile Meso-NH package, go to the $HPCPERM directory, connect to an interactive compute node and compile the code:
 
 .. code-block:: bash
 
    ecinteractive -c16 -m 16G -t 12:00:00
    ./configure
-   . ../profile_mesonh-your_configuration
+   . ../profile_mesonh
    make
    make installmaster
 
@@ -218,8 +225,6 @@ Due to limitation in time and memory in interactive shell, Meso-NH has to be com
    cd |MNH_directory_extract_current|/src
    ./configure
    sbatch job_make_mesonh_BullX_belenos
-
-This job does "gmake -j 4", then "make installmaster".
 
 To run test case examples, do:
 
@@ -279,7 +284,6 @@ If needed, you can change the default values of these environment variables. For
    - The options specific to the MPI library (`VER_MPI`) are defined inside `Makefile.MESONH.mk`
    - There are also options for the netCDF library (see the `VER_CDF` variable). `CDFAUTO`, the recommended and default option, compiles and uses the netCDF library included in the Meso-NH package.
    - If needed, for adaptation to your requirements, look inside the files and changes options.
-   - On a Linux PC, if you need to compile the MPI library, look at the "MesonhTEAM Wiki" to know `how to compile the OpenMPI library with MESONH <http://mesonh.aero.obs-mip.fr/mesonh57/MesonhTEAMFAQ/PC_Linux>`_ **A remplacer par un nouveau lien, texte pas à jour**
 
 Compile the code :
 

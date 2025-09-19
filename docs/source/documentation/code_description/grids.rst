@@ -3,7 +3,7 @@
 Grids
 ================================================
 
-Meso-NH use a C-grid in the Arakawa convention, both on the horizontal and on the vertical. This grid is shown on the following figure :
+Meso-NH use a C-grid in the Arakawa convention, both on the horizontal and on the vertical. This grid is shown on the following figure with:
 
 * 1 : mass points
 
@@ -20,9 +20,8 @@ Meso-NH use a C-grid in the Arakawa convention, both on the horizontal and on th
 * 7 : vorticity components along x
 
 .. figure:: grids.png
+   :align: center
+   :alt: Meso-NH's grids
 
    Meso-NH's grids.
 
-.. error::
-
-   point 8 ?

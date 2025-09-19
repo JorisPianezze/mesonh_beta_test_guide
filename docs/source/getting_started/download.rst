@@ -38,7 +38,7 @@ To clone the Meso-NH Git repository the |gitlfs_link| extension, not included by
 
   * get the git-lfs archive from the 'Download vX.Y.Z' link on the |gitlfs_link| web page
 
-  * extract the archive and copy the git-lfs binary in a `$HOME/bin` directory (create this directory if it doesn't exist)
+  * extract the archive and copy the git-lfs binary in a `$HOME/bin` directory by exampe (create this directory if it doesn't exist)
 
   * from any directory, you can now execute:
 
@@ -131,14 +131,13 @@ And, test this development (not yet official) version by going to this branch:
 Tarball (from Zenodo)
 -----------------------------------------------------------------------------
 
-You can download a compressed tarball containing the Meso-NH package from |zenodo_mesonh_link| .
-Then untar the file MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz where you want to. For example, in your home directory:
+You can also download a compressed tarball containing the Meso-NH package from |zenodo_mesonh_link| .
+Then untar the file MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz where you want :
 
 ..
    .. code-block:: bash
 .. parsed-literal::
 
-   cd
    tar xvfz MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz
 
 .. tip::
@@ -187,8 +186,6 @@ Hereafter is a very quick description of Meso-NH's tree :
 
 Releases
 ------------------------------------------------------------------------
-
-Tarball of releases are available following the links below and the release notes describe the change from the previous version.
 
 .. csv-table:: Releases of Meso-NH
    :header: "Date", "Tarball", "Release note"

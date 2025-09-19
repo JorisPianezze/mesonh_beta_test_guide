@@ -5,9 +5,9 @@ Some of the most important advantages to use vertical 1D atmospheric simulations
 
 * **Simplicity :** simpler and require fewer computing resources than 2D or 3D models.
 
-* **Study vertical processes and surface-atmosphère interactions :** focus on vertical processes in the atmosphere, such as convection, cloud formation, and heat and moisture exchange without the complexity of horizontal advection.
+* **Study vertical processes and surface-atmosphere interactions :** focus on vertical processes in the atmosphere, such as convection, cloud formation, and heat and moisture exchange without the complexity of horizontal advection.
 
-* **Parameterisation development and testing :** used to develop and test new physical parameterisations (e.g. for clouds, precipitation or radiation) before they are integrated into more complex models.
+* **Parameterisation development and testing :** used to develop and test new physical parameterisations (e.g. for clouds, precipitation or radiation) before they are integrated into 2D or 3D models.
 
 To perform a 1D simulation with Meso-NH you need only to prepare the initial conditions and run the model using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections :
 
