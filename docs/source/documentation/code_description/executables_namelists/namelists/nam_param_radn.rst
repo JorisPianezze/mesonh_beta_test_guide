@@ -45,7 +45,7 @@ NAM_PARAM_RADN
 * :code:`CEFRADL` : liquid effective radius calculation
 
   * 'MART' : based on Martin et al. (1994, JAS)
-  * 'C2R2' : based on the prediction of the number concentrations. Recommended with the 2-moment microphysical schemes.
+  * '2MOM' : based on the prediction of the number concentrations. Recommended with the 2-moment microphysical schemes.
   * 'PRES' : very old parametrization as f(pressure)
   * 'OCLN' : simple distinction between land (10) and ocean (13)
 
@@ -53,11 +53,11 @@ NAM_PARAM_RADN
 
   * 'LIOU' : ice particle effective radius =f(T) from Liou and Ou (1994)
   * 'SURI' : ice particle effective radius =f(T,IWC) from Sun and Rikus (1999)
-  * 'C3R5' : based on the prediction of the number concentrations. Recommended with the 2-moment microphysical schemes (not yet available for mixed clouds).
+  * '2MOM' : based on the prediction of the number concentrations. Recommended with the 2-moment microphysical schemes (not yet available for mixed clouds).
   * 'FX40' : fixed 40 micron effective radius
 
 * :code:`COPWLW` : cloud water LW optical properties
-  
+
   * 'SMSH': Smith-Shi formulation
   * 'SAVI': Savijarvi formulation (recommended only with 1-moment microphysical schemes with small precipitation)
   * 'MALA': Malavelle formulation (recommended only with 2-moment microphysical schemes with small precipitation)
@@ -74,7 +74,7 @@ NAM_PARAM_RADN
   * 'SLIN': Slingo, 1989 formulation
   * 'MALA': Only for 2-moment microphysical schemes. According to Malavelle.
 
-* :code:`COPISW` : ice water short wave optical properties  
+* :code:`COPISW` : ice water short wave optical properties
 
   * 'EBCU': Ebert-Curry formulation
   * 'FULI': Fu-Liou formulation
