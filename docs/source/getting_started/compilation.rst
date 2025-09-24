@@ -20,7 +20,7 @@ For the **MASTER** compilation, you will use following commands:
 
    cd ~/MNH-VX-Y-Z/src
    ./configure
-   export MAKE_FLAGS='-j 8' # optional, to speed up the compilation on up to 8 processes/cores
+   export MAKEFLAGS='-j 8' # optional, to speed up the compilation on up to 8 processes/cores
    . ../conf/profile-mesonh
    make
    make installmaster
@@ -32,7 +32,7 @@ For the **VER_USER** compilation, you will use following commands:
    cd ~/MNH-VX-Y-Z/src
    export VER_USER=NAME_OF_THE_DIRECTORY_CONTAINING_THE_MODIFIED_CODE
    ./configure
-   export MAKE_FLAGS='-j 8' # optional, to speed up the compilation on up to 8 processes/cores
+   export MAKEFLAGS='-j 8' # optional, to speed up the compilation on up to 8 processes/cores
    . ../conf/profile-mesonh
    make user
    make installuser
@@ -41,7 +41,7 @@ For the **VER_USER** compilation, you will use following commands:
 
    * :file:`configure`, script that creates a :ref:`configuration` file :file:`profile_mesonh` in the conf/ directory with an extension reflecting the different choices made automatically to match the computer on which you install Meso-NH.
 
-   * :code:`export MAKE_FLAGS='-j 8'`, optional command to speed up the compilation on up to 8 parallel processes. You can change the number of processes according to the number of cores available for the compilation. If you do not set this variable, the default value is 1 process.
+   * :code:`export MAKEFLAGS='-j 8'`, optional command to speed up the compilation on up to 8 parallel processes. You can change the number of processes according to the number of cores available for the compilation. If you do not set this variable, the default value is 1 process.
 
    * :file:`make`, command that compiles the code
 
@@ -395,14 +395,14 @@ Compile the code :
 .. code-block:: bash
 
    . ../conf/profile-mesonh-your_configuration
-   export MAKE_FLAGS='-j 8' # optional, to speed up the compilation on up to 8 processes/cores
+   export MAKEFLAGS='-j 8' # optional, to speed up the compilation on up to 8 processes/cores
    make
    make installmaster
 
 
 .. tip::
 
-   The compilation takes about 20 minutes on one core. To speedup the compilation, set the environment variable `MAKE_FLAGS` to the number of cores you want to use.
+   The compilation takes about 20 minutes on one core. To speedup the compilation, set the environment variable `MAKEFLAGS` to the number of cores you want to use.
 
 
 Clean previous compiled version
