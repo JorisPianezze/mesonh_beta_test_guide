@@ -89,30 +89,19 @@ On Jean-Zay (IDRIS)
 
 The compilation can be done interactively using the following commands:
 
-.. release:
-
 .. code-block:: bash
    :substitutions:
   
-   cd |MNH_directory_extract_current| /src
-   ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V\ |MNH_xyz_version_hyphen_current|-MPIINTEL-O2
-   make -j16 |& tee error$XYZ
-   make installmaster
-
-.. parsed-literal::
-
    cd |MNH_directory_extract_current|/src
    ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V\ |MNH_xyz_version_hyphen_current|-MPIINTEL-O2
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIINTEL-O2
    make -j16 |& tee error$XYZ
    make installmaster
 
-You can also use the “compil” partition:
+You can also use the 'compil' partition:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    ./configure
@@ -120,9 +109,8 @@ You can also use the “compil” partition:
 
 To run the test case examples, do:
 
-..
-  .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    sbatch -A your_projet.at.cpu job_make_examples_BullX_jeanzay
@@ -135,13 +123,12 @@ On Adastra (CINES)
 
 Install the Meso-NH package in your $HOME (default 50GB of quota) and compile in interactive mode:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V\ |MNH_xyz_version_hyphen_current|-MPIINTEL-O2
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIINTEL-O2
    make -j16 |& tee error$XYZ
    make installmaster
 
@@ -161,25 +148,23 @@ At TGCC, you have two architectures accessible through 2 differents frontals but
 
 * On Intel Skylake nodes, do:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V\ |MNH_xyz_version_hyphen_current|-MPIAUTO-O2
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIAUTO-O2
    make -j16 |& tee error$XYZ
    make installmaster
 
 * On AMD nodes, do:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V\ |MNH_xyz_version_hyphen_current|-AMD-MPIAUTO-O2
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-AMD-MPIAUTO-O2
    make -j16 |& tee error$XYZ
    make installmaster
 
@@ -239,9 +224,8 @@ On Belenos (Meteo-France)
 
 Due to limitation in time and memory in interactive shell, Meso-NH has to be compiled in batch mode:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    ./configure
@@ -279,9 +263,8 @@ On Datarmor (IFREMER)
 
 On Datarmor you can compile in interactive mode using:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    ./configure
@@ -321,9 +304,8 @@ On Olympe (CALMIP)
 
 On Olympe you can compile in interactive mode using:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    ./configure
@@ -362,9 +344,8 @@ On Nuwa (OMP)
 
 On Nuwa you can compile in interactive mode using:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|/src
    ./configure

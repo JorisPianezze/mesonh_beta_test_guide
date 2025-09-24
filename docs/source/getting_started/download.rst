@@ -58,13 +58,8 @@ Cloning
 
 Clone the Meso-NH Git repository from the developpement branch |MNH_branch_current| with the following command:
 
-..
-  PW: J'ai remplacé les code-block par des parsed-literal pour rendre possible la
-      substitution qui n'est pas possible dans 1 code-block
-      mais le syntax highligting est perdu...
-  .. code-block:: bash
-
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    git clone https://src.koda.cnrs.fr/mesonh/mesonh-code.git -b |MNH_branch_current| |MNH_directory_extract_current|
 
@@ -81,12 +76,11 @@ Checking out a given version
 
 Once the repository is cloned, it's better for you to checkout your own branch (by default, you are on HEAD of the |MNH_branch_current| development branch). To create your local branch corresponding to the |MNH_xyz_version_current| version, type:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    cd |MNH_directory_extract_current|
-   git checkout -b MYB-MNH-V\ |MNH_xyz_version_hyphen_current| |MNH_pack_current|
+   git checkout -b MYB-MNH-V|MNH_xyz_version_hyphen_current| |MNH_pack_current|
 
 MYB-MNH-V\ |MNH_xyz_version_hyphen_current| is the name of the local branch you created and |MNH_pack_current| is the remote/origin tag on which it is based. The advantage of this way of downloading the package is that in the future you could check and update quickly differences with the new version of the package without having to download entirely the full package.
 
@@ -107,18 +101,16 @@ To go to the new version, you can, for example, create a new local branch:
 At any time, you can also check the latest changes in the Git branch dedicated to the |MNH_xy_version_current|
 version before the official release of the "bugN+1" bugfix version.
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    git fetch
    git diff HEAD |MNH_branch_current|
 
 And, test this development (not yet official) version by going to this branch:
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    git checkout --track origin/|MNH_branch_current|
 
@@ -134,9 +126,8 @@ Tarball (from Zenodo)
 You can also download a compressed tarball containing the Meso-NH package from |zenodo_mesonh_link| .
 Then untar the file MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz where you want :
 
-..
-   .. code-block:: bash
-.. parsed-literal::
+.. code-block:: bash
+   :substitutions:
 
    tar xvfz MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz
 
