@@ -319,31 +319,18 @@ Compile with additional libraries
 
 It's possible to compile Meso-NH with additionnal libraries like FOREFIRE, RTTOV, ECRAD, MEGAN, OASIS... In the following subsections you will find information to compile Meso-NH with these libraries.
 
-MNH_FOREFIRE for forefire runs (external package needed)
+ForeFire runs (external package needed)
 -----------------------------------------------------------------------------
 
-If you want to use coupled (inline) run with FOREFIRE and MESONH you could compile the interfaced/coupling routine by activating this variable before any compilation:
+ForeFire is an open-source code for wildland fire spread models. The interface to this tool is already compiled in Méso-NH (from version 6.0.0).
 
-.. code-block:: bash
-
-   export MNH_FOREFIRE=1
-
-and then configure and compile the code:
-
-.. code-block:: bash
-
-   ./configure
-   export MAKE_FLAGS='-j 8' # optional, to speed up the compilation on up to 8 processes/cores
-   make
-   make installmaster
-
-The |forefire_link| package must be compiled independently from Meso-NH. It can cloned with:
+The |forefire_link| package must be compiled independently of Méso-NH. It can be cloned with:
 
 .. code-block:: bash
 
    git clone https://github.com/forefireAPI/firefront.git
 
-It depend on netCDF and scons for its compilation. The :file:`libForeFIre.so` that has been generated must be referenced either by adding its path to the LD_LIBRARY_PATH environment variable or by moving or linking it to the :file:`exe/` directory of Meso-NH.
+It depends on netCDF and scons for its compilation. The :file:`libForeFIre.so` that has been generated must be referenced either by adding its path to the LD_LIBRARY_PATH environment variable or by moving or linking it to the :file:`exe/` directory of Meso-NH.
 
 .. |forefire_link| raw:: html
 
