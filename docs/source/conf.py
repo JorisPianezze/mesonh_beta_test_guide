@@ -31,6 +31,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinxcontrib.bibtex',
+    'sphinx_substitution_extensions'
 ]
 
 bibtex_bibfiles        = ['references.bib']
@@ -71,7 +72,7 @@ html_theme_options = {
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
-rst_epilog = """
+rst_prolog = """
 .. |MNH_branch_current| replace:: MNH-57-branch
 .. |MNH_pack_current| replace:: PACK-MNH-V5-7-2
 .. |MNH_x_version_current| replace:: 5

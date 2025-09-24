@@ -188,10 +188,10 @@ Releases
 ------------------------------------------------------------------------
 
 .. csv-table:: Releases of Meso-NH
-   :header: "Date", "Tarball", "Release note"
-   :widths: 30, 40, 40
+   :header: "Date", "Tarball", "Git tag", "Release note"
+   :widths: 30, 40, 40, 40
    
-   "16/05/2025", "`5-7-2 <https://zenodo.org/records/15698760/files/MNH-V5-7-2.tar.gz?download=1>`_", ":ref:`5-7-2 <release_note_572>`"
-   "04/09/2024", "`5-7-1 <https://zenodo.org/records/15095131/files/MNH-V5-7-1.tar.gz?download=1>`_", "`5-7-1 <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=WHY_BUGFIX_571.pdf>`_"
-   "11/01/2024", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-0.tar.gz>`_", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=update_from_masdev56_to_570.pdf>`_"
+   "16/05/2025", "`5-7-2 <https://zenodo.org/records/15698760/files/MNH-V5-7-2.tar.gz?download=1>`_", "`PACK-MNH-V5-7-2 <https://src.koda.cnrs.fr/mesonh/mesonh-code/-/tags/PACK-MNH-V5-7-2>`_", ":ref:`5-7-2 <release_note_572>`"
+   "04/09/2024", "`5-7-1 <https://zenodo.org/records/15095131/files/MNH-V5-7-1.tar.gz?download=1>`_", "`PACK-MNH-V5-7-1 <https://src.koda.cnrs.fr/mesonh/mesonh-code/-/tags/PACK-MNH-V5-7-1>`_", "`5-7-1 <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=WHY_BUGFIX_571.pdf>`_"
+   "11/01/2024", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh/dir_open/dir_MESONH/MNH-V5-7-0.tar.gz>`_", "`PACK-MNH-V5-7-0 <https://src.koda.cnrs.fr/mesonh/mesonh-code/-/tags/PACK-MNH-V5-7-0>`_", "`5-7-0 <http://mesonh.aero.obs-mip.fr/mesonh57/Download?action=AttachFile&do=view&target=update_from_masdev56_to_570.pdf>`_"
 

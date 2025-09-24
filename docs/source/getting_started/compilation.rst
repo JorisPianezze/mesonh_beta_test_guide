@@ -7,7 +7,7 @@ Principle
 =============================================================================
 
 During the first Meso-NH compilation, almost all the numerical schemes and all the physical parameterizations are compiled.
-The numerical scheme and physical parameterizations are chosen in :ref:`namelists <executables_and_namelists>` files.
+The numerical scheme and physical parameterizations are then chosen in :ref:`namelists <executables_and_namelists>` files.
 In the Meso-NH language, we say that we compile the **MASTER** version. This compilation is quite long,
 typically more than 20 minutes on one core.
 
@@ -45,7 +45,7 @@ For the **VER_USER** compilation, you will use following commands:
 
    * :file:`make`, command that compiles the code
 
-   * :file:`make installmaster`, command that links the compiled executables in the exe directory (cf List of compiled executables). Need to be done only one time by "version".
+   * :file:`make installmaster`, command that links the compiled executables in the exe directory (cf :ref:`List of compiled executables <executables_and_namelists>`). Need to be done only one time by "version".
 
 .. note::
 
@@ -61,7 +61,7 @@ For the **VER_USER** compilation, you will use following commands:
 
 .. tip::
 
-   * On GENCI (IDRIS, CINES and TGCC/CCRT), ECMWF, Meteo-France and some other supercomputers, the configure script is tuned to automatically identify the machine you are using. For them, the compiler, MPI and NetCDF libraries and optimisation settings are automatically chosen. If necessary, these settings can be modified (see :ref:`Compilation on other systems <compilation_unknown_computer>`).
+   * On GENCI (IDRIS, CINES and TGCC/CCRT), ECMWF, Meteo-France and some other supercomputers, the configure script will automatically identify the machine you are using. For them, the compiler, MPI and NetCDF libraries and optimisation settings are automatically chosen. If necessary, these settings can be modified (see :ref:`Compilation on other systems <compilation_unknown_computer>`).
 
    * To check if the supercomputer you are using is recognized by the :file:`configure` script, look at the :command:`case` condition in the :file:`configure` script to find your configuration:
 
@@ -89,8 +89,17 @@ On Jean-Zay (IDRIS)
 
 The compilation can be done interactively using the following commands:
 
-..
-   .. code-block:: bash
+.. release:
+
+.. code-block:: bash
+   :substitutions:
+  
+   cd |MNH_directory_extract_current| /src
+   ./configure
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V\ |MNH_xyz_version_hyphen_current|-MPIINTEL-O2
+   make -j16 |& tee error$XYZ
+   make installmaster
+
 .. parsed-literal::
 
    cd |MNH_directory_extract_current|/src
@@ -213,8 +222,20 @@ To run test case examples, do :
 
 .. _compilation_belenos_meteofrance:
 
-On belenos (Meteo-France)
+On Belenos (Meteo-France)
 -----------------------------------------------------------------------------
+
+.. csv-table:: Filesystem of Belenos
+   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30
+
+   "Location", "$HOME", "$WORKDIR", ":math:`\emptyset`", "ftp/telnet hendrix"
+   "Disk space", "50 Go / user", "Unlimited", ":math:`\emptyset`", "Unlimited"
+   "Data lifetime", "Saved", "Few days", ":math:`\emptyset`", "Saved on disk/band"
+
+.. tip::
+
+   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in hendrix at the end of your simulation. **A robot cleans the workdir very regularly**.
 
 Due to limitation in time and memory in interactive shell, Meso-NH has to be compiled in batch mode:
 
@@ -226,19 +247,37 @@ Due to limitation in time and memory in interactive shell, Meso-NH has to be com
    ./configure
    sbatch job_make_mesonh_BullX_belenos
 
-To run test case examples, do:
 
-.. code-block:: bash
+.. note::
+   
+   To verify your compilation you can run test case examples with:
 
-   sbatch job_make_examples_BullX_belenos
+   .. code-block:: bash
 
+      sbatch job_make_examples_BullX_belenos
 
-.. _compilation_olympe_calmip:
+.. _compilation_datarmor_ifremer:
 
-On Olympe (CALMIP)
+On Datarmor (IFREMER)
 -----------------------------------------------------------------------------
 
-Compile in interactive mode using:
+.. note::
+
+   You can find Datarmor documentation `here <https://w3z.ifremer.fr/intraric/Mon-IntraRIC/Calcul-scientifique/Datarmor>`_, only available on IFREMER intranet.
+
+.. csv-table:: Filesystem of Datarmor
+   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30
+
+   "Location", "$HOME", "$DATAWORK", "$SCRATCH", ""
+   "Disk space", "50 Go / user", "1 To / group", "10 To / group", ""
+   "Data lifetime", "Saved", "Unsaved", "15 days", ""
+
+.. tip::
+
+   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir or the Scratchdir.
+
+On Datarmor you can compile in interactive mode using:
 
 ..
    .. code-block:: bash
@@ -250,12 +289,97 @@ Compile in interactive mode using:
    make
    make installmaster
 
-To run test case examples, do:
+.. note::
 
-.. code-block:: bash
+   To verify your compilation you can run test case examples with:
 
-   sbatch job_make_examples_BullX_olympe
+   .. code-block:: bash
 
+      cd MY_RUN/KTEST
+      ./run_all_KTESTPACK
+
+.. _compilation_olympe_calmip:
+
+On Olympe (CALMIP)
+-----------------------------------------------------------------------------
+
+.. note::
+
+   You can find Olympe documentation `here <https://www.calmip.univ-toulouse.fr/espace-utilisateurs/doc-technique-olympe>`_.
+
+.. csv-table:: Filesystem of Olympe
+   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30
+
+   "Location", "/users/$GROUPE/$USER", "/tmdir/$USER", ":math:`\emptyset`", "/store/$GROUPE/$USER"
+   "Disk space", "5 Go / user", "Unlimited", ":math:`\emptyset`", "1 To / group"
+   "Data lifetime", "Saved", "100 days", ":math:`\emptyset`", "Saved"
+
+.. tip::
+
+   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in storedir.
+
+On Olympe you can compile in interactive mode using:
+
+..
+   .. code-block:: bash
+.. parsed-literal::
+
+   cd |MNH_directory_extract_current|/src
+   ./configure
+   . ../conf/profile-mesonh
+   make
+   make installmaster
+
+.. note::
+
+   To verify your compilation you can run test case examples with:
+
+   .. code-block:: bash
+
+      sbatch job_make_examples_BullX_olympe
+
+.. _compilation_nuwa_omp:
+
+On Nuwa (OMP)
+-----------------------------------------------------------------------------
+
+.. note::
+
+   You can find nuwa documentation `here <http://nuwa.aero.obs-mip.fr/>`_.
+
+.. csv-table:: Filesystem of Nuwa
+   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30
+
+   "Location", "/home/$USER", "/mesonh/$USER", ":math:`\emptyset`", ":math:`\emptyset`"
+   "Disk space", "Unlimited", "Unlimited", ":math:`\emptyset`", ":math:`\emptyset`"
+   "Data lifetime", "Unsaved", "Unsaved", ":math:`\emptyset`", ":math:`\emptyset`"
+
+.. tip::
+
+   We recommend to install Meso-NH on your Homedir and run the simulation on the Workdir.
+
+On Nuwa you can compile in interactive mode using:
+
+..
+   .. code-block:: bash
+.. parsed-literal::
+
+   cd |MNH_directory_extract_current|/src
+   ./configure
+   . ../conf/profile-mesonh
+   make
+   make installmaster
+
+.. note::
+
+   To verify your compilation you can run test case examples with:
+
+   .. code-block:: bash
+
+      cd MY_RUN/KTEST
+      ./run_all_KTESTPACK
 
 .. _compilation_unknown_computer:
 
