@@ -42,7 +42,7 @@ Quelles sont les limites ? Dans quel cas cette option est-elle plutôt à évite
 .. [#oponline] Il existe effectivement aussi trois versions “online” du simulateur radar dans Méso-NH, implémentées dans la partie DIAG :
    **(1)** la première version de simulateur radar de MésoNH (NVERSION_RAD=1, `Richard et al., 2003 <https://doi.org/10.1256/qj.02.50>`_) permet de calculer les variables radar dans la géométrie du modèle (grille 3D), en appliquant l’approximation de Rayleigh pour le calcul de la diffusion, qui reste valide tant que la taille des hydrométéores est très petite devant la taille de la longueur d’onde :math:`\lambda`. Pour des radars en bande S (:math:`\lambda` ~ 10 cm), cette hypothèse est valide pour tous les hydrométéores sauf la grêle. Pour des radars en bande C (:math:`\lambda` ~ 5 cm), on sort du cadre de cette hypothèse si on simule des pluies intenses avec de grosses gouttes d’eau (~ 8 mm).
    **(2)** une deuxième version (NVERSION_RAD=2, Caumont et al, 2006, `Augros et al., 2016 <https://doi.org/10.1002/qj.2572>`_) a été implémentée dans Méso-NH en fortran pour inclure différentes méthodes de diffusion, dont la diffusion de la matrice T (`Waterman, 1965 <https://doi.org/10.1109/PROC.1965.4058>`_) qui permet de simuler la diffusion pour des hydrométéores aplatis y compris lorsqu’on sort du régime de Rayleigh (soit pour la pluie intense dès la bande C, ou pour la grêle, ou pour des bandes de fréquence plus faibles: K, Ka, Ku, W). Cependant, cette deuxième version n’a pas été maintenue depuis 2018.
-   **(3)** une troisième version a été implémentée dans la routine aircraft_balloon_evol. La bande de fréquence est fixée à celle du radar nuage Rasta: bande W (:math:`\lambda` = 3.15 :math:`10**-3` m, fréquence = 95.04 GHz). Cette version utilise la diffusion de Mie, donc les hydrométéores sont considérés comme des sphères. Elle prend en compte l’atténuation par les hydrométéores le long du faisceau. La bande brillante est simulée via l’ajout d’une fraction liquide à l’espèce graupel, comme proposé dans `Augros et al, 2016 <https://doi.org/10.1002/qj.2572>`.
+   **(3)** une troisième version a été implémentée dans la routine aircraft_balloon_evol. La bande de fréquence est fixée à celle du radar nuage Rasta: bande W (:math:`\lambda` = 3.15 :math:`10^{-3}` m, fréquence = 95.04 GHz). Cette version utilise la diffusion de Mie, donc les hydrométéores sont considérés comme des sphères. Elle prend en compte l’atténuation par les hydrométéores le long du faisceau. La bande brillante est simulée via l’ajout d’une fraction liquide à l’espèce graupel, comme proposé dans Augros et al. (2016).
 
 Références
   - Comparisons between S, C, and X band polarimetric radar observations and convective-scale simulations of HyMeX first special observing period [`Augros et al., 2016 <https://doi.org/10.1002/qj.2572>`_]
@@ -64,10 +64,10 @@ Les nouvelles de l’équipe support
 Les prochaines journées des utilisateurs et utilisatrices de Méso-NH arrivent à grands pas ! Elles vont avoir lieu au CNRM, salle Joël Noilhan, du lundi 13 au mercredi 15 octobre 2025.
 
 Version 6
-  - La préparation de la version 6 est toujours en cours, avec l’objectif de la distribuer d’ici fin 2025.
-  - Un appel à contribution pour la version 6 a été lancé début septembre et court jusqu’à fin octobre.
+  - La préparation de la version 6 est en cours, avec l’objectif de la distribuer d’ici fin 2025.
+  - Un appel à contribution pour la version 6 court depuis début septembre jusqu’à fin octobre.
   - La librairie ACLIB (chimie et aérosols externalisés) et la nouvelle version d'ECRAD ont été intégrées dans la branche MNH-60-branch.
-  - Des tests sont en cours pour évaluer Méso-NH en simple précision sur tous les cas tests éligibles.
+  - Des tests de Méso-NH en simple précision sont en cours sur tous les cas tests éligibles.
   - Le ménage et la restructuration des sources se poursuivent pour la préparation de la version 6.0.0, avec par exemple la suppression des écritures de fichiers au format LFI.
 
 Autres développements en cours
