@@ -64,20 +64,20 @@ Les nouvelles de l’équipe support
 Les prochaines journées des utilisateurs et utilisatrices de Méso-NH arrivent à grands pas ! Elles vont avoir lieu au CNRM, salle Joël Noilhan, du lundi 13 au mercredi 15 octobre 2025.
 
 Version 6
-- La préparation de la version 6 est toujours en cours, avec l’objectif de la distribuer d’ici fin 2025.
-- Un appel à contribution pour la version 6 a été lancé début septembre et court jusqu’à fin octobre.
-- La librairie ACLIB (chimie et aérosols externalisés) et la nouvelle version d'ECRAD ont été intégrées dans la branche MNH-60-branch.
-- Des tests sont en cours pour évaluer Méso-NH en simple précision sur tous les cas tests éligibles.
-- Le ménage et la restructuration des sources se poursuivent pour la préparation de la version 6.0.0, avec par exemple la suppression des écritures de fichiers au format LFI.
+  - La préparation de la version 6 est toujours en cours, avec l’objectif de la distribuer d’ici fin 2025.
+  - Un appel à contribution pour la version 6 a été lancé début septembre et court jusqu’à fin octobre.
+  - La librairie ACLIB (chimie et aérosols externalisés) et la nouvelle version d'ECRAD ont été intégrées dans la branche MNH-60-branch.
+  - Des tests sont en cours pour évaluer Méso-NH en simple précision sur tous les cas tests éligibles.
+  - Le ménage et la restructuration des sources se poursuivent pour la préparation de la version 6.0.0, avec par exemple la suppression des écritures de fichiers au format LFI.
 
 Autres développements en cours
-- Progression sur la refonte (sur le long terme) des entrées-sorties parallèles dans Méso-NH.
-- La préparation des sites web avance bien.
+  - Progression sur la refonte (sur le long terme) des entrées-sorties parallèles dans Méso-NH.
+  - La préparation des sites web avance bien.
 
 Stage Méso-NH
-- Le prochain stage Méso-NH est programmé du 1er au 4 décembre 2025.
-- Le stage se déroulera en présentiel et en français. Il reste 3 places.
-- Envoyez un mail à `Quentin Rodier <quentin.rodier@meteo.fr>`_ pour informations et inscriptions.
+  - Le prochain stage Méso-NH est programmé du 1er au 4 décembre 2025.
+  - Le stage se déroulera en présentiel et en français. Il reste 3 places.
+  - Envoyez un mail à `Quentin Rodier <quentin.rodier@meteo.fr>`_ pour informations et inscriptions.
 
 
 
@@ -89,28 +89,27 @@ Dernières publications utilisant Méso-NH
 ****************************************************************************************
 
 Boundary layer and Interactions with the surface
-   Model and Observation for surface–atmosphere interactions over heterogeneous landscape: MOSAI project [`Lohou et al. (2025) <https://doi.org/10.1016/j.jemets.2025.100019>`_]
-   Energetically Consistent Eddy-Diffusivity Mass-Flux Convective Schemes: 2. Implementation and Evaluation in an Oceanic Context [`Perrot et Lemarié (2025) <http://dx.doi.org/10.1029/2024MS004616>`_]
+  - Model and Observation for surface–atmosphere interactions over heterogeneous landscape: MOSAI project [`Lohou et al. (2025) <https://doi.org/10.1016/j.jemets.2025.100019>`_]
+  - Energetically Consistent Eddy-Diffusivity Mass-Flux Convective Schemes: 2. Implementation and Evaluation in an Oceanic Context [`Perrot et Lemarié (2025) <http://dx.doi.org/10.1029/2024MS004616>`_]
 
 Chemistry
-   Removal Processes of the Stratospheric SO2 Volcanic Plume From the 2015 Calbuco Eruption [`Baray et al. (2025) <https://doi.org/10.1029/2025JD043850>`_]
+  - Removal Processes of the Stratospheric SO2 Volcanic Plume From the 2015 Calbuco Eruption [`Baray et al. (2025) <https://doi.org/10.1029/2025JD043850>`_]
 
 Fire Meteorology
-   A simplified model to incorporate firebrand transport into coupled fire atmosphere models [`Alonso-Pinar et al. (2025) <https://doi.org/10.1071/WF24200>`_]
-  Synoptic and Regional Meteorological Drivers of a Wildfire in the Wildland–Urban Interface of Faro (Portugal) [`Couto et al. (2025) <https://doi.org/10.3390/fire8090362>`_]
+  - A simplified model to incorporate firebrand transport into coupled fire atmosphere models [`Alonso-Pinar et al. (2025) <https://doi.org/10.1071/WF24200>`_]
+  - Synoptic and Regional Meteorological Drivers of a Wildfire in the Wildland–Urban Interface of Faro (Portugal) [`Couto et al. (2025) <https://doi.org/10.3390/fire8090362>`_]
 
 Microphysics and Precipitations
-   Improving supercooled liquid water representation in LIMA using ICICLE data [`July-Wormit et al. (2025)]
-   Localized precipitation enhancement induced by orography and wind dynamics in southern Réunion Island during Tropical Cyclone Batsirai [`Ramanamahefa et al. (2025) <https://doi.org/10.2139/ssrn.5529525>`_]
-   Model intercomparison of the impacts of varying cloud droplet nucleating aerosols on the lifecycle and microphysics of isolated deep convection [`Saleeby et al. (2025) <https://doi.org/10.1175/JAS-D-24-0181.1>`_]
+  - Improving supercooled liquid water representation in LIMA using ICICLE data [`July-Wormit et al. (2025)]
+  - Localized precipitation enhancement induced by orography and wind dynamics in southern Réunion Island during Tropical Cyclone Batsirai [`Ramanamahefa et al. (2025) <https://doi.org/10.2139/ssrn.5529525>`_]
+  - Model intercomparison of the impacts of varying cloud droplet nucleating aerosols on the lifecycle and microphysics of isolated deep convection [`Saleeby et al. (2025) <https://doi.org/10.1175/JAS-D-24-0181.1>`_]
 
 
 .. note::
 
    Si vous souhaitez partager avec la communauté le fait qu’un de vos projets utilisant Méso-NH a été financé ou toute autre communication sur vos travaux (notamment posters et présentations *disponibles en ligne*), n’hésitez pas à m’écrire. A l’occasion de la mise en place de ces infolettres, je suis également preneur de vos avis sur le format proposé.
 
-Bonnes simulations avec Méso-NH !
-
+Bonnes simulations avec Méso-NH,
 A très bientôt !
 
 Thibaut Dauhut et toute l’équipe Méso-NH : Philippe Wautelet, Quentin Rodier, Didier Ricard, Joris Pianezze, Juan Escobar et Jean-Pierre Chaboureau
