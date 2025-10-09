@@ -64,7 +64,7 @@ Références
 Les nouvelles de l’équipe support
 ************************************
 
-Les prochaines journées des utilisateurs et utilisatrices de Méso-NH arrivent à grands pas ! Elles vont avoir lieu au CNRM, salle Joël Noilhan, du lundi 13 au mercredi 15 octobre 2025.
+Les prochaines journées des utilisateurs et utilisatrices de Méso-NH arrivent à grands pas ! Elles vont avoir lieu au CNRM, salle Joël Noilhan, du lundi 13 au mercredi 15 octobre 2025. Vous pouvez retrouver `ici <https://mesonh.cnrs.fr/13th-meso-nh-users-meeting-13-15-oct-2025/>`_ le programme.
 
 Version 6
   - La préparation de la version 6 est en cours, avec l’objectif de la distribuer d’ici fin 2025.
