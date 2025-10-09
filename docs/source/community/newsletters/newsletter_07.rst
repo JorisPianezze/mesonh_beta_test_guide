@@ -1,7 +1,7 @@
 Infolettre #07
 ================================================
 
-**9 octobre 2025.** Version française, English version `here <newsletter_03_english.html>`_.
+**9 octobre 2025.** Version française, English version `here <newsletter_07_english.html>`_.
 
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
@@ -100,7 +100,7 @@ Fire Meteorology
   - Synoptic and Regional Meteorological Drivers of a Wildfire in the Wildland–Urban Interface of Faro (Portugal) [`Couto et al. (2025) <https://doi.org/10.3390/fire8090362>`_]
 
 Microphysics and Precipitations
-  - Improving supercooled liquid water representation in LIMA using ICICLE data [`July-Wormit et al. (2025)]
+  - Improving supercooled liquid water representation in LIMA using ICICLE data [July-Wormit et al., accepted (2025)]
   - Localized precipitation enhancement induced by orography and wind dynamics in southern Réunion Island during Tropical Cyclone Batsirai [`Ramanamahefa et al. (2025) <https://doi.org/10.2139/ssrn.5529525>`_]
   - Model intercomparison of the impacts of varying cloud droplet nucleating aerosols on the lifecycle and microphysics of isolated deep convection [`Saleeby et al. (2025) <https://doi.org/10.1175/JAS-D-24-0181.1>`_]
 
