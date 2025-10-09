@@ -11,6 +11,9 @@ Voici ci-dessous la 7ème infolettre de notre communauté. Vous y trouverez un e
 Entretien avec `Clotilde Augros <mailto:clotilde.augros@meteo.fr>`_ (CNRM)
 ************************************************************************************
 
+.. image:: photo_ca.jpg
+  :width: 250
+
 Clotilde, tu as développé un simulateur radar qui peut tourner à partir des sorties de Méso-NH. Pourrais-tu résumer ce que fait cet outil ?
   Ce code, appelé **operadar** (Observation oPErator for polarimetric RADAR, `Augros et al., 2016 <https://doi.org/10.1002/qj.2572>`_, `David et al. 2025 <https://doi.org/10.5194/amt-18-3715-2025>`_) prend les variables du modèle en entrée (rapports de mélange et éventuellement concentrations en nombre des hydrométéores, température, altitude, pression) et calcule en chaque point de grille du modèle les variables radar (réflectivité :math:`Z_H`, réflectivité différentielle :math:`Z_{DR}`, phase différentielle spécifique :math:`K_{DP}`, coefficient de corrélation :math:`\rho _{HV}`) à partir de tables de coefficients de rétrodiffusion. La méthode de diffusion utilisée est la méthode de la matrice T (`Waterman, 1965 <https://doi.org/10.1109/PROC.1965.4058>`_) qui représente les hydrométéores comme des sphéroïdes aplatis, mais on peut aussi choisir de calculer les variables radar avec l’approximation de Rayleigh. 
 
