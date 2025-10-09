@@ -15,5 +15,6 @@ Newsletters
    newsletter_05_en.rst
    newsletter_06.rst
    newsletter_07.rst
+   newsletter_07_en.rst
    newsletter_CA.rst
    newsletter_SSQL.rst
