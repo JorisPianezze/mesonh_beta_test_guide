@@ -6,6 +6,6 @@ Newsletter #07
 
 Dear Meso-NH users,
 
-This is the 7th newsletter from our Meso-NH community. You'll find an interview with the developer of a useful tool for Meso-NH users, the latest news from the support team and a list of the latest publications using Meso-NH.
+This is the 7th newsletter newsletter from our community. It includes an interview with the developer of a useful tool for Meso-NH users, the latest news from the support team, and a list of the latest publications using Meso-NH.
 
 Interview with
