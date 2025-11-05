@@ -10,8 +10,9 @@ Meso-NH website
 
 .. note::
 
-   This website is under development.
-   For Meso-NH version lower than 6.0.0, please go to the |old_mesonh_website|. 
+   * This website is under development.
+   * For Meso-NH version lower than 6.0.0, please go to the |old_mesonh_website|.
+   * For more general informations about Meso-NH, please go |mesonh_website|.
 
 .. toctree::
    :maxdepth: 2
@@ -58,3 +59,6 @@ Meso-NH website
 
    <a href="http://mesonh.aero.obs-mip.fr" target="_blank">old website</a>
 
+.. |mesonh_website| raw:: html
+
+   <a href="https://www.mesonh.cnrs.fr" target="_blank">here</a>

@@ -10,13 +10,13 @@ Download
 Meso-NH package is developed and maintained using |git_link|.
 It is strongly recommended, but not mandatory, to download Meso-NH package using :ref:`Git repository <git>`, because:
 
-* It is easier for the Meso-NH support team to give you some assistance in case of trouble... as Git allows us to know exactly what you have changed in the original package ;
+* It is easier for the Meso-NH's support team to give you some assistance in case of trouble as Git allows us to know exactly what you have changed in the original package ;
 
-* It is easier for you to update to the last version...  or at least see the changes made for bug fix directly on our installation ;
+* It is easier for you to update to the last version or at least see the changes made for bug fix directly on your installation ;
 
 * Git is strongly recommended if you intend to modify the code.
 
-A :ref:`Tarball (from Zenodo) <tarball>` of Meso-NH package with an associated DOI is also vailable and can be use to cite Meso-NH in your publications.
+A :ref:`Tarball (from Zenodo) <tarball>` of Meso-NH package with an associated DOI is also available and can be use to cite Meso-NH in your publications.
 
 .. |git_link| raw:: html
 
@@ -34,11 +34,11 @@ To clone the Meso-NH Git repository the |gitlfs_link| extension, not included by
 
 * either, install the |gitlfs_link| package on your system (you need root access)
 
-* or, if not possible, install it in your own environment
+* or, if not possible, install it in your own environment:
 
-  * get the git-lfs archive from the 'Download vX.Y.Z' link on the |gitlfs_link| web page
+  * download the git-lfs archive from the link on the |gitlfs_link| web page ;
 
-  * extract the archive and copy the git-lfs binary in a `$HOME/bin` directory by exampe (create this directory if it doesn't exist)
+  * extract the archive and copy the git-lfs binary in a `$HOME/bin` directory by example (create this directory if it doesn't exist) ;
 
   * from any directory, you can now execute:
 
@@ -56,7 +56,7 @@ To clone the Meso-NH Git repository the |gitlfs_link| extension, not included by
 Cloning
 *****************************************************************************
 
-Clone the Meso-NH Git repository from the developpement branch |MNH_branch_current| with the following command:
+Clone the Meso-NH Git repository from the development branch with the following command:
 
 .. code-block:: bash
    :substitutions:
@@ -67,14 +67,14 @@ that will create the |MNH_directory_extract_current| directory containing a clon
 
 .. warning::
 
-   This version of Meso-NH doesn't correspond to a stable version. Please continue this documentation to :ref:`check out a given version <check_out_given_version>`. If you want to stay in this development branch you can go to :ref:`compilation` section.
+   This version of Meso-NH doesn't correspond to a stable version. Please continue this documentation to :ref:`check out a given version <check_out_given_version>`. However if you want to stay in this development branch you can go directly to :ref:`compilation` section.
 
 .. _check_out_given_version:
 
 Checking out a given version
 *****************************************************************************
 
-Once the repository is cloned, it's better for you to checkout your own branch (by default, you are on HEAD of the |MNH_branch_current| development branch). To create your local branch corresponding to the |MNH_xyz_version_current| version, type:
+Once the repository is cloned, it's better for you to work on a stable version of Meso-NH (by default, you are on HEAD of the |MNH_branch_current| development branch). To go to the stable |MNH_xyz_version_current| version, you can do:
 
 .. code-block:: bash
    :substitutions:
@@ -82,15 +82,20 @@ Once the repository is cloned, it's better for you to checkout your own branch (
    cd |MNH_directory_extract_current|
    git checkout -b MYB-MNH-V|MNH_xyz_version_hyphen_current| |MNH_pack_current|
 
-MYB-MNH-V\ |MNH_xyz_version_hyphen_current| is the name of the local branch you created and |MNH_pack_current| is the remote/origin tag on which it is based. The advantage of this way of downloading the package is that in the future you could check and update quickly differences with the new version of the package without having to download entirely the full package.
+MYB-MNH-V |MNH_xyz_version_hyphen_current| is the name of the local branch you created and |MNH_pack_current| is the tag on which it is based.
 
-Suppose that a new version, for example "PACK-MNH-V9-8-7", is announced. To see the differences
-with your working copy, do:
+.. note::
 
-.. code-block:: bash
+   The |MNH_pack_current| tag corresponds to the same :ref:`Tarball (from Zenodo) <tarball>` version of Meso-NH.
 
-   git fetch
-   git diff HEAD PACK-MNH-V9-8-7
+.. tip::
+
+   In the future you could check and update quickly differences with the new version of the package without having to download entirely the full package. Suppose that a new version, for example "PACK-MNH-V9-8-7", is announced. To see the differences with your working copy, do:
+
+   .. code-block:: bash
+
+      git fetch
+      git diff HEAD PACK-MNH-V9-8-7
 
 To go to the new version, you can, for example, create a new local branch:
 
@@ -124,12 +129,16 @@ Tarball (from Zenodo)
 -----------------------------------------------------------------------------
 
 You can also download a compressed tarball containing the Meso-NH package from |zenodo_mesonh_link| .
-Then untar the file MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz where you want :
+Then untar the file MNH-V |MNH_xyz_version_hyphen_current|.tar.gz where you want :
 
 .. code-block:: bash
    :substitutions:
 
-   tar xvfz MNH-V\ |MNH_xyz_version_hyphen_current|.tar.gz
+   tar xvfz MNH-V|MNH_xyz_version_hyphen_current|.tar.gz
+
+.. note::
+
+   The archive of Meso-NH you've downloaded from Zenodo corresponds to the same tag version in the :ref:`Git repository <git>`.
 
 .. tip::
 
@@ -143,6 +152,49 @@ What do you download ?
 -----------------------------------------------------------------------------
 
 Meso-NH's package contains sources, makefiles, pre-compiled executables, graphic tools and basic examples.
+
+Hereafter is a very quick description of Meso-NH's tree :
+
+.. role:: gray
+   :class: text-gray
+   
+.. treeview::
+
+   - :dir:`folder` mesonh-code/
+
+     - :dir:`file` A-INSTALL :gray:`: Instructions to install Meso-NH`
+     - :dir:`folder` bin/ :gray:`: Miscellaneous scripts for compilation and execution`
+     - :dir:`folder` bin_tool/ : 
+     - :dir:`folder` conf/ :gray:`: Location of profile_mesonh files (`:ref:`compilation`:gray:`)`
+     - :dir:`folder` exe/ :gray:`: Links to binary` :ref:`compiled <compilation>` :gray:`programs`
+     - :dir:`folder` LIBTOOLS/ 
+     - :dir:`file` Licence_CeCILL-C_V1-en.txt
+     - :dir:`file` Licence_CeCILL-C_V1-fr.txt
+     - :dir:`file` LICENSE
+     - :dir:`folder` MY_RUN/ :gray:`: Tests cases and benchmarks (`:ref:`compilation`:gray:`)`
+     - :dir:`folder` pub/ : Public tools
+     - :dir:`file` README_MNH_CONDA : Instructions to install `MNHPy <https://github.com/QuentinRodier/MNHPy>`_
+     - :dir:`folder` src/
+     
+       - :dir:`folder` ARCH_SRC/
+       - :dir:`file` configure :gray:`: Script to configure Meso-NH (`:ref:`compilation`)
+       - :dir:`folder` include/ : 
+       - :dir:`folder` job_make_examples_* :gray:`: Script to launch examples on different computers`
+       - :dir:`folder` job_make_mesonh_* :gray:`: Script to` :ref:`compile <compilation>` :gray:`Meso-NH`
+       - :dir:`folder` LIB/ :gray:`: Location of external libraries (ECCODES, ECRAD, NETCDF, OASIS, ...)`
+       - :dir:`folder` Makefile :gray:`: Script for` :ref:`compilation`
+       - :dir:`folder` Makefile.MESONH.mk :gray:`: Script for` :ref:`compilation`
+       - :dir:`folder` MNH/ :gray:`: Meso-NH's source code`
+       - :dir:`folder` PHYEX/ :gray:`: PHYEX's source code`
+       - :dir:`file` Rules.* :gray:`: Compiled options for various compilers`
+       - :dir:`folder` SURFEX/ :gray:`: SURFEX's source code`
+     
+.. note::
+
+   * `MNHPy <https://github.com/QuentinRodier/MNHPy>`_ is a python library used to plot Meso-NH outputs.
+   * PHYEX is the externalized atmospheric physics common to AROME and HARMONIE-AROME.
+   * SURFEX is the externalized surface physics (also used in AROME and ARPEGE).
+   
 
 Hereafter is a very quick description of Meso-NH's tree :
 

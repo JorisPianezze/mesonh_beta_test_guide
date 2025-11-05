@@ -31,7 +31,8 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinxcontrib.bibtex',
-    'sphinx_substitution_extensions'
+    'sphinx_substitution_extensions',
+    'sphinx_treeview'
 ]
 
 bibtex_bibfiles        = ['references.bib']
@@ -54,8 +55,8 @@ html_theme = 'sphinx_rtd_theme'
 
 html_logo = 'logos/LogoMesoNH-small.png'
 
-#html_static_path = ['_static']
-#html_css_files = ['custom.css']
+html_static_path = ['_static']
+html_css_files = ['custom.css']
 
 #html_sidebars = {
 #'index': [],
