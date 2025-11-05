@@ -160,72 +160,64 @@ Hereafter is a very quick description of Meso-NH's tree :
    
 .. treeview::
 
-   - :dir:`folder` mesonh-code/
+   - :dir:`folder` |MNH_directory_extract_current|/
 
-     - :dir:`file` A-INSTALL :gray:`: Instructions to install Meso-NH`
      - :dir:`folder` bin/ :gray:`: Miscellaneous scripts for compilation and execution`
-     - :dir:`folder` bin_tool/ : 
      - :dir:`folder` conf/ :gray:`: Location of profile_mesonh files (`:ref:`compilation`:gray:`)`
      - :dir:`folder` exe/ :gray:`: Links to binary` :ref:`compiled <compilation>` :gray:`programs`
-     - :dir:`folder` LIBTOOLS/ 
-     - :dir:`file` Licence_CeCILL-C_V1-en.txt
-     - :dir:`file` Licence_CeCILL-C_V1-fr.txt
-     - :dir:`file` LICENSE
-     - :dir:`folder` MY_RUN/ :gray:`: Tests cases and benchmarks (`:ref:`compilation`:gray:`)`
-     - :dir:`folder` pub/ : Public tools
-     - :dir:`file` README_MNH_CONDA : Instructions to install `MNHPy <https://github.com/QuentinRodier/MNHPy>`_
+     - [-] :dir:`folder` MY_RUN/ :gray:`: Tests cases and benchmarks (`:ref:`compilation`:gray:`)`
+
+       - :dir:`folder` BENCH/
+       - :dir:`folder` INTEGRATION_CASES/
+       - :dir:`folder` KTEST/
+     
+     - :dir:`folder` pub/ :gray:`: Public tools`
      - :dir:`folder` src/
      
        - :dir:`folder` ARCH_SRC/
-       - :dir:`file` configure :gray:`: Script to configure Meso-NH (`:ref:`compilation`)
-       - :dir:`folder` include/ : 
-       - :dir:`folder` job_make_examples_* :gray:`: Script to launch examples on different computers`
-       - :dir:`folder` job_make_mesonh_* :gray:`: Script to` :ref:`compile <compilation>` :gray:`Meso-NH`
-       - :dir:`folder` LIB/ :gray:`: Location of external libraries (ECCODES, ECRAD, NETCDF, OASIS, ...)`
-       - :dir:`folder` Makefile :gray:`: Script for` :ref:`compilation`
-       - :dir:`folder` Makefile.MESONH.mk :gray:`: Script for` :ref:`compilation`
+       - [-] :dir:`folder` LIB/ :gray:`: External libraries (ECCODES, ECRAD, NETCDF, OASIS, ...)`
+       
+         - :dir:`folder` FOREFIRE/
+         - :dir:`folder` MEGAN/
+         - :dir:`folder` MPIvide/
+         - :dir:`folder` NEWLFI/
+         - :dir:`folder` Python/
+         - :dir:`folder` RAD/
+         - :dir:`folder` s4py/
+         - :dir:`folder` SURCOUCHE/         
+         - :dir:`file` eccodes-2.41.0-Source.tar.gz                        
+         - :dir:`file` grib_api-1.26.0-Source.tar.gz
+         - :dir:`file` hdf5-1.14.6.tar.gz
+         - :dir:`file` libaec-1.1.3.tar.gz
+         - :dir:`file` netcdf-c-4.9.3.tar.gz
+         - :dir:`file` netcdf-cxx4-4.3.1.tar.gz
+         - :dir:`file` netcdf-fortran-4.6.1.tar.gz
+         - :dir:`file` oasis3-mct_5.0.tar.gz
+         - :dir:`file` toy_2.0.tar.gz
+         
        - :dir:`folder` MNH/ :gray:`: Meso-NH's source code`
+       - :dir:`folder` ACLIB/ :gray:`: ACLIB's source code`       
        - :dir:`folder` PHYEX/ :gray:`: PHYEX's source code`
+       - :dir:`folder` SURFEX/ :gray:`: SURFEX's source code`       
+       - :dir:`file` configure :gray:`: Script to configure Meso-NH (`:ref:`compilation`)
+       - :dir:`file` job_make_mesonh_* :gray:`: Script to` :ref:`compile <compilation>` :gray:`Meso-NH`
+       - :dir:`file` job_make_examples_* :gray:`: Script to launch examples on different computers`           
+       - :dir:`file` Makefile :gray:`: Script for` :ref:`compilation`
+       - :dir:`file` Makefile.MESONH.mk :gray:`: Script for` :ref:`compilation`
        - :dir:`file` Rules.* :gray:`: Compiled options for various compilers`
-       - :dir:`folder` SURFEX/ :gray:`: SURFEX's source code`
+
+     - :dir:`file` README_MNH_CONDA :gray:`: Instructions to install` `MNHPy <https://github.com/QuentinRodier/MNHPy>`_
+     - :dir:`file` A-INSTALL :gray:`: Instructions to install Meso-NH`     
+     - :dir:`file` Licence_CeCILL-C_V1-en.txt
+     - :dir:`file` Licence_CeCILL-C_V1-fr.txt
+     - :dir:`file` LICENSE       
      
 .. note::
 
    * `MNHPy <https://github.com/QuentinRodier/MNHPy>`_ is a python library used to plot Meso-NH outputs.
+   * ACLIB is the externalized chemistry and aerosols of Meso-NH and other models.   
    * PHYEX is the externalized atmospheric physics common to AROME and HARMONIE-AROME.
    * SURFEX is the externalized surface physics (also used in AROME and ARPEGE).
-   
-
-Hereafter is a very quick description of Meso-NH's tree :
-
-.. csv-table:: Description of the Meso-NH's package
-   :header: "Tree", "Description"
-   :widths: 30, 30
-
-   "A-INSTALL", "Instructions to install Meso-NH"
-   "bin/", "Miscellaneous scripts for compilation and execution"
-   "bin_tools/", ""
-   "conf/", "Location of profile_mesonh files (:ref:`configuration`)"
-   "exe/", "Links to binary :ref:`compiled <compilation>` programs"
-   "LIBTOOLS/", ""
-   "Licence_CeCILL-C_V1-en.txt", "Licence in French"
-   "Licence_CeCILL-C_V1-fr.txt", "Licence in English"
-   "LICENSE", ""
-   "MY_RUN/", "Ktests and benchmarks (:ref:`compilation`)"
-   "pub/", "Public tools"
-   "README_MNH_CONDA", "Instructions to install https://github.com/QuentinRodier/MNHPy via conda, a python library to plot Meso-NH outputs"
-   "src/ARCH_SRC/", ""
-   "src/configure", "Script to configure Meso-NH (:ref:`configuration`)"
-   "src/include/", ""
-   "src/job_make_examples_*", "Script to launch examples on different computers"
-   "src/job_make_mesonh_*", "Script to :ref:`compile <compilation>` Meso-NH on different computers"
-   "src/LIB/", "Mocation of external libraries (ECCODES, ECRAD, NETCDF, OASIS, ...)"
-   "src/Makefile", "Script for :ref:`compilation`"
-   "src/Makefile.MESONH.mk", "Script for :ref:`compilation`"
-   "src/MNH/", "Meso-NH's source code"
-   "src/PHYEX/", "PHYEX's source code, externalized atmospheric physics common to AROME and HARMONIE-AROME"
-   "src/Rules.*", "Compiled options for various compilers"
-   "src/SURFEX/", "SURFEX's source code, externalized surface physics (also used in AROME and ARPEGE)"
 
 Releases
 ------------------------------------------------------------------------
