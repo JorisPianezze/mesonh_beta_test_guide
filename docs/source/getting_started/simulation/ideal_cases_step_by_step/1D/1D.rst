@@ -91,6 +91,50 @@ Hereafter are the minimum namelists you need to have in the :file:`PRE_IDEA1.nam
      1000.00     300.00  0.00
      4000.00     317.90  0.00
 
+.. tip::
+
+   See the full :file:`PRE_IDEA1.nam` file :
+   
+   .. toggle::
+
+      .. code-block:: fortran
+
+         &NAM_LUNITn CINIFILE    = "INI",
+                     CINIFILEPGD = "PGD" /
+
+        &NAM_DIMn_PRE NIMAX = 1,
+                      NJMAX = 1 /
+
+        &NAM_VER_GRID NKMAX        = 100,
+                      ZDZGRD       = 40.,
+                      ZDZTOP       = 40.,
+                      ZZMAX_STRGRD = 1000.,
+                      ZSTRGRD      = 0.,
+                      ZSTRTOP      = 0 /
+
+        &NAM_GRn_PRE CSURF        = "EXTE" /
+        &NAM_PGD_SCHEMES CSEA     = "FLUX" /
+        &NAM_COVER XUNIF_COVER(1) = 1.0 /
+     
+        &NAM_CONF_PRE CIDEAL = "RSOU" /     
+
+        RSOU
+        2025 6 11 0.
+        "ZUVTHVHU"
+        0.
+        100000.
+        305.
+        0.
+
+        2
+        0        0      0
+        4000     0      0
+
+        4
+          20.00     300.00  0.00
+        1000.00     300.00  0.00
+        4000.00     317.90  0.00
+
 Once you have put these namelist in the :file:`PRE_IDEA1.nam` file, you can launch :ref:`prep_ideal_case` program in the same directory as the :file:`PRE_IDEA1.nam` file :
 
 .. code-block:: bash
@@ -106,7 +150,7 @@ At the end of the :ref:`prep_ideal_case` execution, you need to have following f
 
 .. treeview::
 
-   - :dir:`folder` your_simulated_directory/
+   - :dir:`folder` your_run_directory/
 
      - :dir:`file` PRE_IDEA1.nam :gray:`: The file you've created from this example`
      - :dir:`file` INI.des :gray:`: The descriptive part of the initial condition file`

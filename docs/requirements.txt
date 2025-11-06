@@ -3,3 +3,4 @@ sphinx-rtd-theme
 sphinxcontrib-bibtex
 sphinx_substitution_extensions
 sphinx-treeview
+sphinx-togglebutton

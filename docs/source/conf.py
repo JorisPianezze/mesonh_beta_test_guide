@@ -32,7 +32,8 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinxcontrib.bibtex',
     'sphinx_substitution_extensions',
-    'sphinx_treeview'
+    'sphinx_treeview',
+    'sphinx_togglebutton'
 ]
 
 bibtex_bibfiles        = ['references.bib']
