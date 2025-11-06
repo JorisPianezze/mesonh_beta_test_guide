@@ -13,6 +13,6 @@ NAM_PGDFILE
 
 * :code:`CPGDFILE` : name of the input Physiographic Data File.
 
-* :code:`YZOOMFILE` : optional name of the zoomned FM-file (output file). If the user does not specify this name, or if YZOOMFILE = CPGDFILE, the code builds the zoomned FM-file name as: YZOOMFILE = CPGDFILE.zYZOOMNBR.
+* :code:`YZOOMFILE` : optional name of the zoomed Meso-NH file (output file). If the user does not specify this name, or if YZOOMFILE = CPGDFILE, the code builds the zoomed Meso-NH file name as: YZOOMFILE = CPGDFILE.zYZOOMNBR.
 
-* :code:`YZOOMNBR` : NumBeR which will be added to CPGDFILE to generate the name of the Zoomned FM-file.
+* :code:`YZOOMNBR` : NumBeR which will be added to CPGDFILE to generate the name of the ZOOMed Meso-NH file.

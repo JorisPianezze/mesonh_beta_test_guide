@@ -20,7 +20,7 @@ Only the first NDUMMY_NBR values in these arrays are meaningfull.
 
 * :code:`NDUMMY_NBR` : number of dummy fields.
 
-* :code:`CDUMMY_NAME(:)` : list of the dummy fields you want to initialize with your own data. You can give any name you want. This is a way to describe what is the field. This information is not used by the program. It is just written in the FM files.
+* :code:`CDUMMY_NAME(:)` : list of the dummy fields you want to initialize with your own data. You can give any name you want. This is a way to describe what is the field. This information is not used by the program. It is just written in the Meso-NH files.
 
 * :code:`CDUMMY_FILE(:)` : list of the names of the files containing the data for the fields you have specified in CDUMMY_NAME(:).
 

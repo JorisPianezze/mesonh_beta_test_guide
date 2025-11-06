@@ -10,7 +10,7 @@ NAM_LUNITn
    "CINIFILE","CHARACTER(LEN=128)","'INIFILE'"
    "CINIFILEPGD","CHARACTER(LEN=128)","' '"
 
-* :code:`CINIFILE` : name of the initial FM-file produced by :program:`PREP_IDEAL_CASE`, it will then be used as initial file in a :program:`MESONH` simulation.
+* :code:`CINIFILE` : name of the initial Meso-NH file produced by :program:`PREP_IDEAL_CASE`, it will then be used as initial file in a :program:`MESONH` simulation.
 
 * :code:`CINIFILEPGD` : name of the PGD file if CSURF :math:`\neq` 'NONE' : 
 

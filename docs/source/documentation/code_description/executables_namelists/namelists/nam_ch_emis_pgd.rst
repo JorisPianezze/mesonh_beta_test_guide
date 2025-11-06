@@ -23,7 +23,7 @@ Only the first NEMIS_PGD_NBR values in these arrays are meaningfull.
 
 * :code:`NEMIS_PGD_NBR` : number of dummy fields.
 
-* :code:`CEMIS_PGD_NAME(:)` : list of the dummy fields you want to initialize with your own data. You can give any name you want. This is a way to describe what is the field. This information is not used by the program. It is just written in the FM files.
+* :code:`CEMIS_PGD_NAME(:)` : list of the dummy fields you want to initialize with your own data. You can give any name you want. This is a way to describe what is the field. This information is not used by the program. It is just written in the Meso-NH files.
 
 * :code:`CEMIS_PGD_FILE(:)` : list of the names of the files containing the data for the fields you have specified in CEMIS_PGD_NAME(:).
 

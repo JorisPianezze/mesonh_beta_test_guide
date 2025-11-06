@@ -7,7 +7,7 @@ SPAWNING
 
 * by namelist NAM_GRID2_SPA specification.
 
-* with the domain of another FM file, which grid is coherent with the input file. For example this file can be a PGD file created by :program:`PREP_PGD` with a domain defined from the domain of file 1 and the same type of specifications as those in NAM_GRID2_SPA.
+* with the domain of another Meso-NH file, which grid is coherent with the input file. For example this file can be a PGD file created by :program:`PREP_PGD` with a domain defined from the domain of file 1 and the same type of specifications as those in NAM_GRID2_SPA.
 
 .. csv-table:: SPAWNING program and its corresponding namelist and function
    :header: "Executable", "Namelist", "Function"

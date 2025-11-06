@@ -36,4 +36,4 @@ NAM_FILE_NAMES
 
 * :code:`HCAMSFILETYPE` : type of the CAMS file ('NETCDF')
 
-* :code:`CINIFILE` : name of the Meso-NH output FM-file, used as initial or coupling file in a Meso-NH simulation
+* :code:`CINIFILE` : name of the Meso-NH file, used as initial or coupling file in a Meso-NH simulation

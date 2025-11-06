@@ -76,7 +76,7 @@ It contains the specific dynamic parameters for the model n. They are included i
 
    * LHORELAX_RV, LHORELAX_RC, LHORELAX_RR, LHORELAX_RI, LHORELAX_RS, LHORELAX_RG, LHORELAX_RH, LHORELAX_TKE, LHORELAX_SV, LHORELAX_SVCHEM, LHORELAX_SVC2R2, LHORELAX_SVLIMA, LHOREAX_SVLG, LHORELAX_SVDST, LHORELAX_SVPP, LHORELAX_SVAER, LHORELAX_SVELEC, LHORELAX_SVSNW, LHORELAX_SVFIRE : same as LHORELAX_UVWTH
 
-   * It is safer to set all the LHORELAX values rather than use their default values which can be modified by the desfm file.
+   * It is safer to set all the LHORELAX values rather than use their default values which can be modified by the descriptive (.des) file.
 
 * :code:`LVE_RELAX` : Flag for the vertical relaxation applied to the outermost verticals of the model. 
 

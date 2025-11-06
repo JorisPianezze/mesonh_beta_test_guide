@@ -28,7 +28,7 @@ NAM_CONF_PRE
   * .TRUE. for cartesian geometry
   * .FALSE. for conformal projection
 
-* :code:`LPACK` : Flag to compress FM file for 1D or 2D version.
+* :code:`LPACK` : Flag to compact 1D or 2D fields
 
 * :code:`CEQNSYS` : Equation system resolved by Meso-NH
 
