@@ -44,7 +44,7 @@ NAM_CH_MNHCn
 
 * :code:`LCH_CONV_LINOX` : switch to activate the production of NOx by LIghtning flashes inside deep convective clouds and its transport (LCHTRANS must be set to TRUE).
 
-   * LUSECHEM=.FALSE. : a scalar variable named LINOX are written in the LFI file
+   * LUSECHEM=.FALSE. : a scalar variable named LINOX are written in the Meso-NH file
    * LUSECHEM=.TRUE. : the convective source is added to the NO chemical variable.
 
 * :code:`LCH_PH` : switch to activate the computing of pH in cloud water and rainwater as diagnostic variables. XPHC and XPHR are added in synchronous backup files.

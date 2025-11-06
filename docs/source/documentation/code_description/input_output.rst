@@ -75,13 +75,13 @@ Meso-NH writes files by group of 2:
 * a binary part where the fields are stored. Two different fileformat are available:
 
   * NetCDF (files with a .nc suffix). This is the recommanded fileformat and is the default since Meso-NH 5.4.0. NetCDF is a self-describing, machine-independent fileformat. In Meso-NH, these files are mostly compliant with the CF conventions (version 1.7) and the COMODO extensions (version 1.4).
-  * LFI (files with a .lfi suffix). This is the historic fileformat for Meso-NH. Its structure is a direct access type file, written and read by routines developped by Météo-France (Fischer, 1994) based on LFI routines (Clochard, 1989), which can be used on a lot of different computers. These binary files are used to store all the data necessary to run any step of a numerical experiment.
+  * LFI (files with a .lfi suffix). This is the historic fileformat for Meso-NH. Its structure is a direct access type file, written and read by routines developped by Météo-France (Fischer, 1994) based on LFI routines (Clochard, 1989), which can be used on a lot of different computers. These binary files are used to store all the data necessary to run any step of a numerical experiment. Since Meso-NH 6.0, it is not possible anymore to write LFI files, but Meso-NH can still read existing LFI files.
 
 Three different filetypes are taken into account in the Meso-NH project:
 
 * the synchronous backup file : contains all the values of all the fields allowing a restart of the model and of some diagnostic fields desired by the Meso-NH user. All these informations are obtained at the same instant during the simulation, hence their synchronous name.
 
-* the diachronic file : contains time series of information requested by the Meso-NH user. They are obtained during more than one time step of the model. If in LFI fileformat, it is the type in which your file must be if you want to plot it with the graphics software diaprog (you can convert a synchronous file into a diachronic one with conv2dia).
+* the diachronic file : contains time series of information requested by the Meso-NH user. They are obtained during more than one time step of the model.
 
 * the output files. They contain only user-selected fields. They are useful, for example, if you need to output frequently some data without spending too much diskspace and too much time writing them.
 
@@ -95,7 +95,7 @@ This type of file contains only information corresponding to the same instant of
 This part is the list of all the namelists of the EXSEG$n.nam file. Thus, a complete description of this part is given with the EXSEG$n.nam description in chapter 9. If the file has been generated during a segment of the model integration, the .des part contains the different namelists fixing the free-parameters for the dynamics and the physics of the Meso-NH model. This allows the user to know a large part of the history of this file. For the namelists or variables ommited in the EXSEG$n.nam file, the values are set to the default ones (see the tables in ch.9). If the file is the result of the initialization programs (PREP_IDEAL_CASE, PREP_REAL_CASE or SPAWNING), the values of the namelists variables are the ones of the descriptive part of the input file of the program if it does exist. Otherwise, the values are set to the default ones, except for these that can be initialized during the initialization program (e.g. CINIFILE or LUSERV). Note that a physiographic file does not have a descriptive part.
 
 **The binary part**
-This type of file can be in netCDF or LFI fileformat. It should be noted that additional fields can be added to these basic information, which have been obtained at the same instant. In order to be easily drawn by the Meso-NH graphic package, the comment field must be filled, according to the following rules:
+This type of file is in netCDF fileformat (historically LFI fileformat). It should be noted that additional fields can be added to these basic information, which have been obtained at the same instant. In order to be easily drawn by the Meso-NH graphic package, the comment field must be filled, according to the following rules:
 
 * the length of the character string is equal to 100
 * the type of the supplementary field must be specified:
@@ -114,7 +114,7 @@ This type of file can be in netCDF or LFI fileformat. It should be noted that ad
 The diachronic file
 -----------------------------------------------------------------------------
 
-A diachronic file is a file obtained during a segment of simulation or resulting of the conversion of a synchronous file with conv2dia for graphical purposes (available only for LFI fileformat). The file directly obtained during the simulation has a name ended by .000, and contains records such as averaged variables, tendencies, fluxes stored at different times of the simulation on the whole or some parts of the domain. Such records are obtained by requesting temporal series, budgets, aircraft or balloon, profiler or station, or LES diagnostics.
+A diachronic file is a file obtained during a segment of simulation. The file directly obtained during the simulation has a name ended by .000, and contains records such as averaged variables, tendencies, fluxes stored at different times of the simulation on the whole or some parts of the domain. Such records are obtained by requesting temporal series, budgets, aircraft or balloon, profiler or station, or LES diagnostics.
 
 The output file
 -----------------------------------------------------------------------------

@@ -214,7 +214,7 @@ then recompile your modified code, and then execute the steps 2 to 4 as previous
 
     exit 
 
-    ln -sf ${CLONE_DIR}/REL3D.1.${CSEG}.001.lfi REL3D.1.${CSEG}.001.CLONE.lfi
+    ln -sf ${CLONE_DIR}/REL3D.1.${CSEG}.001.nc REL3D.1.${CSEG}.001.CLONE.nc
     
 :file:`mppdb.nam.ihm` namelist :
     

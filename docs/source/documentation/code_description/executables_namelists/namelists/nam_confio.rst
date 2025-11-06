@@ -7,9 +7,6 @@ NAM_CONFIO
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "LCDF4", "LOGICAL", ".FALSE."
-   "LLFIOUT", "LOGICAL", ".FALSE."
-   "LLFIREAD", "LOGICAL", ".FALSE."
    "CIO_DIR", "CHARACTER(LEN=512)", ""
    "LVERB_OUTLST", "LOGICAL", ".TRUE."
    "LVERB_STDOUT", "LOGICAL", ".FALSE."
@@ -29,26 +26,8 @@ NAM_CONFIO
    "NFILE_NUM_MAX", "INTEGER", "999"
    
    
-* :code:`LCDF4`:
-
-  * .TRUE. :  read and write files in netCDF-4 file format (read file format can be forced to only LFI if LLFIREAD=.TRUE.)
-  * .FALSE. : read and write files in LFI file format
-   
-* :code:`LLFIOUT`:
-
-  * .TRUE. : write files in LFI file format (even if LCDF4=.TRUE.)
-  * .FALSE. : do not write files in LFI file format
-  
-* :code:`LLFIREAD`:
-
-  * .TRUE. : read files in LFI file format. If LCDF4=.TRUE., the reading will be forced with the LFI file format (no reading with netCDF-4 file format).
-  * .FALSE. : do not read files in LFI file format
-
 .. warning::
-
-   * If :code:`LCDF4=.FALSE.` and :code:`LLFIOUT=.FALSE.` (which are the default), LCDF4 will be forced to .TRUE..
-   
-   * If a file is not found in the requested fileformat (netCDF or LFI), Meso-NH will check if it exists in the other format and use it if found. This could be useful if you need to mix the reading of different files with different fileformats.
+   * If a file is not found in the netCDF fileformat, Meso-NH will check if it exists in the LFI format and use it if found. This could be useful if you need to mix the reading of different files with different fileformats.
 
 * :code:`CIO_DIR` : directory used to write outputs, backups and diachronic files (current directory by default). It can be overridden by CBAK_DIR for backups and diachronic files and by COUT_DIR for outputs.
 
@@ -79,11 +58,11 @@ NAM_CONFIO
 
    Not all messages use this infrastructure. Therefore, some of them are not affected by these options.
 
-* :code:`LIO_COMPRESS` : enable lossless compression of data for all files (only for files in netCDF format, not for LFI format). This can have a negative impact on performance. This option takes precedence over their equivalent NAM_BACKUP and NAM_OUTPUT namelists.
+* :code:`LIO_COMPRESS` : enable lossless compression of data for all files. This can have a negative impact on performance. This option takes precedence over their equivalent NAM_BACKUP and NAM_OUTPUT namelists.
 
-* :code:`LOUT_COMPRESS_LEVEL` : set the compression level (only for files in netCDF format, not for LFI format). The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option takes precedence over their equivalent in NAM_BACKUP and NAM_OUTPUT namelists (only if LIO_COMPRESS=.TRUE.).
+* :code:`LOUT_COMPRESS_LEVEL` : set the compression level. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option takes precedence over their equivalent in NAM_BACKUP and NAM_OUTPUT namelists (only if LIO_COMPRESS=.TRUE.).
 
-* :code:`LDIAG_REDUCE_FLOAT_PRECISION` : force writing of floating points numbers in single precision for diagnostic files (written by the :program:`DIAG` program) (only for files in netCDF format, not for LFI format)
+* :code:`LDIAG_REDUCE_FLOAT_PRECISION` : force writing of floating points numbers in single precision for diagnostic files (written by the :program:`DIAG` program)
 
 * :code:`LIO_ALLOW_REDUCED_PRECISION_BACKUP` : flag to allow writing of backup files with a reduced precision as well as reading of reduced precision files and files written with Meso-NH compiled with a lower precision for integers or reals (ie MNH_INT=4 and MNH_REAL=4).
 

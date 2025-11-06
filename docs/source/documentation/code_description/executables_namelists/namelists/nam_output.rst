@@ -86,21 +86,21 @@ This namelist allows to write selected fields in output files.
 
 * :code:`LOUT_END` : force an output at the last timestep
 
-* :code:`LOUT_REDUCE_FLOAT_PRECISION(m)` : force writing of floating points numbers in single precision for each model m (only for files in netCDF format, not for LFI format)
+* :code:`LOUT_REDUCE_FLOAT_PRECISION(m)` : force writing of floating points numbers in single precision for each model m
 
-* :code:`LOUT_COMPRESS(m)` : enable lossless compression of data for each model m (only for files in netCDF format, not for LFI format). This can have a negative impact on performance. This option loses precedence over LIO_COMPRESS of :ref:`nam_confio`.
+* :code:`LOUT_COMPRESS(m)` : enable lossless compression of data for each model mThis can have a negative impact on performance. This option loses precedence over LIO_COMPRESS of :ref:`nam_confio`.
 
-* :code:`LOUT_COMPRESS_LEVEL(m)` : set the compression level for each model m (only for files in netCDF format, not for LFI format). The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option loses precedence over LIO_COMPRESS_LEVEL of :ref:`nam_confio` if  LIO_COMPRESS=.TRUE.
+* :code:`LOUT_COMPRESS_LEVEL(m)` : set the compression level for each model m. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option loses precedence over LIO_COMPRESS_LEVEL of :ref:`nam_confio` if  LIO_COMPRESS=.TRUE.
 
-* :code:`LOUT_COMPRESS_LOSSY(m)` : enable lossy compression of data for each model m (only for files in netCDF format, not for LFI format and only for float numbers)
+* :code:`LOUT_COMPRESS_LOSSY(m)` : enable lossy compression of data for each model m
 
 * :code:`COUT_COMPRESS_LOSSY_ALGO(m)` : algorithm used to reduce the number of significants digits or bits. Available algorithms: 'BitGroom', 'GranularBR', 'BitRound' and 'None' (case insensitive). Default: 'GranularBR'
 
 * :code:`NOUT_COMPRESS_LOSSY_NSD(m)` : number of significants digits (for 'BitGroom', 'GranularBR') or bits (for 'BitRound') to keep. Allowed values for 'BitGroom', 'GranularBR': 1 to 15 for floats stored with 64 bits and 1 to 7 on 32 bits. And for 'BitRound', 1 to 23 for 32-bit floats and 1 to 52 for 64-bit floats. Default value: 3
 
-* :code:`NOUT_VAR_REDUCE_FLOAT_PRECISION(m,192)` : force writing of floating points numbers in single precision for the selected variables (only for files in netCDF format, not for LFI format and only for float numbers). If set to 0, no reduction of precision will be done. If set to 1 (or > 0), reduction of precision will be done. By default, the value for the file (LOUT_REDUCE_FLOAT_PRECISION) is taken into account.
+* :code:`NOUT_VAR_REDUCE_FLOAT_PRECISION(m,192)` : force writing of floating points numbers in single precision for the selected variables. If set to 0, no reduction of precision will be done. If set to 1 (or > 0), reduction of precision will be done. By default, the value for the file (LOUT_REDUCE_FLOAT_PRECISION) is taken into account.
 
-* :code:`NOUT_VAR_COMPRESS_LEVEL(m,192)` : set the compression level per variable (only for files in netCDF format, not for LFI format). The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). By default, the value for the file (LOUT_COMPRESS and LOUT_COMPRESS_LEVEL) is taken into account.
+* :code:`NOUT_VAR_COMPRESS_LEVEL(m,192)` : set the compression level per variable. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). By default, the value for the file (LOUT_COMPRESS and LOUT_COMPRESS_LEVEL) is taken into account.
 
 * :code:`COUT_VAR_COMPRESS_LOSSY_ALGO(m,192)` : algorithm used to reduce the number of significants digits or bits per variable. Set to 'NONE' to disable lossy compression. By default, the value for the file (LOUT_COMPRESS_LOSSY and LOUT_COMPRESS_LOSSY_ALGO) is taken into account.
 
@@ -158,9 +158,9 @@ This namelist allows to write selected fields in output files.
 
 * :code:`LOUT_MAINDOMAIN_WRITE(m)` : write also the main domain in the case when NOUT_BOXES>0 (no effect if NOUT_BOXES=0). Default: .FALSE.
 
-* :code:`NOUT_BOX_VAR_REDUCE_FLOAT_PRECISION(m,b,192)` : force writing of floating points numbers in single precision for the selected variables in the box (only for files in netCDF format, not for LFI format and only for float numbers). If set to 0, no reduction of precision will be done. If set to 1 (or > 0), reduction of precision will be done. By default, the value for the file (LOUT_REDUCE_FLOAT_PRECISION) is taken into account.
+* :code:`NOUT_BOX_VAR_REDUCE_FLOAT_PRECISION(m,b,192)` : force writing of floating points numbers in single precision for the selected variables in the box. If set to 0, no reduction of precision will be done. If set to 1 (or > 0), reduction of precision will be done. By default, the value for the file (LOUT_REDUCE_FLOAT_PRECISION) is taken into account.
 
-* :code:`OUT_BOX_VAR_COMPRESS_LEVEL(m,b,192)` : set the compression level per variable in the box (only for files in netCDF format, not for LFI format). The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). By default, the value for the file (LOUT_COMPRESS and LOUT_COMPRESS_LEVEL) is taken into account.
+* :code:`OUT_BOX_VAR_COMPRESS_LEVEL(m,b,192)` : set the compression level per variable in the box. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). By default, the value for the file (LOUT_COMPRESS and LOUT_COMPRESS_LEVEL) is taken into account.
 
 * :code:`COUT_BOX_VAR_COMPRESS_LOSSY_ALGO(m,b,192)` : algorithm used to reduce the number of significants digits or bits per variable in the box. Set to 'NONE' to disable lossy compression. By default, the value for the file (LOUT_COMPRESS_LOSSY and LOUT_COMPRESS_LOSSY_ALGO) is taken into account.
 

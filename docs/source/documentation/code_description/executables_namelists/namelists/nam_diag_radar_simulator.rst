@@ -32,7 +32,7 @@ NAM_DIAG - RADAR simulator
 
 .. note::
    
-   As output fields are not on the model grid, they have to be written in other files than LFIs. Therefore the following files are written in the following format: AAABBBCC.CDDDX for cartesian coordinates and PAAABBBCC.CX for polar coordinates, where AAA is the descriptor of the field (3 characters, see below for further explanations), BBB is the name of the radar (3 characters), CC.C is the elevation (in degrees), DDD is half the number of pixels on each row or column (3 characters), and X is the name of the input file. Example of file name for cartesian coordinates : ZHHBOL00.4300BOG12.2.SEG04.004RD
+   As output fields are not on the model grid, they have to be written in specific files. Therefore the following files are written in the following format: AAABBBCC.CDDDX for cartesian coordinates and PAAABBBCC.CX for polar coordinates, where AAA is the descriptor of the field (3 characters, see below for further explanations), BBB is the name of the radar (3 characters), CC.C is the elevation (in degrees), DDD is half the number of pixels on each row or column (3 characters), and X is the name of the input file. Example of file name for cartesian coordinates : ZHHBOL00.4300BOG12.2.SEG04.004RD
 
 .. csv-table::
    :header: "Name", "Meaning [Unit]", "Dimension"
