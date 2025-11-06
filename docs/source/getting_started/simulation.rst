@@ -22,3 +22,7 @@ Both categories are described in the following sections :
 
    simulation/ideal_cases_step_by_step.rst
    simulation/real_cases_step_by_step.rst
+   
+.. note::
+
+   If you need other settings, please visit the :ref:`cases_catalogue` section.
