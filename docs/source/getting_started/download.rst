@@ -32,15 +32,15 @@ Prerequisites
 
 To clone the Meso-NH Git repository the |gitlfs_link| extension, not included by default in the Git package, is required to handle binary (or large) files (LFS meaning Large File Storage). To install this extension:
 
-* either, install the |gitlfs_link| package on your system (you need root access)
+* either, install the |gitlfs_link| package on your system (you need root access) ;
 
-* or, if not possible, install it in your own environment:
+* or, if not possible, install it in your own environment. For that, you have to :
 
   * download the git-lfs archive from the link on the |gitlfs_link| web page ;
 
   * extract the archive and copy the git-lfs binary in a `$HOME/bin` directory by example (create this directory if it doesn't exist) ;
 
-  * from any directory, you can now execute:
+  * execute the following commands :
 
     .. code-block:: bash
 
@@ -63,18 +63,18 @@ Clone the Meso-NH Git repository from the development branch with the following 
 
    git clone https://src.koda.cnrs.fr/mesonh/mesonh-code.git -b |MNH_branch_current| |MNH_directory_extract_current|
 
-that will create the |MNH_directory_extract_current| directory containing a clone (copy) of the Meso-NH package on the remote developpement branch |MNH_branch_current|.
+that will create the |MNH_directory_extract_current| directory containing a clone (copy) of the Meso-NH's package corresponding to the developpement branch |MNH_branch_current|.
 
 .. warning::
 
-   This version of Meso-NH doesn't correspond to a stable version. Please continue this documentation to :ref:`check out a given version <check_out_given_version>`. However if you want to stay in this development branch you can go directly to :ref:`compilation` section.
+   This version of Meso-NH doesn't correspond to a stable version. By default, you are on the HEAD of the |MNH_branch_current| development branch containing modifications not yet tested. Please continue this documentation to :ref:`check out a given version <check_out_given_version>`. However if you want to stay in this development branch you can go directly to :ref:`compilation` section.
 
 .. _check_out_given_version:
 
 Checking out a given version
 *****************************************************************************
 
-Once the repository is cloned, it's better for you to work on a stable version of Meso-NH (by default, you are on HEAD of the |MNH_branch_current| development branch). To go to the stable |MNH_xyz_version_current| version, you can do:
+Once the repository is cloned, it's better for you to work on a stable version of Meso-NH. To go to the stable |MNH_xyz_version_current| version by example, you have to do:
 
 .. code-block:: bash
    :substitutions:
@@ -86,7 +86,7 @@ MYB-MNH-V |MNH_xyz_version_hyphen_current| is the name of the local branch you c
 
 .. note::
 
-   The |MNH_pack_current| tag corresponds to the same :ref:`Tarball (from Zenodo) <tarball>` version of Meso-NH.
+   Each PACK-MNH-VX-Y-Z git tag corresponds to a stable MNH-VX-Y-Z version available in :ref:`Tarball (from Zenodo) <tarball>`. The different stable releases are visible :ref:`here <releases>`.
 
 .. tip::
 
@@ -138,7 +138,7 @@ Then untar the file MNH-V |MNH_xyz_version_hyphen_current|.tar.gz where you want
 
 .. note::
 
-   The archive of Meso-NH you've downloaded from Zenodo corresponds to the same tag version in the :ref:`Git repository <git>`.
+   Each MNH-VX-Y-Z version available in :ref:`Tarball (from Zenodo) <tarball>` corresponds to a PACK-MNH-VX-Y-Z git tag in the :ref:`Git repository <git>`. The different stable releases are visible :ref:`here <releases>`.
 
 .. tip::
 
@@ -148,12 +148,14 @@ Then untar the file MNH-V |MNH_xyz_version_hyphen_current|.tar.gz where you want
 
    <a href="https://doi.org/10.5281/zenodo.15095130" target="_blank">Meso-NH on Zenodo website</a>
 
+.. _what_do_you_download:
+
 What do you download ?
 -----------------------------------------------------------------------------
 
 Meso-NH's package contains sources, makefiles, pre-compiled executables, graphic tools and basic examples.
 
-Hereafter is a very quick description of Meso-NH's tree :
+Hereafter is a quick description of Meso-NH's tree :
 
 .. role:: gray
    :class: text-gray
@@ -218,6 +220,8 @@ Hereafter is a very quick description of Meso-NH's tree :
    * ACLIB is the externalized chemistry and aerosols of Meso-NH and other models.   
    * PHYEX is the externalized atmospheric physics common to AROME and HARMONIE-AROME.
    * SURFEX is the externalized surface physics (also used in AROME and ARPEGE).
+
+.. _releases:
 
 Releases
 ------------------------------------------------------------------------

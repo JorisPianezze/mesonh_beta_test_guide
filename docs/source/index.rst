@@ -21,6 +21,7 @@ Meso-NH website
    getting_started/download.rst
    getting_started/compilation.rst
    getting_started/simulation.rst
+   getting_started/graphics.rst   
    
 .. toctree::
    :maxdepth: 2
@@ -28,7 +29,6 @@ Meso-NH website
 
    documentation/scientific_references.rst
    documentation/code_description.rst
-   documentation/graphics.rst
    documentation/training_material.rst
    documentation/coding_instructions.rst   
 
