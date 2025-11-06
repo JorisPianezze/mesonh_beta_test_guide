@@ -20,7 +20,7 @@ It contains the model configuration parameters common to all the models. They ar
    "CSPLIT","CHARACTER(LEN=10)","'YSPLITTING'"
    "LLG","LOGICAL",".FALSE."
    "LINIT_LG","LOGICAL",".FALSE."
-   "CINIT_LG","CHARACTER(LEN=5)","'FMOUT'"
+   "CINIT_LG","CHARACTER(LEN=6)","'BACKUP'"
    "LNOMIXLG","LOGICAL",".FALSE."
    "CEXP","CHARACTER(LEN=32)","'EXP01'"
    "CSEG","CHARACTER(LEN=32)","'SEG01'"
@@ -71,7 +71,7 @@ It contains the model configuration parameters common to all the models. They ar
 
 * :code:`CINIT_LG` : with LINIT_LG=T :
 
-  * 'FMOUT' : each time a backup file is written
+  * 'BACKUP' : each time a backup file is written
   * other string : : only when starting a new segment (CCONF='RESTA')
 
 * :code:`LNOMIXLG` : Flag to unset the turbulence for LG variables. You must have LNOMIXLG=.TRUE. with CSCONV='EDKF'
