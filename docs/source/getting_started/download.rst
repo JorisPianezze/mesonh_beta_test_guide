@@ -186,7 +186,6 @@ Hereafter is a quick description of Meso-NH's tree :
          - :dir:`folder` Python/
          - :dir:`folder` RAD/
          - :dir:`folder` s4py/
-         - :dir:`folder` SURCOUCHE/         
          - :dir:`file` eccodes-2.41.0-Source.tar.gz                        
          - :dir:`file` grib_api-1.26.0-Source.tar.gz
          - :dir:`file` hdf5-1.14.6.tar.gz
