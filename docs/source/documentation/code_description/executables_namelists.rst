@@ -18,6 +18,6 @@ In the following subsection, you can find the list of compiled executables and i
    executables_namelists/diag.rst
    executables_namelists/spectre.rst
    executables_namelists/latlon_to_xy.rst
-   executables_namelists/lfi2cdf.rst
+   executables_namelists/cdf2cdf.rst
    executables_namelists/prep_surfex.rst
    executables_namelists/mnh2lpdm.rst
