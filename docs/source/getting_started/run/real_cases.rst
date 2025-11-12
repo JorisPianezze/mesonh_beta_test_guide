@@ -15,7 +15,7 @@ The general workflow for a one-domain real case simulation is :
 
 This workflow is described in the following figure : 
 
-.. figure:: real_cases_step_by_step/algorithm_real_cases.png
+.. figure:: real_cases/algorithm_real_cases.png
    :scale: 50 %
    :alt: Realistic simulation workflow without and with grid-nesting.
    
@@ -26,9 +26,9 @@ A few examples are described hereafter :
 .. toctree::
    :maxdepth: 1
 
-   real_cases_step_by_step/one_domain_era5.rst
-   real_cases_step_by_step/one_domain_mesonh.rst
-   real_cases_step_by_step/two_domains_grid_nesting.rst
+   real_cases/one_domain_era5.rst
+   real_cases/one_domain_mesonh.rst
+   real_cases/two_domains_grid_nesting.rst
    
 .. note::
 

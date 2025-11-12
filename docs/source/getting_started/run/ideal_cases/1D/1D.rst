@@ -1,0 +1,296 @@
+One dimensional (single column z) with ideal surface
+==================================================================
+
+Some of the most important advantages to use one dimensional (or single column, 1D) atmospheric simulations are :
+
+* **Simplicity :** simpler and require fewer computing resources than 2D or 3D models.
+
+* **Study vertical processes and surface-atmosphere interactions :** focus on vertical processes in the atmosphere, such as convection, cloud formation, and heat and moisture exchange without the complexity of horizontal advection.
+
+* **Parameterisation development and testing :** used to develop and test new physical parameterisations (e.g. for clouds, precipitation or radiation) before they are integrated into 2D or 3D models.
+
+To perform a 1D simulation with Meso-NH you need only to :ref:`prepare the initial condition <1d_prep_ideal_case>` and :ref:`run the model <1d_mesonh>` using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections.
+
+.. warning::
+
+   This kind of simulation is not parallelized and can only use 1 core.
+
+.. _1d_prep_ideal_case:
+
+Prepare the initial condition (:ref:`prep_ideal_case`)
+------------------------------------------------------------------
+
+To create the initial condition for a vertical 1D Meso-NH simulation you have to use :ref:`prep_ideal_case` program. This program reads a file called :file:`PRE_IDEA1.nam` defining the characteristics of the simulation.
+
+.. tip::
+
+   To see all the namelists you can use in the :ref:`prep_ideal_case` program or to obtain information about namelists, please go :ref:`here <executables_and_namelists>`.
+
+In the :file:`PRE_IDEA1.nam` file, you must have the following minimum informations and namelists:
+
+* The name of the NetCDF files you will create with the :ref:`prep_ideal_case` program (without the extension) in :ref:`NAM_LUNITn <nam_lunitn>` namelist:
+
+  .. code:: fortran
+
+     &NAM_LUNITn CINIFILE    = "INI",
+                 CINIFILEPGD = "PGD" /
+
+.. note::
+
+   In this example, you will create the two NetCDF files :file:`INI.nc` and :file:`PGD.nc` corresponding respectively to initial and surface boundary conditions files.
+
+* The number of points along x (i) and y (j) direction (it has to be 1 in 1D configuration) in :ref:`NAM_DIMn_PRE <nam_dimn_pre>` namelist:
+
+  .. code:: fortran
+
+     &NAM_DIMn_PRE NIMAX = 1,
+                   NJMAX = 1 /
+
+* The horizontal resolution along i and j direction in :ref:`NAM_GRIDH_PRE <nam_gridh_pre>` namelist:
+
+  .. code:: fortran
+
+     &NAM_GRIDH_PRE XDELTAX = 1000.,
+                    XDELTAY = 1000. /
+
+.. note::
+
+   It is better to set XDELTAX and XDELTAY to a value that is consistent with the relevant resolution of the parameterization you are testing (at least 1000.0 (m), or even 50 000 (m) if climate applications are targeted).
+
+* The vertical grid discretisation in :ref:`NAM_VER_GRID <nam_ver_grid>` namelist:
+
+  .. code:: fortran
+
+     &NAM_VER_GRID NKMAX  = 100,
+                   ZDZGRD = 40.,
+                   ZDZTOP = 40. /
+
+.. note::
+
+   In this example, you will use 100 vertical grid points with a vertical resolution of 40 m everywhere.
+
+* The choice to use or not water vapor, in this case you will do a dry simulation in :ref:`NAM_CONFn <nam_confn>` namelist:
+
+  .. code:: fortran
+
+     &NAM_CONFn LUSERV = .FALSE. /
+
+* The surface representation in :ref:`NAM_GRn_PRE <nam_grn_pre>`, :ref:`NAM_PGD_SCHEMES <nam_pgd_schemes>` and :ref:`NAM_COVER <nam_cover>` namelists:
+
+  .. code:: fortran
+
+     &NAM_GRn_PRE CSURF        = "EXTE" /
+     &NAM_COVER XUNIF_COVER(1) =  1.0   /
+     &NAM_PGD_SCHEMES CSEA     = "FLUX" /
+
+.. note::
+
+   * In this example, you will use SURFEX (CSURF = "EXTE"), a cover containing 100 % sea points (XUNIF_COVER(1) = 1.0) and a prescribed ideal flux surface condition (CSEA = "FLUX").
+   
+   * The values of surface fluxes are given in the simulation namelist (see :ref:`simulation <1d_mesonh>` section).
+
+* The type of initial profile you will impose in :ref:`NAM_CONF_PRE <nam_conf_pre>`:
+
+  .. code:: fortran
+
+     &NAM_CONF_PRE CIDEAL = "RSOU" /
+
+* The characteristic of the vertical profile is given in the :ref:`freeformat part <freeformat_prep_ideal_case>` of the :file:`PRE_IDEA1.nam` file:
+
+  .. code:: fortran
+
+     RSOU
+     2025 6 11 0.
+     "ZUVTHVHU"
+     0.
+     100000.
+     305.
+     0.
+
+     2
+     0        0      0
+     4000     0      0
+
+     4
+       20.00     300.00  0.00
+     1000.00     300.00  0.00
+     4000.00     317.90  0.00
+
+.. note::
+
+   * In this example you will impose an horizontal wind speed of 0 m/s, a relative humidty of 0 % (dry simulation) and a constant potential temperature of 300 K from 0 m to 1000 m and then a regular increase of the potential temperature up to the top of the domain (4000 m).
+
+.. tip::
+
+   See the full :file:`PRE_IDEA1.nam` file:
+   
+   .. toggle::
+
+      .. code-block:: fortran
+
+         &NAM_LUNITn CINIFILE    = "INI",
+                     CINIFILEPGD = "PGD" /
+
+         &NAM_DIMn_PRE NIMAX = 1,
+                       NJMAX = 1 /
+                      
+         &NAM_GRIDH_PRE XDELTAX = 1000.,
+                       XDELTAY = 1000. /
+
+         &NAM_VER_GRID NKMAX  = 100,
+                       ZDZGRD = 40.,
+                       ZDZTOP = 40. /
+
+         &NAM_CONFn LUSERV = .FALSE. /
+
+         &NAM_GRn_PRE CSURF        = "EXTE" /
+         &NAM_COVER XUNIF_COVER(1) =  1.0   /
+         &NAM_PGD_SCHEMES CSEA     = "FLUX" /
+     
+         &NAM_CONF_PRE CIDEAL = "RSOU" /     
+ 
+         RSOU
+         2025 6 11 0.
+         "ZUVTHVHU"
+         0.
+         100000.
+         300.
+         0.
+
+         2
+         0        0      0
+         4000     0      0
+
+         4
+           20.0     300.0  0.0
+         1000.0     300.0  0.0
+         4000.0     317.9  0.0
+
+Once you have put these namelist in the :file:`PRE_IDEA1.nam` file, you can launch :ref:`prep_ideal_case` program in the same directory as the :file:`PRE_IDEA1.nam` file (execution takes less than 2 s):
+
+.. code-block:: bash
+   :substitutions:
+
+   source |MNH_directory_extract_current|/conf/profile_mesonh
+   PREP_IDEAL_CASE${XYZ}
+
+At the end of the :ref:`prep_ideal_case` execution, you need to have following files:
+
+.. role:: gray
+   :class: text-gray
+
+.. treeview::
+
+   - :dir:`folder` your_run_directory/
+
+     - :dir:`file` PRE_IDEA1.nam :gray:`: The file you've created from this example`
+     - :dir:`file` INI.des :gray:`: The descriptive part of the initial condition file`
+     - :dir:`file` INI.nc :gray:`: The NetCDF part of the initial condition file`
+     - :dir:`file` PGD.nc :gray:`: The NetCDF part of the physiographic data file`
+     - :dir:`file` OUTPUT_LISTING1 :gray:`: File containing debug informations`
+
+.. tip::
+
+   To verify that the program has been executed correctly, you should see the following lines at the end of the :file:`OUTPUT_LISTING1` file:
+
+   .. code-block:: bash
+
+      ****************************************************
+      * PREP_IDEAL_CASE: PREP_IDEAL_CASE ENDS CORRECTLY. *
+      ****************************************************
+
+.. _1d_mesonh:
+
+Launch the simulation (:ref:`mesonh`)
+-----------------------------------------------------------------
+
+To launch the Meso-NH simulation you have to use :ref:`mesonh` program. This program reads a file called :file:`EXSEG1.nam` defining the characteristics of the simulation.
+
+.. tip::
+
+   To see all the namelists you can use in the :ref:`mesonh` program or to obtain information about namelists, please go :ref:`here <executables_and_namelists>`.
+
+In the :file:`EXSEG1.nam` file, you must have the following minimum informations and namelists:
+
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_LUNITn CINIFILE    = "INI" ,
+                 CINIFILEPGD = "PGD" /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_CONF LFLAT = .TRUE. /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_CONFn LUSERV = .FALSE. /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_DYN XSEGLEN = 25200.0,
+              LCORIO  = .FALSE. /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_BACKUP XBAK_TIME(1,1) = 25200.0 /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_DYNn XTSTEP   = 10.0,
+               CPRESOPT = "ZRESI" /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_ADVn CUVW_ADV_SCHEME = "CEN4TH",
+               CMET_ADV_SCHEME = "PPM_01",
+               CSV_ADV_SCHEME  = "PPM_01" /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_PARAMn CTURB  = "TKEL",
+                 CRAD   = "NONE",
+                 CCLOUD = "NONE",
+                 CSCONV = "NONE" /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_LES LLES_MEAN = .TRUE. /
+
+* The name of the NetCDF files created by the :ref:`prep_ideal_case` program.
+
+  .. code:: fortran
+
+     &NAM_IDEAL_FLUX NFORCF    = 2,
+                     XTIMEF(1) = 0.,
+                     XTIMEF(2) = 25200.,
+                     XSFTH(1)  = 200.0,
+                     XSFTH(2)  = 200.0 /
+
+Plot results
+-----------------------------------------------------------------
+
+* Afficher un petit tracé rapide du run
+
+Other examples
+-----------------------------------------------------------------
+
+* Lien vers les cas 1D du :ref:`cases_catalogue`

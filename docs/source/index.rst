@@ -19,9 +19,9 @@ Meso-NH website
    :caption: Getting started
 
    getting_started/download.rst
-   getting_started/compilation.rst
-   getting_started/simulation.rst
-   getting_started/graphics.rst   
+   getting_started/compile.rst
+   getting_started/run.rst
+   getting_started/post-process.rst   
    
 .. toctree::
    :maxdepth: 2
@@ -36,7 +36,7 @@ Meso-NH website
    :maxdepth: 2
    :caption: Examples
 
-   examples/test_cases.rst
+   examples/cases_catalogue.rst
    Applications <https://mesonh.cnrs.fr/#Applications>
 
 .. toctree::

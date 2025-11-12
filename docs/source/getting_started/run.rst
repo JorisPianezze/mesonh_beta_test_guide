@@ -20,8 +20,8 @@ Both categories are described in the following sections :
 .. toctree::
    :maxdepth: 2
 
-   simulation/ideal_cases_step_by_step.rst
-   simulation/real_cases_step_by_step.rst
+   run/ideal_cases.rst
+   run/real_cases.rst
    
 .. note::
 

@@ -12,11 +12,11 @@ In the Meso-NH language, we say that we compile the **MASTER**. This compilation
 typically more than 20 minutes on one core.
 
 When you want to modify the Meso-NH code, you need to create a directory containing the modified code and then compile it.
-In the Meso-NH language, we say that we compile a **VER_USER**. This compilation is shorter than the **MASTER** one, it depends on how many sources are modified but you need to compile the **MASTER** before the **VER_USER**.
+In the Meso-NH language, we say that we compile a **VER_USER**. This compilation is shorter than the **MASTER** one, it depends on how many sources are modified but you need to compile the **MASTER** before a **VER_USER**.
 
 .. note::
 
-   If you want to compile Meso-NH please go to :ref:`compilation <compilation_on_different_systems>` section.
+   If you are in a hurry to compile Meso-NH please go to :ref:`compilation <compilation_on_different_systems>` section.
 
 
 The following lines are just for your information, especially if you are interested in understanding how Meso-NH compilation works.
@@ -70,7 +70,7 @@ For the **VER_USER** compilation, you will use following commands:
 Compile on different systems
 =============================================================================
 
-On GENCI (IDRIS, CINES and TGCC), ECMWF, Meteo-France and some other machines, the compiler, MPI and NetCDF libraries and optimisation settings are automatically chosen during the compilation procedure. 
+On :ref:`Jean-Zay (IDRIS) <compilation_jeanzay_idris>`, :ref:`Adastra (CINES) <compilation_adastra_cines>`, :ref:`Irene (TGCC) <compilation_irene_tgcc>`, :ref:`ECMWF <compilation_hpc_ecmwf>`, :ref:`belenos (Meteo-France) <compilation_belenos_meteofrance>` and some other machines, the compiler, libraries and optimisation settings are automatically chosen during the compilation procedure. 
 
 .. note::
 
