@@ -51,7 +51,6 @@ In order to clearly separate what can be modified for a given step of a numerica
 
    "PREP_PGD", "PRE_PGD1.nam", "Prepare horizontal grid file"
    "PREP_NEST_PGD", "PRE_NEST_PGD1.nam", "Prepare horizontal grid file for grid nesting"
-   "PREP_ZOOM_PGD", "PRE_ZOOM1.nam", "Prepare a zoomed horizontal grid file"
    "PREP_IDEAL_CASE", "PRE_IDEA1.nam", "Prepare initial file for idealized simulation"
    "PREP_REAL_CASE", "PRE_REAL1.nam", "Prepare initial file for real case simulation"
    "SPAWNING", "SPAWN1.nam", "Spawn a Meso-NH file into another one with better horizontal resolution"

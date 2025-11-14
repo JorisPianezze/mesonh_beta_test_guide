@@ -10,7 +10,6 @@ In the following subsection, you can find the list of compiled executables and i
 
    executables_namelists/prep_pgd.rst
    executables_namelists/prep_nest_pgd.rst
-   executables_namelists/zoom_pgd.rst
    executables_namelists/prep_ideal_case.rst
    executables_namelists/prep_real_case.rst
    executables_namelists/spawning.rst
