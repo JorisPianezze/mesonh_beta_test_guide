@@ -144,7 +144,29 @@ To run the test case examples, do:
 On Irene (TGCC)
 -----------------------------------------------------------------------------
 
-At TGCC, you have two architectures accessible through 2 differents frontals but with a common filesystem. To install Meso-NH in your $CCCHOME (default 20GB of quota) and compile in interactive mode:
+At TGCC, you have two architectures accessible through 2 differents frontals but with a common filesystem.
+
+.. warning::
+
+   Before compiling you need to go to your project data space :
+
+   .. code-block:: bash
+
+      module dfldatadir/gen16504
+
+.. csv-table:: Filesystem of Irene (project data space)
+   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30
+
+   "Location", "$CCCHOME", "$CCCWORKDIR", "$CCCSCRATCHDIR", "$CCCSTOREDIR"
+   "Disk space", "20 Go / user", "5 To", " 100 To", "Unlimited"
+   "Data lifetime", "Saved", "Not saved", "Purged (60 days)", "Saved on disk/band"
+
+.. tip::
+
+   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
+
+To install Meso-NH in interactive mode:
 
 * On Intel Skylake nodes, do:
 

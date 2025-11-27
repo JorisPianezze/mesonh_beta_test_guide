@@ -34,8 +34,7 @@ A few examples are described hereafter :
    ideal_cases/2D/2D.rst
    ideal_cases/3D/3D.rst
    ideal_cases/3D_withPGD/3D_withPGD.rst
-   ideal_cases/grid_nesting/grid_nesting.rst
-   
+
 .. note::
 
    If you need advance settings, please go to :ref:`cases_catalogue` section.
