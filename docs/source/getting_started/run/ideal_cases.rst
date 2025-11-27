@@ -32,8 +32,8 @@ A few examples are described hereafter :
 
    ideal_cases/1D/1D.rst
    ideal_cases/2D/2D.rst
-   ideal_cases/3D/3D.rst
-   ideal_cases/3D_withPGD/3D_withPGD.rst
+   ideal_cases/3D_ideal_surface/3D_ideal_surface.rst
+   ideal_cases/3D_real_surface/3D_real_surface.rst
 
 .. note::
 

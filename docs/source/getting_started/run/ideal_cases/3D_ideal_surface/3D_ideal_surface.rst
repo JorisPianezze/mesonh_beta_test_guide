@@ -1,20 +1,20 @@
-Two dimensional (cross-section xz or yz) with ideal surface
+Three dimensional (xyz) with ideal surface
 ==================================================================
 
-2D simulation is a powerful compromise between 1D and 3D simulations : it retains both horizontal and vertical dimensions, allowing a large number of atmospheric phenomena to be represented without the significant cost of a 3D simulation. 2D configurations are able to study free convection, thermals, gravity waves, 2D turbulence, ...
+3D Meso-NH simulations realistically capture full spatial dynamics, including complex interactions between terrain, convection, and surface heterogeneity. They allow the emergence of organized atmospheric structures that 1D or 2D models cannot represent. In this example you will use idealized initial and surface condition.
 
-To perform a 2D simulation with Meso-NH you need to :ref:`prepare the initial condition <2d_prep_ideal_case>` and :ref:`run the model <2d_mesonh>` using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections.
+To perform a 3D simulation with Meso-NH with idealized initial and surface condition you need to :ref:`prepare the initial condition <3d_prep_ideal_case_ideal_surface>` and :ref:`run the model <3d_mesonh_ideal_surface>` using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections.
 
 .. warning::
 
-   This kind of simulation is not parallelized and can only be run on 1 core.
+   This kind of simulation is parallelized and can be run with more than 1 core.
 
-.. _2d_prep_ideal_case:
+.. _3d_prep_ideal_case_ideal_surface:
 
 Prepare the initial condition (:ref:`prep_ideal_case`)
 ------------------------------------------------------------------
 
-To create the initial condition for a 2D Meso-NH simulation you have to use :ref:`prep_ideal_case` program. This program reads a file called :file:`PRE_IDEA1.nam` defining the characteristics of the simulation.
+To create the initial condition for a 3D Meso-NH simulation you have to use :ref:`prep_ideal_case` program. This program reads a file called :file:`PRE_IDEA1.nam` defining the characteristics of the simulation.
 
 .. tip::
 
@@ -33,16 +33,12 @@ In the :file:`PRE_IDEA1.nam` file, we recommend to have the following minimum in
 
      In this example, you will create the two NetCDF files :file:`INI.nc` and :file:`PGD.nc` corresponding respectively to initial and surface boundary conditions files.
 
-* The number of points along x (i) and y (j) direction (it has to be 1 for one direction for 2D configuration) in :ref:`NAM_DIMn_PRE <nam_dimn_pre>` namelist:
+* The number of points along x (i) and y (j) direction in :ref:`NAM_DIMn_PRE <nam_dimn_pre>` namelist:
 
   .. code:: fortran
 
-     &NAM_DIMn_PRE NIMAX = 200,
-                   NJMAX = 1 /
-
-  .. note::
-
-     In this example, you will have a x-z domain.
+     &NAM_DIMn_PRE NIMAX = 50,
+                   NJMAX = 50 /
 
 * The type of initial profile and the shape of the orography you will impose in :ref:`NAM_CONF_PRE <nam_conf_pre>` :
 
@@ -66,12 +62,16 @@ In the :file:`PRE_IDEA1.nam` file, we recommend to have the following minimum in
      &NAM_GRIDH_PRE XDELTAX = 2000.,
                     XDELTAY = 2000.,
                     XHMAX   = 100.,
-                    XAX     = 8000.,
-                    NIZS    = 100 /
+                    XAX     = 10000.,
+                    XAY     = 10000.,                    
+                    NIZS    = 25,                    
+                    NJZS    = 25 /
 
   .. note::
 
-     It is better to set XDELTAX and XDELTAY to a value that is consistent with the relevant resolution of the your case study. XHMAX, XAX and NIZS correspond to characteristic of the bell-shape hill you've chose in :ref:`NAM_CONF_PRE <nam_conf_pre>` namelist.
+     * It is better to set XDELTAX and XDELTAY to a value that is consistent with the relevant resolution of the your case study.
+     
+     * XHMAX, XAX, XAY and NIZS, NJZS correspond to characteristic of the bell-shape hill you've chose in :ref:`NAM_CONF_PRE <nam_conf_pre>` namelist.
 
 * The vertical grid discretisation in :ref:`NAM_VER_GRID <nam_ver_grid>` namelist:
 
@@ -142,8 +142,8 @@ In the :file:`PRE_IDEA1.nam` file, we recommend to have the following minimum in
          &NAM_LUNITn CINIFILE    = "INI",
                      CINIFILEPGD = "PGD" /
 
-         &NAM_DIMn_PRE NIMAX = 200,
-                       NJMAX = 1 /
+         &NAM_DIMn_PRE NIMAX = 50,
+                       NJMAX = 50 /
                        
          &NAM_CONF_PRE CIDEAL = "RSOU",
                        CZS    = "BELL" /
@@ -151,8 +151,10 @@ In the :file:`PRE_IDEA1.nam` file, we recommend to have the following minimum in
          &NAM_GRIDH_PRE XDELTAX = 2000.,
                         XDELTAY = 2000.,
                         XHMAX   = 100.,
-                        XAX     = 8000.,
-                        NIZS    = 100 /
+                        XAX     = 10000.,
+                        XAY     = 10000.,                    
+                        NIZS    = 25,                    
+                        NJZS    = 25 /
 
          &NAM_VER_GRID NKMAX  = 40,
                        ZDZGRD = 750.,
@@ -180,7 +182,7 @@ In the :file:`PRE_IDEA1.nam` file, we recommend to have the following minimum in
             50.0    288.15  0.0
          29900.0    390.68  0.0
 
-Once you have put these namelist in the :file:`PRE_IDEA1.nam` file, you can launch :ref:`prep_ideal_case` program in the same directory as the :file:`PRE_IDEA1.nam` file (execution takes approximately 2 s):
+Once you have put these namelist in the :file:`PRE_IDEA1.nam` file, you can launch :ref:`prep_ideal_case` program in the same directory as the :file:`PRE_IDEA1.nam` file (execution takes less than 3 s):
 
 .. code-block:: bash
    :substitutions:
@@ -213,7 +215,7 @@ At the end of the :ref:`prep_ideal_case` execution, you need to have following f
       * PREP_IDEAL_CASE: PREP_IDEAL_CASE ENDS CORRECTLY. *
       ****************************************************
 
-.. _2d_mesonh:
+.. _3d_mesonh_ideal_surface:
 
 Launch the simulation (:ref:`mesonh`)
 -----------------------------------------------------------------
@@ -327,13 +329,13 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
 
          &NAM_LBCn CLBCX = 2*"OPEN" /
 
-Once you have put these namelist in the :file:`EXSEG1.nam` file, you can launch :ref:`mesonh` program in the same directory as the :file:`EXSEG1.nam`, :file:`INI.des`, :file:`INI.nc` and :file:`PGD.nc` files (execution takes approximately 1 min 30):
+Once you have put these namelist in the :file:`EXSEG1.nam` file, you can launch :ref:`mesonh` program in the same directory as the :file:`EXSEG1.nam`, :file:`INI.des`, :file:`INI.nc` and :file:`PGD.nc` files (execution takes approximately 7 min on 2 cores):
 
 .. code-block:: bash
    :substitutions:
 
    source |MNH_directory_extract_current|/conf/profile_mesonh
-   MESONH${XYZ}
+   mpirun -np 2 MESONH${XYZ}
 
 At the end of the :ref:`mesonh` execution, you need to have following files:
 
@@ -369,28 +371,27 @@ At the end of the :ref:`mesonh` execution, you need to have following files:
         |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
         |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
         |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
-        | MODEL1                      | CPUTIME ||         93.270|    93.270|    93.270|    93.270|   100.000|
-        | MODEL1                      | ELAPSED ||         93.407|    93.407|    93.407|    93.407|   100.000|
+        | MODEL1                      | CPUTIME ||        798.785|   399.393|   399.351|   399.434|   100.000|
+        | MODEL1                      | ELAPSED ||        798.907|   399.454|   399.438|   399.469|   100.000|
         |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
         |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
         |++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
         |====================================================================================================|
-        | SECOND/STEP=1801            | CPUTIME ||          0.052|     0.052|     0.052|     0.052|     0.056|
-        | SECOND/STEP=1801            | ELAPSED ||          0.052|     0.052|     0.052|     0.052|     0.056|
+        | SECOND/STEP=1801            | CPUTIME ||          0.444|     0.222|     0.222|     0.222|     0.056|
+        | SECOND/STEP=1801            | ELAPSED ||          0.444|     0.222|     0.222|     0.222|     0.056|
         |----------------------------------------------------------------------------------------------------|
-        | MICROSEC/STP/PT=8000        | CPUTIME ||          6.474|     6.474|     6.474|     6.474|   100.000|
-        | MICROSEC/STP/PT=8000        | ELAPSED ||          6.483|     6.483|     6.483|     6.483|   100.000|
+        | MICROSEC/STP/PT=100000      | CPUTIME ||          4.435|     2.218|     2.217|     2.218|   100.000|
+        | MICROSEC/STP/PT=100000      | ELAPSED ||          4.436|     2.218|     2.218|     2.218|   100.000|
         |====================================================================================================|
-
 
 Plot results
 -----------------------------------------------------------------
 
-The following figure shows an example of a graph that you can plot from the 2D simulation you just performed. It shows the orographic wave generated by the 100 m bell shape hill through vertical velocity wind speed along x-z domain.
+The following figure shows an example of a graph that you can plot from the 3D simulation you just performed. It shows the orographic wave generated by the 100 m bell shape hill through u-wind speed at k = 10 corresping to 7 125 m a.g.l. Black and yellow contours correspond to position of bell shape hill.
 
-.. figure:: 2D_orographic_wave.png
+.. figure:: 3D_orographic_wave.png
 
-   Example of 2D simulation output. Vertical wind velocity along cross section.
+   Example of 3D simulation output. U wind speed at k=10 (z = 7 125 m a.g.l.).
 
 .. tip::
 
@@ -423,45 +424,39 @@ The following figure shows an example of a graph that you can plot from the 2D s
 
          file_MNH     = netCDF4.Dataset(cfg_file_name)
 
-         xhat_MNH     = file_MNH['XHAT']
-         levels_MNH   = file_MNH['level_w'][1:]
-         x_MNH, z_MNH = np.meshgrid(xhat_MNH, levels_MNH)
+         xhat_MNH     = file_MNH['XHAT'][1:-1]
+         yhat_MNH     = file_MNH['YHAT'][1:-1]
+         x_MNH, y_MNH = np.meshgrid(xhat_MNH, yhat_MNH)
 
-         zs_MNH       = file_MNH['ZS']
-         ztop_MNH     = 30000.0
-         wwnd_MNH     = file_MNH['WT'][0,1:,:]
-
-         # ------------------------------------------------------
-         #   Convert xhat, yhat, zs to alt
-         # ------------------------------------------------------
-
-         altitude = np.zeros((len(levels_MNH),len(xhat_MNH)))
-
-         for ind_i in range(len(xhat_MNH)):
-           for ind_k in range(len(levels_MNH)):
-             altitude[ind_k, ind_i] = zs_MNH[ind_i] + levels_MNH[ind_k] * ((ztop_MNH - zs_MNH[ind_i]) / ztop_MNH)
+         zs_MNH       = file_MNH['ZS'][1:-1,1:-1]
+         uwnd_MNH     = file_MNH['UT'][0,10,1:-1,1:-1]
 
          # ------------------------------------------------------
          #   Quick plot
          # ------------------------------------------------------
 
-         plt.pcolormesh(x_MNH[:,:]/1000.0, (altitude[:,:]+750.0/2.0)/1000.0, wwnd_MNH[:,:], vmin=-0.5, vmax=0.5, shading="auto", cmap="bwr")
+         pmsh = plt.pcolormesh(x_MNH[:,:]/1000.0, y_MNH[:,:]/1000.0, uwnd_MNH[:,:], vmin=9.5, vmax=10.5, shading="auto", cmap="bwr")
+         ct   = plt.contour(x_MNH[:,:]/1000.0, y_MNH[:,:]/1000.0, zs_MNH[:,:], levels=[50.0, 90.0])
 
          # ------------------------------------------------------
          #   Some adjustments to the plot
          # ------------------------------------------------------
 
+         plt.gca().set_aspect('equal', adjustable='box')
+
          plt.grid(True, linestyle='--', linewidth=0.2)
 
-         cbar=plt.colorbar()
-         cbar.set_label(r"Vertical wind speed [m.s$^{-1}$]")
+         cbar=plt.colorbar(pmsh)
+         cbar.set_label(r"U wind speed [m.s$^{-1}$]")
+
+         plt.clabel(ct, inline=True, fmt='%d m', fontsize=6)     # labels inline
 
          plt.xlabel("X (km)")
-         plt.ylabel("Height (km)")
+         plt.ylabel("Y (km)")
 
-         plt.savefig('2D_orographic_wave.png', bbox_inches='tight', dpi=400)                                                                    
+         plt.savefig('3D_orographic_wave.png', bbox_inches='tight', dpi=400)                                                                  
 
 Other examples
 -----------------------------------------------------------------
 
-You can find other 2D simulation examples in :ref:`cases_catalogue` section.
+You can find other 3D ideal simulation examples in :ref:`cases_catalogue` section.
