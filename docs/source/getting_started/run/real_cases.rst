@@ -27,7 +27,6 @@ A few examples are described hereafter :
    :maxdepth: 1
 
    real_cases/one_domain_era5.rst
-   real_cases/one_domain_mesonh.rst
    real_cases/two_domains_grid_nesting.rst
    
 .. note::

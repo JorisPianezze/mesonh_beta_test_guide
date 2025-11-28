@@ -68,6 +68,9 @@ html_css_files = ['custom.css']
 html_theme_options = {
 'repository_url': 'https://github.com/JorisPianezze/mesonh_beta_test_guide',
 'use_repository_button': True,
+'navigation_depth': 6,
+#'sticky_navigation': True,
+#'collapse_navigation': False
 #'logo_only': True,
 }
 
