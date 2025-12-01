@@ -634,6 +634,7 @@ The following figure shows an example of a graph that you can plot from the 3D s
          import numpy as np
          import netCDF4
          import matplotlib.pyplot as plt
+         import cartopy.crs as ccrs
          # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
          # #########################################################
@@ -660,27 +661,29 @@ The following figure shows an example of a graph that you can plot from the 3D s
          #   Quick plot
          # ------------------------------------------------------
 
-         pmsh = plt.pcolormesh(lon_MNH[:,:], lat_MNH[:,:], uwnd_MNH[:,:], vmin=15.0, vmax=25.0, shading="auto", cmap="bwr")
-         ct   = plt.contour(lon_MNH[:,:], lat_MNH[:,:], zs_MNH[:,:], levels=[500.0, 1000.0, 1500.0, 2000.0])
+         fig = plt.figure(figsize=(5, 5))
+         ax  = plt.axes(projection=ccrs.PlateCarree())
+
+         pmsh = ax.pcolormesh(lon_MNH[:,:], lat_MNH[:,:], uwnd_MNH[:,:], vmin=15.0, vmax=25.0, shading="auto", cmap="bwr")
+         ct   = ax.contour(lon_MNH[:,:], lat_MNH[:,:], zs_MNH[:,:], levels=[500.0, 1000.0, 1500.0, 2000.0])
 
          # ------------------------------------------------------
          #   Some adjustments to the plot
          # ------------------------------------------------------
 
-         plt.gca().set_aspect('equal', adjustable='box')
+         gl = ax.gridlines(draw_labels=True, linewidth=0.4, color='gray', linestyle='--')
+         gl.top_labels = False
+         gl.right_labels = False
 
-         plt.grid(True, linestyle='--', linewidth=0.2)
+         ax.coastlines()
 
-         cbar=plt.colorbar(pmsh)
+         cbar=plt.colorbar(pmsh,shrink=0.75)
          cbar.set_label(r"U wind speed [m.s$^{-1}$]")
 
-         plt.clabel(ct, inline=True, fmt='%d m', fontsize=4)     # labels inline
+         plt.clabel(ct, inline=True, fmt='%d m', fontsize=4)
 
-         plt.xlabel("Longitude [°]")
-         plt.ylabel("Latitude [°]")
-
-         plt.savefig('3D_real_surface.png', bbox_inches='tight', dpi=400)                                                     
-
+         plt.savefig('3D_real_surface.png', bbox_inches='tight', dpi=400)
+         
 Other examples
 -----------------------------------------------------------------
 

@@ -1,3 +1,5 @@
+.. _atmospheric_data:
+
 Atmospheric data
 ================================================
 
