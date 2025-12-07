@@ -144,15 +144,14 @@ To run the test case examples, do:
 On Irene (TGCC)
 -----------------------------------------------------------------------------
 
-At TGCC, you have two architectures accessible through 2 differents frontals but with a common filesystem.
-
 .. warning::
 
    Before compiling you need to go to your project data space :
 
    .. code-block:: bash
 
-      module dfldatadir/gen16504
+      module switch dfldatadir/your_project_name
+      newgrp your_project_name
 
 .. csv-table:: Filesystem of Irene (project data space)
    :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
@@ -166,20 +165,7 @@ At TGCC, you have two architectures accessible through 2 differents frontals but
 
    We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
 
-To install Meso-NH in interactive mode:
-
-* On Intel Skylake nodes, do:
-
-.. code-block:: bash
-   :substitutions:
-
-   cd |MNH_directory_extract_current|/src
-   ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIAUTO-O2
-   make -j16 |& tee error$XYZ
-   make installmaster
-
-* On AMD nodes, do:
+On Irene you can compile in interactive mode using:
 
 .. code-block:: bash
    :substitutions:
@@ -190,20 +176,13 @@ To install Meso-NH in interactive mode:
    make -j16 |& tee error$XYZ
    make installmaster
 
-To run the test case examples, do:
+.. note::
+   
+   To verify your compilation you can run test case examples with:
 
-* On Intel Skylake nodes:
+   .. code-block:: bash
 
-.. code-block:: bash
-
-   ccc msub job_make_examples_BullX_irene
-
-* On intel AMD nodes:
-
-.. code-block:: bash
-
-   ccc msub job_make_examples_BullX_irene_AMD
-
+      ccc msub job_make_examples_BullX_irene_AMD
 
 .. _compilation_hpc_ecmwf:
 
