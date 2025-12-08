@@ -495,31 +495,32 @@ It depends on netCDF and scons for its compilation. The :file:`libForeFIre.so` t
 MNH_RTTOV for optional radiative computation
 -----------------------------------------------------------------------------
 
-The RTTOV 13.2 package was not included into the open source version of Meso-NH because it needs a licence agrement.
+The RTTOV 14.0 package was not included into the open source version of Meso-NH because it needs a licence agrement.
 Run the "configure" script preceded with the setting of the MNH_RTTOV variable:
 
 .. code-block:: bash
 
    cd MNH/src/
    export MNH_RTTOV=1
-   export VER_RTTOV=13.2
+   export VER_RTTOV=14.0
 
-Download the RTTOV package :file:`rttov132.tar.xz` by following the instructions given on the RTTOV website. Install the RTTOV package :file:`rttov132.tar.xz`:
+Download the RTTOV package :file:`rttov140.tar.xz` by following the instructions given on the RTTOV website. Install the RTTOV package :file:`rttov140.tar.xz`:
 
 .. code-block:: bash
 
    cd MNH/src/LIB
-   mkdir RTTOV-13.2
-   cd RTTOV-13.2
-   tar xJf rttov132.tar.xz
+   mkdir RTTOV-14.0
+   cd RTTOV-14.0
+   tar xJf rttov140.tar.xz
    cd build
 
-edit :file:`Makefile.local` and set HDF5_PREFIX, FFLAGS_HDF5 and LDFLAGS_HDF5 as shown below:
+edit :file:`Makefile.local` and set HDF5_PREFIX, FFLAGS_NETCDF, LDFLAGS_NETCDF and LDFLAGS_HDF5 as shown below:
 
 .. code-block:: bash
 
    HDF5_PREFIX = $(SRC_MESONH)/src/dir_obj${XYZ}/MASTER/NETCDF-${VERSION_CDFF}
-   FFLAGS_HDF5 = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include
+   FFLAGS_NETCDF  = -D_RTTOV_NETCDF -I$(HDF5_PREFIX)/include
+   LDFLAGS_NETCDF = -L$(HDF5_PREFIX)/lib -lnetcdff -lnetcdf
    LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib64 -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5 -lsz -laec -lz -ldl
 
 and build RTTOV:
@@ -527,7 +528,7 @@ and build RTTOV:
 .. code-block:: bash
 
    cd src
-   ../build/Makefile.PL RTTOV_HDF=1
+   ../build/Makefile.PL RTTOV_NETCDF=1
    make ARCH=ifort
 
 .. note::

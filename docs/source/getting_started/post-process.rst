@@ -1,28 +1,29 @@
 Post-process and vizualize
 ================================================
 
-http://mesonh.aero.obs-mip.fr/mesonh57/graphic
-
-.. error::
-
-   Ne conserver que ?
-    
-   * MNHPy
-
-   * Epygram
-
-
-ncview
+Python
 ------------------------------------------------
+
+We recommend to use python (https://www.python.org/) to analyse and visualize Meso-NH outputs. The `MNHPy <https://github.com/QuentinRodier/MNHPy>`_ library was developed for this purpose, and you can find an image gallery `here <https://jorispianezze.github.io/MNHPy/>`_.
+
+.. note::
+
+   All the plots made in examples test cases are made with `python <https://www.python.org/>`_ and `MNHPy <https://github.com/QuentinRodier/MNHPy>`_.
+
+Ncview
+------------------------------------------------
+
+ncview (http://mesonh.aero.obs-mip.fr/cgi-bin/mesonh/publi.pl?art=on&phd=on) can be used to quickly preview the contents of a Meso-NH file.
 
 .. warning::
 
    If your netCDF files are compressed with the Zstandard compression library (by default since Meso-NH 6.0), your environment must be adapted to support them.
    The easiest way is to load the MesoNH environment in the shell used to start :file:`ncview`. You can do this by running the command: :code:`. MY_MESONH_DIRECTORY/conf/profile_mesonh`.
 
-
-panoply
+Panoply
 ------------------------------------------------
+
+panopy (https://www.giss.nasa.gov/tools/panoply/) can be used to quickly preview the contents of a Meso-NH file.
 
 .. warning::
 
