@@ -87,6 +87,18 @@ The various steps for compiling Meso-NH on the machines used by main Meso-NH's u
 On Jean-Zay (IDRIS)
 -----------------------------------------------------------------------------
 
+.. csv-table:: Filesystem of Jean-Zay (project data space)
+   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30
+
+   "Location", "$CCCHOME", "$CCCWORKDIR", "$CCCSCRATCHDIR", "$CCCSTOREDIR"
+   "Disk space", "X Go / user", "X To", " X To", " X ?"
+   "Data lifetime", "Saved ?", "Not saved ?", "Purged (60 days) ?", "Saved on disk/band ?"
+
+.. tip::
+
+   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
+
 The compilation can be done interactively using the following commands:
 
 .. code-block:: bash
@@ -107,19 +119,32 @@ You can also use the 'compil' partition:
    ./configure
    sbatch job_make_mesonh_HPE_jeanzay
 
-To run the test case examples, do:
+.. note::
 
-.. code-block:: bash
-   :substitutions:
+   To run the test case examples, do:
 
-   cd |MNH_directory_extract_current|/src
-   sbatch -A your_projet.at.cpu job_make_examples_BullX_jeanzay
+   .. code-block:: bash
+      :substitutions:
 
+      cd |MNH_directory_extract_current|/src
+      sbatch -A your_projet.at.cpu job_make_examples_BullX_jeanzay
 
 .. _compilation_adastra_cines:
 
 On Adastra (CINES)
 -----------------------------------------------------------------------------
+
+.. csv-table:: Filesystem of Adastra (project data space)
+   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30
+
+   "Location", "$CCCHOME", "$CCCWORKDIR", "$CCCSCRATCHDIR", "$CCCSTOREDIR"
+   "Disk space", "X Go / user", "X To", " X To", " X ?"
+   "Data lifetime", "Saved ?", "Not saved ?", "Purged (60 days) ?", "Saved on disk/band ?"
+
+.. tip::
+
+   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
 
 Install the Meso-NH package in your $HOME (default 50GB of quota) and compile in interactive mode:
 
@@ -132,12 +157,13 @@ Install the Meso-NH package in your $HOME (default 50GB of quota) and compile in
    make -j16 |& tee error$XYZ
    make installmaster
 
-To run the test case examples, do:
+.. note::
 
-.. code-block:: bash
+   To run the test case examples, do:
 
-   sbatch job_make_examples_BullX_occigen
+   .. code-block:: bash
 
+      sbatch job_make_examples_BullX_occigen
 
 .. _compilation_irene_tgcc:
 
@@ -189,6 +215,18 @@ On Irene you can compile in interactive mode using:
 On hpc-login (ECMWF)
 -----------------------------------------------------------------------------
 
+.. csv-table:: Filesystem of hpc-login (project data space)
+   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30
+
+   "Location", "$CCCHOME", "$CCCWORKDIR", "$CCCSCRATCHDIR", "$CCCSTOREDIR"
+   "Disk space", "20 Go / user", "5 To", " 100 To", "Unlimited"
+   "Data lifetime", "Saved", "Not saved", "Purged (60 days)", "Saved on disk/band"
+
+.. tip::
+
+   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
+
 To compile Meso-NH package, go to the $HPCPERM directory, connect to an interactive compute node and compile the code:
 
 .. code-block:: bash
@@ -201,10 +239,11 @@ To compile Meso-NH package, go to the $HPCPERM directory, connect to an interact
 
 To run test case examples, do :
 
-.. code-block:: bash
+.. note::
 
-   sbatch job_make_examples_Atos_HPCF
+   .. code-block:: bash
 
+      sbatch job_make_examples_Atos_HPCF
 
 .. _compilation_belenos_meteofrance:
 
