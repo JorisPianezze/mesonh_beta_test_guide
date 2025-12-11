@@ -1,6 +1,11 @@
-LES diagnostics
+Online turbulent diagnostics
 ================================================
 
-Appendix C : http://mesonh.aero.obs-mip.fr/mesonh57/BooksAndGuides?action=AttachFile&do=view&target=users_guide_m571.pdf
+Meso-NH offers a wide range of online diagnostics for turbulence (resolved and sub-grid contributions), you can find documentation :download:`here <online_turbulent_diagnostics.pdf>`.
 
-Beaucoup de tableaux !!
+.. note::
+
+   Latex source files are available in `<https://src.koda.cnrs.fr/mesonh/mesonh-doc>`_.
+
+
+
