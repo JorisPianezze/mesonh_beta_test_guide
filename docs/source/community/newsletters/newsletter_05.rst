@@ -17,7 +17,7 @@ Entretien avec `Najda Villefranque <mailto:najda.villefranque@meteo.fr>`_ (CNRM)
 
 .. note::
 
-   Une version longue de l'entretien, avec plus de détails, est disponible `ici <https://mesonh-beta-test-guide.readthedocs.io/en/latest/community/newsletters/newsletter_05_extended.html>`_.
+   Une version longue de l'entretien, avec plus de détails, est disponible `ici <newsletter_05_extended.html>`_.
 
 
 Najda, tu as développé un simulateur de rayonnement 3D qui peut être appliqué à des champs 3D issus de simulations Méso-NH. Pourrais-tu résumer ce que fait ce logiciel ?
@@ -71,7 +71,7 @@ Dépôt Zenodo de Méso-NH
   Afin d'avoir un DOI associé à chaque nouvelle version de Méso-NH, un `dépôt Zenodo <https://zenodo.org/records/15095131>`_ vient d'être créé. Pour chaque version de Méso-NH, la tar ball y sera déposée et un DOI y sera associé. 
 
 .. note::
-  **Pensez-y pour vos futures publications**, vous pourrez faire référence à ce dépôt notamment dans la section *Data availability* ou équivalente. 
+  **Pensez-y pour vos futures publications**, vous pourrez faire référence à ce dépôt Zenodo notamment dans la section *Data availability* ou équivalente. 
 
 Stage Méso-NH
   Le stage Méso-NH s'est déroulé avec succès pour la première fois en hybride, avec 8 personnes dans la salle et 13 à distance, du 10 au 13 mars 2025.
@@ -104,7 +104,7 @@ Porting on GPU supercomputers
   - Porting the Meso-NH atmospheric model on different GPU architectures for the next generation of supercomputers (version MESONH-v55-OpenACC) [`Escobar et al., 2025 <https://doi.org/10.5194/egusphere-2024-2879>`_]
 
 PhD theses
-  - Analyse globale, régionale et locale des mesures de vapeur d'eau dans la haute TTL pendant STRATÉOLE 2 [`Carbone <https://theses.fr/s297336>`_, Université de Reims Champagne-Ardenne, 2025]
+  - Analyse globale, régionale et locale des mesures de vapeur d'eau dans la haute TTL pendant STRATÉOLE 2 [`Carbone, Université de Reims Champagne-Ardenne, 2025 <https://theses.fr/s297336>`_]
 
 .. note::
 

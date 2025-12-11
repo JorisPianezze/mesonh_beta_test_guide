@@ -1,7 +1,7 @@
 Infolettre #04
 ================================================
 
-**10 janvier 2025.** Version française, English version `here <newsletter_03_english.html>`_.
+**10 janvier 2025.** Version française, English version `here <newsletter_04_english.html>`_.
 
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
@@ -13,7 +13,7 @@ Voici ci-dessous la 4ème infolettre de notre communauté. Vous y trouverez un e
 Entretien avec `Robert Schoetter <mailto:robert.schoetter@meteo.fr>`_ (CNRM)
 ************************************************************************************
 
-.. image:: photo_robert-s.jpg
+.. image:: photo_rs.jpg
   :width: 200
 
 Robert, tu as développé le couplage à plusieurs niveaux entre Méso-NH et TEB, le module de SURFEX qui représente les interactions entre les villes et l'atmosphère. Pourrais-tu résumer ce qui a motivé ce développement ?
@@ -78,13 +78,13 @@ Drone measurements of cumulus
   - Experimental UAV flights to collect data within cumulus clouds [`Hattenberger et al., 2024 <https://doi.org/10.1109/TFR.2024.3478216>`_]
 
 PhD theses
-  - Amélioration de la prise en compte du givrage par la modélisation et la prévision météorologique pour l'exploitation des parcs éoliens [`Dupont, Université de Toulouse, 2024 <https://theses.fr/s305624>`_]
+  - Amélioration de la prise en compte du givrage par la modélisation et la prévision météorologique pour l'exploitation des parcs éoliens [`Dupont <https://theses.fr/s305624>`_, Université de Toulouse, 2024]
   - Etude de l'évolution de la couche limite atmosphérique et des nuages de pente sur l'île de la Réunion [`El Gdachi, Université de La Réunion, 2024 <https://theses.fr/s311244>`_]
-  - Interactions entre irrigation, couche limite atmosphérique et vents de méso-échelle en région semi-aride : observations et modélisation [`Lunel, Université de Toulouse, 2024 <https://theses.fr/s304370>`_]
+  - Interactions entre irrigation, couche limite atmosphérique et vents de méso-échelle en région semi-aride : observations et modélisation [`Lunel <https://theses.fr/s304370>`_, Université de Toulouse, 2024]
 
 .. note::
 
-   Si vous souhaitez partager avec la communauté le fait qu’un de vos projets utilisant Méso-NH a été financé ou toute autre communication sur vos travaux (notamment posters et présentations *disponibles en ligne*), n’hésitez pas à m’écrire. A l’occasion de la mise en place de ces infolettres, je suis également preneur de vos avis sur le format proposé.
+   Si vous souhaitez partager avec la communauté le fait qu’un de vos projets utilisant Méso-NH a été financé ou toute autre communication sur vos travaux (notamment posters et présentations *disponibles en ligne*), n’hésitez pas à `m’écrire <mailto:thibaut.dauhut@univ-tlse3.fr>`_.
 
 Bonnes simulations avec Méso-NH !
 
