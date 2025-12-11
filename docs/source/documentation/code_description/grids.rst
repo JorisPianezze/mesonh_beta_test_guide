@@ -3,7 +3,7 @@
 Grids
 ================================================
 
-Meso-NH use a C-grid in the Arakawa convention, both on the horizontal and on the vertical. This grid is shown on the following figure with:
+Meso-NH use a C-grid in the Arakawa convention :cite:`arakawa_computational_1977`, both on the horizontal and on the vertical. This grid is shown on the following figure with:
 
 * 1 : mass points
 

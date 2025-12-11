@@ -1,14 +1,10 @@
 Input / Output
 =============================================================================
 
-.. error:: 
-
-   Merger ce qu'il y avait dans le user guide (que j'ai mis en dessous) avec ce qu'il y a dans le notebook https://github.com/PhilippeWautelet/2022-mesonh-io-lecture/blob/main/io_mnh.ipynb ?
-
 The F90 namelists
 *****************************************************************************
 
-All the information required to perform a given step of a numerical experiment are provided by different files including a NAMELIST set. Thus, the Meso-NH user can change the value of the parameters without any compilation. These files provide the way for the Meso-NH user to interact with the numerical code and finally, they contain the identification cards of the different steps of the numerical experiment.
+All the information required to launch a given executable are located in a F90 namelist file. The Meso-NH user can change the value of the parameters without any compilation. These files provide the way for the Meso-NH user to interact with the numerical code and finally, they contain the identification cards of the different steps of the numerical experiment.
 
 The information are written in the following form:
 
@@ -29,7 +25,7 @@ The information are written in the following form:
      NSV    = 0
    /
 
-&NAM_LUNITn is the name of the first namelist of this file, the / character indicates the end of the list of information. These namelist parameters are defined by VAR = VALUE and these prescriptions are separated from each others by a comma and a blank character. Note that you can use more than one line to give a namelist, but in this case it is imperative to let a blank character at the end of each line.
+:code:`&NAM_LUNITn` is the name of the first namelist of this file, the / character indicates the end of the list of information. These namelist parameters are defined by :code:`VAR = VALUE` and these prescriptions are separated from each others by a comma and a blank character. Note that you can use more than one line to give a namelist, but in this case it is imperative to let a blank character at the end of each line.
 
 .. tip::
 
@@ -41,7 +37,7 @@ The information are written in the following form:
         LUSERV = T
       /
    
-   because the other variables of &NAM_CONFn are set to the default values.
+   because the other variables of :code:`&NAM_CONFn` are set to the default values.
 
 In order to clearly separate what can be modified for a given step of a numerical experiment, we affect a different namelist file name for each executables :
 
@@ -58,23 +54,16 @@ In order to clearly separate what can be modified for a given step of a numerica
    "DIAG", "DIAG1.nam", "Compute diagnostic after simulation"
    "SPECTRE", "SPEC1.nam", "Compute spectra after simulation"
 
-Because the grid-nesting technique requires the simultanous presence of multiple models in the computer memory, free-parameters must be fixed for every model. This is performed by associating a namelist file per model, this explains why the namelist are suffixed by a number 1 or n just above. The different parameters present in these files are all given in this book and more details on the description of a given parameter are present in the code itself.
+Because the grid-nesting technique requires the simultaenous presence of multiple models in the computer memory, free-parameters must be fixed for every model. This is performed by associating a namelist file per model, this explains why the namelist are suffixed by a number 1 or n just above. The different parameters present in these files are all given in this book and more details on the description of a given parameter are present in the code itself.
 
 Output files
 *****************************************************************************
-
-.. error::
-
-   Il manque des informations sur les OUTPUT_LISTING0 et 1, ... ce serait pas mal d'avoir une petite explication de ce qu'il y a dans ces fichiers, CFL, temps de calcul à la fin du job, ...
 
 Meso-NH writes files by group of 2:
 
 * a descriptive part (.des) containing namelist's information (in ASCII characters)
 
-* a binary part where the fields are stored. Two different fileformat are available:
-
-  * NetCDF (files with a .nc suffix). This is the recommanded fileformat and is the default since Meso-NH 5.4.0. NetCDF is a self-describing, machine-independent fileformat. In Meso-NH, these files are mostly compliant with the CF conventions (version 1.7) and the COMODO extensions (version 1.4).
-  * LFI (files with a .lfi suffix). This is the historic fileformat for Meso-NH. Its structure is a direct access type file, written and read by routines developped by Météo-France (Fischer, 1994) based on LFI routines (Clochard, 1989), which can be used on a lot of different computers. These binary files are used to store all the data necessary to run any step of a numerical experiment. Since Meso-NH 6.0, it is not possible anymore to write LFI files, but Meso-NH can still read existing LFI files.
+* a netcdf part where the fields are stored. NetCDF is a self-describing, machine-independent fileformat. In Meso-NH, these files are mostly compliant with the CF conventions (version 1.7) and the COMODO extensions (version 1.4).
 
 Three different filetypes are taken into account in the Meso-NH project:
 
@@ -89,11 +78,10 @@ The synchronous backup file
 
 This type of file contains only information corresponding to the same instant of the simulation, it remains open during a whole time step of the simulation, and the writing orders can be given from any routine of the model.
 
-**The descriptive part**
+**The descriptive part:**
+This part is the list of all the namelists of the EXSEGn.nam file. Thus, a complete description of this part is given with the :file:`EXSEGn.nam` description in chapter 9. If the file has been generated during a segment of the model integration, the .des part contains the different namelists fixing the free-parameters for the dynamics and the physics of the Meso-NH model. This allows the user to know a large part of the history of this file. For the namelists or variables ommited in the :file:`EXSEGn.nam` file, the values are set to the default ones. If the file is the result of the initialization programs (:ref:`prep_ideal_case`, :ref:`prep_real_case` or :ref:`spawning`), the values of the namelists variables are the ones of the descriptive part of the input file of the program if it does exist. Otherwise, the values are set to the default ones, except for these that can be initialized during the initialization program (e.g. :code:`CINIFILE` or :code:`LUSERV`). Note that a physiographic file does not have a descriptive part.
 
-This part is the list of all the namelists of the EXSEG$n.nam file. Thus, a complete description of this part is given with the EXSEG$n.nam description in chapter 9. If the file has been generated during a segment of the model integration, the .des part contains the different namelists fixing the free-parameters for the dynamics and the physics of the Meso-NH model. This allows the user to know a large part of the history of this file. For the namelists or variables ommited in the EXSEG$n.nam file, the values are set to the default ones (see the tables in ch.9). If the file is the result of the initialization programs (PREP_IDEAL_CASE, PREP_REAL_CASE or SPAWNING), the values of the namelists variables are the ones of the descriptive part of the input file of the program if it does exist. Otherwise, the values are set to the default ones, except for these that can be initialized during the initialization program (e.g. CINIFILE or LUSERV). Note that a physiographic file does not have a descriptive part.
-
-**The binary part**
+**The binary part:**
 This type of file is in netCDF fileformat (historically LFI fileformat). It should be noted that additional fields can be added to these basic information, which have been obtained at the same instant. In order to be easily drawn by the Meso-NH graphic package, the comment field must be filled, according to the following rules:
 
 * the length of the character string is equal to 100
