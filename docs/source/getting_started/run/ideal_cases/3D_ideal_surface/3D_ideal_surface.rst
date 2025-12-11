@@ -3,7 +3,12 @@ Three dimensional (xyz) with ideal surface
 
 3D Meso-NH simulations capture full spatial dynamics, including complex interactions between terrain, convection, and surface heterogeneity. They allow to study organized atmospheric structures that 1D or 2D models cannot represent. In this example you will use idealized initial and surface conditions.
 
-To perform a 3D simulation with Meso-NH with idealized initial and surface condition you need to :ref:`prepare the initial condition <3d_prep_ideal_case_ideal_surface>` and :ref:`run the model <3d_mesonh_ideal_surface>` using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections.
+To perform a 3D simulation with Meso-NH with idealized initial and surface condition you need to :ref:`prepare the initial condition <3d_prep_ideal_case_ideal_surface>` and :ref:`run the model <3d_mesonh_ideal_surface>` using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections:
+
+.. contents::
+   :local:
+   :depth: 1
+   :backlinks: top
 
 .. warning::
 

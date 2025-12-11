@@ -3,7 +3,12 @@ Three dimensional (xyz) with real surface
 
 3D Meso-NH simulations capture full spatial dynamics, including complex interactions between terrain, convection, and surface heterogeneity. They allow to study organized atmospheric structures that 1D or 2D models cannot represent. In this example you will use idealized initial condition and real surface condition.
 
-To perform a 3D simulation with Meso-NH with idealized initial condition and real surface condition you need to :ref:`prepare the physiographic data <3d_prep_pgd>`, :ref:`prepare the initial condition <3d_prep_ideal_case_real_surface>` and :ref:`run the model <3d_mesonh_real_surface>` using the :ref:`prep_pgd`, :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. In this example you will also use the :ref:`diag` program to :ref:`calculate diagnostics after the simulation <3d_diag_real_surface>`. These steps are described in the following sections.
+To perform a 3D simulation with Meso-NH with idealized initial condition and real surface condition you need to :ref:`prepare the physiographic data <3d_prep_pgd>`, :ref:`prepare the initial condition <3d_prep_ideal_case_real_surface>` and :ref:`run the model <3d_mesonh_real_surface>` using the :ref:`prep_pgd`, :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. In this example you will also use the :ref:`diag` program to :ref:`calculate diagnostics after the simulation <3d_diag_real_surface>`. These steps are described in the following sections:
+
+.. contents::
+   :local:
+   :depth: 1
+   :backlinks: top
 
 .. warning::
 

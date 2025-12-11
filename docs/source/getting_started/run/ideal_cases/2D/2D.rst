@@ -3,7 +3,12 @@ Two dimensional (cross-section xz or yz) with ideal surface
 
 2D simulation is a powerful compromise between 1D and 3D simulations : it retains both horizontal and vertical dimensions, allowing a large number of atmospheric phenomena to be represented without the significant cost of a 3D simulation. 2D configurations are able to study free convection, thermals, gravity waves, 2D turbulence, ...
 
-To perform a 2D simulation with Meso-NH you need to :ref:`prepare the initial condition <2d_prep_ideal_case>` and :ref:`run the model <2d_mesonh>` using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections.
+To perform a 2D simulation with Meso-NH you need to :ref:`prepare the initial condition <2d_prep_ideal_case>` and :ref:`run the model <2d_mesonh>` using the :ref:`prep_ideal_case` and :ref:`mesonh` executables respectively. These two steps are described in the following sections:
+
+.. contents::
+   :local:
+   :depth: 1
+   :backlinks: top
 
 .. warning::
 

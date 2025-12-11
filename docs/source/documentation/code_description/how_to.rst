@@ -3,6 +3,10 @@
 How to ?
 =============================================================================
 
+.. contents::
+   :local:
+   :depth: 1
+   :backlinks: top
 
 Compute altitude of vertical levels
 *****************************************************************************
@@ -287,4 +291,35 @@ You can now open the documentation in a web-browser by loading the file /doxygen
 
 If you have trouble to generate the tree, the documentation is available on demand (~1.2 Go) at mesonhsupport .at. obs-mip.fr
 
+Compress Meso-NH output files
+*****************************************************************************
+
+It is possible to compress Meso-NH output files in netCDF4 format that were not previously compressed. The purpose of this operation is to reduce the disk space occupied by your simulations. The operation is performed simply with the command:
+
+.. code-block:: bash
+
+   nccopy -d4 -s fich_noncompresse.nc4 fich_compress.nc4
+
+
+.. note::
+
+   The -d4 option specifies compression level 4 (0: no compression, 9: maximum compression). 4 or 5 should generally suffice. Beyond that, there is usually little (if any) gain, and it significantly increases the duration of the operation. The -s option activates "shuffle." I highly recommend it.
+
+.. warning::
+
+   Be aware that the gains vary greatly from one file to another (from a few percent to a factor of 2 or more) and the processing takes a while. If you have a lot of files, it's a good idea to write a small shell script to loop through the list of files.
+   Here's a small example to adapt:
+
+   .. code-block:: bash
+
+      #!/bin/bash
+
+      dir_in="uncompressed_outputs"
+      dir_out="compressed_outputs"
+
+      for file in $dir_in/*.nc; do
+         echo "Treating: $file"
+         base_file=$(basename "$file")
+         nccopy -d4 -s ${file} ${dir_out}/${base_file}
+     done
 

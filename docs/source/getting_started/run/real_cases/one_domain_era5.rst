@@ -1,7 +1,12 @@
 One domain initialized and forced by ERA5
 ==================================================================
 
-To perform a 3D Meso-NH simulation with real initial and surface conditions you need to :ref:`prepare the physiographic data <prep_pgd_real_one_domain_era5>`, :ref:`prepare the initial and lateral boundary conditions <prep_real_case_one_domain_era5>` and :ref:`run the model <mesonh_one_domain_era5>` using the :ref:`prep_pgd`, :ref:`prep_real_case` and :ref:`mesonh` executables respectively. In this example you will also use the :ref:`diag` program to :ref:`calculate diagnostics after the simulation <diag_one_domain_era5>`. These steps are described in the following sections.
+To perform a 3D Meso-NH simulation with real initial and surface conditions you need to :ref:`prepare the physiographic data <prep_pgd_real_one_domain_era5>`, :ref:`prepare the initial and lateral boundary conditions <prep_real_case_one_domain_era5>` and :ref:`run the model <mesonh_one_domain_era5>` using the :ref:`prep_pgd`, :ref:`prep_real_case` and :ref:`mesonh` executables respectively. In this example you will also use the :ref:`diag` program to :ref:`calculate diagnostics after the simulation <diag_one_domain_era5>`. These steps are described in the following sections:
+
+.. contents::
+   :local:
+   :depth: 1
+   :backlinks: top
 
 .. warning::
 
