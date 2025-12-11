@@ -42,16 +42,16 @@ NAM_CONF_PRE
   * 5 for intermediate level of prints
   * 10 for maximum of prints.
 
-.. note::
+  .. note::
 
-   If CSURF='EXTE' in namelist NAM_GRn_PRE, NVERB=10 prints two LaTeX files containing the initialisation of surface scheme variables for each type of surface cover.
+     If CSURF='EXTE' in namelist :ref:`nam_grn_pre`, NVERB=10 prints two LaTeX files containing the initialisation of surface scheme variables for each type of surface cover.
 
 * :code:`CIDEAL` : kind of idealized fields 
 
   * 'CSTN' : Constant moist Brunt Vaisala frequency case 
   * 'RSOU' : radiosounding case
 
-* :code:`CZS` : orography selector. The formulae are given below in the description of the namelist NAM\_GRIDH\_PRE.
+* :code:`CZS` : orography selector. The formulae are given below in the description of the namelist :ref:`nam_gridh_pre`.
 
   * 'FLAT' : constant XHMAX orography (zero by default)
   * 'SINE' : sine-shaped orography 
@@ -59,9 +59,9 @@ NAM_CONF_PRE
   * 'AGNE' : orography with :math:`h*a^2/(x^2+a^2)` shape
   * 'DATA': discretized orography. The data describing the orography  are given in the free format part. 
 
-.. note::
+  .. note::
 
-   Only the orography corresponding to the computational domain must be provided in free format. For 3D orography, data are read like if it was a map (the first line is the Northern border and the first data is the North-West corner) with one line per Y-axis increment.
+     Only the orography corresponding to the computational domain must be provided in free format. For 3D orography, data are read like if it was a map (the first line is the Northern border and the first data is the North-West corner) with one line per Y-axis increment.
 
 * :code:`LBOUSS` : Flag for a Boussinesq version. 
 
@@ -74,11 +74,11 @@ NAM_CONF_PRE
   * a perturbation on the horizontal components of the wind derived from a streamfunction (typical for large scale studies). This prevents the wind from becoming divergent. 
   * a perturbation on the dry potential temperature field at the first mass level near the ground, corresponding to a white noise (uniform amplitude in the spectral space) (typical for Large Eddy Simulations initialization)  
 
-.. note::
+  .. note::
 
-   When set to .TRUE., the parameters for the exact definition of the perturbation can be set in the namelist NAM_PERT_PRE or sometimes can be modified directly in the subroutine :file:`set_perturb.f90`.
+     When set to .TRUE., the parameters for the exact definition of the perturbation can be set in the namelist :ref:`nam_pert_pre` or sometimes can be modified directly in the subroutine :file:`set_perturb.f90`.
 
-* :code:`LFORCING` : Flag to specify forcing sources. When .TRUE., the precise definition of the forcing is set in the free-format part of :file:`PRE_IDEA1.nam`. LFORCING must be then set to .TRUE. in :file:`EXSEG1.nam` (NAM_CONF).
+* :code:`LFORCING` : Flag to specify forcing sources. When .TRUE., the precise definition of the forcing is set in the free-format part of :file:`PRE_IDEA1.nam`. LFORCING must be then set to .TRUE. in :file:`EXSEG1.nam` (:ref:`nam_conf`).
 
 * :code:`LSHIFT` : flag to shift altitudes in boundary layer. If LGEOSBAL=TRUE, LSHIFT will be set to FALSE.
 
@@ -90,4 +90,4 @@ NAM_CONF_PRE
 
 * :code:`JPHEXT` : Horizontal External points number JPHEXT must be equal to 3 for cyclic cases with WENO5.
 
-* :code:`LOCEAN` : flag to activate the Ocean version of Meso-NH. Pronostic variables are: Current (U and V), Vertical velocity (W), Temperature (TH), Subgrid Turbulent Kinetic Energy (TKE). Salinity (RV) can be activated with LUSERV=T. The Z-axis is directed upward (as in the atmosphere version), i.e. top of model domain corresponds to the sea surface. The initial profile must be defined in the free-format part.
+* :code:`LOCEAN` : flag to activate the Ocean version of Meso-NH. Pronostic variables are: Current (U and V), Vertical velocity (W), Temperature (TH), Subgrid Turbulent Kinetic Energy (TKE). Salinity (RV) can be activated with LUSERV=T. The Z-axis is directed upward (as in the atmosphere version), i.e. top of model domain corresponds to the sea surface. The initial profile must be defined in the :ref:`freeformat_prep_ideal_case`.

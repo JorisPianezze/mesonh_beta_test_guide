@@ -3,11 +3,9 @@
 NAM_BALLOONS
 -----------------------------------------------------------------------------
 
-This namelist allows to add virtual balloons to the simulation. Before version 5.6 of MesoNH, balloon configuration was done by modifying :file:`ini_balloon.f90` and re-compiling the code.
+This namelist allows to add virtual balloons to the simulation. Before using this namelist, the total number of balloons must be set in the :ref:`nam_flyers` namelist.
 
-Before using this namelist, the total number of balloons must be set in the :ref:`nam_flyers` namelist.
-
-Balloons are advected by the wind of the model. They can crash. All the prognostic fields (zonal and meridian wind (from U and V components), vertical velocity, potential temperature, pression, mixing ratios, tke, radiative surface temperature...) are recorded along the trajectories of the balloons, as well as their trajectories themselves (positions in X, Y and Z directions and orography). All records are stored in the diachronic files (.000).
+Balloons are advected by the wind of the model. They can crash. All the prognostic fields (zonal and meridian wind (from U and V components), vertical velocity, potential temperature, pression, mixing ratios, tke, radiative surface temperature...) are recorded along the trajectories of the balloons, as well as their trajectories themselves (positions in X, Y and Z directions and orography). All records are stored in the :ref:`diachronic file<diachronic_file>` (.000).
 
 .. csv-table:: NAM_BALLOONS content
    :header: "Fortran name", "Fortran type", "Default value"
@@ -40,16 +38,16 @@ Balloons are advected by the wind of the model. They can crash. All the prognost
 
 * :code:`TLAUNCH` : instant of launch. Mandatory. This type has 4 fields (nyear, nmonth, nday and xtime).
 
-.. note::
+  .. note::
 
-   For example:
+     For example:
    
-   .. code-block::
+     .. code-block::
 
-      TLAUNCH(1)%nyear  =  2023
-      TLAUNCH(1)%nmonth =     1
-      TLAUNCH(1)%nday   =    16
-      TLAUNCH(1)%xtime  = 21600.
+        TLAUNCH(1)%nyear  =  2023
+        TLAUNCH(1)%nmonth =     1
+        TLAUNCH(1)%nday   =    16
+        TLAUNCH(1)%xtime  = 21600.
 
 * :code:`XTSTEP` : data storage frequency. If not set, it is forced to 60s. The frequency must be a multiple of the timestep of the chosen model NMODEL if CMODEL='FIX' or of the main model 1 if CMODEL='MOB'. It will be enforced at run. Balloon positions are not computed with this timestep but with the model one.
 

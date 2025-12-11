@@ -16,7 +16,7 @@ Chemical deposition and biogenic emissions over vegetation.
 * :code:`CCH_DRY_DEP` : type of deposition scheme.
   
   * 'NONE' : no chemical deposition scheme. 
-  * 'WES89' : Wesley (1989) deposition scheme.
+  * 'WES89' : :cite:t:`wesely_parameterization_1989` deposition scheme.
 
 * :code:`LCH_BIO_FLUX` : flag to activate the biogenic emissions.
 

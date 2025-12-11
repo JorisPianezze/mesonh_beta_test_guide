@@ -3,7 +3,7 @@
 NAM_CONF_PROJ_GRID
 -----------------------------------------------------------------------------
 
-This namelists defines the horizontal domain in case CGRID="CONF PROJ ".
+This namelists defines the horizontal domain in case of CGRID="CONF PROJ" in :ref:`nam_pgd_grid`.
 
 .. csv-table:: NAM_CONF_PROJ_GRID content
    :header: "Fortran name", "Fortran type", "Default value"

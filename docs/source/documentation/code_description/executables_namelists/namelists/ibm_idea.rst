@@ -34,17 +34,19 @@ ibm_idea.nam
   * if type 1 (parallelepiped): I1/I2 = min/max in direction (X,Y,Z)
   * if type 2 (ellipsoide): X1/Y1/Z1 locations of object center, X2/Y2/Z2 axe lenght in each direction
 
-Example (case of 4 parallelepipeds and 1 ellipsoide) :
+.. note::
 
-.. code-block::
+   Example (case of 4 parallelepipeds and 1 ellipsoide) :
 
-   5 2 # NOBJ / NOBJ_TYPE
-   1 4 # NTYPE / NOBJ_ETYPE
-   +51.00 +53.42 +51.45 +63.65 -1.00 +2.54 # XX1/XX2/XY1/XY2/XZ1/XZ2
-   +51.00 +53.42 +71.55 +83.75 -1.00 +2.54 #
-   +51.00 +53.42 +91.65 +103.85 -1.00 +2.54 #
-   +51.00 +53.42 +111.75 +123.95 -1.00 +2.54 #
-   2 1 # NTYPE / NOBJ_ETYPE
-  +100. +10. +100. +10. -1. 10. # XX1/XX2/XY1/XY2/XZ1/XZ2
+   .. code-block::
+
+      5 2 # NOBJ / NOBJ_TYPE
+      1 4 # NTYPE / NOBJ_ETYPE
+      +51.00 +53.42 +51.45 +63.65 -1.00 +2.54 # XX1/XX2/XY1/XY2/XZ1/XZ2
+      +51.00 +53.42 +71.55 +83.75 -1.00 +2.54 #
+      +51.00 +53.42 +91.65 +103.85 -1.00 +2.54 #
+      +51.00 +53.42 +111.75 +123.95 -1.00 +2.54 #
+      2 1 # NTYPE / NOBJ_ETYPE
+      +100. +10. +100. +10. -1. 10. # XX1/XX2/XY1/XY2/XZ1/XZ2
   
-In the case of obstacles in contact with the ground it is necessary to have negative value of XZ1.
+   In the case of obstacles in contact with the ground it is necessary to have negative value of XZ1.

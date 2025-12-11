@@ -25,6 +25,10 @@ This namelist defines the grid type, either specified or from an existing surfac
   * "IGN ": this grid type contains all IGN (French National Geographical Institute) possible Lambert projections
   * "NONE ": this grid is not regular. Only the number of points and the size of each grid mesh is prescribed. There is no positioning of each point compared to any other.
 
+  .. note::
+  
+     For each option of CGRID you need to fill other namelist. By example, for CGRID='CONF PROJ', you need to fill :ref:`nam_conf_proj` and :ref:`nam_conf_proj_grid` namelists.
+
 * :code:`YINIFILE` : name of the file used to define the grid. It is possible to define the grid as a subgrid of a previously created file. This is currently possible only for files that have a "CONF PROJ " or "CARTESIAN " grid type. The exact definition of the subgrid grid chosen is prescribed in a namelist (described below), depending on the type of grid available in the file chosen. The use of a file has priority on the CGRID type.
 
 * :code:`YINIFILETYPE` : type of the YINIFILE file, if the latter is provided. YFILETYPE must be given. The following values are currently usable:

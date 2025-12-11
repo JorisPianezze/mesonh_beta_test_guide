@@ -12,8 +12,8 @@ NAM_CH_CONF
    "LUSECHEM","LOGICAL",".FALSE."
 
 
-* :code:`LUSECHAQ` : switch to initialize aqueous phase chemistery.
+* :code:`LUSECHAQ` : flag to activate aqueous phase chemistry.
 
-* :code:`LUSECHIC` : switch to initialize ice  phase chemistery.
+* :code:`LUSECHIC` : flag to activate ice phase chemistry.
 
-* :code:`LUSECHEM` : switch to initialize gazeous phase chemistery whithout aqueous phase chemistery
+* :code:`LUSECHEM` : flag to activate gazeous phase chemistry whithout aqueous phase chemistry.

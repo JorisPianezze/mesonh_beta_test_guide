@@ -58,11 +58,11 @@ NAM_CONFIO
 
    Not all messages use this infrastructure. Therefore, some of them are not affected by these options.
 
-* :code:`LIO_COMPRESS` : enable lossless compression of data for all files. This can have a negative impact on performance. This option takes precedence over their equivalent NAM_BACKUP and NAM_OUTPUT namelists.
+* :code:`LIO_COMPRESS` : enable lossless compression of data for all files. This can have a negative impact on performance. This option takes precedence over their equivalent :ref:`nam_backup` and :ref:`nam_output` namelists.
 
-* :code:`LOUT_COMPRESS_LEVEL` : set the compression level. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option takes precedence over their equivalent in NAM_BACKUP and NAM_OUTPUT namelists (only if LIO_COMPRESS=.TRUE.).
+* :code:`LOUT_COMPRESS_LEVEL` : set the compression level. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option takes precedence over their equivalent in :ref:`nam_backup` and :ref:`nam_output` namelists (only if LIO_COMPRESS=.TRUE.).
 
-* :code:`LDIAG_REDUCE_FLOAT_PRECISION` : force writing of floating points numbers in single precision for diagnostic files (written by the :program:`DIAG` program)
+* :code:`LDIAG_REDUCE_FLOAT_PRECISION` : force writing of floating points numbers in single precision for diagnostic files (written by the :ref:`diag` program)
 
 * :code:`LIO_ALLOW_REDUCED_PRECISION_BACKUP` : flag to allow writing of backup files with a reduced precision as well as reading of reduced precision files and files written with Meso-NH compiled with a lower precision for integers or reals (ie MNH_INT=4 and MNH_REAL=4).
 

@@ -1,3 +1,5 @@
+.. _input_output:
+
 Input / Output
 =============================================================================
 
@@ -97,6 +99,7 @@ This type of file is in netCDF fileformat (historically LFI fileformat). It shou
    "2D", "scalar", "VX_xvarname_VY_yvarname_VZ_zvarname (UNIT) or VX_xvarname_VY_yvarname (UNIT)"
    "1D", "scalar", "Z_zvarname (UNIT)"
 
+.. _diachronic_file:
 
 The diachronic file
 -----------------------------------------------------------------------------

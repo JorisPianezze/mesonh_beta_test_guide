@@ -24,8 +24,8 @@ NAM_BUDGET
 
 * :code:`CBUTYPE` : type of box used to compute the budget:
 
-  * 'CART' a cartesian box defined by the lowest and highest values of the indices in the 3 directions in the MESONH grid, defined in the following.
-  * 'MASK' several areas, described by horizontal masks, are selected according to criteria evaluated at each model timestep.  The budget computations are realized at the selected verticals for each criteria. The criteria must be defined in the routine {\it set\_mask.f90}
+  * 'CART' a cartesian box defined by the lowest and highest values of the indices in the 3 directions in the Meso-NH :ref:`grids`, defined in the following.
+  * 'MASK' several areas, described by horizontal masks, are selected according to criteria evaluated at each model timestep. The budget computations are realized at the selected verticals for each criteria. The criteria must be defined in the routine :file:`set_mask.f90`.
 
 * :code:`NBUMOD` : number of the model in which the budget are performed. Only one model must be selected even if the grid-nesting is active.
 

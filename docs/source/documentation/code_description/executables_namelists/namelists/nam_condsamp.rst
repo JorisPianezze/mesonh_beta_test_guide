@@ -4,7 +4,7 @@ NAM_CONDSAMP
 -----------------------------------------------------------------------------
 
 
-It contains the parameters to activate conditional sampling (Couvreux et al., 2010). The first tracer is released at the surface, the second one is released XHEIGHT_BASE below the cloud base on XDEPTH_BASE depth the third one is released XHEIGHT_TOP above the cloud top on XDEPTH_TOP depth.
+It contains the parameters to activate conditional sampling :cite:`couvreux_resolved_2010`. The first tracer is released at the surface, the second one is released XHEIGHT_BASE below the cloud base on XDEPTH_BASE depth the third one is released XHEIGHT_TOP above the cloud top on XDEPTH_TOP depth.
 
 .. csv-table:: NAM_CONDSAMP content
    :header: "Fortran name", "Fortran type", "Default value"

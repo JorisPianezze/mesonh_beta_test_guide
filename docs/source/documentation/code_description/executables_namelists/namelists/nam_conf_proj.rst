@@ -3,7 +3,7 @@
 NAM_CONF_PROJ
 -----------------------------------------------------------------------------
 
-This namelist defines the projection in case CGRID="CONF PROJ ".
+This namelist defines the projection in case of CGRID="CONF PROJ" in :ref:`nam_pgd_grid`.
 
 .. csv-table:: NAM_CONF_PROJ content
    :header: "Fortran name", "Fortran type", "Default value"

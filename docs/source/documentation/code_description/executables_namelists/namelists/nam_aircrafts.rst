@@ -3,11 +3,9 @@
 NAM_AIRCRAFTS
 -----------------------------------------------------------------------------
 
-This namelist allows to add virtual aircrafts to the simulation. Before version 5.6 of MesoNH, aircraft configuration was done by modifying :file:`ini_aircraft.f90` and re-compiling the code.
+This namelist allows to add virtual aircrafts to the simulation. Before using this namelist, the total number of aircrafts must be set in the :ref:`nam_flyers` namelist.
 
-Before using this namelist, the total number of aircrafts must be set in the NAM_FLYERS namelist.
-
-All the prognostic fields (zonal and meridian wind (from U and V components), vertical velocity, potential temperature, pression, mixing ratios, tke, radiative surface temperature...) are recorded along the trajectories of the aircrafts, as well as their trajectories themselves (positions in X, Y and Z directions and orography). All records are stored in the diachronic files (.000).
+All the prognostic fields (zonal and meridian wind (from U and V components), vertical velocity, potential temperature, pression, mixing ratios, tke, radiative surface temperature...) are recorded along the trajectories of the aircrafts, as well as their trajectories themselves (positions in X, Y and Z directions and orography). All records are stored in the :ref:`diachronic file<diachronic_file>` (.000).
 
 .. csv-table:: NAM_AIRCRAFTS content
    :header: "Fortran name", "Fortran type", "Default value"
@@ -26,7 +24,7 @@ All the prognostic fields (zonal and meridian wind (from U and V components), ve
 
 * :code:`CMODEL` : 'FIX' if the aircraft stays on the same grid model, 'MOB' if the aircraft may change of grid model (always the finest depending on the horizontal position). 'FIX' by default
 
-* :code:`CTITLE` : name of the aircraft. If not provided, it is set to 'AIRCRAnnn' with $nnn$ the number of the aircraft
+* :code:`CTITLE` : name of the aircraft. If not provided, it is set to 'AIRCRAnnn' with nnn the number of the aircraft
 
 * :code:`LALTDEF` : if .FALSE. (by default), atlitude is given in meters; if .TRUE. altitude is given in pressure (hPa)
 
@@ -36,16 +34,16 @@ All the prognostic fields (zonal and meridian wind (from U and V components), ve
 
 * :code:`TLAUNCH` : instant of launch. This type has 4 fields (nyear, nmonth, nday and xtime).
 
-.. note::
+  .. note::
 
-   For example:
+     For example:
 
-   .. code-block::
-   
-      TLAUNCH(1)%nyear  =  2023
-      TLAUNCH(1)%nmonth =     1
-      TLAUNCH(1)%nday   =    16
-      TLAUNCH(1)%xtime  = 21600.
+     .. code-block::
+     
+        TLAUNCH(1)%nyear  =  2023
+        TLAUNCH(1)%nmonth =     1
+        TLAUNCH(1)%nday   =    16
+        TLAUNCH(1)%xtime  = 21600.
 
 * :code:`XTSTEP` : data storage frequency. If not set, it is forced to 60s. The frequency must be a multiple of the timestep of the chosen model NMODEL if CMODEL='FIX' or of the main model 1 if CMODEL='MOB'. It will be enforced at run.
 

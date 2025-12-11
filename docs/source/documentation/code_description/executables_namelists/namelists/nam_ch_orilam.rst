@@ -73,9 +73,9 @@ This namelist is used to activate ORILAM chemical aerosols (lognormal distributi
 * :code:`CNUCLEATION` : type of parameterization for nucleation's parametrization. Four options are available:
 
   * 'NONE' : no nucleation
-  * 'KULMALA' : based on Kulmala et al. 1998
-  * 'VEHKAMAKI' : based on Vehkamäki et al. 2002
-  * 'MAATTANEN' : based on Määttänen et al. 2018
+  * 'KULMALA' : based on :cite:t:`kulmala_parameterizations_1998`
+  * 'VEHKAMAKI' : based on :cite:t:`vehkamaki_improved_2002`
+  * 'MAATTANEN' : based on :cite:t:`maattanen_new_2018`
 
 * :code:`LCONDENSATION` : flag to activate the condensation processes.
 

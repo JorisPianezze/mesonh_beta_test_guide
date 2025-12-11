@@ -15,7 +15,7 @@ Chemical aerosol scheme ORILAM.
    "XEMISRADIUSJ", "REAL", "0.385"
    "XEMISSIGI", "REAL", "1.86"
    "XEMISSIGJ", "REAL", "1.29"
-   "CRGUNIT", "CHARACTER(LEN=4)", "NUMB"
+   "CRGUNIT", "CHARACTER(LEN=4)", "'NUMB'"
    
 * :code:`LCH_AERO_FLUX` : switch to active aerosol surface flux for ORILAM
 
