@@ -81,7 +81,7 @@ Except for the STANDARD kind :
 
 * the seventh and eighth letters represent the kind of moist variable (HU for relative humidity and MR for vapor mixing ratio).
 
-(In case of STANDARD kind, the altitude variable is the pressure, the wind variables are direction and wind force, the temperature variable is the temperature and the moist variable is the due point temperature. )
+(In case of STANDARD kind, the altitude variable is the pressure, the wind variables are direction and wind force, the temperature variable is the temperature and the moist variable is the dew point temperature. )
 
 * HEIGHT of GROUND LEVEL (real, in meters)
 

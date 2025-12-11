@@ -8,7 +8,7 @@ There are three ways to compute the vertical grid:
 
 * **constant grid mesh:** only the number of levels :code:`NKMAX` and the grid mesh sizes :code:`ZDZGRD` and :code:`ZDZTOP` are used. :code:`ZDZGRD` and :code:`ZDZTOP` must have the same value. The type of grid :code:`YZGRID_TYPE` has to be set to 'FUNCTN'.
 
-* **two layers are defined, with different stretching in each layer:** the grid mesh size is given near the ground with :code:`ZDZGRD` and at top of the model with :code:`ZDZTOP` and the stretching coefficients :code:`ZSTRGRD`, :code:`ZSTRGRD` and :code:`ZZMAX_STRGRD` has to be defined. It is possible that the top grid size is never reached if the number of points is not enough for the prescribed stretchings. The type of grid :code:`YZGRID_TYPE` has to be set to 'FUNCTN'.
+* **two layers are defined, with different stretching in each layer:** the grid mesh size is given near the ground with :code:`ZDZGRD` and at top of the model with :code:`ZDZTOP` and the stretching coefficients :code:`ZSTRGRD`, :code:`ZSTRTOP` and :code:`ZZMAX_STRGRD` has to be defined. It is possible that the top grid size is never reached if the number of points is not enough for the prescribed stretchings. The type of grid :code:`YZGRID_TYPE` has to be set to 'FUNCTN'.
 
 * **the vertical discretization is given by the user:** the type of grid :code:`YZGRID_TYPE` has to be set to 'MANUAL' and only the number of levels NKMAX is used.
 
