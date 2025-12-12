@@ -87,30 +87,26 @@ The various steps for compiling Meso-NH on the machines used by main Meso-NH's u
 On Jean-Zay (IDRIS)
 -----------------------------------------------------------------------------
 
-.. csv-table:: Filesystem of Jean-Zay (project data space)
+.. csv-table:: Filesystem of Jean-Zay (default project data space)
    :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
    :widths: 30, 30, 30, 30, 30
 
-   "Location", "$CCCHOME", "$CCCWORKDIR", "$CCCSCRATCHDIR", "$CCCSTOREDIR"
-   "Disk space", "X Go / user", "X To", " X To", " X ?"
-   "Data lifetime", "Saved ?", "Not saved ?", "Purged (60 days) ?", "Saved on disk/band ?"
+   "Location", "$HOME", "$WORK", "$SCRATCH", "$STORE"
+   "Disk space", "3 GiB / user", "5 TiB", "Unlimited", "50 TiB"
+   "Inodes (files)", "150 k / user", "500 k", "Unlimited", "100 k"
+   "Data lifetime", "Saved", "Not saved", "Purged (30 days)", "Not saved"
 
 .. tip::
 
-   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
+   We recommend to install Meso-NH on your Workdir (Homedir is too small),
+   run the simulation on the Scratchdir (but be careful with the automatic purge after 30 days)
+   and store the files in Workdir (for short term storage) or Storedir (for long term storage, filesystem not available for batch jobs).
 
-The compilation can be done interactively using the following commands:
+It is recommanded to do the compilation by submitting a job instead of doing it interactively.
+This is because the ressources on the frontend nodes are limited to one core and therefore the compilation will be very long.
 
-.. code-block:: bash
-   :substitutions:
-  
-   cd |MNH_directory_extract_current|/src
-   ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIINTEL-O2
-   make -j16 |& tee error$XYZ
-   make installmaster
-
-You can also use the 'compil' partition:
+For the CPU partitions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
    :substitutions:
@@ -127,7 +123,14 @@ You can also use the 'compil' partition:
       :substitutions:
 
       cd |MNH_directory_extract_current|/src
-      sbatch -A your_projet.at.cpu job_make_examples_BullX_jeanzay
+      sbatch -A your_projet.at.cpu job_make_examples_HPE_jeanzay
+
+For the GPU partitions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. warning::
+   To compile Meso-NH for GPUs, contact the Meso-NH support and development team.
+
 
 .. _compilation_adastra_cines:
 
@@ -135,16 +138,24 @@ On Adastra (CINES)
 -----------------------------------------------------------------------------
 
 .. csv-table:: Filesystem of Adastra (project data space)
-   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
-   :widths: 30, 30, 30, 30, 30
+   :header: "", "Homedir", "Homedir", "Workdir", "Scratchdir", "Storedir"
+   :widths: 30, 30, 30, 30, 30, 30
 
-   "Location", "$CCCHOME", "$CCCWORKDIR", "$CCCSCRATCHDIR", "$CCCSTOREDIR"
-   "Disk space", "X Go / user", "X To", " X To", " X ?"
-   "Data lifetime", "Saved ?", "Not saved ?", "Purged (60 days) ?", "Saved on disk/band ?"
+   "Location", "$OWN_HOMEDIR", "$HOME", "$WORKDIR", "$SCRATCHDIR", "$STOREDIR"
+   "Disk space", "20 GiB / user","100 GiB / user", "15 TiB", "20 TiB", "1.5 TiB"
+   "Inodes (files)", "30 k / user", "300 k / user", "250 k", "1 M", "9 k"
+   "Data lifetime", "Saved", "Saved", "Not saved", "Purged (30 days)", "Saved"
+
+.. warning::
+   On Adastra, there are a personal homedir ($OWN_HOMEDIR) different of the project personal homedir ($HOME).
+   To know more about these directories, please refer to the CINES documentation.
 
 .. tip::
 
-   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
+   We recommend to install Meso-NH in personal homedir, run the simulation on the Scratchdir (but be careful with the automatic purge after 30 days) and store the files in Workdir (for short term storage) or Storedir (for long term storage, in large files (tar archives), filesystem not available for batch jobs).
+
+For the CPU partition (Genoa CPUs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Install the Meso-NH package in your $HOME (default 50GB of quota) and compile in interactive mode:
 
@@ -153,7 +164,7 @@ Install the Meso-NH package in your $HOME (default 50GB of quota) and compile in
 
    cd |MNH_directory_extract_current|/src
    ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIINTEL-O2
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-CCE1800-MPICRAY-O2
    make -j16 |& tee error$XYZ
    make installmaster
 
@@ -165,6 +176,13 @@ Install the Meso-NH package in your $HOME (default 50GB of quota) and compile in
 
       sbatch job_make_examples_BullX_occigen
 
+For the GPU partitions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. warning::
+   To compile Meso-NH for GPUs, contact the Meso-NH support and development team.
+
+
 .. _compilation_irene_tgcc:
 
 On Irene (TGCC)
@@ -172,24 +190,25 @@ On Irene (TGCC)
 
 .. warning::
 
-   Before compiling you need to go to your project data space :
+   Before compiling you need to go to your project data space:
 
    .. code-block:: bash
 
       module switch dfldatadir/your_project_name
       newgrp your_project_name
 
-.. csv-table:: Filesystem of Irene (project data space)
+.. csv-table:: Filesystem of Irene (default project data space)
    :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
    :widths: 30, 30, 30, 30, 30
 
    "Location", "$CCCHOME", "$CCCWORKDIR", "$CCCSCRATCHDIR", "$CCCSTOREDIR"
-   "Disk space", "20 Go / user", "5 To", " 100 To", "Unlimited"
+   "Disk space", "20 GiB / user", "5 TiB", "100 TiB", "Unlimited space"
+   "Inodes (files)", "unlimited", "500 k", "2 M", "50 k"
    "Data lifetime", "Saved", "Not saved", "Purged (60 days)", "Saved on disk/band"
 
 .. tip::
 
-   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
+   We recommend to install Meso-NH on your $CCCHOME directory, run the simulation on the Scratchdir (but be careful with the automatic purge after 60 days) and store the files in Workdir (for short term storage) or Storedir (for long term storage of large files (or tar archives)).
 
 On Irene you can compile in interactive mode using:
 
@@ -198,17 +217,17 @@ On Irene you can compile in interactive mode using:
 
    cd |MNH_directory_extract_current|/src
    ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-AMD-MPIAUTO-O2
+   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIAUTO-O2
    make -j16 |& tee error$XYZ
    make installmaster
 
 .. note::
-   
+
    To verify your compilation you can run test case examples with:
 
    .. code-block:: bash
 
-      ccc msub job_make_examples_BullX_irene_AMD
+      ccc_msub job_make_examples_BullX_irene_AMD
 
 .. _compilation_hpc_ecmwf:
 
