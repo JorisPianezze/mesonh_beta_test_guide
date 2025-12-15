@@ -3,6 +3,10 @@
 NAM_PREP_SURF_ATM
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 This namelist information is used to (possibly):
 
 * initialize the date of all surface schemes. The namelist information is used only if no input data file is used, either from namelist or by fortran code (as in :program:`MESONH` program). If a file is used, the date is read in it.

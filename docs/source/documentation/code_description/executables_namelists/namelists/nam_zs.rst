@@ -3,6 +3,10 @@
 NAM_ZS
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 This namelist defines the orography file and orographic treatment to be done.
 
 .. csv-table:: NAM_ZS content

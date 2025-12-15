@@ -9,9 +9,9 @@ NAM_DIAG - Shallow convection
    :header: "Name", "Meaning [Unit]", "Dimension"
    :widths: 30, 30, 30
    
-   "MF_THW_FLX", "conservative potential temperature vertical flux (K*m/s)", "3D"
-   "MF_RCONSW_FLX", "conservative mixing ratio vertical flux (kg/kg*m/s)", "3D"
-   "MF_THVW_FLX", "theta_v vertical flux (K*m/s)", "3D"
+   "MF_THW_FLX", "Conservative potential temperature vertical flux (K*m/s)", "3D"
+   "MF_RCONSW_FLX", "Conservative mixing ratio vertical flux (kg/kg*m/s)", "3D"
+   "MF_THVW_FLX", "Theta_v vertical flux (K*m/s)", "3D"
    "MF_UW_VFLX", "U momentum vertical flux (m2/s2)", "3D"
    "MF_VW_VFLX", "V momentum vertical flux (m2/s2)", "3D"
   

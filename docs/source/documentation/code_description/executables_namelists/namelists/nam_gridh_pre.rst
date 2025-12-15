@@ -19,9 +19,9 @@ NAM_GRIDH_PRE
    "NIZS","INTEGER","5"
    "NJZS","INTEGER","5"
 
-* :code:`XLATCEN` : latitude  of the center of the domain for initialization. This point is vertical vorticity point (:ref:`grids`)
+* :code:`XLATCEN` : latitude  of the center of the domain for initialization. This point is vertical vorticity point (:ref:`grids`).
 
-* :code:`XLONCEN` :  longitude of the center of the domain for initialization. This  point is vertical vorticity point (:ref:`grids`)
+* :code:`XLONCEN` :  longitude of the center of the domain for initialization. This  point is vertical vorticity point (:ref:`grids`).
 
 * :code:`XDELTAX` : mesh length (in meters) in x-direction on the conformal or cartesian plane. It is  not used if you read information in a Meso-NH constant file (PGD_FILE). 
 
@@ -29,17 +29,17 @@ NAM_GRIDH_PRE
 
 * :code:`XHMAX` : Maximum height (in meters) :math:`h_{max}` for orography (case CZS :math:`\neq` 'FLAT') or ground level for flat orography. Default is 0.0 for 'FLAT' and 300.0 elsewhere.
 
-* :code:`NEXPX` : Exponent :math:`exp_{x}` for orography in case of CZS='SINE'
+* :code:`NEXPX` : Exponent :math:`exp_{x}` for orography in case of CZS='SINE'.
 
-* :code:`NEXPY` : Exponent :math:`exp_{y}` for orography in case of CZS='SINE'
+* :code:`NEXPY` : Exponent :math:`exp_{y}` for orography in case of CZS='SINE'.
 
-* :code:`XAX` :  Widths (in meters) :math:`a_{x}` along x  for orography in case CZS='BELL'
+* :code:`XAX` :  Widths (in meters) :math:`a_{x}` along x  for orography in case CZS='BELL'.
 
-* :code:`XAY` : Width  (in meters) :math:`a_{y}` along y  for orography in case CZS='BELL'
+* :code:`XAY` : Width  (in meters) :math:`a_{y}` along y  for orography in case CZS='BELL'.
 
-* :code:`NIZS` :  Localization in x-direction in the physical domain of the mountain center in the  case CZS ='BELL'. (:math:`x_{s} = NIZS * XDELTAX`) It refers to a vertical velocity point at the ground ( NIZS, NJZS )(:ref:`grids`)
+* :code:`NIZS` :  Localization in x-direction in the physical domain of the mountain center in the  case CZS ='BELL'. (:math:`x_{s} = NIZS * XDELTAX`). It refers to a vertical velocity point at the ground ( NIZS, NJZS )(:ref:`grids`).
 
-* :code:`NJZS` : Localization in y-direction in the physical domain of the mountain center in the case CZS ='BELL'. (:math:`y_{s} = NJZS * XDELTAY`)
+* :code:`NJZS` : Localization in y-direction in the physical domain of the mountain center in the case CZS ='BELL'. (:math:`y_{s} = NJZS * XDELTAY`).
 
 .. note::
 

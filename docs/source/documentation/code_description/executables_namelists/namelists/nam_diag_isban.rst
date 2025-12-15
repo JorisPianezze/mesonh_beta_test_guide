@@ -3,6 +3,10 @@
 NAM_DIAG_ISBAN
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+   
 ISBA diagnostics.
 
 .. csv-table:: NAM_DIAG_ISBAN content

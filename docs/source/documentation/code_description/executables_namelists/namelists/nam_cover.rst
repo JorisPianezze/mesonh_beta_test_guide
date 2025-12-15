@@ -3,6 +3,10 @@
 NAM_COVER
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+   
 This namelist gives the information to compute the surface cover fractions when ECOCLIMAP is used. It is possible to use an existing ECOCLIMAP map or the define the ECOCLIMAP covers for the user's domain.
 
 .. csv-table:: NAM_COVER content

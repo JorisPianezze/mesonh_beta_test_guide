@@ -3,6 +3,10 @@
 NAM_WRITE_DIAG_SURFN
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 Diagnostics for to each grid cell and each tile.
 
 .. csv-table:: NAM_WRITE_DIAG_SURFN content

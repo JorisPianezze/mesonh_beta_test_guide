@@ -63,10 +63,10 @@ This namelist controls the diagnostics of turbulence, especially for Large Eddy 
 
   * 'NONE': no normalization is computed (however, the quantities necessary to perform these are computed, and stored in the file)
   * 'CONV': convective normalization, using :math:`Q_0`, :math:`w_*`, h, :math:`<\overline{w'r'_v}>_{surf}`.
-  * 'EKMA': Ekman normalization, using :math:`u_*` and :math;`L_{Ekman}`.
+  * 'EKMA': Ekman normalization, using :math:`u_*` and :math:`L_{Ekman}`.
   * 'MOBU': Monin-Obukhov normalization, using :math:`L_{MO}`, :math:`u_*`, :math:`Q_0`, :math:`<\overline{w'r'_v}>_{surf}`.
 
-* :code:`CBL_HEIGHT_DEF` : definition of the Boundary Layer height $h$:
+* :code:`CBL_HEIGHT_DEF` : definition of the Boundary Layer height h:
 
   * 'KE ': test on total kinetic energy: :math:`E(h) + e(h) =  0.05 \frac{1}{h} \int_0^h{(E(z)+e(z))dz}`
   * 'WTV': test on :math:`<w'\theta'_v + \overline{w'\theta'_v }>`: height h where this flux is most negative.

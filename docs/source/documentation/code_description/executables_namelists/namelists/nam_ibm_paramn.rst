@@ -70,10 +70,14 @@ NAM_IBM_PARAMn
    "CIBM_FORC_BOUND_E","CHARACTER(LEN=3)","'CST'"
    "CIBM_FORC_BOUND_S","CHARACTER(LEN=3)","'CST'"
 
-* :code:`LIBM` : Flag to activate Immersed Boundary Method (IBM) or not. CAUTION: In their current version, IBM can only be used in combination with flat terrain (LFLAT=.TRUE.), cartesian coordinates (LCARTESIAN=.TRUE.), and near-neutral atmospheric conditions. It is furthermore recommended to use IBM in combination with the WENO5 or WENO3 momentum advection scheme.
+* :code:`LIBM` : Flag to activate Immersed Boundary Method (IBM) or not. 
 
   * .TRUE.: Immersed Boundary Method is activated.
   * .FALSE.: Immersed Boundary Method is not activated.
+  
+.. warning::
+
+   In their current version, IBM can only be used in combination with flat terrain (LFLAT=.TRUE.), cartesian coordinates (LCARTESIAN=.TRUE.), and near-neutral atmospheric conditions. It is furthermore recommended to use IBM in combination with the WENO5 or WENO3 momentum advection scheme.
 
 * :code:`LIBM_TROUBLE` : Flag to deal with too small obstacles or too small space in between obstacles (underresolved obstacles). Recommended is to filter the  obstacles during the preprocessing and not to use LIBM_TROUBLE=.TRUE..
 

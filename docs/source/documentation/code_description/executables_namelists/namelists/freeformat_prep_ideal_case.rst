@@ -3,19 +3,44 @@
 Free-format part
 -----------------------------------------------------------------------------
 
+The free-format part of the PRE_IDEA1.nam namelist corresponds to blocks of text that are necessary when using certain options, which are described in the following sections.
 Each section of the free format part must be introduced by its corresponding keyword (writen on a separated line).
-There is always a moist variable written in :file:`PRE_IDEA1.nam` file, even in idealized dry cases, for which the moist variable should be equal to zero in the :file:`PRE_IDEA1.nam` file.
-The produced initial file will always contain a moist variable in 'CSTN' and 'RSOU' cases.
 
 Vertical grid
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 keyword: **ZHAT**
 
-If the vertical grid generation selector CZGRID_TYPE is equal to 'MANUAL', you must enter at the end of your namelist file, the heights of the vertical velocity levels. You must start from the ground level (K=2) to the model top (K=KMAX +2), thus you only have to enter KMAX + 1 values, because the level below the ground (i.e. K=1) is at the same distance from the ground ( K=2 ) as the first level above the ground ( K=3 ). Note also that the K= KMAX + 2 level represents the model top. In this case the free parameters (ZDZGRD, ZDZTOP,ZSTRGRD, ...) are not used.
+If you want to define your own vertical grid (CZGRID_TYPE = 'MANUAL' in :ref:`nam_ver_grid`), you must give the heights of the vertical velocity levels. You must NKMAX + 1 values from the surface to the top of the domain.
+
+.. note::
+
+   Example of free part of :file:`PRE_IDEA1.nam` :
+
+   .. code-block::
+                 
+      &NAM_VER_GRID NKMAX       = 10,
+                    YZGRID_TYPE = 'MANUAL' /
+
+      ZHAT
+      0.
+      1050.
+      2100.
+      3250.
+      4300.
+      5200.
+      6100.
+      7000.
+      8000.
+      9000.
+      10000.
+
 
 Radiosounding case
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+There is always a moist variable written in :file:`PRE_IDEA1.nam` file, even in idealized dry cases, for which the moist variable should be equal to zero in the :file:`PRE_IDEA1.nam` file.
+The produced initial file will always contain a moist variable in 'CSTN' and 'RSOU' cases.
 
 keyword: **RSOU**
 
@@ -399,28 +424,58 @@ Example of :file:`PRE_IDEA1.nam` :
 
 .. code-block::
 
-   &NAM_DIMn_PRE NIMAX=128, NJMAX=1 /
-   &NAM_VER_GRID NKMAX=32, YZGRID_TYPE = ’FUNCTN’, ZDZGRD=500., ZDZTOP=500.,
-   ZZMAX_STRGRD=1000. , ZSTRGRD=0., ZSTRTOP= 0.,
+   &NAM_DIMn_PRE NIMAX = 128,
+                 NJMAX = 1 /
+                 
+   &NAM_VER_GRID NKMAX        = 32,
+                 YZGRID_TYPE  = 'FUNCTN’,
+                 ZDZGRD       = 500.,
+                 ZDZTOP       = 500.,
+                 ZZMAX_STRGRD = 1000. ,
+                 ZSTRGRD      = 0.,
+                 ZSTRTOP      = 0. /
+                 
    &NAM_CONFn LUSERV=.TRUE., NSV_USER = 0 /
-   &NAM_GRID_PRE XLAT0 = 48.25 , XLON0 = 0.,
-   XRPK = 0. , XBETA = 0.,
-   XLONORI = 48.25, XLATORI = 0. /
-   &NAM_CONF_PRE LCARTESIAN=.TRUE., LBOUSS=.FALSE.,
-   CIDEAL=’CSTN’, CZS=’BELL’,
-   LPERTURB= .FALSE., NVERB=1 /
-   &NAM_GRIDH_PRE XDELTAX=5.E2 , XDELTAY=5.E2,
-   XHMAX=500., XAX=10.E3, XAY=10.E3, NIZS=64, NJZS=2,
-   NEXPX = 1, NEXPY=1 /
-   &NAM_LUNITn CINIFILE=’HYD2D’,CINIFILEPGD=’HYD2D_PGD’ /
-   &NAM_DYNn_PRE CPRESOPT =’RICHA’, NITR=4, XRELAX=1.0 /
-   &NAM_LBCn_PRE CLBCX(1)=’OPEN’, CLBCX(2)=’OPEN’,
-   CLBCY(1)=’OPEN’, CLBCY(2)=’OPEN’ /
-   &NAM_VPROF_PRE CTYPELOC=’IJGRID’, NILOC=10, NJLOC=2,
-   CFUNU=’ZZZ’, CFUNV=’ZZZ’,
+   
+   &NAM_GRID_PRE XLAT0   = 48.25,
+                 XLON0   = 0.,
+                 XRPK    = 0. ,
+                 XBETA   = 0.,
+                 XLONORI = 48.25,
+                 XLATORI = 0. /
+   
+   &NAM_CONF_PRE LCARTESIAN = .TRUE.,
+                 LBOUSS     = .FALSE.,
+                 CIDEAL     = "CSTN",
+                 CZS        = "BELL",
+                 LPERTURB   =  .FALSE.,
+                 NVERB      = 1 /
+   
+   &NAM_GRIDH_PRE XDELTAX = 5.E2,
+                  XDELTAY = 5.E2,
+                  XHMAX   = 500.,
+                  XAX     = 10.E3,
+                  XAY     = 10.E3,
+                  NIZS    = 64,
+                  NJZS    = 2,
+                  NEXPX   = 1,
+                  NEXPY   = 1 /
+   
+   &NAM_LUNITn CINIFILE="HYD2D",CINIFILEPGD="HYD2D_PGD" /
+   
+   &NAM_DYNn_PRE CPRESOPT ="RICHA", NITR=4, XRELAX=1.0 /
+   
+   &NAM_LBCn_PRE CLBCX(1)="OPEN", CLBCX(2)="OPEN",
+                 CLBCY(1)="OPEN", CLBCY(2)="OPEN" /
+   
+   &NAM_VPROF_PRE CTYPELOC="IJGRID",
+                  NILOC=10, NJLOC=2,
+                  CFUNU="ZZZ", CFUNV="ZZZ" /
+
    LGEOSBAL=.FALSE. /
-   &NAM_GRn_PRE CSURF=’EXTE’ /
-   &NAM_CH_MNHCn_PRE LUSECHEM = F /
+   
+   &NAM_GRn_PRE CSURF = "EXTE" /
+   
    CSTN
    2
    285.

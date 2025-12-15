@@ -31,4 +31,4 @@ For now, simulations of wind turbine have been tested and validated only in idea
   * '1LIN' : 1D linear smearing method.
   * '3LIN' : 3D linear smearing method.
 
-* :code:`NMODEL_EOL` : model number where the wind turbines are included (if nested models). If NMODEL_EOL=:math:`n\neq1`, the namelists :ref:`nam_eol_alm`, :ref:`nam_eol_adr` and :ref:`nam_eol_adnr`  have to be set in EXSEGn.nam
+* :code:`NMODEL_EOL` : model number where the wind turbines are included (if nested models). If NMODEL_EOL :math:`\neq 1` (n :math:`\neq 1`), the namelists :ref:`nam_eol_alm`, :ref:`nam_eol_adr` and :ref:`nam_eol_adnr`  have also to be set in EXSEGn.nam

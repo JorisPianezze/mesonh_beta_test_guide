@@ -3,6 +3,10 @@
 NAM_PGD_GRID
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 This namelist defines the grid type, either specified or from an existing surface file.
 
 .. csv-table:: NAM_PGD_GRID content

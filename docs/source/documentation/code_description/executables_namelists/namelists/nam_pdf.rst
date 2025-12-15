@@ -80,5 +80,5 @@ Each PDF includes NPDF intervals number between X_PDF_MIN and X_PDF_MAX.
 
 * :code:`XTHL_PDF_MIN` : Minimum value of :math:`\theta_l` pdf
 
-* :code:`XTHL_PDF_MAX` : Maximum value of :math:\theta_l` pdf
+* :code:`XTHL_PDF_MAX` : Maximum value of :math:`\theta_l` pdf
 

@@ -3,7 +3,7 @@
 NAM_STATIONn
 ----------------------------------------------------------------------------- 
 
-This namelist is used to configure a virtual observed point at a station by using the following described parameters or a .csv file. Calculations are done for all the nested models for which the namelist is provided and recorded in the corresponding diachronic files. Before the version 5.5 of MesoNH, this was done by modifying :file:`ini_stationn.f90` and re-compiling the code.
+This namelist is used to configure a virtual observed point at a station by using the following described parameters or a .csv file. Calculations are done for all the nested models for which the namelist is provided and recorded in the corresponding diachronic files.
 
 .. csv-table:: NAM_STATIONn content
    :header: "Fortran name", "Fortran type", "Default value"

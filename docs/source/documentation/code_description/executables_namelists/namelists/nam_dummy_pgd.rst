@@ -3,6 +3,10 @@
 NAM_DUMMY_PGD
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 This namelist allows to incorporate into the physiographic file any surface field. You can treat up to 999 such fields. These fields will be written on all the files you will use later(after prognostic fields initialization, or during and after run, etc...). Their name in the files are 'DUMMY_GRnnn', where nnn goes from 001 to 999. During the execution of the programs, these fields are stored in the XDUMMY_FIELDS(:,:) (first dimension: spatial dimension, second dimension: total number of fields), in the module MODD_DUMMY_SURF_FIELDn. You must modify the fortran source, where you want to use them.
 
 .. csv-table:: NAM_DUMMY_PGD content

@@ -3,6 +3,10 @@
 NAM_PGD_ARRANGE_COVER
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 This namelist initializes change water (not lake) to nature and/or town to rock keys.
 
 .. csv-table:: NAM_PGD_ARRANGE_COVER content

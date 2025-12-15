@@ -3,6 +3,10 @@
 NAM_PREP_FLAKE
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 This namelist information is used to initialize the "FLAKE" sea scheme temperature.
    
 .. csv-table:: NAM_PREP_FLAKE content

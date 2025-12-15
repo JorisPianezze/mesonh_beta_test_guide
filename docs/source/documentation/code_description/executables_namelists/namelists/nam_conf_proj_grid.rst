@@ -2,7 +2,10 @@
 
 NAM_CONF_PROJ_GRID
 -----------------------------------------------------------------------------
+.. warning::
 
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+   
 This namelists defines the horizontal domain in case of CGRID="CONF PROJ" in :ref:`nam_pgd_grid`.
 
 .. csv-table:: NAM_CONF_PROJ_GRID content

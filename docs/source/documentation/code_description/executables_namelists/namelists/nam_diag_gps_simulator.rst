@@ -18,9 +18,9 @@ NAM_DIAG - GPS simulator
    :header: "Name", "Meaning [Unit]", "Dimension"
    :widths: 30, 30, 30
    
-   ZTD", "Zenithal Total Delay (m)", "2D"
-   ZHD", "Zenithal Hydrostatic Delays (m)", "2D"
-   ZWD", "Zenithal Wet Delays (m)", "2D"
+   "ZTD", "Zenithal Total Delay (m)", "2D"
+   "ZHD", "Zenithal Hydrostatic Delays (m)", "2D"
+   "ZWD", "Zenithal Wet Delays (m)", "2D"
 
 .. warning::
 

@@ -3,6 +3,10 @@
 NAM_DIAG_TEBN
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 TEB diagnostics.
 
 .. csv-table:: NAM_DIAG_TEBN content

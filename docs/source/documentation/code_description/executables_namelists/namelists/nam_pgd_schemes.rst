@@ -3,6 +3,10 @@
 NAM_PGD_SCHEMES
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 This namelist defines the four schemes that will be used, one for each type of surface (sea, inland water,
 town, vegetation).
 

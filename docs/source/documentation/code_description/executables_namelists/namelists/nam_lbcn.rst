@@ -18,9 +18,9 @@ It contains the parameters needed to specify the lateral boundary conditions for
 
 * :code:`CLBCX` : represent the type of lateral boundary condition at the left and right boundaries along x (CLBCX(1) and CLBCX(2) respectively). The possible values are : 
 
-  * 'CYCL' : for cyclic boundary  conditions (in this case CLBCX(1)=CLBCX(2)='CYCL')
+  * 'CYCL' : for cyclic boundary conditions (in this case CLBCX(1)=CLBCX(2)='CYCL')
   * 'OPEN' : for open boundary condition (Sommerfeld equation for the normal velocity)
-  * 'WALL' : for wall boundary   condition ( zero normal velocity )
+  * 'WALL' : for wall boundary condition (zero normal velocity)
   
 * :code:`CLBCY` : array containing 2 elements: they represent the type of lateral boundary condition at the left and right boundaries along y (CLBCY(1) and CLBCY(2) respectively). The possible values are identical to those for CLBCX. 
 

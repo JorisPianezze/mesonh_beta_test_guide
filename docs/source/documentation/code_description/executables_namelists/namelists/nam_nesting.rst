@@ -10,7 +10,7 @@ NAM_NESTING
    "NDAD","ARRAY(8*REAL)","m-1"
    "NDTRATIO","ARRAY(8*INTEGER)","1"
    "XWAY","ARRAY(8*REAL)","2"
-   "LCOUPLES",LOGICAL",".FALSE."
+   "LCOUPLES","LOGICAL",".FALSE."
 
 * :code:`NDAD(m)` : is the model number of the father of each model "m"
 

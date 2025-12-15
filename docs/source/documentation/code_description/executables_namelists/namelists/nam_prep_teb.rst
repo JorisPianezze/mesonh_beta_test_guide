@@ -3,6 +3,10 @@
 NAM_PREP_TEB
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+
 This namelist information is used to initialize the "TEB " urban scheme variables: road, roof and wall temperature profiles, water intercepted by roofs and roads, snow, building internal temperature.
 
 .. csv-table:: NAM_PREP_TEB content

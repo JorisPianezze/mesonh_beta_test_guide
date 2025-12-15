@@ -9,8 +9,8 @@ NAM_DIAG - LIDAR simulator
    :header: "Name", "Meaning [Unit]", "Dimension"
    :widths: 30, 30, 30
    
-   "LIDAR", "total backscatter coefficient (1/m/sr)", "3D"
-   "LIPAR", "particle backscatter coefficient (1/m/sr)", "3D"
+   "LIDAR", "Total backscatter coefficient (1/m/sr)", "3D"
+   "LIPAR", "Particle backscatter coefficient (1/m/sr)", "3D"
    
 .. note::
 

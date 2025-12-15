@@ -3,6 +3,10 @@
 NAM_CONF_PROJ
 -----------------------------------------------------------------------------
 
+.. warning::
+
+   This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
+   
 This namelist defines the projection in case of CGRID="CONF PROJ" in :ref:`nam_pgd_grid`.
 
 .. csv-table:: NAM_CONF_PROJ content

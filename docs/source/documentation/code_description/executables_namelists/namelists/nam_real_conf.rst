@@ -7,7 +7,7 @@ NAM_REAL_CONF
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
    
-   "CEQNSYS","CHARACTER(LEN=3)","'DUR'/'MESONH'"
+   "CEQNSYS","CHARACTER(LEN=3)","'DUR'"
    "CPRESOPT","CHARACTER(LEN=5)","'CRESI'"
    "NVERB","INTEGER","1"
    "LSHIFT","LOGICAL",".TRUE./.FALSE."

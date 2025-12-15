@@ -18,10 +18,10 @@ NAM_LBCn_PRE
   
 .. note::
 
-   * It should be note that CLBCX(1) or CLBCY(1) refers to the lowest index values ( IIB , IJB for X and Y directions) and CLBCX(2) or CLBCY(2) to the highest index values (IIE  and IJE). 
+   * It should be note that CLBCX(1) or CLBCY(1) refers to the lowest index values (IIB, IJB for X and Y directions) and CLBCX(2) or CLBCY(2) to the highest index values (IIE and IJE). 
    
-   * The same boundary conditions must be used for the MESO-NH run itself} (see EXSEG1.nam namelist)
+   * The same boundary conditions must be used for the :ref:`mesonh` run itself (:ref:`nam_lbcn`)
    
-   * Note also that CYCLIC conditions are not possible with a PGD file (CPGD_FILE different to '  ' in NAM_REAL_PGD).
+   * Note also that CYCLIC conditions are not possible with a PGD file (CPGD_FILE different to '  ' in :ref:`nam_real_pgd`).
 
 * :code:`CLBCY` : same as CLBCX but for the left and right boundaries along y (CLBCY(1) and CLBCY(2) respectively). They are strings of 4 characters.
