@@ -123,7 +123,7 @@ For the CPU partitions
       :substitutions:
 
       cd |MNH_directory_extract_current|/src
-      sbatch -A your_projet.at.cpu job_make_examples_HPE_jeanzay
+      sbatch -A your_projet.on.cpu job_make_examples_HPE_jeanzay
 
 For the GPU partitions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,7 +174,7 @@ Install the Meso-NH package in your $HOME (default 50GB of quota) and compile in
 
    .. code-block:: bash
 
-      sbatch job_make_examples_BullX_occigen
+      sbatch -A your_projet.on.cpu job_make_examples_HPE_adastra_genoa
 
 For the GPU partitions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -217,7 +217,7 @@ On Irene you can compile in interactive mode using:
 
    cd |MNH_directory_extract_current|/src
    ./configure
-   . ../conf/profile_mesonh-LXifort-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIAUTO-O2
+   . ../conf/profile_mesonh-LXifx-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIAUTO-O2
    make -j16 |& tee error$XYZ
    make installmaster
 
@@ -236,27 +236,30 @@ On hpc-login (ECMWF)
 
 .. csv-table:: Filesystem of hpc-login (project data space)
    :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
-   :widths: 30, 30, 30, 30, 30
+   :widths: 30, 30, 30, 30
 
-   "Location", "$CCCHOME", "$CCCWORKDIR", "$CCCSCRATCHDIR", "$CCCSTOREDIR"
-   "Disk space", "20 Go / user", "5 To", " 100 To", "Unlimited"
-   "Data lifetime", "Saved", "Not saved", "Purged (60 days)", "Saved on disk/band"
+   "Location", "$HOME", "$HPCPERM", "$SCRATCH"
+   "Disk space", "10 GiB / user", "1 TiB", " 2 TiB"
+   "Inodes (files)", "unlimited", "1 M", "500 k"
+   "Data lifetime", "Saved", "Not saved", "Purged (30 days)"
 
 .. tip::
 
-   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
+   We recommend to install Meso-NH on your Workdir, run the simulation on the Scratchdir (but be careful with the automatic purge after 30 days) and store the files in Workdir.
 
 To compile Meso-NH package, go to the $HPCPERM directory, connect to an interactive compute node and compile the code:
 
 .. code-block:: bash
 
    ecinteractive -c16 -m 16G -t 12:00:00
+   cd $HPCPERM/|MNH_directory_extract_current|/src
    ./configure
-   . ../profile_mesonh
+   export MAKEFLAGS='-j 16'
+   . ../conf/profile_mesonh-LXifx-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIAUTO-O2
    make
    make installmaster
 
-To run test case examples, do :
+To run test case examples, do:
 
 .. note::
 
