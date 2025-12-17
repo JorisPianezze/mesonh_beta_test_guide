@@ -113,7 +113,7 @@ It contains the different parameters used by the electrical scheme.  They are in
 
 * :code:`XDFRAC_L` : linear coefficient for the branch number
 
-* XWANG_A` : a parameter of the Wang et al. (1998) formula for LNOx production (not yet implemented)
+* :code:`XWANG_A` : a parameter of the Wang et al. (1998) formula for LNOx production (not yet implemented)
 
-* XWANG_B` : b parameter of the Wang et al. (1998) formula for LNOx production (not yet implemented)
+* :code:`XWANG_B` : b parameter of the Wang et al. (1998) formula for LNOx production (not yet implemented)
 

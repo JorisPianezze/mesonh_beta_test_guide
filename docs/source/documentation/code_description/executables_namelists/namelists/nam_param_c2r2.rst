@@ -3,7 +3,7 @@
 NAM_PARAM_C2R2
 -----------------------------------------------------------------------------
 
-It contains the control parameters for the C2R2 warm microphysical scheme. They are in the declarative module MODD_PARAM_C2R2.
+It contains the control parameters for the C2R2 warm microphysical scheme (CCLOUD = "C2R2" or "KHKO" in :ref:`nam_paramn`).
 
 .. csv-table:: NAM_PARAM_C2R2 content
    :header: "Fortran name", "Fortran type", "Default value"
@@ -36,8 +36,8 @@ It contains the control parameters for the C2R2 warm microphysical scheme. They 
 * :code:`HPARAM_CCN` : Acronym of the CCN activation parameterization to use ('CPB','TFH' or 'TWO'). The 'TFH' and 'TWO' need only to prescribe the XCHEN and XKHEN parameters.
 
   * 'TWO' refers to the classical activation spectrum of Twomey in the form :math:`N_{CCN}(s)= C s^k`
-  * 'TFH' includes some improvements brought by Feingold and Heymsfield (JAS, 1992) to the original activation spectrum of Twomey.
-  * 'CPB' refers to an activation spectrum in the form defined in Cohard et  al. (JAS, 1998) with 
+  * 'TFH' includes some improvements brought by :cite:t:`feingold_parameterizations_1992` to the original activation spectrum of Twomey.
+  * 'CPB' refers to an activation spectrum in the form defined in :cite:t:`cohard_extending_1998` with 
   
   .. math::
 
@@ -47,7 +47,7 @@ It contains the control parameters for the C2R2 warm microphysical scheme. They 
 
 * :code:`HINI_CCN` : If HPARAM_CCN='CPB' then the initial CCN characteristics are given in the 'CCN' or 'AER' format. In the 'CCN' case, the parameters XCHEN, XKHEN, XMUHEN and XBETAHEN must be given while it is the case for XCONC_CCN, XR_MEAN_CCN, XLOGSIG_CCN, XFSOLUB_CCN and XACTEMP_CCN if the 'AER' option is  chosen. 
 
-  * 'CCN' The aerosols are directly CHARACTERized by their activation spectrum :math:`N_{CCN}(s)` in the form :math:`C s^k` or 
+  * 'CCN' The aerosols are directly characterized by their activation spectrum :math:`N_{CCN}(s)` in the form :math:`C s^k` or 
   
   .. math::
 
@@ -59,7 +59,7 @@ It contains the control parameters for the C2R2 warm microphysical scheme. They 
 
      {\displaystyle N}/{\displaystyle {\sqrt {2 \pi}} {\rm ln}(\sigma)} exp \Big ( - {\displaystyle {\rm ln} (r/\overline{r})^2}/{\displaystyle 2 {\rm ln}(\sigma)^2} \Big )
                    
-  with distribution parameters (:math:`\overline{r}` is the geometric mean radius, :math:`\sigma` the geometric standard deviation and N the total particle number), by their solubility (:math:`\epsilon_m`) and by their activation temperature (T) as described by Cohard et al. (JGR, 2000).
+  with distribution parameters (:math:`\overline{r}` is the geometric mean radius, :math:`\sigma` the geometric standard deviation and N the total particle number), by their solubility (:math:`\epsilon_m`) and by their activation temperature (T) as described by :cite:t:`cohard_parameterization_2000`.
 
 * :code:`HTYPE_CCN` : Aerosol type ('M' or 'C') if HPARAM_CCN=='CPB' and HINI_CCN=='AER' is chosen.
 
@@ -106,7 +106,7 @@ It contains the control parameters for the C2R2 warm microphysical scheme. They 
 
 * :code:`LACTIT` : Activation by radiative cooling is taken into account if set to  TRUE
 
-* :code:`LSUPSAT` : Pseudo-prognostic supersaturation according to Thouron et al.(2012) taken into account if set to  TRUE
+* :code:`LSUPSAT` : Pseudo-prognostic supersaturation according to :cite:t:`thouron_supersaturation_2012` taken into account if set to  TRUE
 
 * :code:`LDEPOC` : TRUE to enable cloud droplet deposition
 

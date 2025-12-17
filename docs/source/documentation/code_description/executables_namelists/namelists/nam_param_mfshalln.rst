@@ -3,7 +3,7 @@
 NAM_PARAM_MFSHALLn
 -----------------------------------------------------------------------------
 
-It contains the options retained for the EDKF shallow convection scheme, used by the model n. They are included in the declarative module MODD_PARAM_MFSHALLn. Contrary to the KAFR scheme, EDKF can only be called  every time step. 
+It contains the options retained for the EDKF shallow convection scheme used by the model n (CSCONV = "EDKF" in :ref:`nam_paramn`). Contrary to the "KAFR" scheme, "EDKF" can only be called at every time step. 
 
 .. csv-table:: NAM_PARAM_MFSHALLn content
    :header: "Fortran name", "Fortran type", "Default value"

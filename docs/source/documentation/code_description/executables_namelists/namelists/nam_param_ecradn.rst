@@ -3,7 +3,7 @@
 NAM_PARAM_ECRADn
 -----------------------------------------------------------------------------
 
-It contains the options for the ECRAD radiative scheme. ECRAD version is defined in the compilation procedure by setting VERSION_ECRAD.
+It contains the options for the ECRAD radiative scheme (CRAD = "ECRA" in :ref:`nam_paramn`). ECRAD version is defined in the compilation procedure by setting VERSION_ECRAD.
 
 .. note::
 

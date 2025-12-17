@@ -39,7 +39,7 @@ It contains the dynamics parameters common to all models. They are included in t
 
 * :code:`LNUMDIFSV` : Same as LNUMDIFTH but for scalar variables
 
-* :code:`LZDIFFU` : Flag to apply the horizontal diffusion to potential temperature and vapor mixing ratio according to Zangl (2002) adapted to mountainous topography. No amplitude is applied for this type of diffusion.
+* :code:`LZDIFFU` : Flag to apply the horizontal diffusion to potential temperature and vapor mixing ratio according to :cite:t:`zangl_stratified_2002` adapted to mountainous topography. No amplitude is applied for this type of diffusion.
 
   * .TRUE. : This horizontal diffusion is applied 
   * .FALSE. : This horizontal diffusion is not applied           

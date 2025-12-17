@@ -51,10 +51,10 @@ It contains the characteristics of the turbulence scheme used by the model n. Th
 
   * 'DELT' If CTURBDIM='3DIM', the cubic root of the grid volum is used in 3D simulations and  the squared root of the volum in 2D simulations.
   * '1DIM', we take :math:`\Delta z` in simulation of any dimensionality. This length is always limited to :math:`\kappa * z`  near the ground.
-  * 'BL89' The mixing length is computed according to the Bougeault and Lacarrère scheme (refer to the scientific documentation)
+  * 'BL89' The mixing length is computed according to the :cite:t:`bougeault_parameterization_1989`
   * 'DEAR' the mixing length is given by the mesh size depending on the model dimensionality, this length is limited to the ground distance and also by the Deardorff mixing length pertinent in the stable cases.
-  * 'RM17' The mixing length is computed according to Rodier et al. (2017). It is a non-local mixing length combining BL89 with a wind shear term.
-  * 'HM21' resolution-adaptative mixing length is computed according to Honnert et al. (2021) and given by the minimum between RM17 and the horizontal resolution XCADAP :math:`\sqrt{\Delta x \Delta y}`, where XCADAP is a namelist parameter set to 0.5.
+  * 'RM17' The mixing length is computed according to :cite:t:`rodier_evaluation_2017`. It is a non-local mixing length combining BL89 with a wind shear term.
+  * 'HM21' resolution-adaptative mixing length is computed according to :cite:t:`honnert_atmospheric_2020` and given by the minimum between RM17 and the horizontal resolution XCADAP :math:`\sqrt{\Delta x \Delta y}`, where XCADAP is a namelist parameter set to 0.5.
 
 * :code:`XCADAP` : coefficient applied to the HM21 adaptative mixing length
 
@@ -64,16 +64,16 @@ It contains the characteristics of the turbulence scheme used by the model n. Th
 
 * :code:`LSIG_CONV` : Flag for computing Sigma_s due to convection in ice subgrid condensation scheme
 
-* :code:`LRMC01` : Flag for computing separate mixing and dissipative length in the SBL according to Redelsperger, Mahe and Carlotti 2001
+* :code:`LRMC01` : Flag for computing separate mixing and dissipative length in the SBL according to :cite:t:`redelsperger_simple_2001`
 
 * :code:`CTOM` : Consideration of Third Order Moments.
 
   * 'NONE': No Third Order moments                             
-  * 'TM06': Parameterization of Third Order moments of heat fluxes for dry CBL according to Tomas and Masson (2006).
+  * 'TM06': Parameterization of Third Order moments of heat fluxes for dry CBL according to :cite:t:`tomas_parameterization_2006`.
 
 * :code:`XTKEMIN` : minimum value for the TKE (:math:`m^{2}.s^{-2}`).
 
-* :code:`XCED` : Constant for TKE dissipation (with CTURBLEN='RM17' it is better to use XCED=0.34 according to Rodier et al., 2017).
+* :code:`XCED` : Constant for TKE dissipation (with CTURBLEN='RM17' it is better to use XCED=0.34 according to :cite:t:`rodier_evaluation_2017`).
 
 * :code:`LLEONARD` : Flag to compute the Leonard terms (instead of K-gradient terms) applied to the vertical fluxes of :math:`\theta_l` and :math:`r_{np}` (:math:`r_c` + :math:`r_i` + :math:`r_v`). The main effects are an increase of TKE and a decrease of vertical velocity.
 

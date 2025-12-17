@@ -29,7 +29,7 @@ NAM_FLAKEn
 * :code:`CFLK_ALB` : type of albedo for FLake.
 
   * 'UNIF' : a uniform value of 0.135 is used for water albedo
-  * 'TA96' : Taylor et al (1996) formula for water direct albedo, depending on solar zenith angle
+  * 'TA96' : :cite:t:`taylor_studies_1996` formula for water direct albedo, depending on solar zenith angle
   * 'MK10' : albedo from Marat Khairoutdinov
 
 * :code:`LSKINTEMP` : flag to use or not the skin temperature computation.   

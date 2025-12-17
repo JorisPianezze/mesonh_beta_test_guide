@@ -3,7 +3,7 @@
 NAM_PARAM_ICEn
 -----------------------------------------------------------------------------
 
-It contains the options for the mixed phase cloud parameterizations used  by the model (ICE3 or ICE4). They are included in the declarative module MODD_PARAM_ICE.
+It contains the options for the mixed phase cloud parameterizations used by the model (CCLOUD = "ICE3" or "ICE4" in :ref:`nam_paramn`).
 
 .. csv-table:: NAM_PARAM_ICEn content
    :header: "Fortran name", "Fortran type", "Default value"

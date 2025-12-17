@@ -3,7 +3,7 @@
 NAM_PARAM_LIMA
 -----------------------------------------------------------------------------
 
-It contains the options for the 2 moment mixed phase cloud parameterizations used  by the model (LIMA). They are included in the declarative module MODD_PARAM_LIMA.
+It contains the options for the 2 moment mixed phase cloud parameterizations used  by the model (CCLOUD = "LIMA" in :ref:`nam_paramn`).
 
 .. csv-table:: NAM_PARAM_LIMA content
    :header: "Fortran name", "Fortran type", "Default value"

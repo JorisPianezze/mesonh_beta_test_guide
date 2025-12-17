@@ -3,6 +3,8 @@
 NAM_PARAM_RADN
 -----------------------------------------------------------------------------
 
+It contains the options retained for the radiative scheme used by the model n (CRAD = "ECMWF" or "ECRA" in :ref:`nam_paramn`).
+
 .. csv-table:: NAM_PARAM_RADN content
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30

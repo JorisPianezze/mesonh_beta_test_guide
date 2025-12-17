@@ -52,7 +52,7 @@ The Blaze fire model is configured by editing this namelist. In grid-nesting, it
 
 * :code:`CPROPAG_MODEL` : Rate of spread parameterization. Following options are available:
 
-  * SANTONI2011: Balbi's model based on Santoni (2011) formulation.
+  * SANTONI2011: Balbi's model based on :cite:t:`santoni_wildland_2011` formulation.
 
 * :code:`CHEAT_FLUX_MODEL` : sensible heat flux parameterization. Following options are available:
 

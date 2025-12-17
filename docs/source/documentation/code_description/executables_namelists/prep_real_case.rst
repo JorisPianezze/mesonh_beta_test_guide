@@ -31,7 +31,6 @@ The following namelists can be used in the :file:`PRE_REAL1.nam` file :
 * :ref:`nam_prep_isba`
 * :ref:`nam_prep_teb`
 * :ref:`freeformat_prep_real_case`
-* :ref:`read_extra_arome_variables`
  
 .. include:: namelists/nam_aero_conf.rst
 .. include:: namelists/nam_blankn.rst
@@ -51,4 +50,3 @@ The following namelists can be used in the :file:`PRE_REAL1.nam` file :
 .. include:: namelists/nam_prep_isba.rst
 .. include:: namelists/nam_prep_teb.rst
 .. include:: namelists/freeformat_prep_real_case.rst
-.. include:: namelists/read_extra_arome_variables.rst

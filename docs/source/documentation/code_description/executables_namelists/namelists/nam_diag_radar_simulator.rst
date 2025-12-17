@@ -5,7 +5,7 @@ NAM_DIAG - RADAR simulator
 
 .. note:: 
 
-   A radar simulator already existed in Meso-NH (Richard et al.,2003) that computes reflectivities in the Rayleigh approximation on each grid points of the model (NVERSION_RAD=1). However, with the view to code an observation operator for radar reflectivities, this simulator was not sufficient. That is why a new simulator was built, while the original version is still available. This new simulator (NVERSION_RAD=2) simulates Plan Position Indicators (PPI), which are cones usually projected on a horizontal plane obtained by scanning the atmosphere at constant elevation. New features are:
+   A radar simulator already existed in Meso-NH :cite:`richard_highresolution_2003` that computes reflectivities in the Rayleigh approximation on each grid points of the model (NVERSION_RAD=1). However, with the view to code an observation operator for radar reflectivities, this simulator was not sufficient. That is why a new simulator was built, while the original version is still available. This new simulator (NVERSION_RAD=2) simulates Plan Position Indicators (PPI), which are cones usually projected on a horizontal plane obtained by scanning the atmosphere at constant elevation. New features are:
 
    * possibility to choose among several scattering models,
  
@@ -138,9 +138,9 @@ NAM_DIAG - RADAR simulator
    
    * :code:`CARF` : 
    
-     * "PB70" : Pruppacher and Beard (1970).
-     * "AND99" : axis ratio of raindrops : Andsager et al. (1999).
-     * "BR02" : axis ratio of raindrops : Brandes et al. (2002).
+     * "PB70" : :cite:t:`pruppacher_wind_1970`.
+     * "AND99" : axis ratio of raindrops : :cite:t:`andsager_laboratory_1999`.
+     * "BR02" : axis ratio of raindrops : :cite:t:`brandes_experiments_2002`.
      * "SPHE" : axis ratio for spheres (r=1)
      
    * :code:`LREFR` : if true writes out refractivity (:math:`N\equiv(n-1)\times10^6`)

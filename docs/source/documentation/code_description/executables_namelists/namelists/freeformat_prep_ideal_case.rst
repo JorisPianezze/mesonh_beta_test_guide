@@ -9,9 +9,8 @@ Each section of the free format part must be introduced by its corresponding key
 Vertical grid
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-keyword: **ZHAT**
-
-If you want to define your own vertical grid (CZGRID_TYPE = 'MANUAL' in :ref:`nam_ver_grid`), you must give the heights of the vertical velocity levels. You must NKMAX + 1 values from the surface to the top of the domain.
+If you want to define your own vertical grid (CZGRID_TYPE = "MANUAL" in :ref:`nam_ver_grid` inside :file:`PRE_IDEA1.nam`), you must give the heights of the vertical velocity levels from the surface to the top of the domain (NKMAX + 1 values).
+The corresponding keyword is **ZHAT**.
 
 .. note::
 
@@ -39,100 +38,74 @@ If you want to define your own vertical grid (CZGRID_TYPE = 'MANUAL' in :ref:`na
 Radiosounding case
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-There is always a moist variable written in :file:`PRE_IDEA1.nam` file, even in idealized dry cases, for which the moist variable should be equal to zero in the :file:`PRE_IDEA1.nam` file.
-The produced initial file will always contain a moist variable in 'CSTN' and 'RSOU' cases.
+For idealized simulations, it is possible to use a radiosounding to initialize the model (CIDEAL = "RSOU" in :ref:`nam_conf_pre` in :file:`PRE_IDEA1.nam`). The corresponding keyword is **RSOU** and the free format part has to be set in this order:
 
-keyword: **RSOU**
+.. code-block::
 
-The radiosounding data are written in the free-format part of PRE_IDEA1.nam file, where the altitude variable is :
+   RSOU
+   year month day time
 
-* the pressure in case KIND='STANDARD' or 'PUVTHVMR' or 'PUVTHVHU' or 'PUVTHDHU' or 'PUVTHDMR' (real, in Pascal)
+.. note::
 
-* the height in case ’ZUVTHVMR’ or ’ZUVTHVHU’or ’ZUVTHDMR’ or ’ZUVTHLMR’ (real, in meters)
+   * year has to be an integer (example : 1994)
+   * month has to be an integer (example : 4)
+   * day has to be an integer (example : 22)
+   * time has to be a real in seconds (example : 36000. for 10 h)
+   
+.. code-block::   
 
-The first wind variable is :
+   kind of radiosounding
 
-* the wind direction in case KIND=’STANDARD’ (real,in degrees)
+.. note::
 
-* the zonal wind in cases KIND=’PUVTHVMR’ or ’PUVTHDMR’ or ’ZUVTHDMR’ or ’ZUVTHLMR’or ’ZUVTHVHU’ or ’PUVTHDHU’ or ’ZUVTHVMR’ or ’PUVTHVHU’ (real, in m/s)
+   Nine kind of radiosounding are possible : "STANDARD", "PUVTHVMR", "PUVTHVHU", "ZUVTHVMR", "ZUVTHVHU", "PUVTHDMR", "PUVTHDHU", "ZUVTHDMR", "ZUVTHLMR". Except for the "STANDARD":
 
-The second wind variable is :
+   * the first letter represents the kind of altitude variable (P for pressure (Pa) and Z for height (m)),
+   * the second and third letters represent the kind of wind variables (U for zonal wind (m/s), V for meridian wind (m/s)),
+   * the fourth, fifth and sixth letters represent the kind of temperature variable (THV for virtual potential temperature (K), THD for dry potential temperature (K) and THL for liquid potential temperature (K)),
+   * the seventh and eighth letters represent the kind of moist variable (HU for relative humidity (%) and MR for vapor mixing ratio (kg/kg)).
 
-* the wind force in case KIND=’STANDARD’ (real, in m/s)
+     In case of "STANDARD", the altitude variable is the pressure (Pa), the wind variables are direction and wind force (m/s), the temperature variable is the temperature (K) and the moist variable is the dew point temperature (K).
 
-* the meridian wind in cases KIND=’PUVTHVMR’ or ’PUVTHDMR’ or ’ZUVTHDMR’ or ’ZUVTHLMR’ or ’ZUVTHVHU’ or ’PUVTHDHU’ or ’ZUVTHVMR’ or ’PUVTHVHU’ (real, in m/s)
+.. code-block::   
 
-The temperature variable is :
+   height of the ground level (real, in meters)
+   pressure at the ground level (real,in Pascal)
+   temperature at ground level (real, in Kelvin)
+   humidity at ground level (real, unit depends on the kind radiosounding)
+   
+   number of wind data levels (integer)
+   altitude_level_1 first_wind_variable second_wind_variable
+   altitude_level_2 first_wind_variable second_wind_variable
+   ...
+   altitude_level_top first_wind_variable second_wind_variable
 
-* the temperature in case KIND=’STANDARD’ (real, in Kelvin)
+.. note::
 
-* the virtual potential temperature in cases KIND=’PUVTHVMR’ or ’PUVTHVHU’ or ’ZUVTHVMR’ or ’ZUVTHVHU’ (real,in Kelvin)
+   Units of altitude_levels, first_wind_variable and second_wind_variable depends on the kind radiosounding you choose.
 
-* the dry potential temperature in cases KIND=’PUVTHDMR’ or ’PUVTHDHU’ or ’ZUVTHDMR’ (real, in Kelvin)
+.. code-block::
 
-* the liquid potential temperature in case KIND=’ZUVTHLMR’(real, in Kelvin)
+   number of mass data levels (integer)
+   altitude_level_2 temperature humidity additional_cloud_variable(s)
+   altitude_level_3 temperature humidity additional_cloud_variable(s)
+   ...
+   altitude_level_top temperature humidity additional_cloud_variable(s)
 
-The moist variable is :
+.. note::
 
-* the dew point temperature in case KIND=’STANDARD’ (real, in Kelvin)
+   * Number of mass data levels includes the ground level (i.e. the first level). That is why the following list starts at level 2.
+   * Units of altitude_levels, temperature, humidity and additional_cloud_variable(s) depends on the kind radiosounding you choose).
 
-* the vapor mixing ratio in cases KIND=’PUVTHVMR’ or ’ZUVTHDMR’ or ’ZUVTHVMR’ or ’PUVTHDMR’ (real, in Kg/Kg)
+.. warning::
+   
+   * You should make sure that the highest level of the radiosounding is located above the highest vertical level of the model.
+      
+   * Additional cloud variables. For the moment, this configuration works only for kind="PUVTHDMR" or "ZUVTHDMR" and L1D=.TRUE.. It is planned to compute radiation diagnostics with the :ref:`diag` program :
 
-* the total water mixing ratio in case KIND= ’ZUVTHLMR (real, in Kg/Kg)
-
-* the relative humidity in cases KIND= ’ZUVTHVHU’, or ’PUVTHDHU’ or ’PUVTHVHU’ (real, in percents)
-
-Additional cloud variables
-
-For the moment, this configuration works only for KIND=’PUVTHDMR’ or ’ZUVTHDMR’ and L1D=.TRUE.. It is planned to compute radiation diagnostics with the :program:`DIAG` program.
-
-* cloud mixing ratio if LUSERC=T or LUSERI=T (real, in Kg/Kg)
-
-* ice mixing ratio if LUSERI=T (real, in Kg/Kg)
-
-You should make sure that the levels are dense enough so that the Laplace relation, which gives the thickness between successive levels, can be applied. The radiosounding information is written in the file in the following order :
-
-* YEAR (integer, exemple : 1994), MONTH (integer, exemple : 4), DAY (integer, exemple : 22), TIME (real, in seconds, exemple : 36000 for 10 h)
-
-* KIND of data used for the radiosounding (string of 8 charcaters) Nine kind of data are possible : ’STANDARD’, ’PUVTHVMR’, ’PUVTHVHU’, ’ZUVTHVMR’, ’ZUVTHVHU’, ’PUVTHDMR’, ’PUVTHDHU’, ’ZUVTHDMR’, ’ZUVTHLMR’.
-
-Except for the STANDARD kind :
-
-* the first letter of KIND represents the kind of altitude variable (P for pressure and Z for height),
-
-* the second and third letters represent the kind of wind variables (U for zonal wind, V for meridian wind),
-
-* the fourth, fifth and sixth letters represent the kind of temperature variable (THV for virtual potential temperature, THHD for dry potential temperature and THL for liquid potential temperature),
-
-* the seventh and eighth letters represent the kind of moist variable (HU for relative humidity and MR for vapor mixing ratio).
-
-(In case of STANDARD kind, the altitude variable is the pressure, the wind variables are direction and wind force, the temperature variable is the temperature and the moist variable is the dew point temperature. )
-
-* HEIGHT of GROUND LEVEL (real, in meters)
-
-* PRESSURE at GROUND LEVEL (real,in Pascal)
-
-* a TEMPERATURE variable at GROUND LEVEL (real, in Kelvin)
-
-* a MOIST variable at GROUND LEVEL
-
-* NUMBER of WIND data LEVELS (integer)
-
-* level 1 : ALTITUDE variable , first WIND variable, second WIND variable at wind level 1 (the lowest wind-level).
-
-* level 2 : ALTITUDE variable, first WIND variable, second WIND variable.
-
-uppermost wind level : ALTITUDE variable, first WIND variable, second WIND variable.
-
-* NUMBER of mass data LEVELS (integer) Note that this number includes the ground level (i.e. the first level). That is why the following list starts at level 2.
-
-* level 2 : ALTITUDE variable, TEMPERATURE variable, MOIST variable, additional cloud variable(s) (the mass level 1 is at ground).
-
-* level 3 : ALTITUDE variable, TEMPERATURE variable, MOIST variable, additional cloud variable(s) .
-
-* uppermost mass level: ALTITUDE variable, TEMPERATURE variable, MOIST variable, additional cloud variable(s).
-You should make sure that the highest level of the radiosounding is located above the highest vertical level of the model.
-
+     * cloud mixing ratio if LUSERC=T or LUSERI=T (real, in kg/kg)
+     * ice mixing ratio if LUSERI=T (real, in kg/kg)
+     
 .. note::
 
    Example of free part of :file:`PRE_IDEA1.nam` :
@@ -156,29 +129,37 @@ You should make sure that the highest level of the radiosounding is located abov
 Constant moist Brunt-Vaisala case
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-keyword: **CSTN**
+For idealized simulations, it is possible to use a constant Brunt-Vaisala frequency, shear and humidity layers to initialize the model (CIDEAL = "CSTN" in :ref:`nam_conf_pre` in :file:`PRE_IDEA1.nam`). The corresponding keyword is **CSTN** and the free format part has to be set in this order:
 
-Data of the vertical profile are written in the free-format part of PRE_IDEA1.nam file in the following order :
+.. code-block::
 
-* YEAR (integer, example : 1994), MONTH (integer, example : 4), DAY (integer, example : 22), TIME (real, in seconds, example : 36000. for 10 h)
+   CSTN
+   year month day time
 
-* NUMBER of LEVELS (integer)
+.. note::
 
-* VIRTUAL POTENTIAL TEMPERATURE at GROUND LEVEL (i.e at the first level) (real,in Kelvin)
+   * year has to be an integer (example : 1994)
+   * month has to be an integer (example : 4)
+   * day has to be an integer (example : 22)
+   * time has to be a real in seconds (example : 36000. for 10 h)
 
-* PRESSURE at GROUND LEVEL (i.e at the first level) (real, in Pascal)
+.. code-block::
 
-* HEIGHT at all levels. the first level is the ground level
+   number of levels (integer)
+   virtual potential temperature at ground level (real, in K)
+   pressure at ground level (real, in Pa)
+   height at all levels.
+   zonal wind component at all levels
+   meridian wind component at all levels
+   relative humidity at all levels
+   moist Brunt Vaisala frequency at all layers
 
-* ZONAL WIND COMPONENT at all levels (the first level is the ground level)
+.. note::
 
-* MERIDIAN WIND COMPONENT at all levels (the first level is the ground level)
+   * The first level is the ground level.
+   * For moist Brunt Vaisala frequency, the number of layers is the number of levels - 1.
 
-* RELATIVE HUMIDITY at all levels (the first level is the ground level)
-
-* MOIST BRUNT VAISALA FREQUENCY at all layers (the number of layers is the number of levels - 1)
-
-In this case, the level number can even be equal to 1, because the profile information is linearly interpolated on the model grid without orography (wind components, :math:`\theta_v` and humidity) before the application of the Laplace relation to deduce the pressure and the vapor mixing ratio. Thus, the layers’ thicknesses are never too large to invalidate the Laplace relation. 
+In this case, the level number can even be equal to 1, because the profile information is linearly interpolated on the model grid without orography (wind components, :math:`\theta_v` and humidity) before the application of the Laplace relation to deduce the pressure and the vapor mixing ratio. Thus, the layers' thicknesses are never too large to invalidate the Laplace relation. 
 
 .. note::
 
@@ -200,52 +181,75 @@ In this case, the level number can even be equal to 1, because the profile infor
 The forced version
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-keyword: **ZFRC** or **PFRC**
-
-For idealized simulations a forced mode can be useful to impose the effects of a simplified large scale environment to the model solution. This functionality works (LFORCING=.TRUE. in module MODD_CONF) when CIDEAL=’RSOU’ or ’CSTN’ (see 5.2.10 and 5.3) and only in the case LGEOSBAL =.FALSE. for inclusion of a geostrophic wind forcing. All forcing fields are issued from spatial interpolation of chronological series of 1D data (provided by the user onto the model grid). They are prepared during the prep_ideal_case sequence and are stored in the Meso-NH files for further use in case of RESTART model run.
+For idealized simulations a forced mode can be useful to impose the effects of a simplified large scale environment to the model solution.
+This functionality works when LFORCING=.TRUE. and CIDEAL='RSOU' or 'CSTN' in :ref:`nam_conf_pre` and when LGEOSBAL =.FALSE. in :ref:`nam_vprof_pre` for inclusion of a geostrophic wind forcing in :file:`PRE_IDEA1.nam`.
+All forcing fields are issued from spatial interpolation of chronological series of 1D data (provided by the user onto the model grid).
 
 The forcing fields can be time dependent. Application of the forcing begins as soon as the date and time of the first set of forcing field given by the user, is lower or equal to the current date and time of the model run. The forcing action of the last forcing field is remanant, this is a way to impose a stationnary forcing. When the current date and time of the model run is bounded by two successive forcing fields, a simple linear interpolation in time is made. Note that an available Newtonian relaxation forcing type on [u, v] and/or [:math:`\theta`, rv] is exclusive from the other physical forcings.
 
-The forcing information and soundings have to be added at the end of the free-format part already written for CIDEAL=’CSTN’ or ’RSOU’. First, the type of forcing and the number of time dependent forcing are given:
+The forcing information and soundings have to be added at the end of the free-format part already written for CIDEAL="CSTN" or "RSOU".
+Depending of the altitude of the forcing data two keywords are available, **ZFRC** means that the altitude of the forcing data are in height scale (m) and PFRC means that the altitude of the forcing data are in pressure scale (Pa). 
 
-* keyword forcing type (character*4)
+The free format part has to be set in this order:
 
-  * ZFRC means that the altitude of the forcing data are in height scale (meters).
-  * PFRC means that the altitude of the forcing data are in pressure scale (Pascal).
-  
-* number of time dependent forcing (integer)
+.. code-block::
+   
+   ZFRC or PFRC
+   number of time dependent forcing (integer)
+   year month day time
 
-The 1D forcing data are different from the one used to initialize the model because specific data have to be entered. The data used to define each forcing are given sequentially in the following order (one item per line):
+.. note::
 
-* date and time of the forcing in the format: year (integer), month (integer), day (integer) and time of the day (real, s).
+   * year has to be an integer (example : 1994)
+   * month has to be an integer (example : 4)
+   * day has to be an integer (example : 22)
+   * time has to be a real in seconds (example : 36000. for 10 h)
+   
+.. warning::
+   
+   The 1D forcing data are different from the one used to initialize the model because specific data have to be entered. The data used to define each forcing are given sequentially in the following order (one item per line):
 
-* ground height (real, m)
+.. code-block::
 
-* ground pressure (real, Pa)
+   ground height (real, m)
+   ground pressure (real, Pa)
+   potential temperature at ground level (real, K)
+   
+.. note::
 
-:math:`\theta_d` (real, K) at ground level (Nota: it is used later in the code to compute - if asked - a
-time varying sea surface temperature).
+   It is used later in the code to compute - if asked - a time varying sea surface temperature).
 
-* rv (real, kg/kg) at ground level
+.. code-block::
 
-* number of level (integer)
+   humidity (real, kg/kg) at ground level
+   number of level (integer)
+   altitude of level 1 list of forcing fields
+   idem at level 2
+   ...
+   idem at level top
 
-* height of level1 (real, m) if ZFRC or pressure at level1 (real, Pa) if PFRC, uf rc component at level1 (real, m/s), vf rc component at level1 (real, m/s), :math:`\theta f` rc at level1 (real, K), rv f rc at level1 (real, kg/kg), wf rc at level1 (real, m/s), (:math:`\partial\theta/\partial t`)f rc at level1 (real, K s) and (:math:`\partial rv/\partial t`)f rc at level1 (real, 1/s). (:math:`\partial u/\partial t`)f rc at level1 (real, m/s2). (:math:`partial v/ \partial t`)f rc at level1 (real, m/s2). 
+.. note::
 
-* idem at level2
+   * Unit of altitudes depends on the keyword chosen ZFRC for (m) and PFRC for (Pa)
+   
+   * List of forcing field is :
+   
+     * :math:`u_{frc}` component at the corresponding level  (real, m/s)
+     * :math:`v_{frc}` component at the corresponding level (real, m/s)
+     * :math:`\theta_{frc}` at the corresponding level (real, K)
+     * :math:`rv_{frc}` at the corresponding level (real, kg/kg)
+     * :math:`w_{frc}` at the corresponding level (real, m/s)
+     * :math:`(\partial\theta / \partial t)_{frc}` at the corresponding level (real, K/s)
+     * :math:`(\partial rv / \partial t)_{frc}` at the corresponding level (real, 1/s)
+     * :math:`(\partial u / \partial t)_{frc}` at the corresponding level (real, m/s2)
+     * :math:`(\partial v / \partial t)_{frc}` at the corresponding level (real, m/s2).    
 
-* ...
+   If PFRC is the forcing type, an additional sounding is given in order to convert the pressure levels into height levels with enough accuracy. Data are organized as follows:
 
-* idem at levelN
-
-If PFRC is the forcing type, an additional sounding is given in order to convert the pressure
-levels into height levels with enough accuracy. Data are organized as follows:
-
-* number of level (integer)
-
-* pressure at level1 (real, Pa), :math:`theta` at level1 (real, K) and rv at level1 (real, kg/kg).
-
-This operation is repeated until the previous number of sounding is reached.
+   * number of level (integer)
+   * pressure at level 1 (real, Pa), :math:`\theta` at level 1 (real, K) and rv at level 1 (real, kg/kg).
+   
+   This operation is repeated until the previous number of sounding is reached.
 
 .. note::
 
@@ -261,8 +265,8 @@ This operation is repeated until the previous number of sounding is reached.
       284.5
       0.008
       6
-      5. -7.0 0.0 281.10 0.00540 -0.00000 0. 0. 0. 0.
-      15. -7.0 0.0 281.10 0.00540 -0.00000 0. 0. 0. 0.
+         5. -7.0 0.0 281.10 0.00540 -0.00000 0. 0. 0. 0.
+        15. -7.0 0.0 281.10 0.00540 -0.00000 0. 0. 0. 0.
       1095. -7.0 0.0 280.75 0.00540 -0.00300 0. 0. 0. 0.
       1145. -7.0 0.0 290.60 0.00190 -0.00300 0. 0. 0. 0.
       3000. -7.0 0.0 304.15 0.00190 -0.00300 0. 0. 0. 0.
@@ -271,25 +275,17 @@ This operation is repeated until the previous number of sounding is reached.
 The advective forcing
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-keyword: **ZFRC_ADV**
+For 2D idealized simulation, an advective forcing can be used to impose effects to the model solution. This functionality works when L2D_ADV_FRC=.TRUE. in :ref:`nam_conf_pre` in :file:`PRE_IDEA1.nam`. The advecting forcings mimic the latidudinal humidity and temperature advection not taken into account in a 2D model. The forcing information and soundings have to be added at the end of the free-format part already written for CIDEAL="CSTN" or "RSOU". The corresponding keyword is **ZFRC_ADV** and the free format part has to be set in this order:
 
-For 2D idealized simulation, an advective forcing can be used to impose effects to the model solution. This functionality works (L2D_ADV_FRC=.TRUE. in MODD_CONF) only in 2D cases. The advecting forcings mimic the latidudinal humidity and temperature advection not taken into account in a 2D model.
+.. code-block::
 
-The forcing information and soundings have to be added at the end of the free-format part already written for CIDEAL=’CSTN’ or ’RSOU’. They are set in the following order :
-
-* ZFRC_ADV : keyword for advective forcing
-
-* number of forcing files
-
-* type of forcing : ZADV2D for Z levels or PADV2D for pressure levels
-
-* number vertical levels for the file
-
-* Date of first forcing : YYYY MM DD T (secondes)
-
-* name of the file with horizontal mean profile of theta, rv
-
-* name of the advective forcing file
+   ZFRC_ADV
+   number of forcing files
+   type of forcing : ZADV2D for Z levels or PADV2D for pressure levels
+   number vertical levels for the file
+   date of first forcing : year (integer) month (integer) day (integer) time (real, seconds)
+   name of the file with horizontal mean profile of theta, rv
+   name of the advective forcing file
 
 .. note::
 
@@ -308,25 +304,17 @@ The forcing information and soundings have to be added at the end of the free-fo
 The relaxation forcing
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-keyword: **ZFRC_REL**
+For 2D idealized simulation, a relaxation forcing can be used to impose effects to the model solution. This functionality works when L2D_REL_FRC=.TRUE.  in :ref:`nam_conf_pre` in :file:`PRE_IDEA1.nam`. The relaxation forcing allows the relax the model fields towards a 2D climatology for temperature and humidity. The forcing information and soundings have to be added at the end of the free-format part already written for CIDEAL="CSTN" or "RSOU". The corresponding keyword is **ZFRC_REL** and the free format part has to be set in this order:
 
-For 2D idealized simulation, a relaxation forcing can be used to impose effects to the model solution. This functionality works (L2D_REL_FRC=.TRUE. in MODD_CONF) only in 2D cases. The relaxation forcing allows the relax the model fields towards a 2D climatology for temperature and humidity.
+.. code-block::
 
-The forcing information and soundings have to be added at the end of the free-format part already written for CIDEAL=’CSTN’ or ’RSOU’. They are set in the following order :
-
-* ZFRC_REL : keyword for advective forcing
-
-* number of forcing files
-
-* type of forcing : ZREL2D for Z levels or PREL2D for pressure levels
-
-* number vertical levels for the file
-
-* Date of first forcing : YYYY MM DD T (secondes)
-
-* name of the file with horizontal mean profile of theta, rv
-
-* name of the advective forcing file
+   ZFRC_REL
+   number of forcing files
+   type of forcing : ZREL2D for Z levels or PREL2D for pressure levels
+   number vertical levels for the file
+   date of first forcing : year (integer) month (integer) day (integer) time (real, seconds)
+   name of the file with horizontal mean profile of theta, rv
+   name of the advective forcing file
 
 .. note::
 
@@ -345,9 +333,7 @@ The forcing information and soundings have to be added at the end of the free-fo
 Discretized orography
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-keyword: **ZSDATA**
-
-Only the orography corresponding to the computational domain must be provided in the free format part. For 3D orography, data are read like if it was a map (the first line is the Northern border and the first data is the North-West corner) with one line per Y-axis increment.
+You can prescribe your own orography when CZS = "DATA" in :ref:`nam_conf_pre` in :file:`PRE_IDEA1.nam`. Only the orography corresponding to the computational domain must be provided in the free format part. For 3D orography, data are read like if it was a map (the first line is the Northern border and the first data is the North-West corner) with one line per Y-axis increment.  The corresponding keyword is **ZSDATA**.
 
 .. note::
 
@@ -365,125 +351,82 @@ Only the orography corresponding to the computational domain must be provided in
 The ocean version
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-keyworkd: **RSOU**
-
-For oceanic version of Meso-NH, the initial and forcing profiles of the ocean are written in the free-format part of PRE_IDEA1.nam file, where the altitude variable is the depth. To follow usual convention for ocean data, the 1D profiles are given starting from the surface (positive value). The profile and forcing information are written in the following order :
-
-* YEAR (integer, exemple : 1994), MONTH (integer, exemple : 4), DAY (integer, exemple: 22), TIME (real, in seconds, exemple : 36000 for 10 h)
-
-* KIND of data used for the profile. Two kind are possible : KIND=’IDEALOCE’ (data written in PRE_IDEA1.nam) or KIND=’STANDOCE’ (data written in a NetCDF file).
-
-The following format is valid for KIND=’IDEALOCE’.
-
-* ATMOSPHERIC PRESSURE at the surface which is the top domain of the oceanic model (real, in Pascal)
-
-* SEA SURFACE TEMPERATURE at the surface (real, in Kelvin)
-
-* SEA SURFACE SALINITY at the surface (real, in g/kg)
-
-* NUMBER of SEA CURRENT levels (integer)
-
-* level 1 : DEPTH HEIGHT variable (real, meters) , U-CURRENT (real, m/s), V-CURRENT at CURRENT level (real, m/s)
-* level 2 : DEPTH HEIGHT variable (real, meters) , U-CURRENT (real, m/s), V-CURRENT at CURRENT level (real, m/s)
-* level ...
-
-* NUMBER of mass data LEVELS (integer).
-
-* level 2 : DEPTH HEIGHT variable (real, meters), WATER TEMPERATURE (real, Kelvin), SALINITY at mass level (real, g/kg)
-
-* level 3 : DEPTH HEIGHT variable (real, meters), WATER TEMPERATURE (real, Kelvin), SALINITY at mass level (real, g/kg)
-
-* level ...
-
-* NUMBER of time-varying FORCING (integer). The data used to define each forcing are given sequentially in the following order (one item per line):
-
-* YEAR (integer, exemple : 1994), MONTH (integer, exemple : 4), DAY (integer, exemple : 22), TIME (real, in seconds, exemple : 36000 for 10 h)
-
-* U-STRESS (real, m2/s2)
-
-* V-STRESS (real, m2/s2)
-
-* HEAT TURBULENT FLUX (real, W/m2)
-
-* RADIATIVE FLUX (real, W/m2)
-
-Surface fluxes are positive when going upward (from the ocean to the atmosphere) In the KIND=’STANDOCE’: initial 1D profiles and surface fluxes(t) are read from 2 netcdf files (See set_rsou.f90 for details)
- 
-Example of PRE_IDEA1.nam :
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The selected case is the following:
-
-* 2D mountain
-
-* one moist layer atmosphere
-
-This file contains the information necessary to generate the initial conditions for a quasihydrostatic flow, in the weakly non-linear regime, with a regular vertical grid.
-
-Example of :file:`PRE_IDEA1.nam` :
+For oceanic version of Meso-NH, the initial and forcing profiles of the ocean are written in the free-format part of PRE_IDEA1.nam file, where the altitude variable is the depth. To follow usual convention for ocean data, the 1D profiles are given starting from the surface (positive value). The corresponding keyword is **RSOU** and the profile and forcing information are written in the following order :
 
 .. code-block::
 
-   &NAM_DIMn_PRE NIMAX = 128,
-                 NJMAX = 1 /
-                 
-   &NAM_VER_GRID NKMAX        = 32,
-                 YZGRID_TYPE  = 'FUNCTN’,
-                 ZDZGRD       = 500.,
-                 ZDZTOP       = 500.,
-                 ZZMAX_STRGRD = 1000. ,
-                 ZSTRGRD      = 0.,
-                 ZSTRTOP      = 0. /
-                 
-   &NAM_CONFn LUSERV=.TRUE., NSV_USER = 0 /
-   
-   &NAM_GRID_PRE XLAT0   = 48.25,
-                 XLON0   = 0.,
-                 XRPK    = 0. ,
-                 XBETA   = 0.,
-                 XLONORI = 48.25,
-                 XLATORI = 0. /
-   
-   &NAM_CONF_PRE LCARTESIAN = .TRUE.,
-                 LBOUSS     = .FALSE.,
-                 CIDEAL     = "CSTN",
-                 CZS        = "BELL",
-                 LPERTURB   =  .FALSE.,
-                 NVERB      = 1 /
-   
-   &NAM_GRIDH_PRE XDELTAX = 5.E2,
-                  XDELTAY = 5.E2,
-                  XHMAX   = 500.,
-                  XAX     = 10.E3,
-                  XAY     = 10.E3,
-                  NIZS    = 64,
-                  NJZS    = 2,
-                  NEXPX   = 1,
-                  NEXPY   = 1 /
-   
-   &NAM_LUNITn CINIFILE="HYD2D",CINIFILEPGD="HYD2D_PGD" /
-   
-   &NAM_DYNn_PRE CPRESOPT ="RICHA", NITR=4, XRELAX=1.0 /
-   
-   &NAM_LBCn_PRE CLBCX(1)="OPEN", CLBCX(2)="OPEN",
-                 CLBCY(1)="OPEN", CLBCY(2)="OPEN" /
-   
-   &NAM_VPROF_PRE CTYPELOC="IJGRID",
-                  NILOC=10, NJLOC=2,
-                  CFUNU="ZZZ", CFUNV="ZZZ" /
+   RSOU
+   year month day time
 
-   LGEOSBAL=.FALSE. /
-   
-   &NAM_GRn_PRE CSURF = "EXTE" /
-   
-   CSTN
-   2
-   285.
-   100000.
-   0. 20000.
-   10. 10.
-   0. 0.
-   40. 40.
-   0.01
-   
+.. note::
 
+   * year has to be an integer (example : 1994)
+   * month has to be an integer (example : 4)
+   * day has to be an integer (example : 22)
+   * time has to be a real in seconds (example : 36000. for 10 h)
+
+.. code-block::
+
+   kind of data used for the profile
+
+.. note::
+
+   Two kind are possible :
+   
+   * KIND="IDEALOCE" : data written in PRE_IDEA1.nam
+   * KIND="STANDOCE" : data written in a NetCDF file (See set_rsou.f90 for details)
+
+The following format is valid for KIND="IDEALOCE" :
+
+.. code-block::
+
+   atmospheric pressure at the surface (real, in Pascal)
+   
+.. warning::
+
+   The surface corresponds to the top domain of the oceanic model.
+   
+.. code-block::
+      
+   sea surface temperature at the surface (real, in K)
+   sea surface salinity at the surface (real, in g/kg)
+   
+   number of sea current levels (integer)
+   level 1 : depth (real, m)  u-current (real, m/s)  v-current (real, m/s)
+   level 2 : depth (real, m)  u-current (real, m/s)  v-current (real, m/s)
+   level ...
+
+   number of mass data levels (integer).
+   level 2 : depth (real, m)  temperature (real, K), salinity (real, g/kg)
+   level 3 : depth (real, m)  temperature (real, K), salinity (real, g/kg)
+   level ...
+
+   number of time-varying forcing (integer). 
+ 
+.. warning::
+
+   The data used to define each forcing are given sequentially in the following order (one item per line):
+   
+.. code-block::
+   
+   year month day time
+
+.. note::
+
+   * year has to be an integer (example : 1994)
+   * month has to be an integer (example : 4)
+   * day has to be an integer (example : 22)
+   * time has to be a real in seconds (example : 36000. for 10 h)
+
+.. code-block::
+   
+   u-stress (real, m2/s2)
+   v-stress (real, m2/s2)
+   heat turbulent flux (real, W/m2)
+   radiative flux (real, W/m2)
+
+.. note::
+
+   * Surface fluxes are positive when going upward (from the ocean to the atmosphere).
+   
+   * In the KIND="STANDOCE" initial 1D profiles and surface fluxes(t) are read from 2 netcdf files (See set_rsou.f90 for details)

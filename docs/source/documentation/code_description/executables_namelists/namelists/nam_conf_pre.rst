@@ -61,11 +61,7 @@ NAM_CONF_PRE
   * 'SINE' : sine-shaped orography 
   * 'BELL' : bell-shaped orography
   * 'AGNE' : orography with :math:`h*a^2/(x^2+a^2)` shape
-  * 'DATA': discretized orography. The data describing the orography  are given in the free format part. 
-
-  .. note::
-
-     Only the orography corresponding to the computational domain must be provided in free format. For 3D orography, data are read like if it was a map (the first line is the Northern border and the first data is the North-West corner) with one line per Y-axis increment.
+  * 'DATA' : discretized orography. The data describing the orography are given in the free format part (:ref:`freeformat_prep_ideal_case`).
 
 * :code:`LBOUSS` : Flag for a Boussinesq version. 
 

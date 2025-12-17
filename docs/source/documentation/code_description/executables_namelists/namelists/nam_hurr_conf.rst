@@ -3,17 +3,24 @@
 NAM_HURR_CONF
 -----------------------------------------------------------------------------
 
-Two :program:`PREP_REAL_CASE` jobs are to be performed. In a mono-model configuration, the first job allows to remove analysed hurricane from the input GRIB fields: filtered and interpolated fields are written in a MesoNH file.
-It is used as input file for the second PREP_REAL_CASE job during which the analytical vortex is added.
+The purpose of this namelist is to replace an existing cyclone (**hurricane filtering**) with another one whose characteristics are defined (**vortex bogussing**). Each step (**hurricane filtering** and **vortex bogussing**) has to be done separately with the :ref:`prep_real_case` program.
 
-Each step (hurricane filtering and vortex bogussing) is separately invoked within the :program:`PREP_REAL_CASE` program:
+In a mono-model configuration, the first :ref:`prep_real_case` job allows to remove analysed hurricane from the input GRIB fields: filtered and interpolated fields are written in a Meso-NH file (**hurricane filtering**).
+It is used as input file for the second :ref:`prep_real_case` job during which the analytical vortex is added (**vortex bogussing**).
 
-* The hurricane filtering is applied on four input atmospheric GRIB fields (HATMFILETYPE='GRIBEX'), when they are in the horizontal grid of the PGD file and in the vertical grid of the GRIB file. The input atmospheric GRIB fields filtered are the two horizontal components of wind, the absolute temperature, the humidity  and the surface pressure reduced to ground level. Each field is decomposed  into three parts: first, the BASic part is computed by the low-pass Barnes filter; then the hurricane (symmetric) disturbance is computed from the  remainder disturbance part. The initial fields are then remplaced by their ENVironmental part: total field minus hurricane disturbance part.
+For a grid-nesting simulation, the **hurricane filtering** is first applied for the outer domain (dad model), with the program :ref:`prep_real_case`. The filtered fields are then horizontally interpolated for inner domains with the program :ref:`spawning`. Then, for each inner domain, a **vortex bogussing** is added with the program :ref:`prep_real_case`.
 
-* The vortex bogussing consists on a symmetric vortex added to the input atmospheric Meso-NH fields (HATMFILETYPE='MESONH'). The tangential wind is computed from an analytical formulation (Holland, 1980): Mercator projection must be used to respect hypotheses of Holland. Then, the balanced mass field is deduced from the thermal wind relation. The bogus of the two horizontal components of wind and the potential temperature is added to the initial (filtered) fields.
+.. note::
 
-For a grid-nesting simulation, the hurricane filtering is first applied for the outer domain (dad model), with the program :program:`PREP_REAL_CASE`. The filtered fields are then horizontally interpolated for inner domains with the program :ref:`spawning`. Then, for each inner domain, a vortex bogussing is added with the program :program:`PREP_REAL_CASE`.
+   * The **hurricane filtering** can be applied on five atmospheric GRIB fields (HATMFILETYPE='GRIBEX' in :ref:`nam_file_names` in :file:`PRE_REAL1.nam`) : the two horizontal components of wind, the absolute temperature, the humidity and the surface pressure reduced to ground level. Each output field is decomposed into three parts: first, the BASic part is computed by the low-pass Barnes filter; then the hurricane (symmetric) disturbance is computed from the remainder disturbance part. The initial fields are then remplaced by their ENVironmental part: total field minus hurricane disturbance part.
 
+   * The **vortex bogussing** consists on a symmetric vortex added to the input atmospheric Meso-NH fields (HATMFILETYPE='MESONH' in :ref:`nam_file_names` in :file:`PRE_REAL1.nam`). The tangential wind is computed from an analytical formulation :cite:`holland_analytic_1980`: Mercator projection must be used to respect hypotheses of Holland. Then, the balanced mass field is deduced from the thermal wind relation. The bogus of the two horizontal components of wind and the potential temperature is added to the initial (filtered) fields.
+
+
+
+.. warning::
+
+   For hurricane filtering and vortex bogussing :ref:`prep_real_case` must be launch on 1 core. It's not yet parallelized.
 
 .. csv-table:: NAM_HURR_CONF content
    :header: "Fortran name", "Fortran type", "Default value"

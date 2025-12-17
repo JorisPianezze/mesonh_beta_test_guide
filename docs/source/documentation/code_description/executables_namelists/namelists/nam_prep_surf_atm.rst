@@ -7,11 +7,11 @@ NAM_PREP_SURF_ATM
 
    This namelist comes from SURFEX 9.0.0 user guide https://www.umr-cnrm.fr/surfex/IMG/pdf/surfex_tecdoc.pdf.
 
-This namelist information is used to (possibly):
+This namelist is used to:
 
-* initialize the date of all surface schemes. The namelist information is used only if no input data file is used, either from namelist or by fortran code (as in :program:`MESONH` program). If a file is used, the date is read in it.
+* initialize the date of all surface schemes. The namelist information is used only if no input data file is used, either from namelist or by fortran code (as in :ref:`mesonh` program). If a file is used, the date is read in it.
 
-* define the default file in which each scheme can read the needed data (e.g. temperature). Note that, all the information given in this namelist can be erased for each scheme by the namelist corresponding to this scheme, as the information in the shceme namelists have priority on namelist NAM_PREP_SURF_ATM.
+* define the default file in which each scheme can read the needed data (e.g. temperature). Note that, all the information given in this namelist can be erased for each scheme by the namelist corresponding to this scheme, as the information in the shceme namelists have priority on namelist :ref:`nam_prep_surf_atm`.
 
 .. csv-table:: NAM_PREP_SURF_ATM content
    :header: "Fortran name", "Fortran type", "Default value"
@@ -32,7 +32,7 @@ This namelist information is used to (possibly):
 
 .. note::
 
-   * The use of a file or prescribed value in each scheme namelist has priority on the data in CFILE / CFILEPGD file of namelist NAM_PREP_SURF_ATM.
+   * The use of a file or prescribed value in each scheme namelist has priority on the data in CFILE / CFILEPGD file of namelist :ref:`nam_prep_surf_atm`.
    
    * CFILE and CFILEPGD can identify the same file.
    

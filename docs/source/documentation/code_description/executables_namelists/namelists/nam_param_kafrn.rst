@@ -3,6 +3,8 @@
 NAM_PARAM_KAFRN
 -----------------------------------------------------------------------------
 
+It contains the options for deep and shallow convection parameterizations used by the model (CSCONV = "KAFR" or CDCONV = "KAFR" in :ref:`nam_paramn`).
+
 .. csv-table:: NAM_PARAM_KAFRN content
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30

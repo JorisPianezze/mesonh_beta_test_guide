@@ -1,3 +1,5 @@
+.. _extract_meteofrance_data:
+
 Extract Meteo-France's data
 =============================================================================
 

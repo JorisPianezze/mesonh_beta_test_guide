@@ -33,7 +33,7 @@ This namelist is new and regroup options related to internal clouds life cycle.
 
 * :code:`CCONDENS` : subgrid distribution used in the saturation adjustment
 
-  * 'CB02' : to use the Chaboureau and Bechtold (2002) formulations
+  * 'CB02' : to use the :cite:t:`chaboureau_simple_2002` formulations
   * 'GAUS' : to use a gaussian PDF
 
 * :code:`CLAMBDA3` : modulation of s'r' computation in the saturation adjustment

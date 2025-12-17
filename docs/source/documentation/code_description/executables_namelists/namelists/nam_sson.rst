@@ -17,7 +17,7 @@ NAM_SSOn
 
   * "Z01D": orographic roughness length does not depend on wind direction
   * "Z04D": orographic roughness length depends on wind direction 
-  * "BE04": Beljaars 2004 orographic drag
+  * "BE04": :cite:t:`beljaars_new_2004` orographic drag
   * "NONE": no orographic treatment
 
 * :code:`XFRACZ0` : Z0=min(Z0, Href/XFRACZ0)
