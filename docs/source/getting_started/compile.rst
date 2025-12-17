@@ -45,7 +45,7 @@ For the **VER_USER** compilation, you will use following commands:
 
 .. note::
 
-   * :file:`configure`, script that creates a :ref:`configuration` file :file:`profile_mesonh` in the :ref:`conf/ <what_do_you_download>` directory with an extension reflecting the different choices made.
+   * :file:`configure`, script that creates a configuration file :file:`profile_mesonh` in the :ref:`conf/ <what_do_you_download>` directory with an extension reflecting the different choices made.
 
    * :code:`export MAKEFLAGS='-j 8'`, optional command to speed up the compilation on up to 8 parallel processes. You can change the number of processes according to the number of cores available for the compilation. If you do not set this variable, the default value is 1 process.
 
@@ -234,14 +234,14 @@ On Irene you can compile in interactive mode using:
 On hpc-login (ECMWF)
 -----------------------------------------------------------------------------
 
-.. csv-table:: Filesystem of hpc-login (project data space)
+.. csv-table:: Filesystem of hpc-login
    :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
-   :widths: 30, 30, 30, 30
+   :widths: 30, 30, 30, 30, 30
 
-   "Location", "$HOME", "$HPCPERM", "$SCRATCH"
-   "Disk space", "10 GiB / user", "1 TiB", " 2 TiB"
-   "Inodes (files)", "unlimited", "1 M", "500 k"
-   "Data lifetime", "Saved", "Not saved", "Purged (30 days)"
+   "Location", "$HOME", "$HPCPERM", "$SCRATCH", ":math:`\emptyset`"
+   "Disk space", "10 GiB / user", "1 TiB", "2 TiB", ":math:`\emptyset`"
+   "Inodes (files)", "unlimited", "1 M", "500 k", ":math:`\emptyset`"
+   "Data lifetime", "Saved", "Not saved", "Purged (30 days)", ":math:`\emptyset`"
 
 .. tip::
 

@@ -14,36 +14,36 @@ A 4-day tutorial class is organized two times a year at Toulouse (France) :
 Agenda
 ------------------------------------------------------------------------------
 
-.. figure:: training_material/PlanningMesoNHTutorial.png
+.. figure:: tutorial_material/PlanningMesoNHTutorial.png
    
 Material
 ------------------------------------------------------------------------------
    
-* :download:`Dynamics and Physics <training_material/Dynamics_and_Physics.pdf>`
+* :download:`Dynamics and Physics <tutorial_material/Dynamics_and_Physics.pdf>`
 
-* :download:`Radiation <training_material/Radiation.pdf>`
+* :download:`Radiation <tutorial_material/Radiation.pdf>`
 
-* :download:`Meso-NH environment <training_material/env.pdf>`
+* :download:`Meso-NH environment <tutorial_material/env.pdf>`
 
-* :download:`Ideal cases <training_material/cas_ideal.pdf>`
+* :download:`Ideal cases <tutorial_material/cas_ideal.pdf>`
 
-* :download:`Real cases <training_material/cas_reel.pdf>`
+* :download:`Real cases <tutorial_material/cas_reel.pdf>`
 
-* :download:`SURFEX for Meso-NH <training_material/surfex_for_mnh.pdf>`
+* :download:`SURFEX for Meso-NH <tutorial_material/surfex_for_mnh.pdf>`
 
-* :download:`Coding rules <training_material/coding_in_MNH.pdf>`
+* :download:`Coding rules <tutorial_material/coding_in_MNH.pdf>`
 
-* :download:`Diagnostics <training_material/diag.pdf>`
+* :download:`Diagnostics <tutorial_material/diag.pdf>`
 
-* :download:`Documentation <training_material/documentation.pdf>`
+* :download:`Documentation <tutorial_material/documentation.pdf>`
 
-* :download:`Post-processing <training_material/postprocessing.pdf>`
+* :download:`Post-processing <tutorial_material/postprocessing.pdf>`
 
-* :download:`Exercise for ideal cases <training_material/tp_ideal.pdf>`
+* :download:`Exercise for ideal cases <tutorial_material/tp_ideal.pdf>`
 
-* :download:`Exercise for real cases <training_material/tp_reel.pdf>`
+* :download:`Exercise for real cases <tutorial_material/tp_reel.pdf>`
 
-* :download:`Bring your own case <training_material/BYOC.pdf>`
+* :download:`Bring your own case <tutorial_material/BYOC.pdf>`
 
 Support for exercises
 ------------------------------------------------------------------------------

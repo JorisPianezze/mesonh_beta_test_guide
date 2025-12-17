@@ -19,7 +19,7 @@ I/O
 *****************
 
 Outputs: compression parameters per variable
------------------
+----------------------------------------------
 
 It is now possible to set the compression parameters independently for each variable.
 
@@ -37,7 +37,7 @@ To use it, you have to set the following parameters in the NAM_OUTPUT namelist (
 
 
 Outputs: threshold filtering (per variable)
------------------
+----------------------------------------------
 
 It is now possible to filter the values of a field with different thresholds.
 
@@ -62,7 +62,7 @@ To use it, you have to set the following parameters in the NAM_OUTPUT namelist (
 
 
 Outputs: rounding factor (per variable)
------------------
+----------------------------------------------
 
 It is now possible to round each value of a field to a multiple of a choosen value.
 
@@ -80,7 +80,7 @@ To use it, you have to set the following parameters in the NAM_OUTPUT namelist (
 
 
 Other changes
------------------
+---------------------------
 
 * Compression: all datatypes can be compressed (only floating point data could be compressed in previous Meso-NH versions)
 * Stations / Profilers: add precipitation fields (instantaneous and accumulated) 
@@ -93,7 +93,7 @@ Other changes
 * Useless files not written any more (empty OUTPUT_LISTING0, file_for_xtransfer and pressure solver statistics files)
 
 Restarts: better reproducibility
------------------
+-----------------------------------------
 
 The behavior related to the :code:`NITR` parameter of the NAM_DYNn namelist has been modified.
 

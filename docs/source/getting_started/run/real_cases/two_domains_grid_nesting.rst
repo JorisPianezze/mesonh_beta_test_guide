@@ -1,7 +1,7 @@
 Grid-nesting with 2 domains initialized and forced by ERA5
 ==================================================================
 
-To perform a 3D Meso-NH simulation with real initial and surface conditions and two grid nested domains, you need to :ref:`prepare the physiographic data <prep_pgd_d1_two_domains_era5>` for both domains, :ref:`prepare the initial and lateral boundary conditions <prep_real_case_two_domains_era5>` and :ref:`run the model <mesonh_two_domains_era5>` using the :ref:`prep_pgd`, :ref:`prep_nest_pgd`, :ref:`prep_real_case`, :ref:`spawning` and :ref:`mesonh` executables respectively. In this example you will also use the :ref:`diag` program to :ref:`calculate diagnostics after the simulation <diag_two_domains_era5>`. These steps are described in the following sections:
+To perform a 3D Meso-NH simulation with real initial and surface conditions and two grid nested domains, you need to :ref:`prepare the physiographic data <prep_pgd_d1_two_domains_era5>` for both domains, :ref:`prepare the initial and lateral boundary conditions <prep_real_case_d1_two_domains_era5>` and :ref:`run the model <mesonh_two_domains_era5>` using the :ref:`prep_pgd`, :ref:`prep_nest_pgd`, :ref:`prep_real_case`, :ref:`spawning` and :ref:`mesonh` executables respectively. In this example you will also use the :ref:`diag` program to :ref:`calculate diagnostics after the simulation <diag_two_domains_era5>`. These steps are described in the following sections:
 
 .. contents::
    :local:
@@ -581,7 +581,7 @@ At the end of the :ref:`spawning` execution, you need to have following files:
 .. _prep_real_case_d2_two_domains_era5:
 
 Prepare the initial and lateral boundary conditions for domain 2 (:ref:`prep_real_case`)
-------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 To create the initial condition files for domain 2 you have to use :ref:`prep_real_case` program. This program reads a file called :file:`PRE_REAL1.nam` defining the characteristics of the simulation.
 

@@ -173,7 +173,7 @@ At the end of the :ref:`prep_pgd` execution, you need to have following files:
 .. _prep_real_case_one_domain_era5:
 
 Prepare the initial and lateral boundary conditions (:ref:`prep_real_case`)
-------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 To create the initial and lateral boundary condition files for a real case Meso-NH simulation you have to use :ref:`prep_real_case` program. This program reads a file called :file:`PRE_REAL1.nam` defining the characteristics of the simulation.
 

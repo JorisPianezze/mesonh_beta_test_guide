@@ -28,8 +28,8 @@ Meso-NH website
    :caption: Documentation
 
    documentation/scientific_references.rst
-   documentation/code_description.rst
-   documentation/training_material.rst
+   documentation/users_guide.rst
+   documentation/tutorial_material.rst
    documentation/coding_instructions.rst   
 
 .. toctree::
@@ -52,8 +52,8 @@ Meso-NH website
    :maxdepth: 2
    :caption: External ressources
 
-   Data <documentation/external_data.rst>
-   Tools <documentation/external_tools.rst>
+   Data <external_ressources/external_data.rst>
+   Tools <external_ressources/external_tools.rst>
 
 .. |old_mesonh_website| raw:: html
 
