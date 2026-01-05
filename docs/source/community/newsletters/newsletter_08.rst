@@ -11,11 +11,12 @@ Voici ci-dessous la 8ème infolettre de notre communauté. Vous y trouverez un e
 Entretien avec `Quentin Libois <quentin.libois@meteo.fr>`_ et Sophia Schaefer (CNRM)
 *************************************************************************************************************************************
 
+|pic1|     |pic2|
 
-.. image:: photo_ql.jpg
+.. |pic1| image:: photo_ql.jpg
   :width: 250
 
-.. image:: photo_ss.jpg
+.. |pic2| image:: photo_ss.jpg
   :width: 250
 
 Quentin, tu as inclus en 2017 la possibilité d'utiliser le code ecRad pour la représentation du rayonnement dans Méso-NH, et Sophia, tu as contribué à mettre à jour la nouvelle version d'ecRad dans la prochaine version de Méso-NH avec Quentin Rodier. Pourriez-vous résumer ce que permet l'utilisation de ce code ?
