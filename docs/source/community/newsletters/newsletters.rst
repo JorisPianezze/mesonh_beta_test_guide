@@ -33,4 +33,4 @@ Newsletters
 
    newsletter_07_english.rst
 
-   newsletter_SSQL.rst
+   newsletter_08.rst
