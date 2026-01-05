@@ -46,7 +46,7 @@ Les nouvelles de l’équipe support
 
 Version 6
   - La préparation de la version 6.0.0 est en cours, sa sortie est imminente.
-  - La mise à jour de PHYEX (Méso-NH/PHYEX ==> PHYEX-offline puis le rétro-phasage) dans MésoNH est en cours.
+  - La mise à jour de PHYEX (de Méso-NH/PHYEX à PHYEX-offline, puis le rétro-phasage) dans Méso-NH est en cours.
   - Le support pour l'écriture des fichiers LFI est terminé.
   - Dans les fichiers netCDF les variables SURFEX seront à présent séparées dans un groupe spécifique.
   - L'appel à RTTOV14 a été intégré pour l'étape de diagnostic et pour le calcul en ligne, l'appel à RTTOV13 a été enlevé.
