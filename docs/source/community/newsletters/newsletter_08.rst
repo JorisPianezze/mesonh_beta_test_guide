@@ -46,7 +46,7 @@ Les nouvelles de l’équipe support
 
 Version 6
   - La préparation de la version 6.0.0 est en cours, sa sortie est imminente.
-  - La mise à jour de PHYEX (de Méso-NH/PHYEX à PHYEX-offline, puis le rétro-phasage) dans Méso-NH est en cours.
+  - La mise à jour de PHYEX dans Méso-NH est en cours. Cela nécessite le phasage des modifications de la version de PHYEX de Méso-NH vers le dépot central de PHYEX. Ensuite, la récupération de cette version sur le dépôt central et son implantation dans Méso-NH permet de récupérer les modifications de PHYEX réalisées par les autres contributeurs (tels que les personnes de la communauté ACCORD ou qui développent dans AROME).
   - L'écriture des fichiers au format LFI n'est plus supportée.
   - Dans les fichiers netCDF, les variables SURFEX sont à présent séparées dans un groupe spécifique.
   - L'appel à RTTOV14 a été intégré pour l'étape de diagnostic et pour le calcul en ligne, l'appel à RTTOV13 a été enlevé.
