@@ -71,21 +71,21 @@ Dernières publications utilisant Méso-NH
 ****************************************************************************************
 
 Fire meteorology
-  - Eulerian modelling of spotting using a coupled fire-atmosphere approach [`Alonso-Pinar et al., *in discuss.* <https://doi.org/10.5194/egusphere-2025-4855>`_]
+  - Eulerian modelling of spotting using a coupled fire-atmosphere approach [`Alonso-Pinar et al. <https://doi.org/10.5194/egusphere-2025-4855>`_, *in discuss.*]
   - Assessing wildfire dynamics during a megafire in Portugal using the MesoNH/ForeFire coupled model [`Campos et al., 2025 <https://doi.org/10.1002/qj.70075>`_]
   - ForeFire: A Modular, Scriptable C++ Simulation Engine and Library for Wildland-Fire Spread [`Filippi et al., 2025 <https://doi.org/10.21105/joss.08680>`_]
 
 Global model evaluation and improvement
   - Process-Level Evaluation of the Land-Atmosphere Interactions Within CNRM-CM6-1 Single-Column Model Configuration [`Bernard et al., 2025 <https://doi.org/10.1029/2025MS005090>`_]
-  - Prognostic modeling of total specific humidity variance induced by shallow convective clouds in a GCM [`d'Alençon et al., *in discuss.* <https://doi.org/10.5194/egusphere-2025-5798>`_]
-  - Evaluation and improvement of a cold pool parameterization against Large Eddy Simulations [`Thiam et al., *in discuss.* <https://doi.org/10.5194/egusphere-2025-5329>`_]
+  - Prognostic modeling of total specific humidity variance induced by shallow convective clouds in a GCM [`d'Alençon et al. <https://doi.org/10.5194/egusphere-2025-5798>`_, *in discuss.*]
+  - Evaluation and improvement of a cold pool parameterization against Large Eddy Simulations [`Thiam et al. <https://doi.org/10.5194/egusphere-2025-5329>`_, *in discuss.*]
 
 Microphysics
-  - Evaluation of the vertical microphysical properties of fog as simulated by Meso-NH during the SOFOG3D experiment [`Mazoyer et al., *in discuss.* <https://doi.org/10.5194/egusphere-2025-5528>`_]
+  - Evaluation of the vertical microphysical properties of fog as simulated by Meso-NH during the SOFOG3D experiment [`Mazoyer et al. <https://doi.org/10.5194/egusphere-2025-5528>`_, *in discuss.*]
 
 Urban meteorology and Wind energy
-  - Numerical study of dust plume impact on urban thermal comfort [`Bernard et al., *in discuss.* <https://doi.org/10.5194/egusphere-2025-4829>`_]
-  - A purely analytical and physical wind turbine wake model accounting for atmospheric stratification [`Noël et al., *submitted* <https://doi.org/10.48550/arXiv.2510.17236>`_]
+  - Numerical study of dust plume impact on urban thermal comfort [`Bernard et al. <https://doi.org/10.5194/egusphere-2025-4829>`_, *in discuss.*]
+  - A purely analytical and physical wind turbine wake model accounting for atmospheric stratification [`Noël et al. <https://doi.org/10.48550/arXiv.2510.17236>`_, *submitted*]
 
 PhD theses
   - Modélisation multiéchelle des sautes de feu [`Alonso-Pinar, Université de Corte and University of Melbourne, 2025 <https://theses.fr/2025CORT0012>`_]
