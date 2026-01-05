@@ -47,8 +47,8 @@ Les nouvelles de l’équipe support
 Version 6
   - La préparation de la version 6.0.0 est en cours, sa sortie est imminente.
   - La mise à jour de PHYEX (de Méso-NH/PHYEX à PHYEX-offline, puis le rétro-phasage) dans Méso-NH est en cours.
-  - L'écriture des fichiers au format LFI est n'est plus supportée.
-  - Dans les fichiers netCDF les variables SURFEX seront à présent séparées dans un groupe spécifique.
+  - L'écriture des fichiers au format LFI n'est plus supportée.
+  - Dans les fichiers netCDF, les variables SURFEX sont à présent séparées dans un groupe spécifique.
   - L'appel à RTTOV14 a été intégré pour l'étape de diagnostic et pour le calcul en ligne, l'appel à RTTOV13 a été enlevé.
   - Les dernières optimisations du portage GPU sur différentes machines (cartes GPU AMD MI250X et MI300A sur Adastra) et APU NVIDIA ont été intégrées à la branche ``MNH-60-branch``.
   - La dernière version du code d'éolienne (EOL-v2) et une mise à jour du couplage LIMA-ecRad-aérosols ont été intégrées à la branche ``MNH-60-branch``.
