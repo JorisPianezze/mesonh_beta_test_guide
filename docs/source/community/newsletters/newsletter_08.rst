@@ -52,10 +52,11 @@ Version 6
   - L'appel à RTTOV14 a été intégré pour l'étape de diagnostic et pour le calcul en ligne, l'appel à RTTOV13 a été enlevé.
   - Les dernières optimisations du portage GPU sur différentes machines (cartes GPU AMD MI250X et MI300A sur Adastra) et APU NVIDIA ont été intégrées à la branche ``MNH-60-branch``.
   - La dernière version du code d'éolienne (EOL-v2) et une mise à jour du couplage LIMA-ECRAD-aérosols ont été intégrées à la branche ``MNH-60-branch``.
+  - Quelques mises à jour de la documentation ont été réalisées et le futur site technique de Méso-NH, qui permettra de la retrouver, sera diffusé à l'occasion de la sortie de la version 6.
 
 Développements en cours et récents
-  - Des tests de Méso-NH en simple précision sont en cours sur tous les cas tests éligibles. Le passage en simple précision par défaut n'est pas encore acté et sera probablement repoussé à la 6.1.
-  - Quelques mises à jour de la documentation ont été réalisées et le futur site technique de Méso-NH permettra de retrouver cette documentation.
+  - Des tests de Méso-NH en simple précision sont en cours sur tous les cas tests éligibles. Le passage en simple précision par défaut n'est pas encore acté et sera probablement repoussé à la version 6.1.
+
 
 Stage Méso-NH
   - Le prochain stage Méso-NH est programmé du 10 au 13 mars 2026.
@@ -63,7 +64,7 @@ Stage Méso-NH
   - Envoyez un email à `Quentin Rodier <mailto:quentin.rodier@meteo.fr>`_ pour informations et inscriptions.
 
 .. note::
-  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est preneur.
+  Si vous avez des besoins, idées, améliorations à apporter, bugs à corriger ou suggestions concernant les entrées/sorties, `Philippe Wautelet <mailto:philippe.wautelet@cnrs.fr>`_ est toujours preneur.
 
 
 Dernières publications utilisant Méso-NH
