@@ -6,7 +6,7 @@ Infolettre #08
 
 Chers utilisateurs, chères utilisatrices de Méso-NH,
 
-Voici ci-dessous la 8ème infolettre de notre communauté. Vous y trouverez un entretien avec deux dévelopeur.euses de Méso-NH, les dernières nouvelles de l’équipe support et la liste des (nombreuses !) dernières publications utilisant Méso-NH.
+Voici ci-dessous la 8ème infolettre de notre communauté. Vous y trouverez un entretien avec deux dévelopeur.euses de Méso-NH, les dernières nouvelles de l’équipe support et la liste des (nombreuses !) dernières publications et thèses utilisant Méso-NH.
 
 Entretien avec `Quentin Libois <quentin.libois@meteo.fr>`_ et Sophia Schaefer (CNRM)
 *************************************************************************************************************************************
