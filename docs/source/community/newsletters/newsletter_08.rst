@@ -13,7 +13,7 @@ Entretien avec `Quentin Libois <quentin.libois@meteo.fr>`_ et Sophia Schaefer (C
 
 |pic1|     |pic2|
 
-.. |pic1| image:: photo_ql.jpg
+.. |pic1| image:: photo_ql_bw.png
   :width: 250
 
 .. |pic2| image:: photo_ss.jpg
