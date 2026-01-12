@@ -85,11 +85,9 @@ rst_prolog = """
 .. |MNH_xyz_version_current| replace:: 5.7.2
 .. |MNH_xyz_version_hyphen_current| replace:: 5-7-2
 .. |MNH_directory_extract_current| replace:: MNH-V5-7-2
-
 .. |NCOMPRPARAMNOTSET| replace:: -888
 .. |NNEGUNDEF| replace:: -999
 .. |NUNDEF| replace:: 999
 .. |XNEGUNDEF| replace:: -999.
 .. |XUNDEF| replace:: 999.
-
 """

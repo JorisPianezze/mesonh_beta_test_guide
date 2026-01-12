@@ -205,8 +205,8 @@ This namelist allows to write selected fields in output files.
    * 'FILLVALUE': set the value to the fill value (seen as an empty value in netCDF files)
    * 'VALIDMIN': set the value to the valid minimum value of the variable (netCDF metadata attribute)
    * 'VALIDMAX': set the value to the valid maximum value of the variable (netCDF metadata attribute)
-   * 'UNDEF': set the value to the undefined value XUNDEF (999.0)
-   * 'NEGUNDEF': set the value to the negative undefined value XNEGUNDEF (-999.0)
+   * 'UNDEF': set the value to the undefined value XUNDEF ( |XUNDEF| )
+   * 'NEGUNDEF': set the value to the negative undefined value XNEGUNDEF ( |XNEGUNDEF| )
    * 'EXCLRANGE': exclude the value from the range defined by the min and max thresholds (if used, it must be set for both the min and max thresholds). Replacement value is the fill value.
    * 'NONE': do nothing
 
