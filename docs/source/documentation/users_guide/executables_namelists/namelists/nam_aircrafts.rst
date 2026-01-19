@@ -61,3 +61,6 @@ The .csv files should follow the format example hereafter (the first line is ign
 
    If the altitude is given in pressure, the units are hPa and not Pa.
 
+.. warning::
+
+   The first time should be 0. as the times correspond to the time since the launch of the aircraft.
