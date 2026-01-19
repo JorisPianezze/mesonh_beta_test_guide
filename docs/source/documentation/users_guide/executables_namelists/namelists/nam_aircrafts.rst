@@ -28,7 +28,7 @@ All the prognostic fields (zonal and meridian wind (from U and V components), ve
 
 * :code:`LALTDEF` : if .FALSE. (by default), atlitude is given in meters; if .TRUE. altitude is given in pressure (hPa)
 
-* :code:`NMODEL` : number of the grid model where the aircraft flies. If CMODEL='FIX', it may be any grid model number (forced to 1 if NMODEL not set). If CMODEL='MOB', NMODEL is forced to 1 at simulation start but will change during flight to always fly on the finest model at a given horizontal position.
+* :code:`NMODEL` : number of the grid model where the aircraft flies. If CMODEL='FIX', it may be any grid model number (forced to 1 if NMODEL not set and only one domain). If CMODEL='MOB', NMODEL is forced to 1 at simulation start but will change during flight to always fly on the finest model at a given horizontal position.
 
 * :code:`NPOS` : number of aircraft positions that will be read in the .csv file
 
