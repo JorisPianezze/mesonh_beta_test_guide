@@ -30,7 +30,7 @@ All the prognostic fields (zonal and meridian wind (from U and V components), ve
 
 * :code:`NMODEL` : number of the grid model where the aircraft flies. If CMODEL='FIX', it may be any grid model number (forced to 1 if NMODEL not set and only one domain). If CMODEL='MOB', NMODEL is forced to 1 at simulation start but will change during flight to always fly on the finest model at a given horizontal position.
 
-* :code:`NPOS` : number of aircraft positions that will be read in the .csv file
+* :code:`NPOS` : number of aircraft positions that will be read in the .csv file. If not provided, the whole file will be read.
 
 * :code:`TLAUNCH` : instant of launch. This type has 4 fields (nyear, nmonth, nday and xtime).
 
@@ -47,7 +47,7 @@ All the prognostic fields (zonal and meridian wind (from U and V components), ve
 
 * :code:`XTSTEP` : data storage frequency. If not set, it is forced to 60s. The frequency must be a multiple of the timestep of the chosen model NMODEL if CMODEL='FIX' or of the main model 1 if CMODEL='MOB'. It will be enforced at run.
 
-The .csv files should follow the format example hereafter (the first line is ignored, here the altitude is given in pressure):
+The .csv files should follow the format example hereafter (the first line is ignored, here the altitude is given in pressure (in hPa)):
 
 .. code-block::
 
