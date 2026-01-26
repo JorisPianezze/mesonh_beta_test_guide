@@ -11,7 +11,9 @@ The :program:`SPAWNING` program performs horizontal interpolation from one Meso-
 
 .. warning::
 
-   When you want to force Meso-NH by Meso-NH you cannot create an independent grid at that time, the horizontal grids must be consistent.
+   * When you want to force Meso-NH by Meso-NH you cannot create an independent grid at that time, the horizontal grids must be consistent.
+
+   * Vertical grid can be changed when you force Meso-NH by an other Meso-NH simulation, without grid nesting.
 
 .. csv-table:: SPAWNING program and its corresponding namelist and function
    :header: "Executable", "Namelist", "Function"
