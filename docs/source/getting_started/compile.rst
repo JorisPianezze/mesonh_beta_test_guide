@@ -80,7 +80,7 @@ On :ref:`Jean-Zay (IDRIS) <compilation_jeanzay_idris>`, :ref:`Adastra (CINES) <c
 
    To check if the machine you are using is supported by Meso-NH look at the :command:`case` condition in the :file:`configure` script and search your configuration. If your configuration is not referenced you have to go to :ref:`compile on other systems <compilation_unknown_computer>` section and adapt the :file:`configure` script.
 
-The various steps for compiling Meso-NH on the machines used by main Meso-NH's users are referenced in the following sections.
+The various steps for compiling Meso-NH on the machines used by most Meso-NH's users are referenced in the following sections.
 
 .. _compilation_jeanzay_idris:
 
