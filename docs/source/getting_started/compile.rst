@@ -514,19 +514,23 @@ It depends on netCDF and scons for its compilation. The :file:`libForeFIre.so` t
 
 .. _compile_mesonh_with_rttov:
 
-MNH_RTTOV for optional radiative computation
+RTTOV for optional radiative computation
 -----------------------------------------------------------------------------
 
-The RTTOV 14.0 package was not included into the open source version of Meso-NH because it needs a licence agrement.
-Run the "configure" script preceded with the setting of the MNH_RTTOV variable:
+RTTOV (Radiative Transfer for TOVS) is a very fast radiative transfer model for passive visible, infrared and microwave downward-viewing satellite radiometers, spectrometers and interferometers.
+When coupled with Meso-NH, RTTOV enables a direct comparison between simulation outputs and satellite observations, removing the need for additional assumptions or inversions.
+For that, you need to download and compile RTTOV first, then you need to compile Meso-NH including RTTOV. Meso-NH is coupled to the last version of RTTOV (14.0) but this version is not include in the Meso-NH's package because it needs a licence agrement.
+
+Before compiling RTTOV, you need to compile NetCDF and HDF5 libraries:
 
 .. code-block:: bash
 
    cd MNH/src/
-   export MNH_RTTOV=1
-   export VER_RTTOV=14.0
+   ./configure
+   . ../conf/profile_mesonh-your_configuration
+   make cdf
 
-Download the RTTOV package :file:`rttov140.tar.xz` by following the instructions given on the RTTOV website. Install the RTTOV package :file:`rttov140.tar.xz`:
+Download the RTTOV package :file:`rttov140.tar.xz` by following the instructions given on the `RTTOV website <https://nwpsaf.eu/site/software/rttov/>`_  and untar the RTTOV zip file :file:`rttov140.tar.xz`:
 
 .. code-block:: bash
 
@@ -536,7 +540,7 @@ Download the RTTOV package :file:`rttov140.tar.xz` by following the instructions
    tar xJf rttov140.tar.xz
    cd build
 
-edit :file:`Makefile.local` and set HDF5_PREFIX, FFLAGS_NETCDF, LDFLAGS_NETCDF and LDFLAGS_HDF5 as shown below:
+Then you have to edit :file:`Makefile.local` file and set HDF5_PREFIX, FFLAGS_NETCDF, LDFLAGS_NETCDF and LDFLAGS_HDF5 as shown below:
 
 .. code-block:: bash
 
@@ -545,11 +549,11 @@ edit :file:`Makefile.local` and set HDF5_PREFIX, FFLAGS_NETCDF, LDFLAGS_NETCDF a
    LDFLAGS_NETCDF = -L$(HDF5_PREFIX)/lib -lnetcdff -lnetcdf
    LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib64 -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5 -lsz -laec -lz -ldl
 
-and build RTTOV:
+Finally you can build RTTOV using:
 
 .. code-block:: bash
 
-   cd src
+   cd RTTOV-14.0/src
    ../build/Makefile.PL RTTOV_NETCDF=1
    make ARCH=ifort
 
@@ -557,7 +561,17 @@ and build RTTOV:
 
    Other available options are gfortran, NAG, pgf90 and IBM.
 
-Then, you can follow the steps described in the section dedicated to your computer (interactive or batch mode).
+Now you need to compile Meso-NH using :file:`configure` script of Meso-NH preceded with the setting of the MNH_RTTOV variables :
+
+.. code-block:: bash
+  
+   cd MNH/src/
+   export MNH_RTTOV=1
+   export VER_RTTOV=14.0
+   ./configure
+   ...
+
+Then, you can follow the compilation steps described in the section dedicated to your computer.
 
 
 MNH_ECRAD for optional compilation of new ECRAD radiative library from ECMWF
