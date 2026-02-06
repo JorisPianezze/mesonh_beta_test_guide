@@ -63,6 +63,9 @@ The following namelists can be used in the :file:`EXSEG1.nam` file :
 * :ref:`nam_eol_adnr`
 * :ref:`nam_eol_adr`
 * :ref:`nam_eol_alm`
+* :ref:`nam_eol_control`
+* :ref:`nam_eol_townac`
+* :ref:`nam_eol_tracers`
 * :ref:`nam_frc`
 * :ref:`nam_ibm_paramn`
 * :ref:`nam_lbcn`
@@ -164,6 +167,9 @@ The following namelists can be used in the :file:`EXSEG1.nam` file :
 .. include:: namelists/nam_eol_adnr.rst
 .. include:: namelists/nam_eol_adr.rst
 .. include:: namelists/nam_eol_alm.rst
+.. include:: namelists/nam_eol_control.rst
+.. include:: namelists/nam_eol_townac.rst
+.. include:: namelists/nam_eol_tracers.rst
 .. include:: namelists/nam_frc.rst
 .. include:: namelists/nam_ibm_paramn.rst
 .. include:: namelists/nam_lbcn.rst

@@ -21,8 +21,7 @@ If the user wants to simulate two wind farms built with two different types of w
 
 .. note::
 
-   An example for two wind turbines is given below:
-
+   Note that the ANDR operates only when the disk is normal to the x-direction, facing the upstream wind. An example for two wind turbines is given below:
    .. code-block::
    
       X [m], Y [m], Ct_inf [-]
