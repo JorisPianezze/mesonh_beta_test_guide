@@ -1,4 +1,4 @@
-LES
+Large Eddy Simulations
 ================================================
 
 Meso-NH offers a wide range of online diagnostics for horizontally averaged mean quantities, turbulence (resolved and sub-grid contributions), 
