@@ -1,7 +1,5 @@
 Wind turbine
-================================================
-
-
+===============================================================================
 
 Here is a list of the variables available in Meso-NH when wind turbines are simulated. 
 
@@ -37,8 +35,9 @@ Main variables
 
 Non-Rotating Actuator Disc (ADNR)
 ------------------------------------------------------------------------------
+
 Instantaneous variables
-**********************************************************************
+******************************************************************************
 
 :code:`LMAIN_EOL=T` and :code:`CMETH_EOL='ADNR'`
 
@@ -52,7 +51,7 @@ Instantaneous variables
 
 
 Averaged variables
-**********************************************************************
+******************************************************************************
 
 :code:`LMAIN_EOL=T`, :code:`CMETH_EOL='ADNR'` and :code:`LMEAN_FIELD=T`
 
@@ -65,8 +64,9 @@ Averaged variables
 
 Rotation Actuator Disc (ADR)
 ------------------------------------------------------------------------------
+
 Instantaneous variables
-**********************************************************************
+******************************************************************************
 
 :code:`LMAIN_EOL=T` and :code:`CMETH_EOL='ADR'`
 
@@ -92,7 +92,7 @@ Instantaneous variables
    "AZIMUTHT", "[R]", "instantaneous angular position of the hub frame", "rad"     
 
 Averaged variables
-**********************************************************************
+******************************************************************************
 
 :code:`LMAIN_EOL=T`, :code:`'CMETH_EOL='ALM'` and :code:`LMEAN_FIELD=T`
 
@@ -113,8 +113,9 @@ Averaged variables
 
 Actuator Line Method (ALM)
 ------------------------------------------------------------------------------
+
 Instantaneous variables
-**********************************************************************
+******************************************************************************
 
 :code:`LMAIN_EOL=T` and :code:`'CMETH_EOL='ALM'`
  
@@ -136,7 +137,7 @@ Instantaneous variables
    "AZIMUTHT", "[R]", "instantaneous angular position of the hub frame", "rad"  
 
 Averaged variables
-**********************************************************************
+******************************************************************************
 
 :code:`LMAIN_EOL=T`, :code:`'CMETH_EOL='ALM'` and :code:`LMEAN_FIELD=T`
 
@@ -206,6 +207,7 @@ These outputs can be activated with variable :code:`LDIA_EOL` in :ref:`NAM_EOL`.
    "PITCH", "[t]", "Blade pitch", "rad"
    "AZIMUTH", "[t]", "Angular position of the hub frame", "rad"    
 
+
 Controller
 **********************************************************************
 
@@ -259,6 +261,7 @@ then the high-frequency output files will automatically contain:
    "OMEGAT", "[t]", "Angular velocity", "rad/s"
    "PITCHT", "[t]", "Blade pitch", "rad"
    "AZIMUTHT", "[t]", "Angular position of the hub frame", "rad"
+
 
 Additionally, with :code:`LMAIN_EOL=T`, :code:`LCONTROL_EOL=T`, :code:`CMETH_OPS='ROSCO'` or :code:`'JONKM'`
 
