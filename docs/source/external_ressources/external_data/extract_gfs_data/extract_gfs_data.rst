@@ -1,4 +1,4 @@
-Extract GFS's data
+Extract GFS data
 ===============================
 
 Data source

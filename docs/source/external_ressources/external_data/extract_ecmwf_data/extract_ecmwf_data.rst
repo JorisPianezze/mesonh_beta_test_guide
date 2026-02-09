@@ -1,4 +1,4 @@
-Extract ECMWF's data
+Extract ECMWF data
 ============================================
 
 Operational data (analysis, forecast or ensemble)
