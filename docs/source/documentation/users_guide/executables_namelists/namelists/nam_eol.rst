@@ -40,7 +40,7 @@ For now, simulations of wind turbine have been tested and validated only in idea
   * '3LIN' : 3D linear smearing method.
   * '3DGA' : 3D gaussian kernel. Note that this can increase the computational cost of the simulation. This mode is only available for ALM and ADR (not ADNR).
 
-* :code:`XKERNEL__RATIO` : ratio of the kernel size in the 3D Gaussian smearing to the mesh size.
+* :code:`XKERNEL_RATIO` : ratio of the kernel size in the 3D Gaussian smearing to the mesh size.
 
 * :code:`LCONTROL_EOL` : flag to use a controller to modify rotational speed and blade pitch angle during the run. Only for CMETH_EOL='ADR' or 'ALM'.
 
