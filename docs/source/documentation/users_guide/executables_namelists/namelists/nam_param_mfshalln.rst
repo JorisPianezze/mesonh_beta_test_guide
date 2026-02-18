@@ -13,6 +13,7 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "CMF_UPDRAFT","CHARACTER(LEN=4)","'EDKF'"
    "CMF_CLOUD","CHARACTER(LEN=4)","'DIRE'"
    "CWET_MIXING","CHARACTER(LEN=4)","'PKFB'"
+   "CKIC_COMPUTE","CHARACTER(LEN=4)","'KFB'"
    "LMIXUV","LOGICAL","TRUE"
    "LMIXTKE","LOGICAL","FALSE"
    "LMF_FLX","LOGICAL","FALSE"
@@ -51,6 +52,8 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 * :code:`CMF_CLOUD` : Type of statistical cloud ('DIRE' for the direct calculation of the cloud fraction as a function of the updraft fraction or 'STAT' given by the subgrid condensation scheme)
 
 * :code:`CWET_MIXING` : Type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for Lappen and Randall 2001)
+
+* :code:`CKIC_COMPUTE` : Method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the Rooy and Siebesma (2008) formulation) 
 
 * :code:`LMIXUV` : flag to take into account the mixing on momentum      
 
