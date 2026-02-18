@@ -25,11 +25,11 @@ Data are stored since 2014-07-30.
 Download surface grib2 and pressure-level grib2 files with these commands:
 
 .. note ::
-    wget https://noaa-hrrr-bdp-pds/hrrr.YYYYMMDD/conus/hrrr.tRRz.wrfsfcfHH.grib2 hrrr.tRRz.wrfsfcfHH.grib2
+    wget -c -nd https://noaa-hrrr-bdp-pds.s3.amazonaws.com/hrrr.${YYYYMMDD}/conus/hrrr.t${RR}z.wrfsfcf${HH}.grib2
 
-    wget https://noaa-hrrr-bdp-pds/hrrr.YYYYMMDD/conus/hrrr.tRRz.wrfprsfHH.grib2 hrrr.tRRz.wrfprsfHH.grib2
+    wget -c -nd https://noaa-hrrr-bdp-pds.s3.amazonaws.com/hrrr.${YYYYMMDD}/conus/hrrr.t${RR}z.wrfprsf${HH}.grib2
 
-    cat hrrr.tRRz.wrfprsfHH.grib2 hrrr.tRRz.wrfsfcfHH.grib2 >> hrrr.tRRz.wrffHH.grib2 
+    cat hrrr.t${RR}z.wrfprsf${HH}.grib2 hrrr.t${RR}z.wrfsfcf${HH}.grib2 >> hrrr.${YYYYMMDD}${RR}z.${HH}.grib2
 
 With YYYYMMDD and RR are the date and assimilation start date of the run. HH is the forecast lead time.
 
@@ -42,5 +42,6 @@ Files are updated hourly. HRRR runs a cycle every hour.
 
 Using the files
 ------------------------------------
+Only available since MNH-V6-0-0.
 
-Simply fill in PRE_REAL1.nam namelist the HATMFILE field with the file name hrrr.tRRz.wrffHH.grib2 
+Simply fill the HATMFILE field in PRE_REAL1.nam with the file name hrrr.tRRz.wrffHH.grib2.

@@ -1,7 +1,7 @@
-Surface data
+Physiographic invariant surface data
 ================================================
 
-Surface data are necessary if you want to prepare idealised and/or real case study above realistic surface using PREP_PGD program.
+Physiographic invariant surface data are necessary if you want to prepare idealised and/or real case study above realistic surface using PREP_PGD program.
 For that purpose, you need 4 files : topography, soil texture and land user, all of them with hdr and dir suffixes. The disk space required to store the files is about 3 Go.
 
 Download 
