@@ -45,6 +45,9 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "LGZ","LOGICAL",".FALSE."
    "XGZ","REAL","1.83"
    "LVERLIMUP","LOGICAL",".TRUE."
+   "LPZ_EXP_LOG","LOGICAL",".FALSE."
+   "XBRIO","REAL","0"
+   "XAADVEC","REAL","0"
 
 * :code:`XIMPL_MF` : Degree of implicitness                                                        
 
@@ -115,3 +118,9 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 * :code:`XGZ` : parameter for the reduction the surface closure of the Mass-Flux thermal plume if LGZ = TRUE.
 
 * :code:`LVERLIMUP` : flag to allow a smooth vertical decrease of the mass-flux as soon as the updraft reaches a specific altitude, instead of a sharp limit of 0.
+
+* :code:`LPZ_EXP_LOG` : flag to use exp/log during dP/dZ conversion
+
+* :code:`XBRIO` : coefficient to slow down wup equa like Rio 2010
+
+* :code:`XAADVEC` : coefficient for advective pressure perturbation like Jia he 2022
