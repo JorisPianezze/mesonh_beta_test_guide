@@ -14,6 +14,22 @@ To perform a 3D simulation with Meso-NH with idealized initial condition and rea
 
    This kind of simulation is parallelized and can be run with more than 1 core.
 
+.. note::
+
+   You can find all the namelists presented in this section as well as the scripts here:
+
+   .. treeview::
+   
+      - :dir:`folder` |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/
+      
+        - :dir:`folder` 001_prep_pgd : directory to :ref:`prepare the physiographic data <3d_prep_pgd>`
+        - :dir:`folder` 002_prep_ideal_case : directory to :ref:`prepare the initial condition <3d_prep_ideal_case_real_surface>`        
+        - :dir:`folder` 003_mesonh : directory to :ref:`run the model <3d_mesonh_real_surface>`
+        - :dir:`folder` 004_diag : directory to :ref:`calculate diagnostics after the simulation <3d_diag_real_surface>`        
+        - :dir:`folder` 005_python : directory to :ref:`plot the figure <3d_plot_real_surface>`
+
+   The different steps must be performed in the order indicated by the directory numbers.
+
 .. _3d_prep_pgd:
 
 Prepare the physiographic data (:ref:`prep_pgd`)
@@ -141,13 +157,20 @@ In the :file:`PRE_PGD1.nam` file, we recommend to have the following minimum inf
                    YSAND         = "SAND_HWSD_MOY",
                    YSANDFILETYPE = "DIRECT" /
 
-Once you have put these namelist in the :file:`PRE_PGD1.nam` file, you can launch :ref:`prep_pgd` program in the same directory as the :file:`PRE_PGD1.nam` file (execution takes approximately 2 s):
+   This file is located here :
+
+   .. code-block:: bash
+      :substitutions:   
+   
+      |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/001_prep_pgd/.
+
+You can launch :ref:`prep_pgd` program using :file:`run_prep_pgd.sh` script (execution takes less than 2 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_PGD${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/001_prep_pgd/
+   ./run_prep_pgd.sh
 
 At the end of the :ref:`prep_pgd` execution, you need to have following files:
 
@@ -323,13 +346,20 @@ In the :file:`PRE_IDEA1.nam` file, we recommend to have the following minimum in
          0. 0. 0.
          0.007 0.01
 
-Once you have put these namelist in the :file:`PRE_IDEA1.nam` file, you can launch :ref:`prep_ideal_case` program in the same directory as the :file:`PRE_IDEA1.nam` file (execution takes less than 4 s):
+   This file is located here :
+
+   .. code-block:: bash
+      :substitutions:  
+         
+      |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/002_prep_ideal_case/.
+
+You can launch :ref:`prep_ideal_case` program using :file:`run_prep_ideal_case.sh` script (execution takes less than 4 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_IDEAL_CASE${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/002_prep_ideal_case/
+   ./run_prep_ideal_case.sh
 
 At the end of the :ref:`prep_ideal_case` execution, you need to have following files:
 
@@ -478,14 +508,21 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
 
          &NAM_LBCn CLBCX = 2*"OPEN",
                    CLBCY = 2*"OPEN" /
+                   
+   This file is located here :
 
-Once you have put these namelist in the :file:`EXSEG1.nam` file, you can launch :ref:`mesonh` program in the same directory as the :file:`EXSEG1.nam`, :file:`INI.des`, :file:`INI.nc` and :file:`PGD.nc` files (execution takes approximately 1 min 30 on 2 cores):
+   .. code-block:: bash
+      :substitutions:  
+         
+      |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/003_mesonh/.
+
+You can launch :ref:`mesonh` program using :file:`run_mesonh.sh` script (execution takes approximately 1 min 30 on 2 cores):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   mpirun -np 2 MESONH${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/003_mesonh/
+   ./run_mesonh.sh
 
 At the end of the :ref:`mesonh` execution, you need to have following files:
 
@@ -580,13 +617,20 @@ In the :file:`DIAG1.nam` file, we recommend to have the following minimum inform
          &NAM_DIAG LISOAL    = .TRUE.,
                    XISOAL(1) = 3000.0 /
 
-Once you have put these namelist in the :file:`DIAG1.nam` file, you can launch :ref:`diag` program in the same directory as the :file:`DIAG1.nam`, :file:`EXP01.1.SEG01.001.des`, :file:`EXP01.1.SEG01.001.nc` and :file:`PGD.nc` files (execution takes approximately 2 seconds):
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:  
+         
+      |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/004_diag/.
+
+You can launch :ref:`diag` program using :file:`run_diag.sh` script (execution takes less than 15 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   DIAG${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/004_diag/
+   ./run_diag.sh
 
 At the end of the :ref:`diag` execution, you need to have following files:
 
@@ -615,10 +659,20 @@ At the end of the :ref:`diag` execution, you need to have following files:
       *            EXIT  DIAG CORRECTLY          *
       **************************** ***************
 
+.. _3d_plot_real_surface:
+
 Plot results
 -----------------------------------------------------------------
 
-The following figure shows an example of a graph that you can plot from the 3D simulation you just performed. It shows the zonal wind speed at 3000 m a.s.l. perturbed by the orography. Contours correspond to isoaltiudes levels and are used to show Reunion Island.
+You can plot the results using :file:`run_python.sh` script (execution takes less than few seconds):
+
+.. code-block:: bash
+   :substitutions:
+
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/005_python/
+   ./run_python.sh
+
+The figure created visible below shows an example of a graph that you can plot from the 3D simulation you just performed. It shows the zonal wind speed at 3000 m a.s.l. perturbed by the orography. Contours correspond to isoaltiudes levels and are used to show Reunion Island.
 
 .. figure:: 3D_real_surface.png
 
@@ -689,6 +743,13 @@ The following figure shows an example of a graph that you can plot from the 3D s
 
          plt.savefig('3D_real_surface.png', bbox_inches='tight', dpi=400)
          
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:  
+         
+      |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/3D_real_surface/005_python/.
+            
 Other examples
 -----------------------------------------------------------------
 

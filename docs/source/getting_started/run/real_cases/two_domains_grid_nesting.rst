@@ -12,6 +12,27 @@ To perform a 3D Meso-NH simulation with real initial and surface conditions and 
 
    This kind of simulation is parallelized and can be run with more than 1 core.
 
+.. note::
+
+   You can find all the namelists presented in this section as well as the scripts here:
+
+   .. treeview::
+   
+      - :dir:`folder` |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/
+      
+        - :dir:`folder` 001_prep_pgd_d1 : directory to :ref:`prepare the physiographic data <prep_pgd_d1_two_domains_era5>`
+        - :dir:`folder` 002_prep_pgd_d2 : directory to :ref:`prepare the physiographic data <prep_pgd_d2_two_domains_era5>`
+        - :dir:`folder` 003_prep_nest_pgd_d1_and_d2 : directory to :ref:`nest the physiographic data <prep_nest_pgd_d1_and_d2_two_domains_era5>`          
+        - :dir:`folder` 004_prep_real_case_d1 : directory to :ref:`prepare the initial condition for domain 1 <prep_real_case_d1_two_domains_era5>`
+        - :dir:`folder` 005_spawning_d1_to_d2 : directory to :ref:`spawn the domain 1 into domain 2 <prep_spawning_d1_two_domains_era5>`
+        - :dir:`folder` 006_prep_real_case_d2 : directory to :ref:`prepare the initial condition for domain 2 <prep_real_case_d2_two_domains_era5>`                
+        - :dir:`folder` 007_mesonh_d1_and_d2 : directory to :ref:`run the model <mesonh_two_domains_era5>`
+        - :dir:`folder` 008_diag_d1 : directory to :ref:`calculate diagnostics after the simulation for domain 1 <diag_two_domains_era5>`
+        - :dir:`folder` 009_diag_d2 : directory to :ref:`calculate diagnostics after the simulation for domain 2  <diag_two_domains_era5>`                
+        - :dir:`folder` 010_python_d1_and_d2 : directory to :ref:`plot the figure <3d_plot_two_domains_era5>`
+
+   The different steps must be performed in the order indicated by the directory numbers.
+
 .. _prep_pgd_d1_two_domains_era5:
 
 Prepare the physiographic data for domain 1 (:ref:`prep_pgd`)
@@ -139,13 +160,20 @@ In the :file:`PRE_PGD1.nam` file, we recommend to have the following minimum inf
                    YSAND         = "SAND_HWSD_MOY",
                    YSANDFILETYPE = "DIRECT" /
 
-Once you have put these namelist in the :file:`PRE_PGD1.nam` file, you can launch :ref:`prep_pgd` program in the same directory as the :file:`PRE_PGD1.nam` file (execution takes approximately 4 s):
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/001_prep_pgd_d1/.
+
+You can launch :ref:`prep_pgd` program using :file:`run_prep_pgd.sh` script (execution takes less than 4 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_PGD${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/001_prep_pgd_d1/
+   ./run_prep_pgd.sh
 
 At the end of the :ref:`prep_pgd` execution, you need to have following files:
 
@@ -285,13 +313,20 @@ In the :file:`PRE_PGD1.nam` file, we recommend to have the following minimum inf
                     YSAND         = "SAND_HWSD_MOY",
                     YSANDFILETYPE = "DIRECT" /
 
-Once you have put these namelist in the :file:`PRE_PGD1.nam` file, you can launch :ref:`prep_pgd` program in the same directory as the :file:`PGD_D1.nc` and :file:`PRE_PGD1.nam` file (execution takes approximately 4 s):
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/001_prep_pgd_d2/.
+
+You can launch :ref:`prep_pgd` program using :file:`run_prep_pgd.sh` script (execution takes less than 4 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_PGD${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/001_prep_pgd_d2/
+   ./run_prep_pgd.sh
 
 At the end of the :ref:`prep_pgd` execution, you need to have following files:
 
@@ -367,14 +402,20 @@ In the :file:`PRE_NEST_PGD1.nam` file, we recommend to have the following minimu
 
          &NAM_NEST_PGD YNEST="" /
 
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/003_prep_nest_pgd_d1_and_d2/.
 
-Once you have put these namelist in the :file:`PRE_NEST_PGD1.nam` file, you can launch :ref:`prep_nest_pgd` program in the same directory as the :file:`PRE_NEST_PGD1.nam` file (execution takes approximately 4 s):
+You can launch :ref:`prep_nest_pgd` program using :file:`run_prep_nest_pgd.sh` script (execution takes less than 4 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_NEST_PGD${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/003_prep_nest_pgd_d1_and_d2/
+   ./run_prep_nest_pgd.sh
 
 At the end of the :ref:`prep_nest_pgd` execution, you need to have following files:
 
@@ -473,13 +514,20 @@ In the :file:`PRE_REAL1.nam` file, we recommend to have the following minimum in
                        ZSTRGRD      = 10.,
                        ZSTRTOP      = 15. /
 
-Once you have put these namelist in the :file:`PRE_REAL1.nam` file, you can launch :ref:`prep_real_case` program in the same directory as the :file:`PRE_REAL1.nam` file (execution takes less than 4 s):
+   This file is located here :
+
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/004_prep_real_case_d1/
+
+You can launch :ref:`prep_real_case` program using :file:`run_prep_real_case.sh` script (execution takes less than 4 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_REAL_CASE${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/004_prep_real_case_d1/
+   ./run_prep_real_case.sh
 
 At the end of the :ref:`prep_ideal_case` execution, you need to have following files:
 
@@ -544,13 +592,20 @@ In the :file:`SPAWN1.nam` file, we recommend to have the following minimum infor
                          YDOMAIN     = "PGD_D2.nest",
                          YSPANBR     = "" /
 
-Once you have put these namelist in the :file:`SPAWN1.nam` file, you can launch :ref:`spawning` program in the same directory as the :file:`SPAWN1.nam` file (execution takes less than 4 s):
+   This file is located here :
+
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/005_spawning_d1_to_d2/
+
+You can launch :ref:`spawning` program using :file:`run_spawning.sh` script (execution takes less than 4 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_REAL_CASE${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/005_spawning_d1_to_d2/
+   ./run_spawning.sh
 
 At the end of the :ref:`spawning` execution, you need to have following files:
 
@@ -625,15 +680,22 @@ In the :file:`PRE_REAL1.nam` file, we recommend to have the following minimum in
                            CFILEPGD  = "PGD_D1.nest",
                            CFILETYPE = "MESONH" /
 
-Once you have put these namelist in the :file:`PRE_REAL1.nam` file, you can launch :ref:`prep_real_case` program in the same directory as the :file:`PRE_REAL1.nam` file (execution takes less than 4 s):
+   This file is located here :
+
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/006_prep_real_case_d2/
+
+You can launch :ref:`prep_real_case` program using :file:`run_prep_real_case.sh` script (execution takes less than 4 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_REAL_CASE${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/006_prep_real_case_d2/
+   ./run_prep_real_case.sh
 
-At the end of the :ref:`prep_ideal_case` execution, you need to have following files:
+At the end of the :ref:`prep_real_case` execution, you need to have following files:
 
 .. role:: gray
    :class: text-gray
@@ -855,8 +917,14 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
          &NAM_TURBn CTURBLEN = "BL89",
                     CTURBDIM = "1DIM" /
 
+   This file is located here :
 
-Once you have put these namelist in the :file:`EXSEG1.nam` file, you have to create :file:`EXSEG2.nam` file for domain 2. We recommend to have the following minimum informations and namelists:
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/007_mesonh_d1_and_d2/
+
+For domain 2, we recommend to have the following minimum informations and namelists in :file:`EXSEG2.nam` file:
 
 * The name of the NetCDF files created by the :ref:`prep_pgd` and :ref:`prep_real_case` program in :ref:`NAM_LUNITn <nam_lunitn>` namelist:
 
@@ -960,14 +1028,20 @@ Once you have put these namelist in the :file:`EXSEG1.nam` file, you have to cre
          &NAM_TURBn CTURBLEN = "BL89",
                     CTURBDIM = "1DIM" /
 
+   This file is located here :
 
-Once you have put these namelist in the :file:`EXSEG2.nam` file, you can launch :ref:`mesonh` program in the same directory as the :file:`EXSEG1.nam`, :file:`EXSEG2.nam`, :file:`ERA5.D1.20251113.18.des`, :file:`ERA5.D1.20251113.18.nc`, :file:`ERA5.D2.20251113.18.des`, :file:`ERA5.D2.20251113.18.nc`, :file:`ERA5.D1.20251113.19.des`, :file:`ERA5.D1.20251113.19.nc`, :file:`PGD_D1.nest.nc` and :file:`PGD_D2.nest.nc` files (execution takes less than 50 s on 2 cores):
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/007_mesonh_d1_and_d2/
+
+You can launch :ref:`mesonh` program using :file:`run_mesonh.sh` script (execution takes less than 50 s on 2 cores):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   mpirun -np 2 MESONH${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/007_mesonh_d1_and_d2/
+   ./run_mesonh.sh
 
 At the end of the :ref:`mesonh` execution, you need to have following files:
 
@@ -1088,13 +1162,20 @@ In the :file:`DIAG1.nam` file, we recommend to have the following minimum inform
          &NAM_DIAG LISOAL    = .TRUE.,
                    XISOAL(1) = 500.0 /
 
-Once you have put these namelist in the :file:`DIAG1.nam` file, you can launch :ref:`diag` program in the same directory as the :file:`DIAG1.nam`, :file:`EXP01.1.SEG01.001.des`, :file:`EXP01.1.SEG01.001.nc` and :file:`PGD.nc` files (execution takes approximately 2 seconds):
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/008_diag_d1/
+
+You can launch :ref:`diag` program using :file:`run_diag.sh` script (execution takes less than 15 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   DIAG${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/008_diag_d1/
+   ./run_diag.sh
 
 At the end of the :ref:`diag` execution, you need to have following files:
 
@@ -1125,7 +1206,9 @@ At the end of the :ref:`diag` execution, you need to have following files:
 
 .. note::
 
-   You have to compute diagnostic for both domains.
+   You have to compute diagnostic for both domains in |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/009_diag_d2/.
+
+.. _3d_plot_two_domains_era5:
 
 Plot results
 -----------------------------------------------------------------
@@ -1258,6 +1341,13 @@ The following figure shows an example of a graph that you can plot from the two 
          plt.text(0.0,1.02,r'Domain 2', transform = ax1.transAxes)    
 
          plt.savefig('two_domains_era5.png', bbox_inches='tight', dpi=400)
+         
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/2domains_from_ERA5/010_python_d1_and_d2/
          
 Other examples
 -----------------------------------------------------------------

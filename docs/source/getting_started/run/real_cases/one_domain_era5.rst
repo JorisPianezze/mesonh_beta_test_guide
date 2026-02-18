@@ -12,6 +12,22 @@ To perform a 3D Meso-NH simulation with real initial and surface conditions you 
 
    This kind of simulation is parallelized and can be run with more than 1 core.
 
+.. note::
+
+   You can find all the namelists presented in this section as well as the scripts here:
+
+   .. treeview::
+   
+      - :dir:`folder` |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/
+      
+        - :dir:`folder` 001_prep_pgd : directory to :ref:`prepare the physiographic data <prep_pgd_real_one_domain_era5>`
+        - :dir:`folder` 002_prep_real_case : directory to :ref:`prepare the initial condition <prep_real_case_one_domain_era5>`        
+        - :dir:`folder` 003_mesonh : directory to :ref:`run the model <mesonh_one_domain_era5>`
+        - :dir:`folder` 004_diag : directory to :ref:`calculate diagnostics after the simulation <diag_one_domain_era5>`        
+        - :dir:`folder` 005_python : directory to :ref:`plot the figure <3d_plot_one_domain_era5>`
+
+   The different steps must be performed in the order indicated by the directory numbers.
+   
 .. _prep_pgd_real_one_domain_era5:
 
 Prepare the physiographic data (:ref:`prep_pgd`)
@@ -139,13 +155,20 @@ In the :file:`PRE_PGD1.nam` file, we recommend to have the following minimum inf
                    YSAND         = "SAND_HWSD_MOY",
                    YSANDFILETYPE = "DIRECT" /
 
-Once you have put these namelist in the :file:`PRE_PGD1.nam` file, you can launch :ref:`prep_pgd` program in the same directory as the :file:`PRE_PGD1.nam` file (execution takes approximately 4 s):
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/001_prep_pgd/
+
+You can launch :ref:`prep_pgd` program using :file:`run_prep_pgd.sh` script (execution takes less than 2 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_PGD${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/001_prep_pgd/
+   ./run_prep_pgd.sh
 
 At the end of the :ref:`prep_pgd` execution, you need to have following files:
 
@@ -239,15 +262,22 @@ In the :file:`PRE_REAL1.nam` file, we recommend to have the following minimum in
                        ZSTRGRD      = 10.,
                        ZSTRTOP      = 15. /
 
-Once you have put these namelist in the :file:`PRE_REAL1.nam` file, you can launch :ref:`prep_real_case` program in the same directory as the :file:`PRE_REAL1.nam` file (execution takes less than 4 s):
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/002_prep_ideal_case/
+
+You can launch :ref:`prep_real_case` program using :file:`run_prep_real_case.sh` script (execution takes less than 4 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_REAL_CASE${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/002_prep_real_case/
+   ./run_prep_real_case.sh
 
-At the end of the :ref:`prep_ideal_case` execution, you need to have following files:
+At the end of the :ref:`prep_real_case` execution, you need to have following files:
 
 .. role:: gray
    :class: text-gray
@@ -452,13 +482,20 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
                     CTURBDIM = "1DIM" /
 
 
-Once you have put these namelist in the :file:`EXSEG1.nam` file, you can launch :ref:`mesonh` program in the same directory as the :file:`EXSEG1.nam`, :file:`ERA5.20251113.18.des`, :file:`ERA5.20251113.18.nc`, :file:`ERA5.20251113.19.des`, :file:`ERA5.20251113.19.nc` and :file:`PGD.nc` files (execution takes less than 50 s on 2 cores):
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/003_mesonh/
+
+You can launch :ref:`mesonh` program using :file:`run_mesonh.sh` script (execution takes approximately 50 s on 2 cores):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   mpirun -np 2 MESONH${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/003_mesonh/
+   ./run_mesonh.sh
 
 At the end of the :ref:`mesonh` execution, you need to have following files:
 
@@ -555,13 +592,20 @@ In the :file:`DIAG1.nam` file, we recommend to have the following minimum inform
          &NAM_DIAG LISOAL    = .TRUE.,
                    XISOAL(1) = 500.0 /
 
-Once you have put these namelist in the :file:`DIAG1.nam` file, you can launch :ref:`diag` program in the same directory as the :file:`DIAG1.nam`, :file:`EXP01.1.SEG01.001.des`, :file:`EXP01.1.SEG01.001.nc` and :file:`PGD.nc` files (execution takes approximately 2 seconds):
+   This file is located here :
+
+   .. code-block:: bash
+      :substitutions:
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/004_diag/
+
+You can launch :ref:`diag` program using :file:`run_diag.sh` script (execution takes less than 15 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   DIAG${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/004_diag/
+   ./run_diag.sh
 
 At the end of the :ref:`diag` execution, you need to have following files:
 
@@ -590,10 +634,20 @@ At the end of the :ref:`diag` execution, you need to have following files:
       *            EXIT  DIAG CORRECTLY          *
       **************************** ***************
 
+.. _3d_plot_one_domain_era5:
+
 Plot results
 -----------------------------------------------------------------
 
-The following figure shows an example of a graph that you can plot from the simulation you just performed. It shows a classic episode of the Autan wind. Gray areas correspond to mountain higher than 500 m.
+You can plot the results using :file:`run_python.sh` script (execution takes less than few seconds):
+
+.. code-block:: bash
+   :substitutions:
+
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/005_python/
+   ./run_python.sh
+
+The figure created visible shows an example of a graph that you can plot from the simulation you just performed. It shows a classic episode of the Autan wind. Gray areas correspond to mountain higher than 500 m.
 
 .. figure:: one_domain_era5.png
 
@@ -672,6 +726,11 @@ The following figure shows an example of a graph that you can plot from the simu
 
          plt.savefig('one_domain_era5.png', bbox_inches='tight', dpi=400)
          
+   .. code-block:: bash
+      :substitutions:
+               
+      This file is located here : |MNH_directory_extract_current|/MY_RUN/tutorials/real_cases/1domain_from_ERA5/005_python/
+            
 Other examples
 -----------------------------------------------------------------
 

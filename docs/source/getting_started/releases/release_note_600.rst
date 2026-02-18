@@ -243,7 +243,6 @@ I/O
 ACLIB: Aerosols and Chemistry Library
 ----------------------------------------------------------------------------
 
-
 PHYEX
 ----------------------------------------------------------------------------
 
@@ -432,16 +431,20 @@ Condensation
 Ocean-Atmosphere-Wave coupling
 ----------------------------------------------------------------------------
 
+* Bug Fix: Resolved an issue with the rotation of sea surface currents, ensuring accurate transformation from lon/lat to x/y grid coordinates when using oceanic/wave coupling. 
+
 Diagnostics
 ----------------------------------------------------------------------------
 
 Passive pollutants
 ----------------------------------------------------------------------------
+
 * :code:`LPASPOLDUST = FALSE`: emit dust aerosols 
 * :code:`NMODEL_PP = 1`: model number where passive pollutants are emitted. 
 
 WRF and ICON init and forcing
 ----------------------------------------------------------------------------
+
 * HRRR-WRF: Initializing and forcing Méso-NH with daily operational model HRRR is now possible. More info in :ref:`extracthrrr`
 
 SURFEX
@@ -452,4 +455,5 @@ Cleaning
 
 External libraries and tools
 ----------------------------------------------------------------------------
+
 * ECCODES updated to 2.41

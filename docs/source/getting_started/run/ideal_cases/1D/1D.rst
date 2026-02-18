@@ -20,6 +20,20 @@ To perform a 1D simulation with Meso-NH you need to :ref:`prepare the initial co
 
    This kind of simulation is not parallelized and can only be run on 1 core.
 
+.. note::
+
+   You can find all the namelists presented in this section as well as the scripts here:
+
+   .. treeview::
+   
+      - :dir:`folder` |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/1D/
+      
+        - :dir:`folder` 001_prep_ideal_case : directory to :ref:`prepare the initial condition <1d_prep_ideal_case>`
+        - :dir:`folder` 002_mesonh : directory to :ref:`run the model <1d_mesonh>`
+        - :dir:`folder` 003_python : directory to :ref:`plot the figure <1d_plot>`
+
+   The different steps must be performed in the order indicated by the directory numbers.
+
 .. _1d_prep_ideal_case:
 
 Prepare the initial condition (:ref:`prep_ideal_case`)
@@ -163,13 +177,20 @@ In the :file:`PRE_IDEA1.nam` file, we recommend to have the following minimum in
          1000.0     300.0  0.0
          4000.0     317.9  0.0
 
-Once you have put these namelist in the :file:`PRE_IDEA1.nam` file, you can launch :ref:`prep_ideal_case` program in the same directory as the :file:`PRE_IDEA1.nam` file (execution takes less than 2 s):
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:   
+      
+      |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/1D/001_prep_ideal_case/
+
+You can launch :ref:`prep_ideal_case` program using :file:`run_prep_ideal_case.sh` script (execution takes less than 2 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   PREP_IDEAL_CASE${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/1D/001_prep_ideal_case/
+   ./run_prep_ideal_case.sh
 
 At the end of the :ref:`prep_ideal_case` execution, you need to have following files:
 
@@ -178,9 +199,9 @@ At the end of the :ref:`prep_ideal_case` execution, you need to have following f
 
 .. treeview::
 
-   - :dir:`folder` your_run_directory/
+   - :dir:`folder` |MNH_directory_extract_current|/MY_RUN/tutorials/1D/001_prep_ideal_case/
 
-     - :dir:`file` PRE_IDEA1.nam :gray:`: The file you've created from this example`
+     - :dir:`file` PRE_IDEA1.nam :gray:`: The namelist file from this example`
      - :dir:`file` INI.des :gray:`: The descriptive part of the initial condition file`
      - :dir:`file` INI.nc :gray:`: The NetCDF part of the initial condition file`
      - :dir:`file` PGD.nc :gray:`: The NetCDF part of the physiographic data file`
@@ -351,13 +372,20 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
                          XSFTH(1)  = 200.0,
                          XSFTH(2)  = 200.0 /
 
-Once you have put these namelist in the :file:`EXSEG1.nam` file, you can launch :ref:`mesonh` program in the same directory as the :file:`EXSEG1.nam`, :file:`INI.des`, :file:`INI.nc` and :file:`PGD.nc` files (execution takes less than 15 s):
+   This file is located here :
+
+   .. code-block:: bash
+      :substitutions:   
+         
+      |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/1D/002_mesonh/
+
+You can launch :ref:`mesonh` program using :file:`run_mesonh.sh` script (execution takes less than 15 s):
 
 .. code-block:: bash
    :substitutions:
 
-   source |MNH_directory_extract_current|/conf/profile_mesonh
-   MESONH${XYZ}
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/1D/002_mesonh/
+   ./run_mesonh.sh
 
 At the end of the :ref:`mesonh` execution, you need to have following files:
 
@@ -408,10 +436,20 @@ At the end of the :ref:`mesonh` execution, you need to have following files:
         | MICROSEC/STP/PT=100         | ELAPSED ||         48.230|    48.230|    48.230|    48.230|   100.000|
         |====================================================================================================|
 
+.. _1d_plot:
+
 Plot results
 -----------------------------------------------------------------
 
-The following figure shows an example of a graph that you can plot from the 1D simulation you just performed. It shows the temporal evolution of the atmospheric boundary layer through the vertical potential temperature profile.
+You can plot the results using :file:`run_python.sh` script (execution takes less than few seconds):
+
+.. code-block:: bash
+   :substitutions:
+
+   cd |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/1D/003_python/
+   ./run_python.sh
+
+The figure created visible below shows an example of a graph that you can plot from the 1D simulation you just performed. It shows the temporal evolution of the atmospheric boundary layer through the vertical potential temperature profile.
 
 .. figure:: 1D.png
 
@@ -470,6 +508,13 @@ The following figure shows an example of a graph that you can plot from the 1D s
          plt.ylabel("Height (m)")
 
          plt.savefig('1D.png', bbox_inches='tight', dpi=400)
+
+   This file is located here :
+   
+   .. code-block:: bash
+      :substitutions:   
+
+      |MNH_directory_extract_current|/MY_RUN/tutorials/ideal_cases/1D/003_python/
 
 Other examples
 -----------------------------------------------------------------
