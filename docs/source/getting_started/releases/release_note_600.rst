@@ -10,13 +10,13 @@ Release date : XX/XX/2026
    :depth: 2
 
 Running on GPU
----------------------------
+----------------------------------------------------------------------------
 
 Radiation scheme
----------------------------
+----------------------------------------------------------------------------
 
 Wind turbine - EOL 2.0.1
----------------------------
+----------------------------------------------------------------------------
 The wind turbine code is updated from EOL-1.0 to EOL-2.0.1. The main changes are:
 * New kinematic architecture with 6D harmonic floating motion;
 * New controller architecture including now TABLE, JONKM, and ROSCO (new) methods;
@@ -24,7 +24,7 @@ The wind turbine code is updated from EOL-1.0 to EOL-2.0.1. The main changes are
 * Additional time series outputs and optimizations.
 
 &NAM_EOL
-**********************************
+****************************************************************************
 
 .. csv-table:: NAM_EOL new keys
    :header: "Fortran name", "Fortran type", "Default value"
@@ -84,12 +84,12 @@ Note that filling the table with 0.000 will lead to the same behavior as if LFLO
   * '3DGA' : 3D gaussian kernel. Note that this can increase the computational cost of the simulation. This mode is only available for ALM and ADR (not ADNR).
 
 &NAM_EOL_ALM
-**********************************
+****************************************************************************
 
 :code:`NNB_BLAELT` is renamed :code:`NNB_RADELT` 
 
 &NAM_EOL_CONTROL
-**********************************
+****************************************************************************
 Parametrization of the turbine's controller. Default data are given for a typical IEA15MW wind turbine controlled with a velocity table. 
 To use with LCONTROL_EOL=.TRUE. in NAM_EOL.
 
@@ -191,7 +191,7 @@ To use with LCONTROL_EOL=.TRUE. in NAM_EOL.
 * :code:`XCON_RAD_VEL`: used if CMETH_OPS = 'TABLE'. Radius (in meters) of the virtual disk used to sample velocity.
 
 &NAM_EOL_TOWNAC
-**********************************
+****************************************************************************
 Parametrization of the turbine's tower and nacelle. In the current implementation, the tower is represented by a cylinder with NNB_TOWELT sections and the nacelle by a disk of radius R\_r (defined in the data\_turbine.csv file). Drag forces are deduced from these geometrical shapes. 
 The user can modify the modified drag coefficient. These drag forces are smeared the same way as the body forces of the blades.
 
@@ -213,7 +213,7 @@ The user can modify the modified drag coefficient. These drag forces are smeared
 
 
 &NAM_EOL_TRACERS
-**********************************
+****************************************************************************
 
 .. csv-table:: NAM_EOL_TRACERS content
    :header: "Fortran name", "Fortran type", "Default value"
@@ -233,22 +233,22 @@ The user can modify the modified drag coefficient. These drag forces are smeared
 * :code:`XTRAC_RAD`: Radius (in meters) of the emitting disk.
 
 Variables outputs
-**********************************
+****************************************************************************
 
 List of output variables dedicated to :ref:`output_WindTurbine` are updated.
 
 I/O
----------------------------
+----------------------------------------------------------------------------
 
 ACLIB: Aerosols and Chemistry Library
----------------------------
+----------------------------------------------------------------------------
 
 
 PHYEX
----------------------------
+----------------------------------------------------------------------------
 
 Turbulence
-**********************************
+****************************************************************************
 
 .. csv-table:: NAM_TURBn new entries
    :header: "Fortran name", "Fortran type", "Default value"
@@ -274,7 +274,7 @@ Turbulence
 * :code:`LBL89EXP`: true to use the exposant from the BL89 paper ( which is LOG(16.)/(4.*LOG(XKARMAN)+LOG(XCED)-3.*LOG(XCMFS))). Otherwise 2./3. (False in AROME cycl 50t1)
 
 Schallow convection
-**********************************
+****************************************************************************
 
 .. csv-table:: NAM_PARAM_MFSHALLn new entries
    :header: "Fortran name", "Fortran type", "Default value"
@@ -311,7 +311,7 @@ Schallow convection
 
 
 ICE3
-**********************************
+****************************************************************************
 
 .. csv-table:: NAM_PARAM_ICEn new entries
    :header: "Fortran name", "Fortran type", "Default value"
@@ -334,7 +334,7 @@ ICE3
 
 
 LIMA
-**********************************
+****************************************************************************
 
 .. csv-table:: NAM_PARAM_LIMA new entries
    :header: "Fortran name", "Fortran type", "Default value"
@@ -419,7 +419,7 @@ LIMA
 
 
 Condensation
-**********************************
+****************************************************************************
 
 .. csv-table:: NAM_NEBn new entry
    :header: "Fortran name", "Fortran type", "Default value"
@@ -430,26 +430,26 @@ Condensation
 * :code:`LCONDBORN` : true to limit condensation
 
 Ocean-Atmosphere-Wave coupling
----------------------------
+----------------------------------------------------------------------------
 
 Diagnostics
----------------------------
+----------------------------------------------------------------------------
 
 Passive pollutants
----------------------------
+----------------------------------------------------------------------------
 * :code:`LPASPOLDUST = FALSE`: emit dust aerosols 
 * :code:`NMODEL_PP = 1`: model number where passive pollutants are emitted. 
 
 WRF and ICON init and forcing
----------------------------
+----------------------------------------------------------------------------
 * HRRR-WRF: Initializing and forcing Méso-NH with daily operational model HRRR is now possible. More info in :ref:`extracthrrr`
 
 SURFEX
----------------------------
+----------------------------------------------------------------------------
 
 Cleaning
----------------------------
+----------------------------------------------------------------------------
 
 External libraries and tools
----------------------------
+----------------------------------------------------------------------------
 * ECCODES updated to 2.41
