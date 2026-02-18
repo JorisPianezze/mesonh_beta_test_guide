@@ -32,6 +32,7 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "XPRES_UV","REAL","0.5"
    "XALPHA_MF","REAL","2.0"
    "XSIGMA_MF","REAL","20.0"
+   "XSIGMA_ENV","REAL","0."
    "XFRAC_UP_MAX","REAL","0.33"
    "XA1","REAL","2.0/3.0"
    "XB","REAL","0.002"
@@ -85,7 +86,9 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 
 * :code:`XALPHA_MF` : coefficient for cloudy fraction
 
-* :code:`XSIGMA_MF` : coefficient for sigma computation
+* :code:`XSIGMA_MF` : coefficient for sigma computation for the updraft (bi-Gaussian scheme)
+
+* :code:`XSIGMA_ENV` : coefficient for sigma computation for the environment (bi-Gaussian scheme)
 
 * :code:`XFRAC_UP_MAX` : maximum Updraft fraction
 

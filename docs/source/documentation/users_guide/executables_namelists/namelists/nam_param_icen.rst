@@ -137,6 +137,7 @@ It contains the options for the mixed phase cloud parameterizations used by the 
 
   * 'NONE' for considering a homogeneous cloud over its fraction.
   * 'TRIANGLE' to use a triangular PDF.
+  * 'BIGA' from the Gaussian PDF (if activated in the shallow convection scheme)
 
 * :code:`CSUBG_RC_RR_ACCR` : Subgrid :math:`r_c`-:math:`r_r` accretion
 
