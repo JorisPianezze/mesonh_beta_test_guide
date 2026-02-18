@@ -17,7 +17,11 @@ Radiation scheme
 
 Wind turbine - EOL 2.0.1
 ---------------------------
-The wind turbine code is updated from EOL-1.0 to EOL-2.0.1. The main changes are 
+The wind turbine code is updated from EOL-1.0 to EOL-2.0.1. The main changes are:
+* New kinematic architecture with 6D harmonic floating motion;
+* New controller architecture including now TABLE, JONKM, and ROSCO (new) methods;
+* 3D Gaussian smearing method;
+* Additional time series outputs and optimizations.
 
 &NAM_EOL
 **********************************
@@ -36,28 +40,28 @@ The wind turbine code is updated from EOL-1.0 to EOL-2.0.1. The main changes are
 
 * :code:`XKERNEL_RATIO` : ratio of the kernel size in the 3D Gaussian smearing to the mesh size.
 
-* :code:`LCONTROL_EOL` : flag to use a controller to modify rotational speed and blade pitch angle during the run. Only for CMETH_EOL='ADR' or 'ALM'.
+* :code:`LCONTROL_EOL` : true to use a controller to modify rotational speed and blade pitch angle during the run. Only for CMETH_EOL='ADR' or 'ALM'.
 
   * .TRUE.  activates the controller. More parameterizations are available in the EOL_CONTROL namelist.
   * .FALSE. the rotational speed and blade pitch angle are constant during the simulation (values imposed in CFARM_CSVDATA).
 
-* :code:`LNACELLE` : flag to model wind turbines nacelle. Only for CMETH_EOL='ADR' or 'ALM'.
+* :code:`LNACELLE` : true to model wind turbines nacelle. Only for CMETH_EOL='ADR' or 'ALM'.
 
   * .TRUE.  to simulate wind turbine nacelle.
   * .FALSE. to remove the nacelle body forces.
 
-* :code:`LTOWER` : flag to model wind turbines tower. Only for CMETH_EOL='ADR' or 'ALM'.
+* :code:`LTOWER` : true to model wind turbines tower. Only for CMETH_EOL='ADR' or 'ALM'.
 
   * .TRUE.  to simulate wind turbine tower.
   * .FALSE. to remove the tower body forces.
 
 
-* :code:`LDIA_EOL` : flag to write SCADA-like variables in the diachronic file. Only for CMETH_EOL='ADR' or 'ALM'. See Sect. \ref{ss:variables_SCADA} for a list of available variables.
+* :code:`LDIA_EOL` : true to write SCADA-like variables in the diachronic file. Only for CMETH_EOL='ADR' or 'ALM'. See Sect. \ref{ss:variables_SCADA} for a list of available variables.
 
   * .TRUE.  write variables. They are written into subgroup 'Turbines', itself containing one subgroup for each turbine.
   * .FALSE. do not write variables.
 
-* :code:`LFLOAT_EOL` : flag to activate the floating motions and static positions. Only for CMETH_EOL='ADR' or 'ALM'.
+* :code:`LFLOAT_EOL` : true to activate the floating motions and static positions. Only for CMETH_EOL='ADR' or 'ALM'.
 
   * .FALSE. do not use floating DOF.
   * .TRUE.  use floating DOFs. Each turbine written in CFARM_CSVDATA must have a last column which contains the name of the CSV field containing the prescribed motions. A mean value for static position as well as an amplitude, frequency and phase for dynamic motion can be given as follows:
@@ -186,7 +190,6 @@ To use with LCONTROL_EOL=.TRUE. in NAM_EOL.
 
 * :code:`XCON_RAD_VEL`: used if CMETH_OPS = 'TABLE'. Radius (in meters) of the virtual disk used to sample velocity.
 
-
 &NAM_EOL_TOWNAC
 **********************************
 Parametrization of the turbine's tower and nacelle. In the current implementation, the tower is represented by a cylinder with NNB_TOWELT sections and the nacelle by a disk of radius R\_r (defined in the data\_turbine.csv file). Drag forces are deduced from these geometrical shapes. 
@@ -208,7 +211,6 @@ The user can modify the modified drag coefficient. These drag forces are smeared
 
 * :code:`XCD_TOW`: modified drag coefficient of the tower.
 
-.. _nam_eol_tracers:
 
 &NAM_EOL_TRACERS
 **********************************
@@ -230,6 +232,10 @@ The user can modify the modified drag coefficient. These drag forces are smeared
 
 * :code:`XTRAC_RAD`: Radius (in meters) of the emitting disk.
 
+Variables outputs
+**********************************
+
+List of output variables dedicated to :ref:`output_WindTurbine` are updated.
 
 I/O
 ---------------------------
@@ -244,11 +250,184 @@ PHYEX
 Turbulence
 **********************************
 
+.. csv-table:: NAM_TURBn new entries
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
+   "LGOGER","LOGICAL",".FALSE."
+   "XSMAG","REAL","0.2"
+   "LDYNMF","LOGICAL",".FALSE."
+   "LTHERMMF","LOGICAL",".TRUE."
+   "LBL89TOP","LOGICAL",".FALSE."
+   "LBL89EXP","LOGICAL",".TRUE."
+
+* :code:`LGOGER`: true to compute the Goger terms
+
+* :code:`XSMAG`: dimensionless Smagorinsky constant
+
+* :code:`LDYNMF`: true to take into account a dynamical TKE production from EDMF
+
+* :code:`LTHERMMF`: true to take into account a buoyancy TKE production from EDMF
+
+* :code:`LBL89TOP`: true to limit BL89/RM17 at PBL top (as in ARPEGE)
+
+* :code:`LBL89EXP`: true to use the exposant from the BL89 paper ( which is LOG(16.)/(4.*LOG(XKARMAN)+LOG(XCED)-3.*LOG(XCMFS))). Otherwise 2./3. (False in AROME cycl 50t1)
+
 Schallow convection
 **********************************
 
+.. csv-table:: NAM_PARAM_MFSHALLn new entries
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
+   "CWET_MIXING","CHARACTER(LEN=4)","'PKFB'"
+   "CKIC_COMPUTE","CHARACTER(LEN=4)","'KFB'"
+   "CDETR_DRY_LUP","CHARACTER(LEN=4)","'SURF'"
+   "LMIXTKE","LOGICAL",".FALSE."
+   "XSIGMA_ENV","REAL","0"
+   "LPZ_EXP_LOG","LOGICAL",".FALSE."
+   "XBRIO","REAL","0"
+   "XAADVEC","REAL","0"
+   "LRELAX_ALPHA_MF","LOGICAL",".FALSE."
+
+
+* :code:`CWET_MIXING`: type of env mixing for buoyancy sorting scheme. 'PKFB' for the original Pergaud code, 'LR01' for Lappen and Randall 2001
+
+* :code:`CKIC_COMPUTE`: method to compute KIC: 'KFB' (PMMC09 original method, as in KFB). 'RS08' to use the Rooy and Siebesma (2008) formulation
+
+* :code:`CDETR_DRY_LUP`: 'SURF' to use :math:`L_{UP}` at surface (PMMC09), 'UPDR' to compute :math:`L_{UP}` in updraft
+
+* :code:`LMIXTKE`: true if mixing of TKE. Only implemented with :code:`CMF_UPDRAFT='EDKF'`
+
+* :code:`XSIGMA_ENV`: coefficient for the environment sigma contribution in the bigaussian scheme
+
+* :code:`LPZ_EXP_LOG`: true to use exp/log during dP/dZ conversion
+
+* :code:`XBRIO`: coefficient to slow down :math:`w_{UP}` equation as in Rio 2010
+
+* :code:`XAADVEC`: coefficient for advective pressure perturbation as in Jia he 2022
+
+* :code:`LRELAX_ALPHA_MF`: true to relax the small fraction assumption
+
+
+ICE3
+**********************************
+
+.. csv-table:: NAM_PARAM_ICEn new entries
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
+   "LKOGAN","LOGICAL",".FALSE."
+   "LMODICEDEP","LOGICAL",".FALSE."
+   "LEXCLDROP","LOGICAL",".FALSE."
+   "LEXT_TEND","LOGICAL",".FALSE."
+
+* :code:`LKOGAN`: true to use Kogan autocoversion of liquid
+
+* :code:`LMODICEDEP`: flag for alternative deposition/evaporation of ice
+
+* :code:`LEXCLDROP`: true to use of external cloud droplet (as from NRT aerosols)
+
+* :code:`LEXT_TEND`: true to use external tendencies during the time-splitting
+
+* :code:`CSUBG_MF_PDF`: new option 'BIGA'. Current available options are 'NONE' or 'TRIANGLE' (see :ref:`nam_param_icen`)
+
+
 LIMA
 **********************************
+
+.. csv-table:: NAM_PARAM_LIMA new entries
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
+   "LICE3","LOGICAL",".FALSE."
+   "LSIGMOIDE_G","LOGICAL",".FALSE."
+   "LSIGMOIDE_NG","LOGICAL",".FALSE."
+   "XSIGMOIDE_G","LOGICAL","1E8"
+   "XMVDMIN_G","LOGICAL","125E-6"
+   "LCRIAUTI","LOGICAL",".FALSE."
+   "XPSH_MAX_RDSF", "REAL", "0.2"
+   "XT0CRIAUTI","LOGICAL","(LOG10(XCRIAUTI)-XBCRIAUTI)/0.06"
+   "XCRIAUTI","REAL","0.2E-4"
+   "XCRIAUTC","REAL","0.5E-3"
+   "XACRIAUTI","REAL","0.06"
+   "XBCRIAUTI","REAL","-3.5"
+   "CSUBG_PR_PDF","CHARACTER(LEN=4)","'SIGM'"
+   "CSUBG_AUCV_RC","CHARACTER(LEN=4)","'NONE'"
+   "CSUBG_AUCV_RI","CHARACTER(LEN=4)","'NONE'"
+   "LCRYSTAL_SHAPE","LOGICAL",".FALSE."
+   "NNB_CRYSTAL_SHAPE", "INTEGER", "1"
+   "HTYPE_CRYSTAL", "CHARACTER(LEN=4)(:)","NNB_CRYSTAL_SHAPE * ''"
+   "LICE_ISC", "LOGICAL", ".FALSE."
+   "LINITORILAM", "LOGICAL", ".FALSE."
+   "LINTERP_CAMS", "LOGICAL", ".FALSE."
+
+* :code:`LICE3`: Use to mimic the ICE3 scheme. If set to .TRUE., some parameters are set :
+
+::
+  
+  NMOM_C=1  
+  NMOM_R=1  
+  NMOM_I=1
+  NMOM_S=1
+  NMOM_G=1
+  NMOM_H=MIN(NMOM_H,1)
+  NMOD_CCN=0
+  NMOD_IFN=0
+  LMURAKAMI=.TRUE.
+  LKESSLERAC=.TRUE.
+  XALPHAR=1.
+  XNUR=1.
+
+* :code:`LSIGMOIDE_G`: true to limit graupel growth by XSIGMOIDE_G
+
+* :code:`XSIGMOIDE_G`: sigmoide parameter for graupel growth limitation
+
+* :code:`LSIGMOIDE_NG`: true to force lambda to be < lambda(Dmin)
+
+* :code:`XMVDMIN_G`: minimum MVD for graupel growth lim or lambda(Dmin) calculation
+
+* :code:`LCRIAUTI`: true to compute XACRIAUTI and XBCRIAUTI (from XCRIAUTI and XT0CRIAUTI). If false, XT0CRIAUTI is computed from XCRIAUTI and XBCRIAUTI.
+
+* :code:`XPSH_MAX_RDSF`: shattering probability normal distribution maximum
+
+* :code:`XT0CRIAUTI`: threshold temperature for the ice->snow autoconversion threshold
+
+* :code:`XCRIAUTI`: ?
+
+* :code:`XACRIAUTI`: ?
+
+* :code:`XBCRIAUTI`: ?
+
+* :code:`CSUBG_PR_PDF`: PDF for subgrid precipitation. Options are the same as in :ref:`nam_param_icen`.
+
+* :code:`CSUBG_AUCV_RC`: type of subgrid rc->rr autoconversion method. Options are the same as in :ref:`nam_param_icen`.
+
+* :code:`CSUBG_AUCV_RI`: type of subgrid ri->rs autoconversion method. Options are the same as in :ref:`nam_param_icen`.
+
+* :code:`LCRYSTAL_SHAPE`: true to enable several ice crystal shapes. It can only be used if :code:`LPTSPLIT=T`.
+
+* :code:`NNB_CRYSTAL_SHAPE`: number of ice crystal shapes ; taken into account if :code:`LCRYSTAL_SHAPE=T`. For the moment, only 4 ice crystal shapes are allowed.
+
+* :code:`HTYPE_CRYSTAL_SHAPE`: ice crystal shapes if :code:`LCRYSTAL_SHAPE=T`. Can be set to YPLA, YCOL, YBUR or YDRO.
+
+* :code:`LICE_ISC`: true to enable self collection of ice crystals
+
+* :code:`LINITORILAM`: true to initialize CCN and IF by ORILAM
+
+* :code:`LINTERP_CAMS`: true to interpolate CAMS data at each time step (from Large-Scale fields)
+
+
+Condensation
+**********************************
+
+.. csv-table:: NAM_NEBn new entry
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
+   "LCONDBORN","LOGICAL",".FALSE."
+
+* :code:`LCONDBORN` : true to limit condensation
 
 Ocean-Atmosphere-Wave coupling
 ---------------------------
@@ -261,9 +440,9 @@ Passive pollutants
 * :code:`LPASPOLDUST = FALSE`: emit dust aerosols 
 * :code:`NMODEL_PP = 1`: model number where passive pollutants are emitted. 
 
-Atmospheric coupling
+WRF and ICON init and forcing
 ---------------------------
-* HRRR-WRF: Coupling with daily operational model HRRR is now possible. More info in :ref:`extracthrrr`
+* HRRR-WRF: Initializing and forcing Méso-NH with daily operational model HRRR is now possible. More info in :ref:`extracthrrr`
 
 SURFEX
 ---------------------------
