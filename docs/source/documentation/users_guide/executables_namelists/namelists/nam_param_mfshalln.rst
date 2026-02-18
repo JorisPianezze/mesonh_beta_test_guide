@@ -14,6 +14,7 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "CMF_CLOUD","CHARACTER(LEN=4)","'DIRE'"
    "CWET_MIXING","CHARACTER(LEN=4)","'PKFB'"
    "CKIC_COMPUTE","CHARACTER(LEN=4)","'KFB'"
+   "CDETR_DRY_LUP","CHARACTER(LEN=4)","'SURF'"
    "LMIXUV","LOGICAL","TRUE"
    "LMIXTKE","LOGICAL","FALSE"
    "LMF_FLX","LOGICAL","FALSE"
@@ -54,6 +55,8 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 * :code:`CWET_MIXING` : Type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for Lappen and Randall 2001)
 
 * :code:`CKIC_COMPUTE` : Method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the Rooy and Siebesma (2008) formulation) 
+
+* :code:`CDETR_DRY_LUP` : Upward length to use in the dry detrainement ('SURF' to use LUP at surface (original PMMC09), 'UPDR' to compute LUP in updraft)
 
 * :code:`LMIXUV` : flag to take into account the mixing on momentum      
 
