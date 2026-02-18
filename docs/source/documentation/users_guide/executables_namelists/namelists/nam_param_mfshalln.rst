@@ -14,6 +14,7 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "CMF_CLOUD","CHARACTER(LEN=4)","'DIRE'"
    "CWET_MIXING","CHARACTER(LEN=4)","'PKFB'"
    "LMIXUV","LOGICAL","TRUE"
+   "LMIXTKE","LOGICAL","FALSE"
    "LMF_FLX","LOGICAL","FALSE"
    "XALP_PERT","REAL","0.3"
    "XABUO","REAL","1.0"
@@ -51,6 +52,8 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 * :code:`CWET_MIXING` : Type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for Lappen and Randall 2001)
 
 * :code:`LMIXUV` : flag to take into account the mixing on momentum      
+
+* :code:`LMIXTKE` : flag to mix the TKE
 
 * :code:`LMF_FLX` : flag to compute and store the mass fluxes on every synchronous output  file
 
