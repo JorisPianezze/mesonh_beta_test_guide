@@ -20,6 +20,7 @@ This namelist is new and regroup options related to internal clouds life cycle.
    "VSIGQSAT","REAL","0.02"
    "CFRAC_ICE_ADJUST","CHARACTER(LEN=1)","'S'"
    "CFRAC_ICE_SHALLOW_MF","CHARACTER(LEN=1)","'S'"
+   "LCONDBORN","LOGICAL",".FALSE."
 
 * :code:`LHGT_QS` : flag to activate height dependence of qsat variance (VSIGQSAT)
 
@@ -43,7 +44,7 @@ This namelist is new and regroup options related to internal clouds life cycle.
 
 * :code:`VSIGQSAT` : coefficient applied to qsat variance contribution. Only available if LSIGMAS=.TRUE.
 
-* :code:`LSIGMAS` : Flag for using Sigma_s from turbulence scheme instead parameterized values in ice subgrid condensation scheme
+* :code:`LSIGMAS` : flag for using Sigma_s from turbulence scheme instead parameterized values in ice subgrid condensation scheme
 
 * :code:`CFRAC_ICE_ADJUST` : Way to compute ice fraction 
 
@@ -58,4 +59,7 @@ This namelist is new and regroup options related to internal clouds life cycle.
   * 'O' : Tao et al. (1989) formulation
   * 'N' : No ice
   * 'S' : Ice fraction given by the slow microphysics
+
+* :code:`LCONDBORN` : flag to limit condensation
+
 

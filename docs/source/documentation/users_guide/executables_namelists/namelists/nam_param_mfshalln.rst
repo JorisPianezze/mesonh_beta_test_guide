@@ -79,7 +79,7 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 
 * :code:`XALPHA_MF` : coefficient for cloudy fraction
 
-* :code:`XSIGMA_MF` : coefficient for sigma computation
+* :code:`XSIGMA_MF` : coefficient for updraft sigma computation in the bigaussian scheme
 
 * :code:`XFRAC_UP_MAX` : maximum Updraft fraction
 
