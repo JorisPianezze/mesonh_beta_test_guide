@@ -12,6 +12,7 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "XIMPL_MF","REAL","1"
    "CMF_UPDRAFT","CHARACTER(LEN=4)","'EDKF'"
    "CMF_CLOUD","CHARACTER(LEN=4)","'DIRE'"
+   "CWET_MIXING","CHARACTER(LEN=4)","'PKFB'"
    "LMIXUV","LOGICAL","TRUE"
    "LMF_FLX","LOGICAL","FALSE"
    "XALP_PERT","REAL","0.3"
@@ -46,6 +47,8 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 * :code:`CMF_UPDRAFT` : Type of Mass Flux Scheme ('EDKF', 'RHCJ' or 'NONE' )
 
 * :code:`CMF_CLOUD` : Type of statistical cloud ('DIRE' for the direct calculation of the cloud fraction as a function of the updraft fraction or 'STAT' given by the subgrid condensation scheme)
+
+* :code:`CWET_MIXING` : Type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for Lappen and Randall 2001)
 
 * :code:`LMIXUV` : flag to take into account the mixing on momentum      
 
