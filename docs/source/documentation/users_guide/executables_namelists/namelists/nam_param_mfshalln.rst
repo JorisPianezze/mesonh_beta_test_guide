@@ -12,7 +12,11 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "XIMPL_MF","REAL","1"
    "CMF_UPDRAFT","CHARACTER(LEN=4)","'EDKF'"
    "CMF_CLOUD","CHARACTER(LEN=4)","'DIRE'"
+   "CWET_MIXING","CHARACTER(LEN=4)","'PKFB'"
+   "CKIC_COMPUTE","CHARACTER(LEN=4)","'KFB'"
+   "CDETR_DRY_LUP","CHARACTER(LEN=4)","'SURF'"
    "LMIXUV","LOGICAL","TRUE"
+   "LMIXTKE","LOGICAL","FALSE"
    "LMF_FLX","LOGICAL","FALSE"
    "XALP_PERT","REAL","0.3"
    "XABUO","REAL","1.0"
@@ -30,6 +34,7 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "XPRES_UV","REAL","0.5"
    "XALPHA_MF","REAL","2.0"
    "XSIGMA_MF","REAL","20.0"
+   "XSIGMA_ENV","REAL","0."
    "XFRAC_UP_MAX","REAL","0.33"
    "XA1","REAL","2.0/3.0"
    "XB","REAL","0.002"
@@ -40,6 +45,9 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "LGZ","LOGICAL",".FALSE."
    "XGZ","REAL","1.83"
    "LVERLIMUP","LOGICAL",".TRUE."
+   "LPZ_EXP_LOG","LOGICAL",".FALSE."
+   "XBRIO","REAL","0"
+   "XAADVEC","REAL","0"
 
 * :code:`XIMPL_MF` : Degree of implicitness                                                        
 
@@ -47,7 +55,15 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 
 * :code:`CMF_CLOUD` : Type of statistical cloud ('DIRE' for the direct calculation of the cloud fraction as a function of the updraft fraction or 'STAT' given by the subgrid condensation scheme)
 
+* :code:`CWET_MIXING` : Type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for Lappen and Randall 2001)
+
+* :code:`CKIC_COMPUTE` : Method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the Rooy and Siebesma (2008) formulation) 
+
+* :code:`CDETR_DRY_LUP` : Upward length to use in the dry detrainement ('SURF' to use LUP at surface (original PMMC09), 'UPDR' to compute LUP in updraft)
+
 * :code:`LMIXUV` : flag to take into account the mixing on momentum      
+
+* :code:`LMIXTKE` : flag to mix the TKE
 
 * :code:`LMF_FLX` : flag to compute and store the mass fluxes on every synchronous output  file
 
@@ -79,7 +95,9 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 
 * :code:`XALPHA_MF` : coefficient for cloudy fraction
 
-* :code:`XSIGMA_MF` : coefficient for sigma computation
+* :code:`XSIGMA_MF` : coefficient for sigma computation for the updraft (bi-Gaussian scheme)
+
+* :code:`XSIGMA_ENV` : coefficient for sigma computation for the environment (bi-Gaussian scheme)
 
 * :code:`XFRAC_UP_MAX` : maximum Updraft fraction
 
@@ -100,3 +118,9 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 * :code:`XGZ` : parameter for the reduction the surface closure of the Mass-Flux thermal plume if LGZ = TRUE.
 
 * :code:`LVERLIMUP` : flag to allow a smooth vertical decrease of the mass-flux as soon as the updraft reaches a specific altitude, instead of a sharp limit of 0.
+
+* :code:`LPZ_EXP_LOG` : flag to use exp/log during dP/dZ conversion
+
+* :code:`XBRIO` : coefficient to slow down wup equa like Rio 2010
+
+* :code:`XAADVEC` : coefficient for advective pressure perturbation like Jia he 2022
