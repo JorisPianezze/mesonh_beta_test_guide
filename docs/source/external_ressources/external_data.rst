@@ -5,9 +5,9 @@ External data
 
    Depending of your application :
    
-   * Surface data can be needed by the :command:`PREP_PGD` program. 
+   * Surface data can be needed by the :ref:`prep_pgd` program. 
    
-   * Atmospheric data can be needed by the :command:`PREP_REAL_CASE` program.
+   * Atmospheric data can be needed by the :ref:`prep_real_case` program.
 
 .. toctree::
    :maxdepth: 2

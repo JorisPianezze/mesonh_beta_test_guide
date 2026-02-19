@@ -13,6 +13,7 @@ Meso-NH website
    * This website is under development.
    * For Meso-NH version lower than 6.0.0, please go to the |old_mesonh_website|.
    * For more general informations about Meso-NH, please go |mesonh_website|.
+   * To contact Meso-NH support and development team, please go `here <https://mesonh.cnrs.fr/contact/>`_
 
 .. toctree::
    :maxdepth: 2

@@ -129,7 +129,8 @@ For the GPU partitions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning::
-   To compile Meso-NH for GPUs, contact the Meso-NH support and development team.
+
+   To compile Meso-NH for GPUs, contact the `Meso-NH support and development team <https://mesonh.cnrs.fr/contact/>`_.
 
 
 .. _compilation_adastra_cines:
@@ -180,8 +181,8 @@ For the GPU partitions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning::
-   To compile Meso-NH for GPUs, contact the Meso-NH support and development team.
 
+   To compile Meso-NH for GPUs, contact the `Meso-NH support and development team <https://mesonh.cnrs.fr/contact/>`_.
 
 .. _compilation_irene_tgcc:
 
@@ -625,7 +626,7 @@ To compile Meso-NH with MEGAN, you can follow the steps described in the section
 Compile with modified and/or new sources
 =============================================================================
 
-Once the MASTER is compiled, you can can compile your own sources.
+Once the MASTER is compiled, you can compile your own sources.
 
 Prepare your source directory
 -----------------------------------------------------------------------------

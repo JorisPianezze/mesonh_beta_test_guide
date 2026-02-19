@@ -10,7 +10,7 @@ Download
 Meso-NH package is developed and maintained using |git_link|.
 It is strongly recommended, but not mandatory, to download Meso-NH package using :ref:`Git repository <git>`, because:
 
-* It is easier for the Meso-NH's support team to give you some assistance in case of trouble as Git allows us to know exactly what you have changed in the original package ;
+* It is easier for the `Meso-NH's support <https://mesonh.cnrs.fr/contact/>`_ team to give you some assistance in case of trouble as Git allows us to know exactly what you have changed in the original package ;
 
 * It is easier for you to update to the last version or at least see the changes made for bug fix directly on your installation ;
 

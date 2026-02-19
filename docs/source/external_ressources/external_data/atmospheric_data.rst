@@ -3,13 +3,6 @@
 Initialization of atmospheric and surface data
 ================================================
 
-* decrire les donnees atmospheriques et de surface :
-  * 3d atmospheric data (u, v, t, q, lnsp, z, ...) --> initialisation atmosphere + surface, forçage aux CLL + nudging si souhaité
-  * source : GFS, ERA5, ECMWF oper, AROME, ARPEGE avec les liens
-
-* champs atmosphériques pour la chimie :
-  * CAMS
-
 .. toctree::
    :maxdepth: 2
 
