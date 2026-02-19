@@ -48,11 +48,16 @@ It contains the dynamics parameters common to all models. They are included in t
 
    This flag is independant from LNUMDIFU and LNUMDIFSV, applied to the dynamical variables and the scalar variables respectively.
 
-* :code:`XALKTOP` : Maximum value of the Rayleigh damping (in :math:`s^{-1}`) at the top of the upper absorbing layer. The shape of the absorbing layer is a :math:`\sin^2` of :math:`\hat{z}` (see the scientific documentation for more details).
+* :code:`XALKTOP` : Maximum value of the Rayleigh damping (in :math:`s^{-1}`) for the upper absorbing layer. 
+The shape of the absorbing layer is a :math:`\sin^2` of :math:`\hat{z}` (see the scientific documentation for more details).
+To use with :code:`LVE_RELAX=T` in :ref:`nam_dynn`.
 
-* :code:`XALZBOT` : Height (in meters) in the physical space of the upper absorbing layer base. 
+* :code:`XALZBOT` : Height (in meters) in the physical space of the base of the upper absorbing layer. 
+  To use with :code:`LVE_RELAX=T` in :ref:`nam_dynn`.
 
-* :code:`XALKGRD` : Maximum value of the Rayleigh damping (in :math:`s^{-1}`) at the top of the lower absorbing layer.
+* :code:`XALKGRD` : Maximum value of the Rayleigh damping (in :math:`s^{-1}`) for the lower absorbing layer.
+  To use with :code:`LVE_RELAX_GRD=T` in :ref:`nam_dynn`.
 
-* :code:`XALZBAS` :  Height (in meters) in the physical space of the lower absorbing layer base. 
+* :code:`XALZBAS` : Height (in meters) in the physical space of the top of the ground absorbing layer.
+  To use with :code:`LVE_RELAX_GRD=T` in :ref:`nam_dynn`.
 

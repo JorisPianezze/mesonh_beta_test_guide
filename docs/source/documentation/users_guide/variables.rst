@@ -1,11 +1,19 @@
-Variables
+Output Variables
 =============================================================================
 
 .. note::
 
-   Please contact `us <https://mesonh.cnrs.fr/contact/>`_ if you need more variables in following tables.
+   Please contact `us <https://mesonh.cnrs.fr/contact/>`_ if you need more variables in the following tables.
 
-Only the Meso-NH variables are referenced,not SURFEX one.
+.. toctree::
+   :maxdepth: 1
+ 
+   variables/diagnostics.rst
+   variables/eolienne.rst       
+
+
+
+Only the Meso-NH variables are referenced, not SURFEX one.
 
 .. csv-table:: List of general output variables dedicated to MESONH program
    :header: "Name","Meaning"

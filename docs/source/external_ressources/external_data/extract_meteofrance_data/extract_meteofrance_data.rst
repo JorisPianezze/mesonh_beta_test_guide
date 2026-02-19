@@ -1,6 +1,6 @@
 .. _extract_meteofrance_data:
 
-Extract Meteo-France's data
+Extract Meteo-France data
 =============================================================================
 
 Historically, at the start of AROME, we only had surface data from the AROME coupler model (ALADIN then ARPEGE), which are still available in the AROME analysis file. However, with the introduction of SURFEX in AROME, and in particular of a surface analysis performed by AROME, it became essential to be able to use data from AROME's surface analysis rather than that of its coupler model.

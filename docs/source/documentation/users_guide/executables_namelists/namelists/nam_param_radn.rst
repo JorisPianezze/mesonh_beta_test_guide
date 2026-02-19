@@ -107,5 +107,6 @@ It contains the options retained for the radiative scheme used by the model n (C
    * NOVLP=7 : Maximum overlap for Clear Sky fraction and Random Overlap for Effective Zenithal Angle. This option is well adapted in the absence of multi-layer clouds.
    * NOVLP=8 : Maximum Random overlap for Clear Sky fraction and Effective Zenithal Angle.
 
-* :code:`NRAD_AGG` : side of a square of aggregated columns on which the radiation code will be called. This allows cheaper numerical cost of the radiation code and reduce its cost by NRAD AGG2. If NRAD AGG = 1, the radiation code is called on every columns (historical version). May be useful for very high resolution LES on which calling radiation on every columns is not necessary
+* :code:`NRAD_AGG` : side of a square of aggregated columns on which the radiation code will be called. 
+This allows cheaper numerical cost of the radiation code and reduce its cost by :math:`{NRAD\_AGG}^{2}`. If NRAD_AGG = 1, the radiation code is called on every columns (historical version). May be useful for very high resolution LES on which calling radiation on every columns is not necessary
 

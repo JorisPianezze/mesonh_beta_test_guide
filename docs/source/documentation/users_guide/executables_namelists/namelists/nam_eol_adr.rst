@@ -20,8 +20,8 @@ NAM_EOL_ADR
 
 * :code:`CFARM_CSVDATA` : name of the CSV data file containing the description of the wind farm. The file must contain a header and one row of data per wind turbine. The name of the variables in the header can be modified by the user since it is not read by the program. The delimiters of the file are commas. The data and the column order of this file are: 
 
-  * x-axis position [m] of the base of the tower (ideal conditions only),
-  * y-axis position [m] of the base of the tower (ideal conditions only),
+  * x-axis position [m] of the tower base (if LCARTESIAN = .TRUE.), or latitude [deg] (if LCARTESIAN = .FALSE.),
+  * y-axis position [m] of the tower base (if LCARTESIAN = .TRUE.), or longitude [deg] (if LCARTESIAN = .FALSE.), 
   * angular velocity [rad/s] of the rotor (trigonometric convention seen from upstream),
   * yaw angle [rad] of the nacelle (:math:`0 \Leftrightarrow` facing an upstream x-axis wind; trigonometric convention seen from the sky),
   * pitch angle [rad] of the blades (:math:`0 \Leftrightarrow` rotor plane ; :math:`-pi/2 \Leftrightarrow` feathering. Trigonometric convention seen from blade tip).
@@ -32,8 +32,15 @@ NAM_EOL_ADR
 
    .. code-block::
    
-      X [m], Y [m], Omega [rad/s], N_yaw [rad], B_pitch [rad]
+      X[m]/Lat[deg], Y[m]/Lon[deg], Omega[rad/s], Nac_yaw[rad], Bla_pitch[rad]
       1000, 600, -1.00531, 0.0, -0.07866
+
+If LFLOAT_EOL is activated (only if LCARTESIAN=T.):
+
+   .. code-block::
+
+      X [m], Y [m], Omega [rad/s], N_yaw [rad], B_pitch [rad], Floating Motions file
+      1000, 600, -1.00531, 0.0, -0.07866, data_float.csv 
 
 * :code:`CTURBINE_CSVDATA` : name of the CSV data file containing the description of the wind turbine. The file must contain a header and one row of data, as only one type of wind turbine can be simulated in a Meso-NH modelfootnote{If the user wants to simulate two wind farms built with two different types of wind turbines, the user can set two Meso-NH son models using two CSV data files.} (or sub-model). The name of the variables in the header can be modified by the user since it is not read by the program. The delimiters of the file are commas. The data and the column order of this file are: 
 
@@ -43,7 +50,9 @@ NAM_EOL_ADR
   * radius of blade root (or hub radius) [m],
   * radius of blade tip (or rotor radius) [m],
   * tilt angle [rad] of the nacelle (:math:`0 \Leftrightarrow` facing an upstream x-axis wind; :math:`pi/2 \Leftrightarrow` facing the sky),
-  * hub deport [m].
+  * hub deport [m],
+  * tower radius (for computation of tower body forces) [m],
+  * nacelle radius (for computation of nacelle body forces) [m].
 
 .. note::
 
@@ -51,8 +60,8 @@ NAM_EOL_ADR
 
    .. code-block::
    
-      Turbine name, Nb b.[-], H_h [m], R_r [m], R_t [m], N_tilt [rad], H_dep. [m]
-      DTU_10MW, 3, 119, 2.8, 89.15, 0.0, 7.1
+      Turbine, Nb b.[-], H_h [m], R_r [m], R_t [m], N_tilt [rad], H_dep. [m], T_r [m], N_r [m]
+      DTU10, 3, 119, 2.8, 89.15, 0.0, 7.1, 2.8, 2.8
 
 * :code:`CBLADE_CSVDATA` : name of the CSV data file containing the description of the blade. The file must contain a header and one row of data per blade element centre. The name of the variables in the header can be modified by the user since it is not read by the program. The delimiters of the file are commas. The data and the column order of this file are: 
 
