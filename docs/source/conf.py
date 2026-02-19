@@ -16,7 +16,7 @@ if os.environ.get("READTHEDOCS", "") == "True":
 # -- Project information
 
 project   = 'Meso-NH'
-copyright = '2025, Meso-NH\'s support'
+copyright = '2026, Meso-NH\'s support'
 author    = 'Meso-NH\'s support'
 
 release = '0.0'

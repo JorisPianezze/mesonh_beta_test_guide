@@ -34,7 +34,7 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "XPRES_UV","REAL","0.5"
    "XALPHA_MF","REAL","2.0"
    "XSIGMA_MF","REAL","20.0"
-   "XSIGMA_ENV","REAL","0."
+   "XSIGMA_ENV","REAL","0.0"
    "XFRAC_UP_MAX","REAL","0.33"
    "XA1","REAL","2.0/3.0"
    "XB","REAL","0.002"
@@ -55,11 +55,11 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 
 * :code:`CMF_CLOUD` : Type of statistical cloud ('DIRE' for the direct calculation of the cloud fraction as a function of the updraft fraction or 'STAT' given by the subgrid condensation scheme)
 
-* :code:`CWET_MIXING` : Type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for Lappen and Randall 2001)
+* :code:`CWET_MIXING` : Type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for :cite:t:`lappen_toward_2001`)
 
-* :code:`CKIC_COMPUTE` : Method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the Rooy and Siebesma (2008) formulation) 
+* :code:`CKIC_COMPUTE` : Method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the :cite:t:`de_rooy_simple_2008` formulation) 
 
-* :code:`CDETR_DRY_LUP` : Upward length to use in the dry detrainement ('SURF' to use LUP at surface (original PMMC09), 'UPDR' to compute LUP in updraft)
+* :code:`CDETR_DRY_LUP` : Upward length to use in the dry detrainement ('SURF' to use LUP at surface (original PMMC09 :cite:t:`pergaud_parameterization_2009`), 'UPDR' to compute LUP in updraft)
 
 * :code:`LMIXUV` : flag to take into account the mixing on momentum      
 
@@ -121,6 +121,6 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 
 * :code:`LPZ_EXP_LOG` : flag to use exp/log during dP/dZ conversion
 
-* :code:`XBRIO` : coefficient to slow down wup equa like Rio 2010
+* :code:`XBRIO` : coefficient to slow down wup equa like :cite:t:`rio_resolved_2010`
 
-* :code:`XAADVEC` : coefficient for advective pressure perturbation like Jia he 2022
+* :code:`XAADVEC` : coefficient for advective pressure perturbation like :cite:t:`he_improved_2020`
