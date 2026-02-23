@@ -605,7 +605,7 @@ Then can follow the steps described in the section dedicated to your computer (i
 Ocean-wave coupling (OASIS)
 -----------------------------------------------------------------------------
 
-Ocean Atmosphere Sea Ice Soil coupler (OASIS <https://oasis.cerfacs.fr/>_) is a flexible coupling framework designed to exchange data and synchronize interactions between different components of Earth system models, such as the atmosphere, ocean, sea ice, and land surface. To compile Meso-NH with OASIS, you just have to define the VER_OASIS environment variable before running the :file:`configure` script.
+Ocean Atmosphere Sea Ice Soil coupler (`OASIS <https://oasis.cerfacs.fr/>`_) is a flexible coupling framework designed to exchange data and synchronize interactions between different components of Earth system models, such as the atmosphere, ocean, sea ice, and land surface. To compile Meso-NH with OASIS, you just have to define the VER_OASIS environment variable before running the :file:`configure` script.
 
 .. code-block:: bash
 
