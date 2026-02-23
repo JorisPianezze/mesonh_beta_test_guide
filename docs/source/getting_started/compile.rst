@@ -495,12 +495,15 @@ Compile with additional libraries
 
 It's possible to compile Meso-NH with additionnal libraries like FOREFIRE, RTTOV, ECRAD, MEGAN, OASIS... In the following subsections you will find information to compile Meso-NH with these libraries.
 
-ForeFire runs (external package needed)
+
+.. _compile_mesonh_with_forefire:
+
+Wildfire spread (ForeFire)
 -----------------------------------------------------------------------------
 
-ForeFire is an open-source code for wildland fire spread models. The interface to this tool is already compiled in Méso-NH (from version 6.0.0).
+ForeFire is an open-source code for wildland fire spread models. The interface to this tool is already compiled in Meso-NH (from version 6.0.0).
 
-The |forefire_link| package must be compiled independently of Méso-NH. It can be cloned with:
+The |forefire_link| package must be compiled independently of Meso-NH. It can be cloned with:
 
 .. code-block:: bash
 
@@ -515,30 +518,33 @@ It depends on netCDF and scons for its compilation. The :file:`libForeFIre.so` t
 
 .. _compile_mesonh_with_rttov:
 
-RTTOV for optional radiative computation
+Radiative computation (RTTOV)
 -----------------------------------------------------------------------------
 
-RTTOV (Radiative Transfer for TOVS) is a very fast radiative transfer model for passive visible, infrared and microwave downward-viewing satellite radiometers, spectrometers and interferometers.
-When coupled with Meso-NH, RTTOV enables a direct comparison between simulation outputs and satellite observations, removing the need for additional assumptions or inversions.
-For that, you need to download and compile RTTOV first, then you need to compile Meso-NH including RTTOV. Meso-NH is coupled to the last version of RTTOV (14.0) but this version is not include in the Meso-NH's package because it needs a licence agrement.
+RTTOV (Radiative Transfer for TOVS) is a highly efficient radiative transfer model designed for passive visible, infrared, and microwave satellite radiometers, spectrometers, and interferometers.
+It facilitates a direct comparison between model simulations and satellite observations, eliminating the need for additional assumptions or inversion processes.
+To use this functionality in Meso-NH, you must first download and compile RTTOV separately. Then, you need to recompile Meso-NH with RTTOV.
+While Meso-NH is compatible with the latest version of RTTOV (v14.1), this version is not included in the Meso-NH package due to licensing restrictions.
 
 Before compiling RTTOV, you need to compile NetCDF and HDF5 libraries:
 
 .. code-block:: bash
+   :substitutions:
 
-   cd MNH/src/
+   cd |MNH_directory_extract_current|/src/
    ./configure
    . ../conf/profile_mesonh-your_configuration
    make cdf
 
-Download the RTTOV package :file:`rttov140.tar.xz` by following the instructions given on the `RTTOV website <https://nwpsaf.eu/site/software/rttov/>`_  and untar the RTTOV zip file :file:`rttov140.tar.xz`:
+Download the RTTOV package :file:`rttov141.tar.xz` by following the instructions given on the `RTTOV website <https://nwpsaf.eu/site/software/rttov/>`_  and untar the RTTOV zip file :file:`rttov141.tar.xz`:
 
 .. code-block:: bash
+   :substitutions:
 
-   cd MNH/src/LIB
-   mkdir RTTOV-14.0
-   cd RTTOV-14.0
-   tar xJf rttov140.tar.xz
+   cd |MNH_directory_extract_current|/src/LIB
+   mkdir RTTOV-14.1
+   cd RTTOV-14.1
+   tar xJf rttov141.tar.xz
    cd build
 
 Then you have to edit :file:`Makefile.local` file and set HDF5_PREFIX, FFLAGS_NETCDF, LDFLAGS_NETCDF and LDFLAGS_HDF5 as shown below:
@@ -554,73 +560,63 @@ Finally you can build RTTOV using:
 
 .. code-block:: bash
 
-   cd RTTOV-14.0/src
+   cd RTTOV-14.1/src
    ../build/Makefile.PL RTTOV_NETCDF=1
    make ARCH=ifort
 
 .. note::
 
-   Other available options are gfortran, NAG, pgf90 and IBM.
+   Please refer to the RTTOV_14.1/build/arch directory for a list of all available ARCH configurations.
 
 Now you need to compile Meso-NH using :file:`configure` script of Meso-NH preceded with the setting of the MNH_RTTOV variables :
 
 .. code-block:: bash
-  
-   cd MNH/src/
+   :substitutions:
+
+   cd |MNH_directory_extract_current|/src/
    export MNH_RTTOV=1
-   export VER_RTTOV=14.0
-   ./configure
-   ...
+   export VER_RTTOV=14.1
 
 Then, you can follow the compilation steps described in the section dedicated to your computer.
 
-
-MNH_ECRAD for optional compilation of new ECRAD radiative library from ECMWF
------------------------------------------------------------------------------
-
-The default version of ECRAD is 1.4.0 (open-source) and is provided in the Meso-NH package. To use ECRAD, do:
-
-.. code-block:: bash
-
-   export MNH_ECRAD=1
-   ./configure
-
-The version of ECRAD is set by (by default):
-
-.. code-block:: bash
-
-   export VER_ECRAD=140
-
-If you want to use a different version of ECRAD, you can set the environment variable `VER_ECRAD` to the desired version number. But you must have the corresponding ECRAD package installed in the Meso-NH source directory.
-
 .. note::
 
-   ECRAD has been tailored to Meso-NH. The modified files are included in the directory :file:`${SRC_MESONH}/src/LIB/RAD/ecrad-1.4.0_mnh`.
-
-To compile Meso-NH with ECRAD, you can follow the steps described in the section dedicated to
-your computer (interactive or batch mode). To use ECRAD during a simulation, replace RAD=’ECMW’ by RAD=’ECRA’ in EXSEG1.nam and
-add link to all “ecrad-1.X.X/data” files in your Meso-NH run directory:
-
-.. code-block:: bash
-
-   ln -sf ${SRC_MESONH}/src/LIB/RAD/ecrad-1.X.X/data/* .
-
-.. tip::
-
-   You can replace CDATADIR = “.” by CDATADIR = “data” of ini radiations ecrad.f90 to link only the data folder instead of all the files one by one. See :file:`MY_RUN/KTEST/007_16janvier/008_run2` test case for example.
+   RTTOV can be used with :ref:`diag` program by setting :ref:`nam_diag_satellite_simulator` namelist.
 
 
-MNH_MEGAN for optional compilation of MEGAN code
+.. _compile_mesonh_with_megan:
+
+Biogenic emissions (MEGAN)
 -----------------------------------------------------------------------------
 
-To use MEGAN, do:
+Model of Emissions of Gases and Aerosols from Nature (`MEGAN <https://www2.acom.ucar.edu/modeling/model-emissions-gases-and-aerosols-nature-megan>`_) is a comprehensive modeling system designed to estimate
+the net emission of gases and aerosols from terrestrial ecosystems into the atmosphere. To compile MEGAN with Meso-NH, you just have to define MNH_MEGAN environment variable before doing :file:`configure`:
 
 .. code-block:: bash
 
    export MNH_MEGAN=1
    ./configure
 
-To compile Meso-NH with MEGAN, you can follow the steps described in the section dedicated to your computer (interactive or batch mode).
+Then can follow the steps described in the section dedicated to your computer (interactive or batch mode).
+
+
+.. _compile_mesonh_with_oasis:
+
+Ocean-wave coupling (OASIS)
+-----------------------------------------------------------------------------
+
+Ocean Atmosphere Sea Ice Soil coupler (OASIS <https://oasis.cerfacs.fr/>_) is a flexible coupling framework designed to exchange data and synchronize interactions between different components of Earth system models, such as the atmosphere, ocean, sea ice, and land surface. To compile Meso-NH with OASIS, you just have to define the VER_OASIS environment variable before running the :file:`configure` script.
+
+.. code-block:: bash
+
+   export VER_OASIS=OASISAUTO
+   ./configure
+
+Then can follow the steps described in the section dedicated to your computer (interactive or batch mode).
+
+.. tip::
+
+   You can launch the test case |MNH_directory_extract_current|/examples/KTESTS/013_Iroise_OASIS_coupling to verify your installation.
 
 
 Compile with modified and/or new sources

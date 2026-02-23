@@ -29,8 +29,8 @@ Following variable will be store :
    
    "BT", "Brightness temperature (K)", "2D"
 
-To simulate an instrument, use the code given in the following tables reproduced from the RTTOV users guide (see https://www.nwpsaf.eu/site/software/rttov).
-For example, to simulate both all the SEVIRI channels of MSG-2 and all the AMSU-B channels of NOAA-16, write in DIAG1.nam
+To simulate an instrument, use the code given in the following tables reproduced from the `RTTOV website <https://nwpsaf.eu/site/software/rttov/>`_.
+For example, to simulate both all the SEVIRI channels of MSG-2 and all the AMSU-B channels of NOAA-16, you can use the following namelist in :file:`DIAG1.nam` :
 
 .. code-block:: fortran
 
@@ -38,21 +38,32 @@ For example, to simulate both all the SEVIRI channels of MSG-2 and all the AMSU-
              NRTTOVinfo(:,2)= 1 16 4 0 /
    
 For this specific choice, you need to have four files: :file:`rtcoef_msg_2_seviri.dat`, :file:`sccldcoef_msg_2_seviri.dat`, :file:`rtcoef_noaa_16_amsub.dat` and :file:`hydrotable_noaa_amsub.dat`.
-The AMSU-B coefficient files can be found in directories rttov13pred54L and hydrotable (or to be downloaded from the RTTOV web site). The MSG-2 coefficient files are aliased following:
+The AMSU-B coefficient files can be found in directories rttov13pred54L and hydrotable (or to be downloaded from the `RTTOV website <https://nwpsaf.eu/site/software/rttov/>`_).
+
+.. tip::
+
+   To download all RTTOV files (~ 30 Go), you can use the script RTTOV_14.1/rtcoef_rttov14/rttov_coef_download.sh :
+
+   .. code-block:: bash
+
+      ./rttov_coef_download.sh
+
+
+The MSG-2 coefficient files are aliased following:
 
 * for IR only calculation, do:
 
 .. code-block:: bash
 
-   ln -sf []/rttov13pred54L/rtcoef_msg_2_seviri_7gas_ironly.dat rtcoef_msg_2_seviri.dat
-   ln -sf []/cldaer_ir/sccldcoef_msg_2_seviri_ironly.dat sccldcoef_msg_2_seviri.dat
+   ln -sf $(SRC_MESONH)/src/LIB/RTTOV_14.1/rtcoef_rttov14/rttov13pred54L/rtcoef_msg_2_seviri_7gas_ironly.dat rtcoef_msg_2_seviri.dat
+   ln -sf $(SRC_MESONH)/src/LIB/RTTOV_14.1/cldaer_ir/sccldcoef_msg_2_seviri_ironly.dat sccldcoef_msg_2_seviri.dat
 
 * for visible and IR calculation, do:
 
 .. code-block:: bash
 
-   ln -sf []/rttov13pred54L/rtcoef_msg_2_seviri_o3co2.dat rtcoef_msg_2_seviri.dat
-   ln -sf []/cldaer_visir/sccldcoef_msg_2_seviri.dat .
+   ln -sf $(SRC_MESONH)/src/LIB/RTTOV_14.1/rttov13pred54L/rtcoef_msg_2_seviri_o3co2.dat rtcoef_msg_2_seviri.dat
+   ln -sf $(SRC_MESONH)/src/LIB/RTTOV_14.1/cldaer_visir/sccldcoef_msg_2_seviri.dat .
    
 In addition, download the brdf_data file and set NRTTOVinfo(4,1) to 1.
    
