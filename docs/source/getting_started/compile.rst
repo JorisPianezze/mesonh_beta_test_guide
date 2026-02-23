@@ -493,7 +493,7 @@ If you have already compiled the same version of Meso-NH on this computer (same 
 Compile with additional libraries
 =============================================================================
 
-It's possible to compile Meso-NH with additionnal libraries like FOREFIRE, RTTOV, ECRAD, MEGAN, OASIS... In the following subsections you will find information to compile Meso-NH with these libraries.
+It's possible to compile Meso-NH with additionnal libraries for :ref:`compile_mesonh_with_forefire`, :ref:`compile_mesonh_with_rttov`, :ref:`compile_mesonh_with_megan` and :ref:`compile_mesonh_with_oasis`. In the following subsections you will find information to compile Meso-NH with these libraries.
 
 
 .. _compile_mesonh_with_forefire:
