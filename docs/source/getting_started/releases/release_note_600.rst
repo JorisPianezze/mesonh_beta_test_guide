@@ -237,8 +237,146 @@ Variables outputs
 
 List of output variables dedicated to :ref:`output_WindTurbine` are updated.
 
+
 I/O
 ----------------------------------------------------------------------------
+
+Group :file:`/SURFEX`
+****************************************************************************
+
+In the netCDF files, the majority of the fields related to SURFEX are now stored in a group named :file:`/SURFEX`.
+The exceptions are grid coordinates, grid dimensions and some orographic fields.
+A group can be seen as a folder in which several fields can be stored.
+This allows to better organize the content of the file and to avoid name conflicts with other fields (there was some collisions).
+The group :file:`/SURFEX` is created at the root of the file.
+
+
+Compression enabled by default
+****************************************************************************
+
+Compression is now enabled by default for all written netCDF files.
+
+As a reminder, compression for all files is enabled or disabled via the ``LIO_COMPRESS`` parameter in the ``&NAM_CONFIO`` namelist.
+
+**Note:** if ``LIO_COMPRESS = .TRUE.``, the parameters ``LIO_COMPRESS_ALGO`` and ``LIO_COMPRESS_LEVEL`` take precedence over those in the ``NAM_BACKUP`` and ``NAM_OUTPUT`` namelists (however, no impact if compression is imposed per variable in the outputs).
+
+
+Zstandard (zstd) compression
+****************************************************************************
+
+The Zstandard compression library (zstd) is now available as a compression algorithm for netCDF files.
+It is the default compression algorithm for all floating-point variables if compression is activated.
+If the variable type is different (other than floating-point numbers, e.g., integers), it is automatically forced to DEFLATE (zlib).
+
+Description
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Zstandard is a lossless library. It is open-source and developed by Facebook.
+It is widely used and is supported by many tools and libraries (e.g., Python...).
+It provides a better compression ratio than zlib/DEFLATE and is much faster for both compression and decompression.
+
+More information about zstd can be found on the following links:
+
+- `GitHub - facebook/zstd <https://github.com/facebook/zstd/>`_
+- `Zstandard Documentation <https://facebook.github.io/zstd/>`_
+- A manual is aloso available in the sources
+
+
+Constraints
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+- Not available everywhere (especially the development part). Therefore, it is bundled with Meso-NH.
+- Not hardcoded in HDF5 but is used as a plugin. Therefore, it is necessary to set the ``HDF5_PLUGIN_PATH`` environment variable. This variable is automatically set when loading the Meso-NH environment (:file:`profile-*` files)
+- Need to provide the plugin sources (outside of HDF5)
+- Not necessarily supported/compiled in all NetCDF tools (but is present for NetCDF with recent Python)
+- Only works for floating-point numbers
+
+
+Namelists
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+- ``&NAM_CONFIO``: ``CIO_COMPRESS_ALGO = 'ZSTD'`` (overrides ``CBAK/COUT_COMPRESS_ALGO`` if ``LIO_COMPRESS=T``)
+- ``&NAM_BACKUP``: ``CBAK_COMPRESS_ALGO(m) = 'ZSTD'``
+- ``&NAM_OUTPUT``: ``COUT_COMPRESS_ALGO(m) = 'ZSTD'``
+
+Allowed values: ``ZSTD``, ``DEFLATE``, or ``NONE``.
+
+- By default, the compression algorithm is ``ZSTD`` (instead of ``DEFLATE`` previously).
+- For non-floating-point numbers, if compression is activated and set to ``ZSTD``, it is automatically forced to ``DEFLATE``.
+- Compression algorithm per model (not possible per variable or per box) (possible in theory, but the interest seems negligible).
+- If the algorithm is forced to ``NONE``, compression is disabled, including lossy compression.
+- Allowed compression levels: -99 to 22.
+
+Performance
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Example:
+
+- Modified test case 004_Reunion (resolution x4: 288x320x50)
+- 5 3D fields in real64 in outputs: UT, VT, WT, THT, PABST
+- 10 time steps with 10 backups and 10 outputs
+- Runs on a standard PC
+- gfortran 14.2.0, compiled with -O2.
+
+.. csv-table:: Performance Comparison
+   :header: "#processes", "Compression Algorithm", "Compression Level", "I/O Time", "Total Time", "File Size"
+   :widths: 10, 20, 15, 15, 15, 15
+
+   1,None,,40.9 s,405.6 s,9.8 GiB
+   1,Deflate,4,150.8 s,514.3 s,3.6 GiB
+   1,Zstd,4,32.3 s,399.0 s,3.6 GiB
+   1,Zstd,22,1084.5 s,1465.8 s,3.5 GiB
+   4,None,,41.6 s,293.2 s,9.8 GiB
+   4,Deflate,4,152.8 s,406.6 s,3.6 GiB
+   4,Zstd,-4,37.6 s,294.4 s,3.6 GiB
+   4,Zstd,4,40.8 s,292.4 s,3.6 GiB
+   4,Zstd,22,1059.4 s,1387.9 s,3.5 GiB
+
+Conclusions:
+
+- zlib/DEFLATE is expensive
+- Zstd is much faster than zlib
+- Zstd compresses as well as zlib
+- A very high compression level is costly in CPU but does not provide significant disk space gains (in this case, at least)
+- Zstd can be faster than no compression (compression faster than writing to disk)
+
+
+Removal of LFI support (in writing)
+****************************************************************************
+
+Files in LFI format are no longer supported for writing (but still supported for reading).
+
+
+Storage of Meso-NH version numbers
+****************************************************************************
+
+Meso-NH version numbers are no longer stored in fields but in netCDF attributes.
+
+- Removed fields:
+
+  - ``MNHVERSION``
+  - ``MASDEV``
+  - ``BUGFIX``
+  - ``BIBUSER``
+
+- Added attributes:
+
+  - ``MNH_VERSION`` (array of 3 integers)
+  - ``MNH_VERSION_STR``: Version in text format (e.g., "6.0.0" or "6.0.0 myversion")
+  - ``MNH_VERSION_USER``: Only if ``CBIBUSER`` is not empty
+
+
+Other changes
+****************************************************************************
+
+- CF Conventions
+
+  - Updated to version 1.12 (from 1.10)
+  - Added quantization variables (``quantization_info_*``) that provide characteristics of lossy compression and quantization
+  - Added quantization attributes and ``quantization_nsb/nsd`` required by CF 1.12 conventions for variables reduced with this approach
+
+- Removal of backward compatibility for files of versions of Meso-NH < 5
+
 
 ACLIB: Aerosols and Chemistry Library
 ----------------------------------------------------------------------------
@@ -272,7 +410,7 @@ Turbulence
 
 * :code:`LBL89EXP`: true to use the exposant from the BL89 paper ( which is LOG(16.)/(4.*LOG(XKARMAN)+LOG(XCED)-3.*LOG(XCMFS))). Otherwise 2./3. (False in AROME cycl 50t1)
 
-Schallow convection
+Shallow convection
 ****************************************************************************
 
 .. csv-table:: NAM_PARAM_MFSHALLn new entries
@@ -450,6 +588,32 @@ WRF and ICON init and forcing
 SURFEX
 ----------------------------------------------------------------------------
 
+Namelist changes
+----------------------------------------------------------------------------
+
+&NAM_CONF
+****************************************************************************
+
+- ``CINIT_LG``: the ``FMOUT`` option has been renamed to ``BACKUP``.
+
+
+&NAM_PARAM_RADN
+****************************************************************************
+
+Renaming parameters for CEFRADL and CEFRADI:
+
+- CEFRADL: the ``C2R2`` option has been renamed to ``2MOM``
+- CEFRADI: the ``C3R5`` option has been renamed to ``2MOM``
+
+
+&NAM_OUTPUT
+****************************************************************************
+
+An additional dimension (the first one) has been added to all ``&NAM_OUTPUT`` parameters to indicate the time series number of outputs.
+
+For now, this new dimension is always set to 1. This will allow to have several time series of outputs with different frequencies and/or variables in the future (e.g., one time series every 15 minutes with a selection of 3D fields, and one time series every minute with surface fields).
+
+
 Cleaning
 ----------------------------------------------------------------------------
 
@@ -457,3 +621,18 @@ External libraries and tools
 ----------------------------------------------------------------------------
 
 * ECCODES updated to 2.41
+
+
+Miscellaneous changes
+----------------------------------------------------------------------------
+
+Balloons: improved vertical position calculation
+****************************************************************************
+
+- Reduced time step to improve numerical stability if necessary:
+
+  - Originally, max 1 second
+  - Now, if the speed is too high, it tries 0.1 second
+  - If still too high, a forced crash occurs
+
+- Recalculates air density and vertical speed at each intermediate time step (changes significantly if the time step is large and/or the balloon moves quickly)
