@@ -344,7 +344,7 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
 
   .. code:: fortran
 
-     &NAM_DYN XSEGLEN  = 600.,
+     &NAM_DYN XSEGLEN  = 60.,
               LNUMDIFU = .TRUE.,
               XALKTOP  = 0.01,
               XALZBOT  = 14000. /
@@ -359,13 +359,13 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
 
   .. code:: fortran
 
-     &NAM_BACKUP XBAK_TIME(1,1) = 600.0 /
+     &NAM_BACKUP XBAK_TIME(1,1) = 60.0 /
 
 * The time step, pressure solver option and the activation of the top absorbing layer in :ref:`NAM_DYNn <nam_dynn>` namelist:
 
   .. code:: fortran
 
-     &NAM_DYNn XTSTEP         = 10.,
+     &NAM_DYNn XTSTEP         = 20.,
                CPRESOPT       = "CRESI",
                LHORELAX_UVWTH = .TRUE.,
                LHORELAX_RV    = .TRUE.,
@@ -417,16 +417,41 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
 * The convective parametrization options in :ref:`NAM_PARAM_KAFRn <nam_param_kafrn>` namelist:
 
   .. code:: fortran
-  
+
      &NAM_PARAM_KAFRn XDTCONV = 300. /
 
 * The turbulent parametrization options in :ref:`NAM_TURBn <nam_turbn>` namelist:
 
   .. code:: fortran
-  
+
      &NAM_TURBn CTURBLEN = "BL89",
                 CTURBDIM = "1DIM" /
 
+* The frequent output options in :ref:`NAM_OUTPUT <nam_output>` namelist:
+
+  .. code:: fortran
+
+     &NAM_OUTPUT COUT_VAR(1,1,1)             = "INPRR",
+                 COUT_VAR(1,1,2)             = "ACPRR",
+                 COUT_VAR(1,1,3)             =    "UT",
+                 COUT_VAR(1,1,4)             =    "VT",
+                 COUT_VAR(1,1,5)             =   "THT",
+                 COUT_VAR(1,1,6)             =   "RVT",
+                 XOUT_TIME_FREQ_FIRST        =     0.,
+                 XOUT_TIME_FREQ              =    20.,
+                 LOUT_REDUCE_FLOAT_PRECISION =       T,
+                 COUT_DIR                    = "OUTPUT" /
+
+* Some SURFEX diagnostics in :ref:`NAM_DIAG_SURFn <nam_diag_surfn>` namelist:
+
+   .. code:: fortran
+
+      &NAM_DIAG_SURFn N2M           = 2,
+                      LSURF_BUDGET  = T,
+                      LRAD_BUDGET   = T,
+                      LCOEF         = T,
+                      LSURF_BUDGETC = T,
+                      LSURF_VARS    = T /
 
 .. tip::
 
@@ -444,14 +469,14 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
                    CEXP    = "EXP01",
                    CSEG    = "SEG01" /
 
-         &NAM_DYN XSEGLEN  = 600.,
+         &NAM_DYN XSEGLEN  = 60.,
                   LNUMDIFU = .TRUE.,
                   XALKTOP  = 0.01,
                   XALZBOT  = 14000. /
 
-         &NAM_BACKUP XBAK_TIME(1,1) = 600. /
+         &NAM_BACKUP XBAK_TIME(1,1) = 60. /
 
-         &NAM_DYNn XTSTEP         = 10.,
+         &NAM_DYNn XTSTEP         = 20.,
                    CPRESOPT       = "CRESI",
                    LHORELAX_UVWTH = .TRUE.,
                    LHORELAX_RV    = .TRUE.,
@@ -481,6 +506,23 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
          &NAM_TURBn CTURBLEN = "BL89",
                     CTURBDIM = "1DIM" /
 
+         &NAM_OUTPUT COUT_VAR(1,1,1)             = "INPRR",
+                     COUT_VAR(1,1,2)             = "ACPRR",
+                     COUT_VAR(1,1,3)             =    "UT",
+                     COUT_VAR(1,1,4)             =    "VT",
+                     COUT_VAR(1,1,5)             =   "THT",
+                     COUT_VAR(1,1,6)             =   "RVT",
+                     XOUT_TIME_FREQ_FIRST        =     0.,
+                     XOUT_TIME_FREQ              =    20.,
+                     LOUT_REDUCE_FLOAT_PRECISION =       T,
+                     COUT_DIR                    = "OUTPUT" /
+
+         &NAM_DIAG_SURFn N2M           = 2,
+                         LSURF_BUDGET  = T,
+                         LRAD_BUDGET   = T,
+                         LCOEF         = T,
+                         LSURF_BUDGETC = T,
+                         LSURF_VARS    = T /
 
    This file is located here :
    

@@ -277,7 +277,9 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
 
   .. code:: fortran
 
-     &NAM_BACKUP XBAK_TIME(1,1) = 36000.0 /
+     &NAM_BACKUP XBAK_TIME(1,1) = 3600.,
+                 XBAK_TIME(1,2) = 12000.,
+                 XBAK_TIME(1,3) = 36000. /
 
 * The time step, pressure solver option and the activation of the top absorbing layer in :ref:`NAM_DYNn <nam_dynn>` namelist:
 
@@ -335,7 +337,9 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
                   XALKTOP = 0.005,
                   XALZBOT = 20000. /
 
-         &NAM_BACKUP XBAK_TIME(1,1) = 36000. /
+         &NAM_BACKUP XBAK_TIME(1,1) = 3600.,
+                     XBAK_TIME(1,2) = 12000.,
+                     XBAK_TIME(1,3) = 36000. /
 
          &NAM_DYNn XTSTEP    = 20.,
                    CPRESOPT  = "CRESI",

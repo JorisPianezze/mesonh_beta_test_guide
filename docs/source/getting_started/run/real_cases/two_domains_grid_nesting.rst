@@ -834,11 +834,11 @@ In the :file:`EXSEG1.nam` file, we recommend to have the following minimum infor
                  CRAD   = "ECMW",
                  CCLOUD = "ICE3",
                  CSCONV = "EDKF",
-                 CDCONV = "NONE" /
+                 CDCONV = "KAFR" /
 
   .. note::
 
-     In this example, you will use turbulence, radiative, miscrophysics and shallow convection parametrizations.
+     In this example, you will use turbulence, radiative, miscrophysics, shallow and deep convection parametrizations.
 
 * The radiative parametrization options in :ref:`NAM_PARAM_RADn <nam_param_radn>` namelist:
 
@@ -1141,11 +1141,11 @@ In the :file:`DIAG1.nam` file, we recommend to have the following minimum inform
   .. code:: fortran
 
      &NAM_DIAG LISOAL    = .TRUE.,
-               XISOAL(1) = 3000.0 /
+               XISOAL(1) = 500.0 /
 
   .. note::
 
-     * In this example, you will interpole some variables at a constant altitude of 500 m above sea level.
+     * In this example, you will interpolate some variables at a constant altitude of 500 m above sea level.
 
 .. tip::
 
