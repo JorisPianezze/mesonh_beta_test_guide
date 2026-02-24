@@ -108,12 +108,6 @@ The use of zoom is highly recommended in order to reduce memory requirements at 
      * surface analysis : xp/XXXX/YYYYMMDDHHHP/surfan/ (name depend of the experience and AROME's cycle)
      * PGD_AROME : if AROME's cycle higher than 37 you have to get PGD file in LFI format from OLIVE experiment
 
-   * Experiment AROME WESTMED:
-   
-     * oper 2012 : /gmap_obs/mrpa/bressone/xp/S024 (cycle 36 before 25/09)
-     * oper 2012 : /gmap_obs/mrpa/bressone/xp/S02X (cycle 37 after 25/09)
-     * reanalysis 1 : /cnrm2/mrmp/mrmp235/xp/B2SZ (cycle 37 for SOP1)
-
 Use of extracted GRIB files
 *****************************************************************************
 
@@ -147,6 +141,10 @@ Depending on the simulated date, the NAM_PREP_SURF_ATM changes. The changes are 
    "", "", "", "CFILETYPE='MESONH'"
    "", "", "", "CFILEPGD='PGD_oper_46t1.01km30.05'"
    "", "", "", "CFILEPGDTYPE='MESONH'"
+   "15/10/2024 00h", "cy48", "8.1", "CFILE='INIT_SURF.20241015.00'"
+   "", "", "", "CFILETYPE='MESONH'"
+   "", "", "", "CFILEPGD='PGD_oper_48t1.01km30'"
+   "", "", "", "CFILEPGDTYPE='MESONH'"
 
 .. note::
 
@@ -170,7 +168,7 @@ Example of PRE REAL1.nam namelist with AROME surface analysis :
      NGEN_ABORT_LEVEL = 1
    /
    &NAM_FILE_NAMES
-     HATMFILE     = 'arome.PT.20160602.12',
+     HATMFILE     = 'arome.FC.2026013000.12',
      HATMFILETYPE = 'GRIBEX',
      HPGDFILE     = 'PGD_AZF',
      CINIFILE     = 'couplage_arome'
@@ -189,9 +187,9 @@ Example of PRE REAL1.nam namelist with AROME surface analysis :
      ZSTRTOP      = 7.
    /
    &NAM_PREP_SURF_ATM
-     CFILE        = 'INIT_SURF.20160602.12',
+     CFILE        = 'INIT_SURF.20260130.12',
      CFILETYPE    = 'MESONH',
-     CFILEPGD     = 'PGD_oper_41t1.01km30',
+     CFILEPGD     = 'PGD_oper_48t1.01km30',
      CFILEPGDTYPE = 'MESONH'
    /
 
