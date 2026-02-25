@@ -12,8 +12,209 @@ Release date : XX/XX/2026
 Running on GPU
 ----------------------------------------------------------------------------
 
-Radiation scheme
+Radiation scheme - ECRAD 1.6.1
 ----------------------------------------------------------------------------
+
+ECRAD is now compiled by default. All namelist keys available in ECRAD-offline is now available with Méso-NH (see the `reference ECMWF documentation <https://confluence.ecmwf.int/download/attachments/70945505/ecrad_documentation.pdf?version=5&modificationDate=1655480733414&api=v2>`_)
+
+.. note::
+
+   To use ECRAD, you still must link data files found at $SRC_MESONH/src/LIB/RAD/ecrad-1.6.1/data/ in the folder of the simulation (MESONH step).
+
+.. csv-table:: NAM_PARAM_ECRADn new entries
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
+   "CDATADIR", "CHARACTER(LEN=511)", "."
+   "LDO_SW", "LOGICAL", ".TRUE."
+   "LDO_LW", "LOGICAL", ".TRUE."
+   "LDO_SW_DIRECT", "LOGICAL", ".TRUE."
+   "LDO_CLEAR", "LOGICAL", ".TRUE."
+   "LDO_CLOUD_AEROSOL_PER_SW_G_POINT", "LOGICAL", ".TRUE."
+   "LDO_CLOUD_AEROSOL_PER_LW_G_POINT", "LOGICAL", ".TRUE."
+   "CGAS_MODEL_NAME", "CHARACTER(LEN=63)", "RRTMG-IFS"
+   "CGAS_OPTICS_SW_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", ""
+   "CGAS_OPTICS_LW_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", ""
+   "LUSE_AEROSOLS", "LOGICAL", ".FALSE."
+   "LUSE_GENERAL_AEROSOL_OPTICS", "LOGICAL", ".FALSE."
+   "LDO_LW_AEROSOL_SCATTERING", "LOGICAL", ".FALSE."
+   "NAEROSOL_TYPES", "INTEGER", "6"
+   "NI_AEROSOL_TYPE_MAP", "INTEGER(NMAXAEROSOLTYPES)", "(1,2,3,4,5,6/)"
+   "CAEROSOL_OPTICS_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", "aerosol_ifs_rrtm_tegen.nc"
+   "CLIQUID_MODEL_NAME", "CHARACTER(LEN=63)", "SOCRATES"
+   "CICE_MODEL_NAME", "CHARACTER(LEN=63)", "Fu-IFS"
+   "LUSE_GENERAL_CLOUD_OPTICS", "LOGICAL", ".TRUE."
+   "LDO_LW_CLOUD_SCATTERING", "LOGICAL", ".TRUE."
+   "CIQ_OPTICS_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", ""
+   "CICE_OPTICS_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", ""
+   "CCLOUD_TYPE_NAME", "CHARACTER(LEN=511)(:)", "mie_droplet"
+   "LUSE_THICK_CLOUD_SPECTRAL_AVERAGING(:)", "LOGICAL", ".TRUE."
+   "CSW_SOLVER_NAME", "CHARACTER(LEN=63)", "Tripleclouds"
+   "CLW_SOLVER_NAME", "CHARACTER(LEN=63)", "Tripleclouds"
+   "COVERLAP_SCHEME_NAME", "CHARACTER(LEN=63)", "Exp-Ran"
+   "LUSE_BETA_OVERLAP", "LOGICAL", ".FALSE."
+   "XCLOUD_INHOM_DECORR_SCALING", "REAL", "1.0"
+   "XCLOUD_FRACTION_THRESHOLD", "REAL", "1.0E-6"
+   "XCLOUD_MIXING_RATIO_THRESHOLD", "REAL", "1.0E-9"
+   "CCLOUD_PDF_SHAPE_NAME", "CHARACTER(LEN=63)", "Gamma"
+   "CCLOUD_PDF_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", ""
+   "LDO_SW_DELTA_SCALING_WITH_GASES", "LOGICAL", ".FALSE."
+   "LDO_3D_EFFECTS", "LOGICAL", ".TRUE."
+   "LDO_LW_SIDE_EMISSIVITY", "LOGICAL", ".TRUE."
+   "CSW_ENTRAPMENT_NAME", "CHARACTER(LEN=63)", "Explicit"
+   "LDO_3D_LW_MULTILAYER_EFFECTS", "LOGICAL", ".FALSE."
+   "XMAX_3D_TRANSFER_RATE", "REAL", "10.0"
+   "XMAX_GAS_OD_3D", "REAL", "8.0"
+   "XMAX_CLOUD_OD", "REAL", "16.0"
+   "LUSE_EXPM_EVERYWHERE", "LOGICAL", ".FALSE."
+   "XCLEAR_TO_THICK_FRACTION", "REAL", "0.0"
+   "XOVERHEAD_SUN_FACTOR", "REAL", "0.0"
+   "XOVERHANG_FACTOR", "REAL", "0.0"
+   "LDO_NEAREST_SPECTRAL_SW_ALBEDO", "LOGICAL", ".FALSE."
+   "LDO_NEAREST_SPECTRAL_LW_EMISS", "LOGICAL", ".FALSE."
+   "XSW_ALBEDO_WAVELENGTH_BOUND", "REAL(:)", "-10"
+   "XLW_EMISS_WAVELENGTH_BOUND", "REAL(:)", "-10"
+   "ISW_ALBEDO_INDEX", "INTEGER(:)", "0"
+   "ILW_EMISS_INDEX", "INTEGER(:)", "0"
+   "LDO_WEIGHTED_SURFACE_MAPPING", "LOGICAL", ".TRUE."
+   "IVERBOSESETUP", "INTEGER", "3"
+   "IVERBOSE", "INTEGER", "1"
+   "LDO_SAVE_SPECTRAL_FLUX", "LOGICAL", ".FALSE."
+   "LDO_SAVE_GPOINT_FLUX", "LOGICAL", ".FALSE."
+   "LDO_SAVE_RADIATIVE_PROPERTIES", "LOGICAL", ".FALSE."
+
+
+* :code:`CDATADIR`: Directory containing NetCDF data files
+
+* :code:`LDO_SW`: flag to compute shortwave fluxes
+
+* :code:`LDO_LW`: flag to compute longwave fluxes
+
+* :code:`LDO_SW_DIRECT`: flag to compute direct shortwave fluxes
+
+* :code:`LDO_CLEAR`: flag to ompute clear-sky fluxes
+
+* :code:`LDO_CLOUD_AEROSOL_PER_SW_G_POINT`: flag to ompute cloud, aerosol and surface shortwave optical properties per g-point
+
+* :code:`LDO_CLOUD_AEROSOL_PER_LW_G_POINT`: flag to compute cloud, aerosol and surface longwave optical properties per g-point
+
+* :code:`CGAS_MODEL_NAME`: Gas optics model: 'RRTMG-IFS', 'ECCKD' or 'Monochromatic'.
+
+* :code:`CGAS_OPTICS_SW_OVERRIDE_FILE_NAME`: Path to alternative shortwave ecCKD gas optics file
+
+* :code:`CGAS_OPTICS_LW_OVERRIDE_FILE_NAME`: Path to alternative longwave ecCKD gas optics file
+
+* :code:`LUSE_AEROSOLS`: flag to represent aerosols
+
+* :code:`LUSE_GENERAL_AEROSOL_OPTICS`: Support arbitrary spectral discretization for aerosols (not just RRTMG)
+
+* :code:`LDO_LW_AEROSOL_SCATTERING`: Include longwave aerosol scattering?
+
+* :code:`NAEROSOL_TYPES`: Number of aerosol types
+
+* :code:`NI_AEROSOL_TYPE_MAP(:)`: Mapping from input aerosol types to aerosol optics NetCDF file. By default the mapping is 1: Continental background, 2: Maritime, 3: Desert, 4: Urban, 5: Volcanic active, 6: Stratospheric background. Positive integers indexe hydrophobic types, negative integers index hydrophilic types and zero indicates a type should be ignored
+
+* :code:`CAEROSOL_OPTICS_OVERRIDE_FILE_NAME`: Path to alternative aerosol optics file
+
+* :code:`CLIQUID_MODEL_NAME`: Liquid optics model: 'SOCRATES', 'Slingo' (1989) or 'Monochromatic'
+
+* :code:`CICE_MODEL_NAME`: Ice optics model: 'Fu-IFS', 'Baran2016', 'Yi' or 'Monochromatic'. From Fu(1996), Fu et al. (1998), Baran et al. (2016) and Yi et al. (2013)
+
+* :code:`LUSE_GENERAL_CLOUD_OPTICS`: Support arbitrary hydrometeor types?
+
+* :code:`LDO_LW_CLOUD_SCATTERING`: Include longwave cloud scattering?
+
+* :code:`CLIQ_OPTICS_OVERRIDE_FILE_NAME`: Alternative liquid optics file name
+
+* :code:`CICE_OPTICS_OVERRIDE_FILE_NAME`: Alternative ice optics file name
+
+* :code:`CCLOUD_TYPE_NAME(:)`: Optical property model name for each generalized hydrometeor species: 'mie_droplet', 'baum-general-habit-mixture_ice'
+
+* :code:`LUSE_THICK_CLOUD_SPECTRAL_AVERAGING(:)`: Use thick spectral averaging?
+
+* :code:`CSW_SOLVER_NAME`: Shortwave solver. 'Cloudless', 'Homogeneous', 'McICA', 'Tripleclouds', 'SPARTACUS'. Note that the homogeneous solver assumes cloud fills the gridbox horizontally (so ignores cloud fraction) while the cloudless solver ignores clouds completely
+
+* :code:`CLW_SOLVER_NAME`: Longwave solver: 'Cloudless', 'Homogeneous', 'McICA', 'Tripleclouds' or 'SPARTACUS'
+
+* :code:`COVERLAP_SCHEME_NAME`: Cloud overlap scheme: 'Max-Ran', 'Exp-Ran', 'Exp-Exp' Note that SPARTACUS and Tripleclouds only work with the Exp-Ran overlap scheme
+
+* :code:`LUSE_BETA_OVERLAP`: Use Shonk et al . 2010  :math:`\beta` overlap parameter definition, rather than the default :math:`\alpha`
+
+* :code:`XCLOUD_INHOM_DECORR_SCALING`: Ratio of overlap decorrelation lengths for cloud inhomogeneities and boundaries
+
+* :code:`XCLOUD_FRACTION_THRESHOLD`: Ignore clouds with fraction below this. Set to 2.5e-5 if COVERLAP_SCHEME_NAME='Exp-Ran'
+
+* :code:`XCLOUD_MIXING_RATIO_THRESHOLD`: Ignore clouds with total mixing ratio below this
+
+* :code:`CCLOUD_PDF_SHAPE_NAME`: Cloud water PDF shape: 'Gamma' or 'Lognormal'
+
+* :code:`CCLOUD_PDF_OVERRIDE_FILE_NAME`: Name of NetCDF file of alternative cloud PDF look-up table
+
+* :code:`LDO_SW_DELTA_SCALING_WITH_GASES`: Apply delta-Eddington scaling to particle-gas mixture, rather than particles only (see Hogan and Bozzo, 2018)
+
+* :code:`LDO_3D_EFFECTS`: Represent cloud edge effects when SPARTACUS solver selected; note that this option does not affect entrapment, which is also a 3D effect
+
+* :code:`LDO_LW_SIDE_EMISSIVITY`: Represent effective emissivity of the side of clouds (Schafer et al., 2016)
+
+* :code:`CSW_ENTRAPMENT_NAME`: Entrapment model (Hogan et al. 2019): 'Zero', 'Edge-only', 'Explicit', 'Non-fractal' or 'Maximum'.   
+
+* :code:`LDO_3D_LW_MULTILAYER_EFFECTS`: Maximum entrapment for longwave radiation?
+
+* :code:`XMAX_3D_TRANSFER_RATE`: Maximum rate of lateral exchange between regions in one layer, for stability of matrix exponential (where the default means that as little as e−10 of the radiation could remain in a region)
+
+* :code:`XMAX_GAS_OD_3D`: 3D effects ignored for spectral intervals where gas optical depth of a layer exceeds this, for stability
+
+* :code:`XMAX_CLOUD_OD`: Maximum in-cloud optical depth, for stability
+
+* :code:`LUSE_EXPM_EVERYWHERE`: Use matrix-exponential method even when 3D effects not important, such as clear-sky layers and parts of the spectrum where the gas optical depth is large?
+
+* :code:`XCLEAR_TO_THICK_FRACTION`: Fraction of cloud edge interfacing directly to the most optically thick cloudy region
+
+* :code:`XOVERHEAD_SUN_FACTOR`: Minimum tan-squared of solar zenith angle to allow some ‘direct’ radiation from overhead sun to pass through cloud sides (0.06 used by Hogan et al., 2016)
+
+* :code:`XOVERHANG_FACTOR`: A detail of the entrapment representation described by Hogan et al. (2019)
+
+* :code:`LDO_NEAREST_SPECTRAL_SW_ALBEDO`: Surface shortwave albedos may be supplied in their own spectral intervals: do we select the nearest to each band of the gas optics scheme, rather than using a weighted average?
+
+* :code:`LDO_NEAREST_SPECTRAL_LW_EMISS`: same as :code:`LDO_NEAREST_SPECTRAL_SW_ALBEDO` for longwave emissivity
+
+* :code:`XSW_ALBEDO_WAVELENGTH_BOUND(:)`: Vector of the wavelength bounds (m) delimiting the shortwave albedo intervals
+
+* :code:`XLW_EMISS_WAVELENGTH_BOUND(:)`: Vector of the wavelength bounds (m) delimiting the longwave emissivity intervals
+
+* :code:`ISW_ALBEDO_INDEX(:)`: Vector of indices mapping albedos to wavelength intervals
+
+* :code:`ILW_EMISS_INDEX(:)`: Vector of indices mapping emissivities to wavelength intervals
+
+* :code:`LDO_WEIGHTED_SURFACE_MAPPING`: Planck-weighted surface mapping?
+
+* :code:`IVERBOSESETUP`: Setup verbosity level. 1=warning, 2=info, 3=progress, 4=detailed, 5=debug
+
+* :code:`IVERBOSE`: Execution verbosity level
+
+* :code:`LDO_SAVE_SPECTRAL_FLUX`: Save flux profiles in each band
+
+* :code:`LDO_SAVE_GPOINT_FLUX`: Save flux profiles in each g-point
+
+* :code:`LDO_SAVE_RADIATIVE_PROPERTIES`: Write intermediate NetCDF file(s) of properties sent to solver (radiative_properties*.nc)?
+
+
+The following namelists are renamed or replaced:
+
+* :code:`NSWSOLVER` is replaced by  :code:`CSW_SOLVER_NAME`
+
+* :code:`NLWSOLVER` is replaced by  :code:`CLW_SOLVER_NAME`
+
+* :code:`NLIQOPT` is replaced by :code:`CLIQUID_MODEL_NAME`
+
+* :code:`NICEOPT` is replaced by :code:`CICE_MODEL_NAME`
+
+* :code:`NOVLP` is replaced by  :code:`COVERLAP_SCHEME_NAME`
+
+* :code:`NLWSCATTERING` is replaced by :code:`LDO_LW_AEROSOL_SCATTERING` and :code:`LDO_LW_CLOUD_SCATTERING`
+
+* :code:`NAERMACC` is replaced by :code:`NAEROSOL_TYPES`
+
 
 Wind turbine - EOL 2.0.1
 ----------------------------------------------------------------------------
@@ -428,21 +629,23 @@ Shallow convection
    "LRELAX_ALPHA_MF","LOGICAL",".FALSE."
 
 
-* :code:`CWET_MIXING`: type of env mixing for buoyancy sorting scheme. 'PKFB' for the original Pergaud code, 'LR01' for Lappen and Randall 2001
+* :code:`CWET_MIXING` : type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for :cite:t:`lappen_toward_2001`)
 
-* :code:`CKIC_COMPUTE`: method to compute KIC: 'KFB' (PMMC09 original method, as in KFB). 'RS08' to use the Rooy and Siebesma (2008) formulation
+* :code:`CKIC_COMPUTE` : method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the :cite:t:`de_rooy_simple_2008` formulation) 
 
-* :code:`CDETR_DRY_LUP`: 'SURF' to use :math:`L_{UP}` at surface (PMMC09), 'UPDR' to compute :math:`L_{UP}` in updraft
+* :code:`CDETR_DRY_LUP` : upward length to use in the dry detrainement ('SURF' to use :math:`L_{UP}` at surface (original PMMC09 :cite:t:`pergaud_parameterization_2009`),
+ 'UPDR' to compute :math:`L_{UP}` in updraft)
 
-* :code:`LMIXTKE`: true if mixing of TKE. Only implemented with :code:`CMF_UPDRAFT='EDKF'`
+* :code:`LMIXTKE` : flag to mix the prognostic variable TKE by updrafts. Only implemented with :code:`CMF_UPDRAFT='EDKF'`
 
 * :code:`XSIGMA_ENV`: coefficient for the environment sigma contribution in the bigaussian scheme
 
-* :code:`LPZ_EXP_LOG`: true to use exp/log during dP/dZ conversion
+* :code:`LPZ_EXP_LOG`: true to use exp/log during dP/dZ conversion to respect hydrostatic approximation to interpolate z and p between two half-level and full-level points,
+ false to use linear interpolation (old interpolation, not recommended)
 
-* :code:`XBRIO`: coefficient to slow down :math:`w_{UP}` equation as in Rio 2010
+* :code:`XBRIO` : coefficient to slow down wup equa like :cite:t:`rio_resolved_2010`
 
-* :code:`XAADVEC`: coefficient for advective pressure perturbation as in Jia he 2022
+* :code:`XAADVEC` : coefficient for advective pressure perturbation like :cite:t:`he_improved_2020`
 
 * :code:`LRELAX_ALPHA_MF`: true to relax the small fraction assumption
 
@@ -461,9 +664,10 @@ ICE3
 
 * :code:`LKOGAN`: true to use Kogan autocoversion of liquid
 
-* :code:`LMODICEDEP`: flag for alternative deposition/evaporation of ice
+* :code:`LMODICEDEP`: flag for alternative deposition/evaporation coefficients of water vapor on ice, snow and graupel
 
-* :code:`LEXCLDROP`: true to use of external cloud droplet (as from NRT aerosols)
+* :code:`LEXCLDROP`: true to use of external cloud droplet concentration (as from near-real time aerosols) instead of constant values on land/sea masks. Only
+useable in HARMONIE-AROME and not yet Meso-NH
 
 * :code:`LEXT_TEND`: true to use external tendencies during the time-splitting
 
@@ -564,7 +768,7 @@ Condensation
 
    "LCONDBORN","LOGICAL",".FALSE."
 
-* :code:`LCONDBORN` : true to limit condensation
+* :code:`LCONDBORN` : true to limit condensation: reduce the distribution width  with respect to te total water content to avoid condensate too much water vapor not present 
 
 Ocean-Atmosphere-Wave coupling
 ----------------------------------------------------------------------------
@@ -577,18 +781,20 @@ Diagnostics
 Passive pollutants
 ----------------------------------------------------------------------------
 
-* :code:`LPASPOLDUST = FALSE`: emit dust aerosols 
-* :code:`NMODEL_PP = 1`: model number where passive pollutants are emitted. 
+* :code:`LPASPOLDUST`: emit dust aerosols instead of passive scalar
+
+* :code:`NMODEL_PP`: model number where passive pollutants are emitted
 
 WRF and ICON init and forcing
 ----------------------------------------------------------------------------
 
 * HRRR-WRF: Initializing and forcing Méso-NH with daily operational model HRRR is now possible. More info in :ref:`extracthrrr`
+* ICON-EU: Initializing and forcing Méso-NH with daily operational model ICON-EU is now possible. More info in :ref:`extracticon`
 
 SURFEX
 ----------------------------------------------------------------------------
 
-Namelist changes
+Other namelist changes
 ----------------------------------------------------------------------------
 
 &NAM_CONF
@@ -636,3 +842,7 @@ Balloons: improved vertical position calculation
   - If still too high, a forced crash occurs
 
 - Recalculates air density and vertical speed at each intermediate time step (changes significantly if the time step is large and/or the balloon moves quickly)
+
+Default namelist changes
+----------------------------------------------------------------------------
+* ECRAD: the shortwave and longwave solver was SPARTACUS by default which is very costly and not suitable for very high resolution LES. Now :code:`CSW_SOLVER_NAME='Tripleclouds'` and :code:`CLW_SOLVER_NAME='Tripleclouds'`
