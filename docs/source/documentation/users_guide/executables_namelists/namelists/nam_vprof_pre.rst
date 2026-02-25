@@ -80,6 +80,10 @@ NAM_VPROF_PRE
 
 * :code:`XYHATLOC` :  position (in meters) y of the vertical profile localization (used in cases CTYPELOC='XYHATM') 
 
-* :code:`NILOC` : position i in the physical domain  of the vertical profile localization (used in cases CTYPELOC='IJGRID'). If you use a 1D model, then NILOC is reset to 1 by the program.
+* :code:`NILOC` : position i in the physical domain of the vertical profile localization (used in cases CTYPELOC='IJGRID'). If you use a 1D model, then NILOC is reset to 1 by the program.
                                          
 * :code:`NJLOC` : position j in the physical domain of the vertical profile localization (used in cases CTYPELOC='IJGRID')  If you use a 1D or a 2D  model, then NJLOC is reset to 1 by the program.
+
+  .. note::     
+
+     It is important to setup NILOC and NJLOC properly especially if a topography is present in the simulation. The vertical profile is interpolated on the horizontal regarding the topography for the other grid points.
