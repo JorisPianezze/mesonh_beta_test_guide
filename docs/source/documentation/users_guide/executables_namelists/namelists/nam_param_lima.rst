@@ -64,6 +64,27 @@ It contains the options for the 2 moment mixed phase cloud parameterizations use
    "LMURAKAMI","LOGICAL",".TRUE."
    "LSNOW_T","LOGICAL",".FALSE."
    "LKESSLERAC","LOGICAL",".FALSE."
+   "LICE3","LOGICAL",".FALSE."
+   "LSIGMOIDE_G","LOGICAL",".FALSE."
+   "LSIGMOIDE_NG","LOGICAL",".FALSE."
+   "XSIGMOIDE_G","LOGICAL","1E8"
+   "XMVDMIN_G","LOGICAL","125E-6"
+   "LCRIAUTI","LOGICAL",".FALSE."
+   "XPSH_MAX_RDSF", "REAL", "0.2"
+   "XT0CRIAUTI","LOGICAL","(LOG10(XCRIAUTI)-XBCRIAUTI)/0.06"
+   "XCRIAUTI","REAL","0.2E-4"
+   "XCRIAUTC","REAL","0.5E-3"
+   "XACRIAUTI","REAL","0.06"
+   "XBCRIAUTI","REAL","-3.5"
+   "CSUBG_PR_PDF","CHARACTER(LEN=4)","'SIGM'"
+   "CSUBG_AUCV_RC","CHARACTER(LEN=4)","'NONE'"
+   "CSUBG_AUCV_RI","CHARACTER(LEN=4)","'NONE'"
+   "LCRYSTAL_SHAPE","LOGICAL",".FALSE."
+   "NNB_CRYSTAL_SHAPE", "INTEGER", "1"
+   "HTYPE_CRYSTAL", "CHARACTER(LEN=4)(:)","NNB_CRYSTAL_SHAPE * ''"
+   "LICE_ISC", "LOGICAL", ".FALSE."
+   "LINITORILAM", "LOGICAL", ".FALSE."
+   "LINTERP_CAMS", "LOGICAL", ".FALSE."
 
 * :code:`NMOM_C` : number of prognostic moments for cloud droplets.
 
@@ -210,3 +231,58 @@ It contains the options for the 2 moment mixed phase cloud parameterizations use
                 	CIFN_SPECIES='CAMS_AIT',
                 	CINT_MIXING='CAMS',
                 	NMOD_IMM=1 /
+
+* :code:`LICE3`: Use to mimic the ICE3 scheme. If set to .TRUE., some parameters are set :
+
+::
+  
+  NMOM_C=1  
+  NMOM_R=1  
+  NMOM_I=1
+  NMOM_S=1
+  NMOM_G=1
+  NMOM_H=MIN(NMOM_H,1)
+  NMOD_CCN=0
+  NMOD_IFN=0
+  LMURAKAMI=.TRUE.
+  LKESSLERAC=.TRUE.
+  XALPHAR=1.
+  XNUR=1.
+
+* :code:`LSIGMOIDE_G`: true to limit graupel growth by XSIGMOIDE_G
+
+* :code:`XSIGMOIDE_G`: sigmoide parameter for graupel growth limitation
+
+* :code:`LSIGMOIDE_NG`: true to force lambda to be < lambda(Dmin)
+
+* :code:`XMVDMIN_G`: minimum MVD for graupel growth lim or lambda(Dmin) calculation
+
+* :code:`LCRIAUTI`: true to compute XACRIAUTI and XBCRIAUTI (from XCRIAUTI and XT0CRIAUTI). If false, XT0CRIAUTI is computed from XCRIAUTI and XBCRIAUTI.
+
+* :code:`XPSH_MAX_RDSF`: shattering probability normal distribution maximum
+
+* :code:`XT0CRIAUTI`: threshold temperature for the ice->snow autoconversion threshold
+
+* :code:`XCRIAUTI`: ?
+
+* :code:`XACRIAUTI`: ?
+
+* :code:`XBCRIAUTI`: ?
+
+* :code:`CSUBG_PR_PDF`: PDF for subgrid precipitation. Options are the same as in :ref:`nam_param_icen`.
+
+* :code:`CSUBG_AUCV_RC`: type of subgrid rc->rr autoconversion method. Options are the same as in :ref:`nam_param_icen`.
+
+* :code:`CSUBG_AUCV_RI`: type of subgrid ri->rs autoconversion method. Options are the same as in :ref:`nam_param_icen`.
+
+* :code:`LCRYSTAL_SHAPE`: true to enable several ice crystal shapes. It can only be used if :code:`LPTSPLIT=T`.
+
+* :code:`NNB_CRYSTAL_SHAPE`: number of ice crystal shapes ; taken into account if :code:`LCRYSTAL_SHAPE=T`. For the moment, only 4 ice crystal shapes are allowed.
+
+* :code:`HTYPE_CRYSTAL_SHAPE`: ice crystal shapes if :code:`LCRYSTAL_SHAPE=T`. Can be set to YPLA, YCOL, YBUR or YDRO.
+
+* :code:`LICE_ISC`: true to enable self collection of ice crystals
+
+* :code:`LINITORILAM`: true to initialize CCN and IF by ORILAM
+
+* :code:`LINTERP_CAMS`: true to interpolate CAMS data at each time step (from Large-Scale fields)

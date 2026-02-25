@@ -54,6 +54,10 @@ It contains the options for the mixed phase cloud parameterizations used by the 
    "XRDEPSRED_NAM","REAL","1.0"
    "XRDEPGRED_NAM","REAL","1.0"
    "XFRMIN_NAM","REAL(40)",""
+   "LKOGAN","LOGICAL",".FALSE."
+   "LMODICEDEP","LOGICAL",".FALSE."
+   "LEXCLDROP","LOGICAL",".FALSE."
+   "LEXT_TEND","LOGICAL",".FALSE."
 
 * :code:`LWARM` : When .TRUE. activates the formation of rain by the warm microphysical processes
 
@@ -180,3 +184,11 @@ It contains the options for the mixed phase cloud parameterizations used by the 
 
 * :code:`XFRMIN_NAM` : parameters to modify melt and growth of graupels 
 
+* :code:`LKOGAN`: true to use Kogan autocoversion of liquid
+
+* :code:`LMODICEDEP`: flag for alternative deposition/evaporation coefficients of water vapor on ice, snow and graupel
+
+* :code:`LEXCLDROP`: true to use of external cloud droplet concentration (as from near-real time aerosols) instead of constant values on land/sea masks. Only
+useable in HARMONIE-AROME and not yet Meso-NH
+
+* :code:`LEXT_TEND`: true to use external tendencies during the time-splitting

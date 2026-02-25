@@ -39,6 +39,12 @@ It contains the characteristics of the turbulence scheme used by the model n. Th
    "LSMOOTH_PRANDTL","LOGICAL",".TRUE."
    "NTURBSPLIT","INTEGER","1"
    "LTURB_PRECIP","LOGICAL",".FALSE."
+   "LGOGER","LOGICAL",".FALSE."
+   "XSMAG","REAL","0.2"
+   "LDYNMF","LOGICAL",".FALSE."
+   "LTHERMMF","LOGICAL",".TRUE."
+   "LBL89TOP","LOGICAL",".FALSE."
+   "LBL89EXP","LOGICAL",".TRUE."
 
 * :code:`XIMPL` : degree of implicitness of the vertical part of the turbulence scheme. (XIMPL = 0.5 corresponds to the Cranck-Nicholson scheme for the vertical turbulent diffusion and  0. to a purely explicit scheme)
 
@@ -108,6 +114,18 @@ It contains the characteristics of the turbulence scheme used by the model n. Th
 * :code:`NTURBSPLIT` : number of time-splitting for the computation of horizontal turbulent fluxes
 
 * :code:`LTURB_PRECIP` : flag to activate the turbulent mixing of mixing ratios of snow, graupel, hail and liquid droplets :math:`r_s`, :math:`r_g`, :math:`r_h`, and :math:`r_r`
+
+* :code:`LGOGER`: true to compute the Goger terms
+
+* :code:`XSMAG`: dimensionless Smagorinsky constant
+
+* :code:`LDYNMF`: true to take into account a dynamical TKE production from EDMF
+
+* :code:`LTHERMMF`: true to take into account a buoyancy TKE production from EDMF
+
+* :code:`LBL89TOP`: true to limit BL89/RM17 at PBL top (as in ARPEGE)
+
+* :code:`LBL89EXP`: true to use the exposant from the BL89 paper ( which is LOG(16.)/(4.*LOG(XKARMAN)+LOG(XCED)-3.*LOG(XCMFS))). Otherwise 2./3. (False in AROME cycl 50t1)
 
 .. note::
 

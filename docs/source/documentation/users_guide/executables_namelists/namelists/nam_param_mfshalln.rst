@@ -48,22 +48,25 @@ It contains the options retained for the EDKF shallow convection scheme used by 
    "LPZ_EXP_LOG","LOGICAL",".FALSE."
    "XBRIO","REAL","0"
    "XAADVEC","REAL","0"
+   "LRELAX_ALPHA_MF","LOGICAL",".FALSE."
 
-* :code:`XIMPL_MF` : Degree of implicitness                                                        
 
-* :code:`CMF_UPDRAFT` : Type of Mass Flux Scheme ('EDKF', 'RHCJ' or 'NONE' )
+* :code:`XIMPL_MF` : degree of implicitness                                                        
 
-* :code:`CMF_CLOUD` : Type of statistical cloud ('DIRE' for the direct calculation of the cloud fraction as a function of the updraft fraction or 'STAT' given by the subgrid condensation scheme)
+* :code:`CMF_UPDRAFT` : type of Mass Flux Scheme ('EDKF', 'RHCJ' or 'NONE' )
 
-* :code:`CWET_MIXING` : Type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for :cite:t:`lappen_toward_2001`)
+* :code:`CMF_CLOUD` : type of statistical cloud ('DIRE' for the direct calculation of the cloud fraction as a function of the updraft fraction or 'STAT' given by the subgrid condensation scheme)
 
-* :code:`CKIC_COMPUTE` : Method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the :cite:t:`de_rooy_simple_2008` formulation) 
+* :code:`CWET_MIXING` : type of env mixing for buoyancy sorting scheme ('PKFB' for the original Pergaud code, 'LR01' for :cite:t:`lappen_toward_2001`)
 
-* :code:`CDETR_DRY_LUP` : Upward length to use in the dry detrainement ('SURF' to use LUP at surface (original PMMC09 :cite:t:`pergaud_parameterization_2009`), 'UPDR' to compute LUP in updraft)
+* :code:`CKIC_COMPUTE` : method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the :cite:t:`de_rooy_simple_2008` formulation) 
 
+* :code:`CDETR_DRY_LUP` : upward length to use in the dry detrainement ('SURF' to use :math:`L_{UP}` at surface (original PMMC09 :cite:t:`pergaud_parameterization_2009`),
+ 'UPDR' to compute :math:`L_{UP}` in updraft)
+ 
 * :code:`LMIXUV` : flag to take into account the mixing on momentum      
 
-* :code:`LMIXTKE` : flag to mix the TKE
+* :code:`LMIXTKE` : flag to mix the prognostic variable TKE by updrafts. Only implemented with :code:`CMF_UPDRAFT='EDKF'`
 
 * :code:`LMF_FLX` : flag to compute and store the mass fluxes on every synchronous output  file
 
@@ -119,8 +122,11 @@ It contains the options retained for the EDKF shallow convection scheme used by 
 
 * :code:`LVERLIMUP` : flag to allow a smooth vertical decrease of the mass-flux as soon as the updraft reaches a specific altitude, instead of a sharp limit of 0.
 
-* :code:`LPZ_EXP_LOG` : flag to use exp/log during dP/dZ conversion
+* :code:`LPZ_EXP_LOG`: true to use exp/log during dP/dZ conversion to respect hydrostatic approximation to interpolate z and p between two half-level and full-level points,
+ false to use linear interpolation (old interpolation, not recommended)
 
 * :code:`XBRIO` : coefficient to slow down wup equa like :cite:t:`rio_resolved_2010`
 
 * :code:`XAADVEC` : coefficient for advective pressure perturbation like :cite:t:`he_improved_2020`
+
+* :code:`LRELAX_ALPHA_MF`: true to relax the small fraction assumption

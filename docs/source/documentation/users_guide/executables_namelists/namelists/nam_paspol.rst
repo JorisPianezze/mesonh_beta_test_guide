@@ -9,8 +9,9 @@ It contains the parameters to activate passive pollutants, by specifying the pos
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
 
-   "LPASPOL","LOGICAL","FALSE"
+   "LPASPOL","LOGICAL",".FALSE."
    "NRELEASE","INTEGER","0"
+   "NMODEL_PP","INTEGER","1"
    "CPPINIT","ARRAY(100*CHARACTER(LEN=3))","100*'1PT'"
    "XPPLAT","ARRAY(100*REAL)","100*0.0"
    "XPPLON","ARRAY(100*REAL)","100*0.0"
@@ -21,6 +22,7 @@ It contains the parameters to activate passive pollutants, by specifying the pos
    "CPPT2","ARRAY(100*CHARACTER(LEN=14))","100*'20010921090000'"
    "CPPT3","ARRAY(100*CHARACTER(LEN=14))","100*'20010921091500'"
    "CPPT4","ARRAY(100*CHARACTER(LEN=14))","100*'20010921091500'"
+   "LPASPOLDUST","LOGICAL",".FALSE."
 
 * :code:`LPASPOL` : Flag to activate passive pollutants                                            
 
@@ -46,3 +48,6 @@ It contains the parameters to activate passive pollutants, by specifying the pos
 
 * :code:`CPPT4` : Ending date of the release (in YYYYMMDDHHMMSS)        
 
+* :code:`LPASPOLDUST`: emit dust aerosols instead of passive scalar
+
+* :code:`NMODEL_PP`: model number where passive pollutants are emitted
