@@ -314,8 +314,8 @@ To use with LCONTROL_EOL=.TRUE. in NAM_EOL.
 * :code:`CCONTROL_CSVDATA`: Data necessary for the turbine controller. Its definition varies as a function of the chosen control method:
 
   * 'TABLE': Meso-NH will expect four columns: Turbine Name, Velocity (in m/s), Rotational velocity (in rad/s) and Blade pitch angle (in rad). 
-  Take care of the sign of the variables (use the same convention as in the CSV file data_farm.csv, described in namelist :code:`CFARM_CSVDATA` in :ref:`nam_eol_alm`.
-  There can be as much lines as known operating points by the user, but it should be sorted in increasing velocity as the following example:
+    Take care of the sign of the variables (use the same convention as in the CSV file data_farm.csv, described in namelist :code:`CFARM_CSVDATA` in :ref:`nam_eol_alm`.
+    There can be as much lines as known operating points by the user, but it should be sorted in increasing velocity as the following example:
 
 .. code-block::
 
@@ -876,14 +876,14 @@ Shallow convection
 * :code:`CKIC_COMPUTE` : method to compute KIC ('KFB' to use the PMMC09 original method, like in KFB, 'RS08' to use the :cite:t:`de_rooy_simple_2008` formulation) 
 
 * :code:`CDETR_DRY_LUP` : upward length to use in the dry detrainement ('SURF' to use :math:`L_{UP}` at surface (original PMMC09 :cite:t:`pergaud_parameterization_2009`),
- 'UPDR' to compute :math:`L_{UP}` in updraft)
+  'UPDR' to compute :math:`L_{UP}` in updraft)
 
 * :code:`LMIXTKE` : flag to mix the prognostic variable TKE by updrafts. Only implemented with :code:`CMF_UPDRAFT='EDKF'`
 
 * :code:`XSIGMA_ENV`: coefficient for the environment sigma contribution in the bigaussian scheme
 
 * :code:`LPZ_EXP_LOG`: true to use exp/log during dP/dZ conversion to respect hydrostatic approximation to interpolate z and p between two half-level and full-level points,
- false to use linear interpolation (old interpolation, not recommended)
+  false to use linear interpolation (old interpolation, not recommended)
 
 * :code:`XBRIO` : coefficient to slow down wup equa like :cite:t:`rio_resolved_2010`
 
@@ -909,7 +909,7 @@ ICE3
 * :code:`LMODICEDEP`: flag for alternative deposition/evaporation coefficients of water vapor on ice, snow and graupel
 
 * :code:`LEXCLDROP`: true to use of external cloud droplet concentration (as from near-real time aerosols) instead of constant values on land/sea masks. Only
-useable in HARMONIE-AROME and not yet Meso-NH
+  useable in HARMONIE-AROME and not yet Meso-NH
 
 * :code:`LEXT_TEND`: true to use external tendencies during the time-splitting
 
@@ -1062,13 +1062,31 @@ An additional dimension (the first one) has been added to all ``&NAM_OUTPUT`` pa
 For now, this new dimension is always set to 1. This will allow to have several time series of outputs with different frequencies and/or variables in the future (e.g., one time series every 15 minutes with a selection of 3D fields, and one time series every minute with surface fields).
 
 
-Cleaning
+Cleaning and restructuration
 ----------------------------------------------------------------------------
+
+- The :file:`src/LIB/SURCOUCHE` directory has been removed. It contained source files par parallelization and for I/O. They all have been moved to the :file:`src/MNH/parallel` and :file:`src/MNH/io` directories.
+- Subdirectories in the :file:`src/MNH` directory have been created. The :file:`src/MNH` directory contained a lot of files with different functionalities.
+  To better organize the code, several subdirectories have been created and files have been moved.
+  This is only a first step and more restructuring will be done in the future.
+- The :file:`MY_RUN` directory has been renamed to :file:`examples`.
+- The :file:`MY_RUN/KTEST` directory has been renamed to :file:`examples/test_cases`.
+- The other :file:`examples/*` (formerly :file:`MY_RUN/*`) subdirectories are now lowercase. This does not apply to the test case directories, which keep their original name (usually in capital letters).
+
+
+- The :file:`bin_tools` directory has been removed. It contained executables that are no longer supported and that do not work on current machines.
+- The :file:`LIBTOOLS` directory has been removed. It contained mostly old tools and libraries that are no longer supported.
+- The :file:`src/include` directory has been removed. Only the ISORROPIA chemistry model has been kept and moved to the :file:`src/LIB/ISORROPIA` directory.
+- The :file:`LFI2CDF` tool has been renamed to :file:`CDF2CDF` and moved to :file:`MNH/`.
+- Configuration files, rules for compilation, examples of jobs... for obsolete machines and architectures have been removed.
+- The :file:`grib_api` library has been removed. It is no longer maintained (since 2017) and does not work with recent GRIB files. It is replaced by the ECCODES library.
+- The :file:`src/ARCH_SRC` directory has been cleaned. Obsolete sources have been removed.
+
 
 External libraries and tools
 ----------------------------------------------------------------------------
 
-* ECCODES updated to 2.41
+.. update to 2.41 already done in MNH 5.7.2 * ECCODES updated to 2.41
 
 
 Miscellaneous changes
@@ -1084,6 +1102,12 @@ Balloons: improved vertical position calculation
   - If still too high, a forced crash occurs
 
 - Recalculates air density and vertical speed at each intermediate time step (changes significantly if the time step is large and/or the balloon moves quickly)
+
+Microphysics: removol of C1R3 and C3R5 schemes
+****************************************************************************
+
+The C1R3 and C3R5 microphysics schemes have been removed from the code.
+These schemes were not maintained, not documented, and not used in any example test case.
 
 Default namelist changes
 ----------------------------------------------------------------------------
