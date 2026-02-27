@@ -582,17 +582,17 @@ Other changes
 ACLIB: Aerosols and Chemistry Library
 ----------------------------------------------------------------------------
 
-ACLIB (Aerosols and Chemistry LIBrary) is an external repository which contains the aerosols and chemistry core codes from Méso-NH, MOCAGE and ARPEGE/IFS. 
+ACLIB (Aerosols and Chemistry LIBrary) is an external repository which contains the aerosols and chemistry core codes from Méso-NH, MOCAGE and ARPEGE-ALADIN-climat. 
 The main objective of building such library is exposing a single interface to access every existing routines at the CNRM relating to aerosols physics 
-and chemistry. The aerosols and chemistry code of MOCAGE and ARPEGE/IFS are now available in Méso-NH (and vice-versa). ACLIB is also plugged into AROME.
+and chemistry. The aerosols and chemistry code of MOCAGE and ARPEGE-ALADIN-climat are now available in Méso-NH (and vice-versa). ACLIB is also plugged into AROME.
 
-The library comes with a new way to set-up parameters with aerosols and gas species: it uses tables in a :file:`.csv`` format which makes easier to define each 
+The library comes with a new way to set-up parameters with aerosols and gas species: it uses tables in a :file:`.csv` format which makes easier to define each 
 parameter for individual aerosols more easily than re-compiling the code (i.e. modd_dust.f90 to change parameters of the log-normal distribution).
 Pre-defined configurations of these tables are provided by each host-models in order to ease the use of their own schemes in different host models.
 
 .. note::
 
-   In Méso-NH, the code of ARPEGE and MOCAGE is now available but have not been adapted nor tested yet. 
+   In Méso-NH, the code of ARPEGE-ALADIN-climat and MOCAGE is now available but have not been adapted nor tested yet. 
    Using these codes needs scientific adaptation with Méso-NH objects and can be done with a scientific coordination of ACLIB team (ACLIB referee for Méso-NH: quentin.rodier@meteo.fr)
 
 Tree structure
@@ -622,7 +622,7 @@ The ACLIB sources can be found here:
 * aer/transfo: secondary transformations of aerosols corresponding to ORILAM scheme in Méso-NH (:file:`ch_orilam.f90`)
 * aer/diag: diagnostics: not pluggd to Méso-NH
 * chem: main interface :file:`chem_aclib.f90` with all main chemistry code and solvers. For Méso-NH, :file:`BASIC.f90`, the main :file:`ch_*.f90` routines 
-  and :file:`ch_aer_*.f90` routines for ORILAM scheme. MOCAGE solvers are :file:`mocage_*.f90` routines and ARPEGE ones are :file:`acch_*.f90`
+  and :file:`ch_aer_*.f90` routines for ORILAM scheme. MOCAGE solvers are :file:`mocage_*.f90` routines and ARPEGE-ALADIN-climat ones are :file:`acch_*.f90`
 * aux: auxilliary routines that are not used only in one specific folder but necessary to compile each codes in all host models.
 
 
@@ -663,7 +663,7 @@ Aerosols
         - :dir:`file` aer_aclib_sedim.f90
 
           - CALL SEDIM: sedimentation in MOCAGE
-          - CALL TACTIC_SEDIMNT: sedimentation in ARPEGE
+          - CALL TACTIC_SEDIMNT: sedimentation in ARPEGE-ALADIN-climat
           - CALL SEDIM_DSLT: sedimentation in Méso-NH for DUST and SALT
           - CALL CH_AER_SEDIM_n: sedimentation in Méso-NH for aerosols of ORILAM
 
@@ -680,7 +680,7 @@ Aerosols
         - :dir:`file` aer_aclib_scav.f90
 
           - CALL WETSCAV: scavenging in MOCAGE
-          - CALL TACTIC_SCAV: sedimscavengingentation in ARPEGE
+          - CALL TACTIC_SCAV: sedimscavengingentation in ARPEGE-ALADIN-climat
           - CALL AER_WET_DEP_KMT_WARM: scavenging in Méso-NH for DUST and SALT
 
 .. note::
@@ -696,7 +696,7 @@ Aerosols
         - :dir:`file` aer_aclib_transfo.f90
 
           - CALL MOCAERO: MOCAGE transfo
-          - CALL TACTIC_CGROWTH, _SO2SO4, _NO3NH4 : ARPEGE transfo
+          - CALL TACTIC_CGROWTH, _SO2SO4, _NO3NH4 : ARPEGE-ALADIN-climat transfo
           - CALL CH_ORILAM: Méso-NH ORILAM
 
 The routine of ORILAM-Méso-NH are not in ACLIB/aer/transfo but in ACLIB/chem because it can not be used without the chemistry module
@@ -744,14 +744,14 @@ For the chemistry solver, a new interface :file:`chem_aclib.f90` contains the ca
 
                - CALL CH_MONITOR_n: Méso-NH chemistry monitor
                - CALL CHEM_SUGAR: MOCAGE monitor
-               - CALL ACCHEM: ARPEGE monitor
+               - CALL ACCHEM: ARPEGE-ALADIN-climat monitor
 
 Note that the init of Méso-NH chemistry is not yet moved to init_chem_model.
                
 .. note::
 
    In the interfaces CHEM_ACLIB and MNH_TO_CHEM_ACLIB, the arguments are written with explicit dimensions because Méso-NH and MOCAGE are using 2 dimensions for
-   latitudes and longitudes whereas ARPEGE uses only 1 dimension (lat/lon are packed). The pack/unpack operations are done correctly at the execution if the arrays are contiguous.
+   latitudes and longitudes whereas ARPEGE-ALADIN-climat uses only 1 dimension (lat/lon are packed). The pack/unpack operations are done correctly at the execution if the arrays are contiguous.
 
 The use of the extra interface MNH_TO_CHEM_ACLIB is necessary for diagnostics allocated with different dimensions regarding the host model.
 
@@ -783,7 +783,7 @@ CSV input parameters
 ****************************************************************************
 To ease the use of ACLIB within different host models, a common input parameters format has been designed using csv tables (see the list in the previous section).
 
-For aerosols, :file:`Table_aer_general_aclibn.csv`, with :code:`n`` the Méso-NH domain number, defines general options such as the number of total aerosols/modes used,
+For aerosols, :file:`Table_aer_general_aclibn.csv`, with :code:`n` the Méso-NH domain number, defines general options such as the number of total aerosols/modes used,
 the number of families (dust, salt, etc) and the code wanted for each processus (sedimentation, scavenging, deposition, emission, and transformation). 
 
 The same general csv table is for chemical species.
