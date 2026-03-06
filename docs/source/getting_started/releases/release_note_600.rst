@@ -11,6 +11,32 @@ Release date : XX/XX/2026
 
 Running on GPU
 ----------------------------------------------------------------------------
+The Meso-NH MNH-V6-0-0 version is the first official supporting offloading computation to GPUs, with the use of OpenACC API.
+ For this first release, some limitation are to be noted :
+  REM: This limitations are due to leak of time to port this fonctionnalites, not due to limitation of OpenACC.
+     - No grid-nesting
+     - Only open boundaries
+     - For new Multi-Grid solver, only square 2^N grid points in horizontales directions
+     - The schema wish have been ported to GPUs are :
+           - Advection(MET/UVW)
+           - Turbulence(3D) 
+           - Cloud (ICE3)
+           - Pressure solver(MG & FFT)
+   For the schema whish have not been ported to GPUs :
+           - the user could use them, so with computation on CPUs
+           - the result will be correct, bit reproductible with CPUs only run ( with OPTLEVEL=OPENACCDEFONLY ),
+              this is achived thank to automatic "MANAGED MEMORY" usage betwen CPU a GPu ( with OPTLEVEL=MANAGED ) 
+           - of course, performance of the whole code will be decrease, and if of interest it will be good opportunited
+             to colabored with the support team to port the schema to GPUs;
+
+Two type of GPUs vendors are supported: NVIDIA & AMD .
+  - For NVIDIA GPUs : We use the Nvidia "nvhpc" compiler suite, with is free to download https://developer.nvidia.com/hpc-sdk .
+     The code had been testesd on differents Super-Computer in France (Jean-Zay,Beleons,Irene,Turpan,Nuwa) with NIVIDIA GPUs = V100/A100/H100
+     and also APUs = GH200 (ROMEO,KARIOS)
+  - For AMD GPUs : Do to leak of good free fortran compiler supporting OpenACC, the porting as been done with the propriatary HPE/CRAY fortran compiler
+      wish is only usable in France on ADASTRA supercomputer at CINES ( LUMI @ EURO-HPC/Finland also could be used or FRONTIER/EL-CAPITAN @ USA) .
+      Supportes are AMD GPUs = MI250X & AMD APUs = MI300A
+
 
 Radiation scheme - ECRAD 1.6.1
 ----------------------------------------------------------------------------
