@@ -15,6 +15,7 @@ This namelist is used to active explicit sea salt aerosols. It is not necessary 
    "NMODE_SLT","INTEGER","8"
    "LRGFIX_SLT","LOGICAL",".FALSE."
    "LDEPOS_SLT","LOGICAL",".FALSE."
+   "LSED2MOM_SLT","LOGICAL",".FALSE."
 
 * :code:`LSALT` : flag to activate passive salt aerosol.
 
@@ -28,3 +29,4 @@ This namelist is used to active explicit sea salt aerosols. It is not necessary 
 
 * :code:`LDEPOS_SLT` : flag to activate salt wet deposition  
 
+* :code:`LSED2MOM_SLT`: flag to activate multimoment sedimentation on sea salts

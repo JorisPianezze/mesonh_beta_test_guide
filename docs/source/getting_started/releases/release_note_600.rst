@@ -1071,9 +1071,54 @@ Other namelist changes
 
 - ``CINIT_LG``: the ``FMOUT`` option has been renamed to ``BACKUP``.
 
-
-&NAM_PARAM_RADN
+&NAM_DUST
 ****************************************************************************
+
+.. csv-table:: &NAM_DUST new entry
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+   
+   "LPASPOL_DST","LOGICAL",".FALSE."
+   "LSED2MOM_DST","LOGICAL",".FALSE."
+
+* :code:`LPASPOL_DST`: emit dust aerosols instead of passive scalar. Use with turning off physics-based surface dust emission :code:`LEMIS_DST` from &NAM_SURF_DST
+
+* :code:`LSED2MOM_DST`: flag to activate multimoment sedimentation
+
+&NAM_LBCn
+****************************************************************************
+
+NLBLX,NLBLY are deleted (not used in the code).
+
+&NAM_LES
+****************************************************************************
+
+.. csv-table:: &NAM_LES new entry
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+   
+   "LCOARSEGRAIN","LOGICAL",".FALSE."
+   "NCOARSEGRAIN","INTEGER","1"
+   "NSIZECOARSEGRAIN","INTEGER(:)",""
+
+* :code:`LCOARSEGRAIN`: flag to activate coarse-graining online diagnostics of resolved TKE, turbulent vertical flux of :math:`r_t` and :math:`\theta_l`. Additionnal fluxes terms are saved on if LCONDSAMP=T
+
+* :code:`NCOARSEGRAIN`: number of coarse-graining sub-domains
+
+* :code:`NSIZECOARSEGRAIN`: dimension sizes in terms of number of points for all coarse-graining sub-domains
+
+&NAM_OUTPUT
+****************************************************************************
+
+An additional dimension (the first one) has been added to all ``&NAM_OUTPUT`` parameters to indicate the time series number of outputs.
+
+For now, this new dimension is always set to 1. This will allow to have several time series of outputs with different frequencies and/or variables in the future (e.g., one time series every 15 minutes with a selection of 3D fields, and one time series every minute with surface fields).
+
+
+&NAM_PARAM_RADn
+****************************************************************************
+
+The documentation of :ref:`nam_param_radn` has been updated to better describe which options are common for all radiations code and which ones are only used for the old radiation scheme (not ECRAD).
 
 Renaming parameters for CEFRADL and CEFRADI:
 
@@ -1088,18 +1133,30 @@ Renaming parameters for CEFRADL and CEFRADI:
    :widths: 30, 30, 30
    
    "NMODEL_PP","INTEGER","1"
-   "LPASPOLDUST","LOGICAL",".FALSE."
 
 * :code:`NMODEL_PP`: model number where passive pollutants are emitted
 
-* :code:`LPASPOLDUST`: emit dust aerosols instead of passive scalar
-
-&NAM_OUTPUT
+&NAM_SALT
 ****************************************************************************
 
-An additional dimension (the first one) has been added to all ``&NAM_OUTPUT`` parameters to indicate the time series number of outputs.
+.. csv-table:: &NAM_SALT new entry
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+   
+   "LSED2MOM_SLT","LOGICAL",".FALSE."
 
-For now, this new dimension is always set to 1. This will allow to have several time series of outputs with different frequencies and/or variables in the future (e.g., one time series every 15 minutes with a selection of 3D fields, and one time series every minute with surface fields).
+* :code:`LSED2MOM_SLT`: flag to activate multimoment sedimentation on sea salts
+
+&NAM_SURF_DST
+****************************************************************************
+
+.. csv-table:: &NAM_SURF_DST new entry
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+   
+   "LEMIS_DST","LOGICAL",".FALSE."
+
+* :code:`LEMIS_DST`: flag to activate emission of dust (to be used with :code:`LPASPOL_DST`)
 
 
 Cleaning and restructuration
@@ -1149,6 +1206,7 @@ Microphysics: removol of C1R3 and C3R5 schemes
 
 The C1R3 and C3R5 microphysics schemes have been removed from the code.
 These schemes were not maintained, not documented, and not used in any example test case.
+&NAM_DYNn LHORELAX_SVC1R3 is deleted.
 
 Ocean-Atmosphere-Wave coupling
 ****************************************************************************

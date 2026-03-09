@@ -15,6 +15,8 @@ This namelist is use to activate explicit aerosol dusts. It is not necessary to 
    "NMODE_DST","INTEGER","3"
    "LRGFIX_DST","LOGICAL",".FALSE."
    "LDEPOS_DST","LOGICAL",".FALSE."
+   "LPASPOL_DST","LOGICAL",".FALSE."
+   "LSED2MOM_DST","LOGICAL",".FALSE."
 
 * :code:`LDUST` : flag to activate passive dust aerosol.
 
@@ -28,3 +30,6 @@ This namelist is use to activate explicit aerosol dusts. It is not necessary to 
 
 * :code:`LDEPOS_DST` : flag to activate wet dust deposition  
 
+* :code:`LPASPOL_DST`: emit dust aerosols instead of passive scalar
+
+* :code:`LSED2MOM_DST`: flag to activate multimoment sedimentation

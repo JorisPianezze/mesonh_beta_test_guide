@@ -36,6 +36,9 @@ This namelist controls the diagnostics of turbulence, especially for Large Eddy 
    "LLES_CORE_MASK","LOGICAL",".FALSE."
    "LLES_MY_MASK","LOGICAL",".FALSE."
    "NLES_MASKS_USER","INTEGER","NUNDEF"
+   "LCOARSEGRAIN","LOGICAL",".FALSE."
+   "NCOARSEGRAIN","INTEGER","1"
+   "NSIZECOARSEGRAIN","INTEGER(:)",""
 
 * :code:`LLES_MEAN` : flag for computation of the mean vertical profiles of the model variables
 
@@ -98,3 +101,9 @@ This namelist controls the diagnostics of turbulence, especially for Large Eddy 
 * :code:`LLES_MY_MASK` : Flag to compute the LES diagnostics on a mask defined by the user as a 2D horizontal mask. It must be coded at the beginning of the LES monitor routine. Only local quantities can be computed with this mask.
 
 * :code:`NLES_MASKS_USER` : number of user's masks
+
+* :code:`LCOARSEGRAIN`: flag to activate coarse-graining online diagnostics of resolved TKE, turbulent vertical flux of :math:`r_t` and :math:`\theta_l`. Additionnal fluxes terms are saved on if LCONDSAMP=T
+
+* :code:`NCOARSEGRAIN`: number of coarse-graining sub-domains
+
+* :code:`NSIZECOARSEGRAIN`: dimension sizes in terms of number of points for all coarse-graining sub-domains
