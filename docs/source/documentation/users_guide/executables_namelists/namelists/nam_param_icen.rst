@@ -25,7 +25,7 @@ It contains the options for the mixed phase cloud parameterizations used by the 
    "LWETHPOST","LOGICAL","TRUE"
    "CSNOWRIMING","CHARACTER(LEN=4)","'M90 '"
    "XFRACM90","REAL","0.1"
-   "NMAXITER_MICRO","INTEGER","5"
+   "NMAXITER_MICRO","INTEGER","1"
    "XMRSTEP","REAL","0.00005"
    "XTSTEP_TS","REAL","0.0"
    "LADJ_BEFORE","LOGICAL","TRUE"

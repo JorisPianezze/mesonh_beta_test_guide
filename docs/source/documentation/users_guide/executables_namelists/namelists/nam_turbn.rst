@@ -18,7 +18,7 @@ It contains the characteristics of the turbulence scheme used by the model n. Th
    "LSIG_CONV","LOGICAL",".FALSE."
    "LRMC01","LOGICAL",".FALSE."
    "CTOM","CHARACTER(LEN=4)","'NONE'"
-   "XTKEMIN","REAL","0.01"
+   "XTKEMIN","REAL",":math:`10^{-6}`"
    "XCED","REAL","0.84"
    "LLEONARD","LOGICAL",".FALSE."
    "XCOEFHGRADTHL","REAL","1.0"
@@ -45,6 +45,7 @@ It contains the characteristics of the turbulence scheme used by the model n. Th
    "LTHERMMF","LOGICAL",".TRUE."
    "LBL89TOP","LOGICAL",".FALSE."
    "LBL89EXP","LOGICAL",".TRUE."
+   "LLEMARIE21","LOGICAL",".TRUE."
 
 * :code:`XIMPL` : degree of implicitness of the vertical part of the turbulence scheme. (XIMPL = 0.5 corresponds to the Cranck-Nicholson scheme for the vertical turbulent diffusion and  0. to a purely explicit scheme)
 
@@ -126,6 +127,8 @@ It contains the characteristics of the turbulence scheme used by the model n. Th
 * :code:`LBL89TOP`: true to limit BL89/RM17 at PBL top (as in ARPEGE)
 
 * :code:`LBL89EXP`: true to use the exposant from the BL89 paper ( which is LOG(16.)/(4.*LOG(XKARMAN)+LOG(XCED)-3.*LOG(XCMFS))). Otherwise 2./3. (False in AROME cycl 50t1)
+
+* :code:`LLEMARIE21`: true to use Lemarie et al. 2021 constant in DELT/DEAR mixing length (:math:`0.5**(-6/7)` instead of :math:`0.5**(-1.5)`)
 
 .. note::
 

@@ -13,7 +13,7 @@ This namelist is new and regroup options related to internal clouds life cycle.
    "LSTATNW","LOGICAL",".FALSE."
    "XTMINMIX","REAL","253.16"
    "XTMAXMIX","REAL","273.16"
-   "LSUBG_COND","LOGICAL",".FALSE."
+   "LSUBG_COND","LOGICAL",".TRUE."
    "CCONDENS","CHARACTER(LEN=80)","'CB02'"
    "CLAMBDA3","CHARACTER(LEN=4)","'CB'"
    "LSIGMAS","LOGICAL",".TRUE."

@@ -11,31 +11,50 @@ Release date : XX/XX/2026
 
 Running on GPU
 ----------------------------------------------------------------------------
-The Meso-NH MNH-V6-0-0 version is the first official supporting offloading computation to GPUs, with the use of OpenACC API.
- For this first release, some limitation are to be noted :
-  REM: This limitations are due to leak of time to port this fonctionnalites, not due to limitation of OpenACC.
-     - No grid-nesting
-     - Only open boundaries
-     - For new Multi-Grid solver, only square 2^N grid points in horizontales directions
-     - The schema wish have been ported to GPUs are :
-           - Advection(MET/UVW)
-           - Turbulence(3D) 
-           - Cloud (ICE3)
-           - Pressure solver(MG & FFT)
-   For the schema whish have not been ported to GPUs :
-           - the user could use them, so with computation on CPUs
-           - the result will be correct, bit reproductible with CPUs only run ( with OPTLEVEL=OPENACCDEFONLY ),
-              this is achived thank to automatic "MANAGED MEMORY" usage betwen CPU a GPu ( with OPTLEVEL=MANAGED ) 
-           - of course, performance of the whole code will be decrease, and if of interest it will be good opportunited
-             to colabored with the support team to port the schema to GPUs;
+The Meso-NH MNH-V6-0-0 is the first official version supporting offloading computation to GPUs, with the use of OpenACC API.
+For this first release, the schemes ported to GPUs are:
 
-Two type of GPUs vendors are supported: NVIDIA & AMD .
-  - For NVIDIA GPUs : We use the Nvidia "nvhpc" compiler suite, with is free to download https://developer.nvidia.com/hpc-sdk .
-     The code had been testesd on differents Super-Computer in France (Jean-Zay,Beleons,Irene,Turpan,Nuwa) with NIVIDIA GPUs = V100/A100/H100
-     and also APUs = GH200 (ROMEO,KARIOS)
-  - For AMD GPUs : Do to leak of good free fortran compiler supporting OpenACC, the porting as been done with the propriatary HPE/CRAY fortran compiler
-      wish is only usable in France on ADASTRA supercomputer at CINES ( LUMI @ EURO-HPC/Finland also could be used or FRONTIER/EL-CAPITAN @ USA) .
-      Supportes are AMD GPUs = MI250X & AMD APUs = MI300A
+* Advection (scalars and wind)
+
+* Turbulence (3D)
+
+* Cloud (ICE3)
+
+* Pressure solvers (Multi-Grid and FFT)
+ 
+
+Two type of GPUs vendors are supported: NVIDIA & AMD.
+
+* For NVIDIA GPUs, we use the Nvidia "nvhpc" compiler suite, with is free to download https://developer.nvidia.com/hpc-sdk . The code had been tested on differents supercomputer in France (Jean-Zay, Beleons, Irene, Turpan, Nuwa) with **NVIDIA GPUs V100/A100/H100** and also **GH200 APUs** (ROMEO, KAIROS)
+
+* For AMD GPUs : Due to leak of good free fortran compiler supporting OpenACC, the porting as been done with the proprietary HPE/CRAY fortran compiler which is only usable in France on ADASTRA supercomputer at CINES (LUMI at EURO-HPC/Finland or FRONTIER/EL-CAPITAN at the USA could also be used) tested on **AMD GPUs MI250X** and **AMD APUs MI300A**.
+
+For the schemes not ported to GPUs:
+
+* the user could use them: computations of non-GPU ported schemes will compute on CPUs;
+
+* the results will be correct, bit reproductible with CPUs only runs (with OPTLEVEL=OPENACCDEFONLY), this is achieved thanks to the automatic "MANAGED MEMORY" usage betwen CPU and GPU (with OPTLEVEL=MANAGED);
+
+* performance of the whole code will be lower, and if of interest it will be good opportunited to collaborate with the support team to port the scheme to GPUs.
+
+ .. note::
+
+  They are limitations on the schemes ported to GPU  (limitations due to missing time to port theses fonctionnalites, not due to limitation of OpenACC):
+
+  * No grid-nesting
+
+  * Only open boundaries
+
+  * For the new Multi-Grid solver, only square :math:`2^N` grid points in horizontal directions
+
+Default namelist changes
+----------------------------------------------------------------------------
+* ECRAD: the shortwave and longwave solver was SPARTACUS by default which is very costly and not suitable for very high resolution LES. Now :code:`CSW_SOLVER_NAME='Tripleclouds'` and :code:`CLW_SOLVER_NAME='Tripleclouds'`.
+* ECRAD: aerosol optics file was :file:`aerosol_ifs_rrtm_tegen.nc`, now it is :file:`aerosol_ifs_rrtm_49R1.nc` with 12 aerosol types
+* :code:`LSUB_COND=T`: the subgrid cloud condensation scheme is now activated by default
+* :code:`XTKEMIN`: the minimum TKE value applied in each grid cell is now :math:`10^{-6}` m²/s² as in AROME (previously 0.01 m²/s²)
+* :code:`NMAXITER_MICRO=1` : before was 5 and caused consequently larger simulations duration.
+* DEAR and DELT mixing length: a change in the constant in front of the Deardorff and Delt mixing length as following Lemarie et al. 2021. A new key is set :code:`LLEMARIE21=T` by default.
 
 
 Radiation scheme - ECRAD 1.6.1
@@ -61,9 +80,9 @@ ECRAD is now compiled by default. All namelist keys available in ECRAD-offline i
    "CGAS_MODEL_NAME", "CHARACTER(LEN=63)", "RRTMG-IFS"
    "CGAS_OPTICS_SW_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", ""
    "CGAS_OPTICS_LW_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", ""
-   "LUSE_AEROSOLS", "LOGICAL", ".FALSE."
+   "LUSE_AEROSOLS", "LOGICAL", ".TRUE."
    "LUSE_GENERAL_AEROSOL_OPTICS", "LOGICAL", ".FALSE."
-   "LDO_LW_AEROSOL_SCATTERING", "LOGICAL", ".FALSE."
+   "LDO_LW_AEROSOL_SCATTERING", "LOGICAL", ".TRUE."
    "NAEROSOL_TYPES", "INTEGER", "6"
    "NI_AEROSOL_TYPE_MAP", "INTEGER(NMAXAEROSOLTYPES)", "(1,2,3,4,5,6/)"
    "CAEROSOL_OPTICS_OVERRIDE_FILE_NAME", "CHARACTER(LEN=511)", "aerosol_ifs_rrtm_tegen.nc"
@@ -866,6 +885,8 @@ Turbulence
    "LTHERMMF","LOGICAL",".TRUE."
    "LBL89TOP","LOGICAL",".FALSE."
    "LBL89EXP","LOGICAL",".TRUE."
+   "LLEMARIE21","LOGICAL",".TRUE."
+
 
 * :code:`LGOGER`: true to compute the Goger terms
 
@@ -878,6 +899,9 @@ Turbulence
 * :code:`LBL89TOP`: true to limit BL89/RM17 at PBL top (as in ARPEGE)
 
 * :code:`LBL89EXP`: true to use the exposant from the BL89 paper ( which is LOG(16.)/(4.*LOG(XKARMAN)+LOG(XCED)-3.*LOG(XCMFS))). Otherwise 2./3. (False in AROME cycl 50t1)
+
+* :code:`LLEMARIE21`: true to use Lemarie et al. 2021 constant in DELT/DEAR mixing length (:math:`0.5**(-6/7)` instead of :math:`0.5**(-1.5)`)
+
 
 Shallow convection
 ****************************************************************************
@@ -1038,29 +1062,6 @@ Condensation
 
 * :code:`LCONDBORN` : true to limit condensation: reduce the distribution width  with respect to te total water content to avoid condensate too much water vapor not present 
 
-Ocean-Atmosphere-Wave coupling
-----------------------------------------------------------------------------
-
-* Bug Fix: Resolved an issue with the rotation of sea surface currents, ensuring accurate transformation from lon/lat to x/y grid coordinates when using oceanic/wave coupling. 
-
-Diagnostics
-----------------------------------------------------------------------------
-
-Passive pollutants
-----------------------------------------------------------------------------
-
-* :code:`LPASPOLDUST`: emit dust aerosols instead of passive scalar
-
-* :code:`NMODEL_PP`: model number where passive pollutants are emitted
-
-WRF and ICON init and forcing
-----------------------------------------------------------------------------
-
-* HRRR-WRF: Initializing and forcing Méso-NH with daily operational model HRRR is now possible. More info in :ref:`extracthrrr`
-* ICON-EU: Initializing and forcing Méso-NH with daily operational model ICON-EU is now possible. More info in :ref:`extracticon`
-
-SURFEX
-----------------------------------------------------------------------------
 
 Other namelist changes
 ----------------------------------------------------------------------------
@@ -1079,6 +1080,19 @@ Renaming parameters for CEFRADL and CEFRADI:
 - CEFRADL: the ``C2R2`` option has been renamed to ``2MOM``
 - CEFRADI: the ``C3R5`` option has been renamed to ``2MOM``
 
+&NAM_PASPOL
+****************************************************************************
+
+.. csv-table:: &NAM_PASPOL new entry
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+   
+   "NMODEL_PP","INTEGER","1"
+   "LPASPOLDUST","LOGICAL",".FALSE."
+
+* :code:`NMODEL_PP`: model number where passive pollutants are emitted
+
+* :code:`LPASPOLDUST`: emit dust aerosols instead of passive scalar
 
 &NAM_OUTPUT
 ****************************************************************************
@@ -1109,10 +1123,11 @@ Cleaning and restructuration
 - The :file:`src/ARCH_SRC` directory has been cleaned. Obsolete sources have been removed.
 
 
-External libraries and tools
+HRRR-WRF and ICON-EU as initialization and forcing models
 ----------------------------------------------------------------------------
 
-.. update to 2.41 already done in MNH 5.7.2 * ECCODES updated to 2.41
+* HRRR-WRF: Initializing and forcing Méso-NH with daily operational model HRRR is now possible. More info in :ref:`extracthrrr`
+* ICON-EU: Initializing and forcing Méso-NH with daily operational model ICON-EU is now possible. More info in :ref:`extracticon`
 
 
 Miscellaneous changes
@@ -1135,6 +1150,9 @@ Microphysics: removol of C1R3 and C3R5 schemes
 The C1R3 and C3R5 microphysics schemes have been removed from the code.
 These schemes were not maintained, not documented, and not used in any example test case.
 
-Default namelist changes
-----------------------------------------------------------------------------
-* ECRAD: the shortwave and longwave solver was SPARTACUS by default which is very costly and not suitable for very high resolution LES. Now :code:`CSW_SOLVER_NAME='Tripleclouds'` and :code:`CLW_SOLVER_NAME='Tripleclouds'`
+Ocean-Atmosphere-Wave coupling
+****************************************************************************
+
+Bug Fix: Resolved an issue with the rotation of sea surface currents, ensuring accurate transformation from lon/lat to x/y grid coordinates when using oceanic/wave coupling. 
+
+
