@@ -3,59 +3,29 @@
 NAM_DIAG - Default
 -----------------------------------------------------------------------------
 
-.. csv-table:: NAM_DIAG - default option
-   :header: "Fortran name", "Fortran type", "Default value"
-   :widths: 30, 30, 30
-
-   "XDTSTEP", "REAL", "XTSTEP"   
-   "CISO", "CHARACTER(LEN=NFILENAMELGTMAX)", "PREVTK"
-   "LVAR_RS", "LOGICAL", "TRUE"
-
-* :code:`XDTSTEP` : time step of the DIAG program (one time step is performed). By default time step of the simulation is used (XTSTEP).
-
-* :code:`CISO="PREVTK"` will store following variables :
+By default, the following variables are written in the output file created by the DIAG program:
 
 .. csv-table::
    :header: "Name", "Meaning [Unit]", "Dimension"
    :widths: 30, 30, 30
    
-   "PABST", "absolute pression [Pa]", "3D"
-   "THT", "potential temperature [K]", "3D"
-   "POVOT", "potential vorticity [PVU]", "3D"
+   "ZS", "orography [m]", "2D"
+   "ZSMT", "smoothed orography for SLEVE vertical coordinate [m]", "2D"
+   "RHODREF", "dry density for reference state with orography [:math:`kg/m^3`]", "3D"
+   "THVREF", ":math:`\theta_v` for reference state with orography [K]", "3D"
+   "RHOREFZ", ":math:`\rho_d(z)` for reference state without orography [:math:`kg/m^3`]", "1D"
+   "THVREFZ", ":math:`\theta_v(z)` for reference state with orography [K]", "1D"
+   "EXNTOP", "exner function at model top [-]", ""
+   "SVPPn", "passive pollutant n concentration only if :code:`LPASPOL=T` in YINIFILE.des [:math:`g/m^3`]", "3D"
 
-.. note::
-
-   Other options for CISO are :
-   
-   * "PR" to store PABST
-   * "TK" to store THT
-   * "EV" to store POVOT
-   * "PRTK" to store PABST + THT
-   * "PREV" to store PABST + POVOT
-   * "TKEV" to store THT + POVOT   
-   
-* :code:`LVAR_RS=T` will store following variables :
+Surface variables by default only if :code:`CSURF='EXTE'` in YINIFILE.des:
 
 .. csv-table::
    :header: "Name", "Meaning [Unit]", "Dimension"
    :widths: 30, 30, 30
    
-   "UT",  "u-wind speed [m/s]", "3D"
-   "VT",  "v-wind speed [m/s]", "3D"
-   "WT",  "w-wind speed [m/s]", "3D"
-   "RVT", "water vapor mixing ratio [kg/kg]", "3D"
-
-.. tip::
-
-   Add :code:`LWIND_ZM=T` (with :code:`LVAR_RS=T`) in :code:`NAM_DIAG` to store following variables :
-
-   .. csv-table::
-      :header: "Name", "Meaning [Unit]", "Dimension"
-      :widths: 30, 30, 30
-   
-      "UT_ZM", "zonal wind speed [m/s]", "3D"
-      "VT_ZM", "meridian wind speed [m/s]", "3D"
-
-The numerous following namelists can be added to :code:`NAM_DIAG` namelist :
-
-* :ref:`nam_diag_general`
+   "UM10, VM10", "zonal and meridional wind at 10 m height AGL [m/s]", "2D"
+   "FF10MAX", "wind gusts at 10 m height AGL, with TKE component taken at first mass level :math:`4\sqrt{TKE_{IKB}}` (only if CTURB='TKEL') [m/s]", "2D"
+   "FF10MAX2", "wind gusts at 10 m height AGL, with TKE component taken at 10m :math:`4\sqrt{TKE_{10m}}` (only if CTURB='TKEL') [m/s]", "2D"
+   "FF10MAX_AROME", "wind gusts at 10 m height AGL, with TKE component taken at 20m :math:`3.8\sqrt{TKE_{20m}}` as in AROME-France (only if CTURB='TKEL')", "2D"
+   "SFCO2", ":math:`CO_2` flux if present in YINIFILE [mg/m²/s]", "2D"
