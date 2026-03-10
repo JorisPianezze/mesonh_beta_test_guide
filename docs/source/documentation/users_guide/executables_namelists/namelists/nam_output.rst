@@ -9,6 +9,8 @@ This namelist allows to write selected fields in output files.
    :header: "Fortran name", "Fortran type", "Default value"
    :widths: 30, 30, 30
 
+   "COUT_DIR","CHARACTER(LEN=512)","''"
+   "LOUT_FILESPLIT_DISABLE","LOGICAL(:,:)",".FALSE."
    "COUT_VAR","CHARACTER(LEN=32)(:,:,:)","''"
    "XOUT_TIME","REAL(:,:,:)",|XNEGUNDEF|
    "NOUT_STEP","INTEGER(:,:,:)",|NNEGUNDEF|
@@ -18,12 +20,23 @@ This namelist allows to write selected fields in output files.
    "NOUT_STEP_FREQ_FIRST","INTEGER(:,:)","XOUT_TIME_FREQ"
    "LOUT_BEG","LOGICAL(:)",".FALSE."
    "LOUT_END","LOGICAL(:)",".FALSE."
+
+.. csv-table:: NAM_OUTPUT content
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
    "LOUT_REDUCE_FLOAT_PRECISION","LOGICAL(:,:)",".FALSE."
    "LOUT_COMPRESS","LOGICAL(:,:)",".FALSE."
+   "COUT_COMPRESS_ALGO", "CHARACTER(LEN=10)(:,:)", "'ZSTD'"
    "NOUT_COMPRESS_LEVEL","INTEGER(:,:)","4"
    "LOUT_COMPRESS_LOSSY","LOGICAL(:,:)",".FALSE."
    "COUT_COMPRESS_LOSSY_ALGO","CHARACTER(LEN=10)(:,:)","'GRANULARBR'"
    "NOUT_COMPRESS_LOSSY_NSD","INTEGER(:,:)","3"
+
+.. csv-table:: NAM_OUTPUT content
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
    "NOUT_VAR_REDUCE_FLOAT_PRECISION","INTEGER(:,:,:)",|NCOMPRPARAMNOTSET|
    "NOUT_VAR_COMPRESS_LEVEL","INTEGER(:,:,:)",|NCOMPRPARAMNOTSET|
    "COUT_VAR_COMPRESS_LOSSY_ALGO","CHARACTER(LEN=10)(:,:,:)","'NOT_SET'"
@@ -37,13 +50,21 @@ This namelist allows to write selected fields in output files.
    "COUT_VAR_THR_ABSMIN_BEHAVIOR","CHARACTER(LEN=9)(:,:,:)","'NOT_SET'"
    "COUT_VAR_THR_ABSMAX_BEHAVIOR","CHARACTER(LEN=9)(:,:,:)","'NOT_SET'"
    "XOUT_VAR_RND_FACTOR","REAL(:,:,:)",|XNEGUNDEF|
-   "COUT_DIR","CHARACTER(LEN=512)","''"
-   "LOUT_FILESPLIT_DISABLE","LOGICAL(:,:)",".FALSE."
+
+.. csv-table:: NAM_OUTPUT content
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
    "LOUT_BOTTOM_ABSORBING_LAYER_REMOVE","LOGICAL(:,:)",".TRUE."
    "LOUT_TOP_ABSORBING_LAYER_REMOVE","LOGICAL(:,:)",".TRUE."
    "LOUT_UNPHYSICAL_HOR_CELLS_REMOVE","LOGICAL(:,:)",".TRUE."
    "LOUT_UNPHYSICAL_VER_CELLS_REMOVE","LOGICAL(:,:)",".TRUE."
    "LOUT_PHYSICAL_SIMPLIFIED","LOGICAL(:,:)",".FALSE."
+
+.. csv-table:: NAM_OUTPUT content
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
    "NOUT_BOXES","INTEGER(:,:)","0"
    "COUT_BOX_NAME","CHARACTER(LEN=32)(:,:,:)","'Box_nnnn'"
    "NOUT_BOX_IINF","INTEGER(:,:,:)",|XNEGUNDEF|
@@ -54,6 +75,11 @@ This namelist allows to write selected fields in output files.
    "NOUT_BOX_KSUP","INTEGER(:,:,:)",|XNEGUNDEF|
    "COUT_BOX_VAR_SUPP","CHARACTER(LEN=32)(:,:,:,:)","''"
    "LOUT_MAINDOMAIN_WRITE","LOGICAL(:,:)",".FALSE."
+
+.. csv-table:: NAM_OUTPUT content
+   :header: "Fortran name", "Fortran type", "Default value"
+   :widths: 30, 30, 30
+
    "NOUT_BOX_VAR_REDUCE_FLOAT_PRECISION","INTEGER(:,:,:,:)",|NCOMPRPARAMNOTSET|
    "NOUT_BOX_VAR_COMPRESS_LEVEL","INTEGER(:,:,:,:)",|NCOMPRPARAMNOTSET|
    "COUT_BOX_VAR_COMPRESS_LOSSY_ALGO","CHARACTER(LEN=10)(:,:,:,:)","'NOT_SET'"
@@ -98,6 +124,8 @@ This namelist allows to write selected fields in output files.
 * :code:`LOUT_REDUCE_FLOAT_PRECISION(s,m)`: force writing of floating points numbers in single precision for each model m
 
 * :code:`LOUT_COMPRESS(s,m)`: enable lossless compression of data for each model mThis can have a negative impact on performance. This option loses precedence over LIO_COMPRESS of :ref:`nam_confio`.
+
+* :code:`COUT_COMPRESS_ALGO(s,m)`: set the compression algorithm (only for files in netCDF format, not for LFI format). The allowed values are 'ZSTD' (for Zstandard compression,default value), 'DEFLATE' (for zlib compression) or 'NONE'. If set to 'NONE', all compression will be disabled (that stands also for lossy compression). This option loses precedence over LIO_COMPRESS_ALGO of :ref:`nam_confio` if LIO_COMPRESS=.TRUE.
 
 * :code:`LOUT_COMPRESS_LEVEL(s,m)`: set the compression level for each model m. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option loses precedence over LIO_COMPRESS_LEVEL of :ref:`nam_confio` if  LIO_COMPRESS=.TRUE.
 

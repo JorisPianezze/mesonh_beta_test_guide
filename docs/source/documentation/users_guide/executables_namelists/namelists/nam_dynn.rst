@@ -57,7 +57,11 @@ It contains the specific dynamic parameters for the model n. They are included i
 
    If the problem is flat and cartesian, then the resolution becomes exact and no iteration is performed.
 
-* :code:`NITR` : Number of iterations for the pressure solver. The value of this parameter depends on the maximum slope of the orography in the model. This parameter cannot be set in a restarted simulation (CCONF='RESTA') because the value of the previous timestep is used to ensure reproducibility between restarted and non-restarted runs.
+* :code:`NITR` : Number of iterations for the pressure solver. The value of this parameter depends on the maximum slope of the orography in the model. 
+
+.. note:: 
+  
+  NITR cannot be set in a restarted simulation (CCONF='RESTA') because the value of the previous timestep is used to ensure reproducibility between restarted and non-restarted runs.
 
 * :code:`LRES` : flag to change the residual divergence limit
 

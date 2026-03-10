@@ -17,7 +17,8 @@ NAM_CONFIO
    "NBUD_ABORT_LEVEL", "INTEGER", "2"
    "NIO_VERB", "INTEGER", "4"
    "NIO_ABORT_LEVEL", "INTEGER", "2"
-   "LIO_COMPRESS", "LOGICAL", ".FALSE."
+   "LIO_COMPRESS", "LOGICAL", ".TRUE."
+   "CIO_COMPRESS_ALGO", "CHARACTER(LEN=10)", "'ZSTD'"
    "NIO_COMPRESS_LEVEL", "INTEGER", "4"
    "LDIAG_REDUCE_FLOAT_PRECISION", "LOGICAL", ".FALSE."
    "LIO_ALLOW_REDUCED_PRECISION_BACKUP", "LOGICAL", ".FALSE."
@@ -60,7 +61,9 @@ NAM_CONFIO
 
 * :code:`LIO_COMPRESS` : enable lossless compression of data for all files. This can have a negative impact on performance. This option takes precedence over their equivalent :ref:`nam_backup` and :ref:`nam_output` namelists.
 
-* :code:`LOUT_COMPRESS_LEVEL` : set the compression level. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option takes precedence over their equivalent in :ref:`nam_backup` and :ref:`nam_output` namelists (only if LIO_COMPRESS=.TRUE.).
+* :code:`CIO_COMPRESS_ALGO`: set the compression algorithm (only for files in netCDF format, not for LFI format). The allowed values are 'ZSTD' (for Zstandard compression,default value), 'DEFLATE' (for zlib compression) or 'NONE'. This option takes precedence over their equivalent in NAM_BACKUP and NAM_OUTPUT namelists (only if LIO_COMPRESS=.TRUE. which is the default). If set to 'NONE', all compression will be disabled (that stands also for lossy compression).
+
+* :code:`LOUT_COMPRESS_LEVEL` : set the compression level. The value must be in the 0 to 9 interval (0 for no compression, 9 for maximum compression). This option takes precedence over their equivalent in :ref:`nam_backup` and :ref:`nam_output` namelists (only if LIO_COMPRESS=.TRUE. which is the default).
 
 * :code:`LDIAG_REDUCE_FLOAT_PRECISION` : force writing of floating points numbers in single precision for diagnostic files (written by the :ref:`diag` program)
 

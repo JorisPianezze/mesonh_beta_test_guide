@@ -59,13 +59,13 @@ Balloons are advected by the wind of the model. They can crash. All the prognost
 
 * :code:`XPRES` : pressure at the launching site (in Pascal). Must be provided for 'CVBALL' or 'ISODEN' if XALTLAUNCH is not set. Ignored for 'RADIOS'
 
-* :code:`XWASCENT` : ascentional vertical speed of the ballon. Speed in calm air for 'RADIOS' (added to air vertical speed, default 5 m/s), initial value for 'CVBALL' (default 0 m/s), not used for 'ISODEN'
+* :code:`XWASCENT` : ascentional vertical speed of the ballon (in m/s). Speed in calm air for 'RADIOS' (added to air vertical speed, default 5 m/s), initial value for 'CVBALL' (default 0 m/s), not used for 'ISODEN'
 
-* :code:`XDIAMETER` : diamater of the balloon (for 'CVBALL'). If not provided, XVOLUME must be set.
+* :code:`XDIAMETER` : diameter of the balloon (for 'CVBALL') (in m). If not provided, XVOLUME must be set.
 
-* :code:`XVOLUME` : volume of the balloon (for 'CVBALL'). If not provided, XDIAMETER must be set.
+* :code:`XVOLUME` : volume of the balloon (for 'CVBALL') (in :math:`m^3`). If not provided, XDIAMETER must be set.
 
-* :code:`XMASS` : mass of the balloon (for 'CVBALL'). Mandatory
+* :code:`XMASS` : mass of the balloon (for 'CVBALL') (in kg). Mandatory
 
 * :code:`XAERODRAG` : aerodynamic drag coefficient of the balloon (for 'CVBALL'). Default: 0.44
 

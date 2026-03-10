@@ -51,16 +51,18 @@ Default namelist changes
 ----------------------------------------------------------------------------
 * ECRAD: the shortwave and longwave solver was SPARTACUS by default which is very costly and not suitable for very high resolution LES. Now :code:`CSW_SOLVER_NAME='Tripleclouds'` and :code:`CLW_SOLVER_NAME='Tripleclouds'`.
 * ECRAD: aerosol optics file was :file:`aerosol_ifs_rrtm_tegen.nc`, now it is :file:`aerosol_ifs_rrtm_49R1.nc` with 12 aerosol types
-* :code:`LSUB_COND=T`: the subgrid cloud condensation scheme is now activated by default
+* :code:`LSUB_COND=T`: the subgrid cloud condensation scheme is now activated by default in :ref:`NAM_NEBn`
 * :code:`XTKEMIN`: the minimum TKE value applied in each grid cell is now :math:`10^{-6}` m²/s² as in AROME (previously 0.01 m²/s²)
-* :code:`NMAXITER_MICRO=1` : before was 5 and caused consequently larger simulations duration.
+* :code:`NMAXITER_MICRO=1` : before was 5 and caused consequently larger simulations duration with microphysics ICE3 in :ref:`nam_param_icen`
 * DEAR and DELT mixing length: a change in the constant in front of the Deardorff and Delt mixing length as following Lemarie et al. 2021. A new key is set :code:`LLEMARIE21=T` by default.
-
+* :code:`LIO_COMPRESS=T`: compression of netCDF is activated by default in :ref:`nam_confio` namelist.
 
 Radiation scheme - ECRAD 1.6.1
 ----------------------------------------------------------------------------
 
-ECRAD is now compiled by default. All namelist keys available in ECRAD-offline is now available with Méso-NH (see the `reference ECMWF documentation <https://confluence.ecmwf.int/download/attachments/70945505/ecrad_documentation.pdf?version=5&modificationDate=1655480733414&api=v2>`_)
+ECRAD is now **compiled by default**. You can use either the old radiation scheme (CRAD='ECMW') or ECRAD without re-compiling all Méso-NH.
+
+All namelist keys available in ECRAD-offline is now available with Méso-NH (see the `reference ECMWF documentation <https://confluence.ecmwf.int/download/attachments/70945505/ecrad_documentation.pdf?version=5&modificationDate=1655480733414&api=v2>`_)
 
 .. note::
 
@@ -502,7 +504,7 @@ Compression enabled by default
 
 Compression is now enabled by default for all written netCDF files.
 
-As a reminder, compression for all files is enabled or disabled via the ``LIO_COMPRESS`` parameter in the ``&NAM_CONFIO`` namelist.
+As a reminder, compression for all files is enabled or disabled via the ``LIO_COMPRESS`` parameter in the :ref:`nam_confio` namelist.
 
 **Note:** if ``LIO_COMPRESS = .TRUE.``, the parameters ``LIO_COMPRESS_ALGO`` and ``LIO_COMPRESS_LEVEL`` take precedence over those in the ``NAM_BACKUP`` and ``NAM_OUTPUT`` namelists (however, no impact if compression is imposed per variable in the outputs).
 
@@ -592,6 +594,17 @@ Removal of LFI support (in writing)
 
 Files in LFI format are no longer supported for writing (but still supported for reading).
 
+&NAM_OUTPUT
+****************************************************************************
+
+An additional dimension (the first one) has been added to all ``&NAM_OUTPUT`` parameters to indicate the time series number of outputs.
+
+For now, this new dimension is always set to 1. This will allow to have several time series of outputs with different frequencies and/or variables in the future (e.g., one time series every 15 minutes with a selection of 3D fields, and one time series every minute with surface fields).
+
+&NAM_CONFIO
+****************************************************************************
+
+:code:`LCDF4`, :code:`LLFIREAD` and :code:`LLFIOUT` are removed.
 
 Storage of Meso-NH version numbers
 ****************************************************************************
@@ -1106,13 +1119,6 @@ NLBLX,NLBLY are deleted (not used in the code).
 * :code:`NCOARSEGRAIN`: number of coarse-graining sub-domains
 
 * :code:`NSIZECOARSEGRAIN`: dimension sizes in terms of number of points for all coarse-graining sub-domains
-
-&NAM_OUTPUT
-****************************************************************************
-
-An additional dimension (the first one) has been added to all ``&NAM_OUTPUT`` parameters to indicate the time series number of outputs.
-
-For now, this new dimension is always set to 1. This will allow to have several time series of outputs with different frequencies and/or variables in the future (e.g., one time series every 15 minutes with a selection of 3D fields, and one time series every minute with surface fields).
 
 
 &NAM_PARAM_RADn
