@@ -78,13 +78,13 @@ html_theme_options = {
 epub_show_urls = 'footnote'
 
 rst_prolog = """
-.. |MNH_branch_current| replace:: MNH-57-branch
-.. |MNH_pack_current| replace:: PACK-MNH-V5-7-2
-.. |MNH_x_version_current| replace:: 5
-.. |MNH_xy_version_current| replace:: 5.7
-.. |MNH_xyz_version_current| replace:: 5.7.2
-.. |MNH_xyz_version_hyphen_current| replace:: 5-7-2
-.. |MNH_directory_extract_current| replace:: MNH-V5-7-2
+.. |MNH_branch_current| replace:: MNH-60-branch
+.. |MNH_pack_current| replace:: PACK-MNH-V6-0-0
+.. |MNH_x_version_current| replace:: 6
+.. |MNH_xy_version_current| replace:: 6.0
+.. |MNH_xyz_version_current| replace:: 6.0.0
+.. |MNH_xyz_version_hyphen_current| replace:: 6-0-0
+.. |MNH_directory_extract_current| replace:: MNH-V6-0-0
 .. |NCOMPRPARAMNOTSET| replace:: -888
 .. |NNEGUNDEF| replace:: -999
 .. |NUNDEF| replace:: 999
