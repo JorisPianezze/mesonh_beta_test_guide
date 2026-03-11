@@ -312,37 +312,45 @@ On Datarmor (IFREMER)
 
    You can find Datarmor documentation `here <https://w3z.ifremer.fr/intraric/Mon-IntraRIC/Calcul-scientifique/Datarmor>`_, only available on IFREMER intranet.
 
-.. csv-table:: Filesystem of Datarmor
-   :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
-   :widths: 30, 30, 30, 30, 30
+.. warning::
 
-   "Location", "$HOME", "$DATAWORK", "$SCRATCH", ""
-   "Disk space", "50 Go / user", "1 To / group", "10 To / group", ""
-   "Data lifetime", "Saved", "Unsaved", "15 days", ""
+   At the time being, Meso-NH |MNH_xyz_version_current| is not supported on the Datarmor machine.
+   The reason is due to the fact that the system is too old.
+   Support for recent Meso-NH versions will be provided as soon as the system will be updated.
+   In the meantime, you can compile Meso-NH version up to 5.7.x on Datarmor.
 
-.. tip::
+..
+  .. csv-table:: Filesystem of Datarmor
+     :header: "", "Homedir", "Workdir", "Scratchdir", "Storedir"
+     :widths: 30, 30, 30, 30, 30
 
-   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir or the Scratchdir.
+     "Location", "$HOME", "$DATAWORK", "$SCRATCH", ""
+     "Disk space", "50 Go / user", "1 To / group", "10 To / group", ""
+     "Data lifetime", "Saved", "Unsaved", "15 days", ""
 
-On Datarmor you can compile in interactive mode using:
+  .. tip::
 
-.. code-block:: bash
-   :substitutions:
+     We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir or the Scratchdir.
 
-   cd |MNH_directory_extract_current|/src
-   ./configure
-   . ../conf/profile_mesonh
-   make
-   make installmaster
+  On Datarmor you can compile in interactive mode using:
 
-.. note::
+  .. code-block:: bash
+     :substitutions:
 
-   To verify your compilation you can run test case examples with:
+     cd |MNH_directory_extract_current|/src
+     ./configure
+     . ../conf/profile_mesonh
+     make
+     make installmaster
 
-   .. code-block:: bash
+  .. note::
 
-      cd MY_RUN/KTEST
-      ./run_all_KTESTPACK
+     To verify your compilation you can run test case examples with:
+
+     .. code-block:: bash
+
+        cd MY_RUN/KTEST
+        ./run_all_KTESTPACK
 
 .. _compilation_olympe_calmip:
 
@@ -358,12 +366,12 @@ On Olympe (CALMIP)
    :widths: 30, 30, 30, 30, 30
 
    "Location", "/users/$GROUPE/$USER", "/tmdir/$USER", ":math:`\emptyset`", "/store/$GROUPE/$USER"
-   "Disk space", "5 Go / user", "Unlimited", ":math:`\emptyset`", "1 To / group"
-   "Data lifetime", "Saved", "100 days", ":math:`\emptyset`", "Saved"
+   "Disk space", "5 GiB / user", "Unlimited", ":math:`\emptyset`", "1 TiB / group"
+   "Data lifetime", "Saved", "Purged (100 days)", ":math:`\emptyset`", "Saved"
 
 .. tip::
 
-   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in storedir.
+   We recommend to install Meso-NH on your Homedir, run the simulation on the Workdir and store the files in Storedir.
 
 On Olympe you can compile in interactive mode using:
 
@@ -372,7 +380,8 @@ On Olympe you can compile in interactive mode using:
 
    cd |MNH_directory_extract_current|/src
    ./configure
-   . ../conf/profile_mesonh
+   . ../conf/profile_mesonh-LXifx-R8I4-MNH-V|MNH_xyz_version_hyphen_current|-MPIINTEL-O2
+   export MAKEFLAGS='-j 16' # optional, to speed up the compilation on up to 16 processes/cores
    make
    make installmaster
 
