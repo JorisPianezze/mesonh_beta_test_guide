@@ -251,6 +251,7 @@ On hpc-login (ECMWF)
 To compile Meso-NH package, go to the $HPCPERM directory, connect to an interactive compute node and compile the code:
 
 .. code-block:: bash
+   :substitutions:
 
    ecinteractive -c16 -m 16G -t 12:00:00
    cd $HPCPERM/|MNH_directory_extract_current|/src
