@@ -1,26 +1,55 @@
-ICCARE Corse
-============================================
+ICCARE Corsica
+=======
 
 Case description
+----------------
+Real case simulation for the ICCARE campaign over Corsica. Nested domain configuration simulating Corsican orographic effects on atmospheric flow.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Real cases
+   Number of domains, 2
+   Nesting, Grid nesting
+   Vertical levels, 50+
+   Turbulence, TKEL
+   Cloud microphysics, ICE3
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_pgd, run_pgd
+   002_prep_real, run_prep_real_case_dom1
+   003_spawning, run_spawning
+   004_prep_real_dom2, run_prep_real_case_dom2
+   005_run, run_mesonh
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Mountain/island effect study
+- Corsica orographic flows
+- Sea-breeze simulations
 
+**Technical specificities**
+- 2-domain grid nesting
+- CAM data for chemistry
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Surface observations
+- Radar measurements
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+Multi-node configuration
+
+References
+----------------
+- ICCARE campaign

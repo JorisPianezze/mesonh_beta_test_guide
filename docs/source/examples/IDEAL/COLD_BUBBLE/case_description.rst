@@ -1,38 +1,63 @@
-Cold bubble
-============================================
+COLD BUBBLE
+============
 
 Case description
-*******************
-This case tests the dynamics of the model in 2D on an idealized cold bubble falling with no initial wind.
+----------------
+The COLD BUBBLE case simulates a density current (cold air outbreak) in the atmosphere. This is a classic test case for non-hydrostatic dynamics and validates the model ability to reproduce propagating gravity currents.
 
-Numerical setup
-*****************
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
+
+   Category, Idealized cases
+   Dynamics, Non-hydrostatic
+   Horizontal grid spacing, 50 m (1024x1 grid)
+   Integration length, 900 s (15 minutes)
+   Time step, 0.5 s
+   Coriolis effect, disabled
+   Turbulence, NONE
+   Cloud scheme, NONE
+   Deep convection, NONE
+   Radiation, NONE
 
 Steps
-********
-001_prep_ideal_case
-002_mesonh
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Options
-********
-The initial perturbation is set with
+   001_prep_ideal, run_prep_ideal_case
+   002_mesonh, run_mesonh
 
+Specificities
+----------------
+**Scientific specificities**
 
-Physics 
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+- Cold pool perturbation with temperature anomaly of -16.2 K
+- Perturbation centered at 3000m with radius 4000x4000x2000m (x,y,z)
+- Open lateral boundary conditions on x-axis, cyclic on y-axis
+- No physics (DNS-like configuration)
+- Resolution: 1024 x 1 x 128 grid points
 
-Output intéressants
+**Technical specificities**
 
-Figures
-***********
-:download:`BOMEX.pdf <BOMEX.pdf>`.
+- Cartesian domain with 1024x1 horizontal points
+- 128 vertical levels with 50m spacing
+- Stretched vertical grid (2.5x factor above 5000m)
+- Boussinesq approximation disabled
+
+Validation
+----------------
+- Vertical velocity evolution (W)
+- Temperature perturbation propagation
+- Cloud visualization
 
 Numerical ressources
-***********************
-.. csv-table:: Numerical ressources
-   :header: "Node", "Core", "Timestep", "N° timestep", "Machine", "Compilation", "Version", "Elapsed time"
-   :widths: 1, 1, 1, 1, 1, 1 , 1,1
-   
-      "1", "1","0.5s","1800","Ubuntu 24","gfortran O2", "5.7.1", ""
+------------------
+Single CPU (1 node, 1 core)
+
+References
+----------------
+- Straka, J.M., et al. (1993): Numerical simulation of a cold pool with a temperature perturbation. Mon. Wea. Rev., 121, 1490-1513.

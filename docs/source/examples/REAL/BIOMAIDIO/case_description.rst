@@ -1,26 +1,58 @@
-BIOMAIDO chemistry + aerosols (sea-salt, anthropogenic, DMS)
-============================================
+BIOMAIDIO
+=======
 
 Case description
+----------------
+Real case of biometeorological and air quality simulation over Southern France. Uses coupled chemistry and aerosol modules (ReLACS + ORILAM) with CAMS chemical initial conditions.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Real cases
+   Number of domains, 2+
+   Horizontal resolution, 8km -> higher
+   Vertical levels, 45
+   Chemistry, ReLACS with CAMS
+   Aerosols, ORILAM + Sea Salt + Dust
+   Cloud microphysics, LIMA
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_pgd1, run_pgd1
+   002_pgd2, run_pgd2
+   003_prep_nest, run_prep_nest
+   004_prep_real_d1, run_prep_real_case_d1
+   005_prep_real_d2, run_prep_real_case_d2
+   006_mesonh, run_mesonh
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Air quality simulation
+- CAMS chemical initial conditions
+- Multiple aerosol types (ORILAM, sea salt, dust)
 
+**Technical specificities**
+- CAMS aerosol coupling
+- Domain nesting
+- Canopy effects (ISBA + TEB)
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Air quality measurements
+- Aerosol concentrations
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+Multi-node configuration
+
+References
+----------------
+- CAMS analysis data

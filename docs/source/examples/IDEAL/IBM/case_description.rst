@@ -1,26 +1,54 @@
-Immersed Boundary Method (IBM)
-============================================
+IBM
+===
 
 Case description
+----------------
+Idealized cases testing IBM (Immersed Boundary Method) for complex terrain and obstacle flows.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Idealized cases
+   Grid type, Cartesian
+   Horizontal resolution, Variable
+   Domain size, Variable
+   Vertical levels, Variable
+   Initial condition, Radiosounding (RSOU)
+   Surface, Complex (IBM)
+   Equation system, DURRAN
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_prep_ideal_case, run_prep_ideal_case_xyz
+   002_mesonh, run_mesonh_xyz
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Immersed Boundary Method
+- Flow past obstacles
+- Complex geometry handling
+- Multiple obstacles: Cylinder, Cube, Flume
 
+**Technical specificities**
+- IBM for terrain
+- Object representation
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Flow patterns around obstacles
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+HPC: Variable processors
+
+References
+----------------
+- IBM development papers

@@ -1,26 +1,61 @@
-CHARMEX chemistry + biogenic emission
-============================================
+CHARMEX
+=======
 
 Case description
+----------------
+Real case simulation for the ChArMEx (Chemistry-Aerosols Mediterranean Experiment) campaign. Simulates aerosol and chemical transport in the Mediterranean basin with ORILAM aerosol model.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Real cases
+   Horizontal resolution, 50km
+   Vertical levels, 61
+   Advection scheme (U,V), WENO_K (order 5)
+   Advection scheme (scalar), PPM_01
+   Temporal scheme, RK53
+   Turbulence, TKEL
+   Radiation, ECMW
+   Cloud microphysics, ICE3
+   Deep convection, KAFR
+   Shallow convection, EDKF
+   Chemistry, ReLACS3 with MEGAN
+   Aerosols, ORILAM
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_pgd, run_pgd
+   002_prep_real, run_prep_real_case
+   003_run, run_mesonh
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Mediterranean aerosol study
+- Biogenic VOC emissions from MEGAN
+- ORILAM aerosol model
 
+**Technical specificities**
+- Chemical solver EXQSSA
+- Dry deposition Wes89
+- 3-day simulation period
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Aerosol measurements
+- Chemical concentrations
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+Single to multi-node configuration
+
+References
+----------------
+- ChArMEx campaign

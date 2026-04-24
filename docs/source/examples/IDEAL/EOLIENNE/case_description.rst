@@ -1,26 +1,53 @@
-Wind turbine
-============================================
+EOLIENNE
+========
 
 Case description
+----------------
+Wind turbine farm case testing parameterizations for turbine-induced wake effects and electricity production.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Idealized cases
+   Grid type, Cartesian
+   Horizontal resolution, Variable
+   Domain size, Variable
+   Vertical levels, Variable
+   Initial condition, Radiosounding (RSOU)
+   Equation system, DURRAN
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_prep_ideal_case, run_prep_ideal_case_xyz
+   002_mesonh, run_mesonh_xyz
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Wind turbine parameterization
+- Wake effects
+- Electricity production
 
+**Technical specificities**
+- Multiple turbine layouts
+- Power curve validation
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Power production
+- Wake deficit
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+HPC: Variable processors
+
+References
+----------------
+- Wind energy studies

@@ -1,26 +1,59 @@
 KMAP
-============================================
+=======
 
 Case description
+----------------
+Real case simulation of the Korean Air Pollution project. Multi-domain nested configuration with grid nesting and WENO advection scheme for high accuracy tracer transport.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Real cases
+   Number of domains, 3
+   Vertical levels, 50
+   Advection scheme (U,V), WENO_K (order 5)
+   Advection scheme (scalar), PPM_01
+   Temporal scheme, RK53
+   Turbulence, TKEL
+   Radiation, ECRA
+   Cloud microphysics, ICE3
+   Deep convection, KAFR
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_pgd, run_pgd
+   002_prep_real, run_prep_real_case
+   003_spawning, run_spa_real
+   004_run, run_mesonh
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Air pollution study over Korea
+- Multi-scale nesting
+- WENO high-order advection
 
+**Technical specificities**
+- 3-domain grid nesting
+- 4 nodes x 64 CPUs
+- Thin shell correction
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Pollutant concentrations
+- Wind patterns
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+4 nodes x 16 cores = 64 CPUs
+
+References
+----------------
+- KMAP campaign data

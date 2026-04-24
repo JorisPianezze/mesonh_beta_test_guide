@@ -1,26 +1,56 @@
 Reunion
-============================================
+=======
 
 Case description
+----------------
+Idealized real case based on Reunion Island observations with topography and realistic forcing.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Idealized cases
+   Grid type, Non-Cartesian (Conformal)
+   Horizontal resolution, 1.5km
+   Domain size, Variable
+   Vertical levels, 50
+   Initial condition, Constant (CSTN)
+   Surface, PGD file (REUNION_PGD_1km5)
+   Equation system, LHE (Hydrostatic)
+   Boussinesq approximation, Disabled
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_prep_pgd, run_prep_pgd_xyz
+   002_prep_ideal, run_prep_ideal_case_xyz
+   003_mesonh, run_mesonh_xyz
+   004_diag, run_diag_xyz
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Island case with topography
+- Lava shield terrain
+- Convective events
 
+**Technical specificities**
+- Real PGD file preparation
+- Uses PGD file with terrain
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Comparison with Reunion observations
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+Single CPU (1 node, 1 core)
+
+References
+----------------
+- Reunion Island field campaigns

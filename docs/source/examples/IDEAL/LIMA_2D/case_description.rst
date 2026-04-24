@@ -1,26 +1,69 @@
-LIMA 2D
-============================================
+LIMA_2D
+========
 
 Case description
+----------------
+The LIMA_2D case is a two-dimensional test using the LIMA (Liquid Ice Multiple Aerosol) microphysics scheme. It tests warm cloud and ice-phase interactions with different aerosol activation configurations.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Idealized cases
+   Dynamics, 2D non-hydrostatic
+   Horizontal grid spacing, 5000 m (180x1)
+   Vertical levels, 50
+   Integration length, 7200 s (2 hours)
+   Time step, 10 s
+   Turbulence, NONE
+   Cloud scheme, LIMA
+   Radiation, NONE
+   Surface, Schafran
 
-Output intéressants
+Declination
+----------
+.. csv-table::
+   :header: Configuration, Description
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   LIMA_2D/NOLADJ, LIMA without saturation adjustment
+   LIMA_2D/LSPRO, LIMA with sigma prognostic
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
+   001_prep_ideal_case, run_prep_ideal_case_xyz
+   002_mesonh, run_mesonh_xyz
 
-Classements
-- cas idéalisés/ cas réels applications
+Specificities
+----------------
+**Scientific specificities**
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+- LIMA microphysics with 2-moment scheme
+- Aerosol activation/deposition
+- Ice-phase interactions
+
+**Technical specificities**
+
+- 2D configuration (NJMAX=1)
+- 50 vertical levels
+- Single column setup
+
+Validation
+----------------
+- Cloud droplet spectra
+- Precipitation development
+- Aerosol budgets
+
+Numerical ressources
+----------------
+Single CPU (1 node, 1 core)
+
+References
+----------------
+- LIMA scheme development (Richard et al., 2001)

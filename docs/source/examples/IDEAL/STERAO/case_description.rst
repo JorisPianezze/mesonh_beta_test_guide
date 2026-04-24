@@ -1,26 +1,54 @@
-STERAO lightning scheme
-============================================
+STERAO
+======
 
 Case description
+----------------
+Idealized deep convection case over the western tropical Atlantic with 1km horizontal resolution. Simulates the Stratosphere-Troposphere exchange in an Oceanic Region (STE/RAO).
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Idealized cases
+   Grid type, Cartesian
+   Horizontal resolution, 1km
+   Domain size, 160x160 grid points
+   Vertical levels, 50
+   Initial condition, Radiosounding (RSOU)
+   Surface, Flat (FLAT)
+   Equation system, LHE
+   Boussinesq approximation, Disabled
+   Perturbation, Thermal (TH) with 3K amplitude
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_prep_ideal, run_prep_ideal_case_xyz
+   002_run, run_mesonh_xyz
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Deep convection in tropical atmosphere
+- Stratosphere-troposphere exchange
+- Clear-sky conditions
 
+**Technical specificities**
+- High vertical resolution in upper levels
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Vertical profiles comparison with observations
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+HPC: 16 processors (4x4)
+
+References
+----------------
+- Various Atlantic campaigns

@@ -1,26 +1,58 @@
-Ocean LES
-============================================
+OCEAN_LES
+=========
 
 Case description
+----------------
+Large Eddy Simulation of the oceanic atmospheric boundary layer. Simulates marine stratocumulus with ocean coupling.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Idealized cases
+   Grid type, Cartesian
+   Horizontal resolution, 125m
+   Domain size, 128x128 grid points
+   Vertical levels, 100
+   Initial condition, Idealized ocean (IDEALOCE)
+   Surface, Flat (FLAT)
+   Equation system, LHE
+   Ocean model, LOCEAN=.TRUE.
+   Boussinesq approximation, Enabled
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_prep_ideal_case, run_prep_ideal_case_xyz
+   002_run1, run_mesonh_xyz
+   004_run2, run_mesonh_xyz
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Oceanic LES
+- Marine boundary layer
+- Cloud-top mixing
+- Ocean coupling
 
+**Technical specificities**
+- Cyclic boundary conditions
+- Thin shell approximation
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Boundary layer structure
+- Cloud properties
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+HPC: 64 processors (8x8)
+
+References
+----------------
+- Stevens et al. (1999)

@@ -1,26 +1,62 @@
 Xynthia storm
-============================================
+=======
 
 Case description
+----------------
+Real case simulation of the Xynthia storm that hit western France in February 2010. High-resolution simulation at 2.5km grid spacing with comprehensive physics including turbulence, radiation, and cloud microphysics.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Real cases
+   Horizontal resolution, 2.5km
+   Vertical levels, 46
+   Advection scheme (U,V), CEN4TH
+   Advection scheme (scalar), PPM_01
+   Temporal scheme, RKC4
+   Turbulence, TKEL
+   Radiation, ECMW
+   Cloud microphysics, ICE3
+   Deep convection, NONE
+   Shallow convection, EDKF
+   Surface model, ISBA
+   Nesting, 1 domain
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_pgd, run_pgd
+   002_prep_real, run_prep_real_case
+   003_run, run_mesonh
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Severe storm simulation with strong winds
+- Coastal flooding case study
+- Explicit deep convection at 2.5km resolution
 
+**Technical specificities**
+- Use of WENO5 advection for V variable
+- EDKF for shallow convection
+- 2-way horizontal relaxations
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Comparison with observed wind speeds
+- Surface pressure validation
+- Rainfall patterns
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+10 nodes x 32 cores = 320 CPUs
+
+References
+----------------
+- Xynthia storm observations (Meteo-France)

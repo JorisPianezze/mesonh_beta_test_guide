@@ -1,26 +1,52 @@
-Sea salt aerosols in cyclone
-============================================
+Sea Salt Aerosols
+=======
 
 Case description
+----------------
+Real case simulation of sea salt aerosols in a cyclone. Uses LIMA microphysics scheme to simulate sea salt emission and transport in marine atmospheric conditions.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Real cases
+   Horizontal resolution, High resolution
+   Vertical levels, 50
+   Chemistry, LIMA enabled
+   Aerosols, Sea salt
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_pgd, run_pgd
+   002_prep_real, run_prep_real_case
+   003_run, run_mesonh
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Sea salt aerosol simulation
+- Marine boundary layer
+- LIMA cloud microphysics
 
+**Technical specificities**
+- MESONH input format
+- Sea salt aerosol emissions
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Aerosol concentrations
+- Comparison with observations
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+Single node configuration
+
+References
+----------------
+- Sea salt measurement campaigns

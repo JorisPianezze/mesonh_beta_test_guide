@@ -1,26 +1,63 @@
-2DRelief
-============================================
+2Drelief
+============
 
 Case description
+----------------
+The 2Drelief case simulates the interaction between atmospheric flow and a 2D bell-shaped mountain. This is a classic test case for orographic flow dynamics and validates the model ability to reproduce mountain waves and gravity wave drag.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Idealized cases
+   Dynamics, Non-hydrostatic
+   Horizontal grid spacing, 5000 m (256x1 grid)
+   Integration length, 10800 s (3 hours)
+   Time step, 60 s
+   Coriolis effect, disabled
+   Turbulence, TKEL (3D)
+   Cloud scheme, NONE
+   Deep convection, NONE
+   Radiation, NONE
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_prep_ideal, run_prep_ideal_case
+   002_mesonh, run_mesonh
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
 
+- 2D bell-shaped mountain (Gaussian hill) with height 500m
+- Horizontal domain: 256 points (10km half-width bell)
+- 48 vertical levels from 0 to 5000m
+- Open western boundary, cyclic eastern boundary
+- 10m/s westerly flow
 
-Classements
-- cas idéalisés/ cas réels applications
+**Technical specificities**
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+- Stretched vertical grid (10m near surface, 500m near model top)
+- Boussinesq disabled for full compressible dynamics
+- Damping layer at model top (XALKTOP=0.005)
+- Horizontal relaxation at boundaries
+
+Validation
+----------------
+- Vertical velocity perturbation
+- Pressure perturbation
+- Mountain wave visualization
+
+Numerical ressources
+------------------
+Single CPU (1 node, 1 core)
+
+References
+----------------
+- Gallus, W.A., and R.A. Ahmadov (2021): Sensitivity of simulated 24-h forecasts to horizontal resolution in the US. Atmosphere, 12, 1686.

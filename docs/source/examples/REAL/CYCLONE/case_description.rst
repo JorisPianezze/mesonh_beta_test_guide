@@ -1,26 +1,58 @@
-Cyclone semi-idealized
-============================================
+Cyclone
+=======
 
 Case description
+----------------
+Real case simulation of a tropical cyclone. Uses ocean coupling and sea surface flux parameterizations for accurate cyclone development simulation.
 
-listing des étapes techniques
+Configuration
+----------------
+.. csv-table::
+   :header: Parameter, Value
+   :widths: 30, 30
 
-Specific numerical setup
-- rayonnement
-- LIMA...
-(Cas réel : tracer la topo avec echelle commune à tous)
+   Category, Real cases
+   Horizontal resolution, 4km
+   Vertical levels, 50+
+   Advection scheme (U,V), CEN4TH
+   Advection scheme (scalar), PPM_01
+   Temporal scheme, LEFR
+   Turbulence, TKEL
+   Radiation, ECMW
+   Cloud microphysics, ICE3
+   Ocean flux, ECUME
+   Sea surface, Prognostic SST
 
-Output intéressants
+Steps
+----------------
+.. csv-table::
+   :header: Step, Script
+   :widths: 30, 30
 
-Figures
-Lien vers le pdf
+   001_pgd, run_pgd
+   002_prep_real, run_prep_real_case
+   003_run, run_mesonh
 
-Ressources numériques requises
-- ver_user
-- noeud/procs du run, elapsed 
+Specificities
+----------------
+**Scientific specificities**
+- Tropical cyclone simulation
+- Ocean coupling
+- Sea surface flux parameterization
 
+**Technical specificities**
+- Prognostic SST
+- Mercator ocean coupling
 
-Classements
-- cas idéalisés/ cas réels applications
+Validation
+----------------
+- Track forecast
+- Intensity comparisons
 
-Tableau général avec cas test vs options physiques activées, grid-nesting, 
+Numerical ressources
+----------------
+Multi-node configuration
+
+References
+----------------
+- Tropical cyclone observations
