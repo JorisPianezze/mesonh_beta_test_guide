@@ -1,9 +1,10 @@
 EOLIENNE
-========
+=======
 
 Case description
 ----------------
 Wind turbine farm case testing parameterizations for turbine-induced wake effects and electricity production.
+Uses local fast configuration (EOLIENNE_FAST) with two declinations: ALM and ADNR.
 
 Configuration
 ----------------
@@ -13,11 +14,20 @@ Configuration
 
    Category, Idealized cases
    Grid type, Cartesian
-   Horizontal resolution, Variable
-   Domain size, Variable
-   Vertical levels, Variable
+   Horizontal resolution, 100m
+   Domain size, 1km x 1km (10x10 grid points)
+   Vertical levels, 10 levels at 100m spacing
    Initial condition, Radiosounding (RSOU)
    Equation system, DURRAN
+
+Declinations
+----------------
+.. csv-table::
+   :header: Declination, Description
+   :widths: 30, 50
+
+   ALM, Actuator Line Method - blade element model
+   ADNR, Actuator Disk with Navier-Stokes/Resolved tip
 
 Steps
 ----------------
@@ -25,29 +35,25 @@ Steps
    :header: Step, Script
    :widths: 30, 30
 
-   001_prep_ideal_case, run_prep_ideal_case_xyz
+   001_prep_ideal, run_prep_ideal_xyz
    002_mesonh, run_mesonh_xyz
 
 Specificities
 ----------------
-**Scientific specificities**
-- Wind turbine parameterization
-- Wake effects
-- Electricity production
 
 **Technical specificities**
-- Multiple turbine layouts
-- Power curve validation
+- ALM: Actuator Line Method with blade resolved model
+- ADNR: Actuator Disk approach with resolved tip vortices
 
 Validation
 ----------------
-- Power production
-- Wake deficit
+- Very fast test cases for debugging purpose
 
 Numerical ressources
 ----------------
-HPC: 2 nodes, 256 cores (MPI parallel)
+Local: Single CPU (1 node, 1 core)
 
 References
 ----------------
-- Wind energy studies
+- Wind energy wake studies
+- Jensen model validation
