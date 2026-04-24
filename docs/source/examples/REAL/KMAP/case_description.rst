@@ -41,9 +41,8 @@ Specificities
 - WENO high-order advection
 
 **Technical specificities**
-- 3-domain grid nesting
-- 4 nodes x 64 CPUs
-- Thin shell correction
+   - 3-domain grid nesting
+   - Thin shell correction
 
 Validation
 ----------------
@@ -52,7 +51,7 @@ Validation
 
 Numerical ressources
 ----------------
-4 nodes x 16 cores = 64 CPUs
+4 nodes, 64 cores (MPI parallel)
 
 References
 ----------------

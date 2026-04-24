@@ -53,7 +53,7 @@ Validation
 
 Numerical ressources
 ----------------
-Single node configuration
+1 node, 8 cores (MPI parallel)
 
 References
 ----------------

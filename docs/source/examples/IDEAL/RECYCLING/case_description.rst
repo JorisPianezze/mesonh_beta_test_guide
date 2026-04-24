@@ -45,7 +45,7 @@ Validation
 
 Numerical ressources
 ----------------
-HPC: 64 processors (8x8)
+HPC: 10 nodes, 1024 cores (MPI parallel)
 
 References
 ----------------

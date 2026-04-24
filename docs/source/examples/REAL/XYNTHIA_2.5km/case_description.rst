@@ -55,7 +55,7 @@ Validation
 
 Numerical ressources
 ----------------
-10 nodes x 32 cores = 320 CPUs
+10 nodes, 320 cores (MPI parallel)
 
 References
 ----------------

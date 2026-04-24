@@ -48,7 +48,7 @@ Validation
 
 Numerical ressources
 ----------------
-Multi-node configuration
+20 nodes, 1920 cores (MPI parallel)
 
 References
 ----------------

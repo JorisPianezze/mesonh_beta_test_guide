@@ -46,7 +46,7 @@ Validation
 
 Numerical ressources
 ----------------
-HPC: Variable processors
+HPC: 2 nodes, 256 cores (MPI parallel)
 
 References
 ----------------

@@ -47,7 +47,7 @@ Validation
 
 Numerical ressources
 ----------------
-Single CPU
+Single CPU (1 node, 1 core)
 
 References
 ----------------

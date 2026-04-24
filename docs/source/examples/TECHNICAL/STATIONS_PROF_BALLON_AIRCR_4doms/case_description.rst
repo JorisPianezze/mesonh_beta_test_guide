@@ -60,7 +60,7 @@ Validation
 
 Numerical ressources
 ----------------
-Single CPU or nodes/cores (local execution)
+Single CPU (1 node, 1 core)
 
 References
 ----------------

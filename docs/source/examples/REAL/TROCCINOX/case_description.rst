@@ -53,7 +53,7 @@ Validation
 
 Numerical ressources
 ----------------
-1 node x 128 cores
+1 node, 128 cores (MPI parallel)
 
 References
 ----------------

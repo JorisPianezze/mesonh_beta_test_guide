@@ -59,7 +59,7 @@ Validation
 
 Numerical ressources
 ----------------
-16 CPUs per run (HPC - 1 node, 16 cores)
+HPC: 1 node, 16 cores (MPI parallel)
 
 References
 ----------------

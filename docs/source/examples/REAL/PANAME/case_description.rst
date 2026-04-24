@@ -47,7 +47,7 @@ Specificities
 
 **Technical specificities**
 - 3-level grid nesting
-- 11 nodes x 1400 CPUs for run
+- 11 nodes, 1400 cores for run
 - ECRAD radiation
 
 Validation
@@ -57,7 +57,7 @@ Validation
 
 Numerical ressources
 ----------------
-11 nodes x 128 cores = 1408 CPUs
+11 nodes, 1400 cores (MPI parallel)
 
 References
 ----------------

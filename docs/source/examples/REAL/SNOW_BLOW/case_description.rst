@@ -77,8 +77,8 @@ Validation
 
 Numerical ressources
 ----------------
-Local: Single CPU
-HPC: 1 node (128 cores) via SLURM
+Local: Single CPU (1 node, 1 core)
+HPC: 1 node, 128 cores (MPI parallel)
 
 References
 ----------------

@@ -47,7 +47,7 @@ Validation
 
 Numerical ressources
 ----------------
-HPC: 16 processors (4x4)
+HPC: 4 nodes, 192 cores (MPI parallel)
 
 References
 ----------------

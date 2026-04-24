@@ -55,7 +55,7 @@ Validation
 
 Numerical ressources
 ----------------
-Single CPU (HPC - 1 node, 2 CPUs per run)
+HPC: 1 node, 2 cores (MPI parallel)
 
 References
 ----------------
