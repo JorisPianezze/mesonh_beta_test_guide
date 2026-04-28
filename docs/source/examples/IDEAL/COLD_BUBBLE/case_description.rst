@@ -57,7 +57,3 @@ Validation
 Numerical ressources
 ------------------
 Single CPU (1 node, 1 core)
-
-References
-----------------
-- Straka, J.M., et al. (1993): Numerical simulation of a cold pool with a temperature perturbation. Mon. Wea. Rev., 121, 1490-1513.

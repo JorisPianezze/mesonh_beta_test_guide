@@ -53,4 +53,4 @@ HPC: 15 nodes, 1600 cores (MPI parallel)
 
 References
 ----------------
-- IBM development papers (Coelho, 1995)
+- Auguste, F., C. Lac, V. Masson, and D. Cariolle, 2020: Large-eddy simulations with an immersed boundary method: Pollutant dispersion over urban terrain, Atmosphere, 11, 113.

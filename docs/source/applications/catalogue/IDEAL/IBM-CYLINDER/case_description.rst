@@ -53,4 +53,4 @@ HPC: 5 nodes, 480 cores (MPI parallel)
 
 References
 ----------------
-- Cylinder flow studies (Cantelli et al., 2009)
+- Auguste, F., C. Lac, V. Masson, and D. Cariolle, 2020: Large-eddy simulations with an immersed boundary method: Pollutant dispersion over urban terrain, Atmosphere, 11, 113.

@@ -70,4 +70,4 @@ Single CPU (1 node, 1 core)
 
 References
 ----------------
-- COPT81 campaign observations
+- Chauzy, S., Chong, M., Delannoy, A., & Despiau, S. (1985). The June 22 tropical squall line observed during COPT 81 experiment: Electrical signature associated with dynamical structure and precipitation. Journal of Geophysical Research: Atmospheres, 90(D4), 6091-6098.

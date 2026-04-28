@@ -55,5 +55,4 @@ Local: Single CPU (1 node, 1 core)
 
 References
 ----------------
-- Wind energy wake studies
-- Jensen model validation
+- Joulin, P.-A., M. L. Mayol, V. Masson, F. Blondel, Q. Rodier, M. Cathelain, and C. Lac, The Actuator Line Method in the meteorological LES model Meso-NH to analyze the Horns Rev 1 wind farm photo case, Front. Earth Sci., 7, 350, 2020
